@@ -1,0 +1,17 @@
+<div class="p-3">
+    <h2 class="bg-secondary text-white p-3 mb-3">上映スケジュール</h2>
+    <div class="swiper-container date mb-3" #swiper [swiper]="swiperConfig" (resize)="resize()">
+        <div class="swiper-wrapper">
+            <div *ngFor="let scheduleDate of (purchase | async).scheduleDates" class="swiper-slide">
+                <div class="text-center text-white py-4 px-2" 
+                [class.bg-secondary]="scheduleDate.format !== (purchase | async).scheduleDate.format"
+                [class.bg-primary]="scheduleDate.format === (purchase | async).scheduleDate.format"
+                (click)="selectDate(scheduleDate)">
+                    <div>{{ scheduleDate.string }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-purchase-schedule-film *ngFor="let screeningFilmEvent of (purchase | async).screeningFilmEvents"
+        [screeningFilmEvent]="screeningFilmEvent" (select)="selectSchedule($event)" class="mb-3"></app-purchase-schedule-film>
+</div>

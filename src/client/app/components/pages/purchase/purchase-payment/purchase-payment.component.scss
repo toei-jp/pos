@@ -1,0 +1,13 @@
+@import '../../../../../assets/scss/theme';
+.payment-select {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    @include media-breakpoint-down(sm) {
+        grid-template-columns: 1fr;
+    }
+    button {
+        .image {
+            font-size: 30px;
+        }
+    }
+}

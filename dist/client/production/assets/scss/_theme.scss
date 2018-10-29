@@ -1,0 +1,25 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+$body-bg: #000;
+$body-color: #FFF;
+$theme-colors: (
+    primary: #f5aa01, 
+    secondary: #271916, 
+    success: $green, 
+    info: $cyan, 
+    warning: $yellow, 
+    danger: $red, 
+    light: $gray-100, 
+    dark: $gray-800
+);
+
+.btn-primary {
+    color: #FFF;
+}
+
+.btn-outline-primary:hover {
+    color: #FFF;
+}
+
