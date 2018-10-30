@@ -3046,13 +3046,18 @@ var PurchaseSeatComponent = /** @class */ (function () {
         this.purchase.subscribe(function (purchase) {
             var transaction = purchase.transaction;
             var screeningEvent = purchase.screeningEvent;
-            var reservations = purchase.reservations.map(function (reservation) {
-                return new _models__WEBPACK_IMPORTED_MODULE_7__["Reservation"]({
-                    seat: reservation.seat,
-                    ticket: (reservation.ticket === undefined)
-                        ? { ticketOffer: purchase.screeningEventTicketOffers[0] }
-                        : reservation.ticket
+            if (purchase.reservations.length === 0) {
+                _this.openAlert({
+                    title: 'エラー',
+                    body: '座席が未選択です。'
                 });
+                return;
+            }
+            var reservations = purchase.reservations.map(function (reservation) {
+                reservation.ticket = (reservation.ticket === undefined)
+                    ? { ticketOffer: purchase.screeningEventTicketOffers[0] }
+                    : reservation.ticket;
+                return reservation;
             });
             var authorizeSeatReservation = purchase.authorizeSeatReservation;
             if (transaction === undefined
@@ -4711,7 +4716,7 @@ var PurchaseScheduleFilmComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"radius bg-light-gray\">\n    <div class=\"screen\" [class.zoom]=\"zoomState\" style=\"visibility: visible;\" (window:resize)=\"resize()\">\n        <div [class.active]=\"zoomState\" class=\"zoom-btn text-center\" (click)=\"scaleDown()\">\n            <div class=\"small-x-text\" href=\"#\">ズーム\n                <br>解除</div>\n        </div>\n        <div *ngIf=\"screenData\" class=\"screen-scroll\" [ngStyle]=\"{ \n            'height.px': height,\n            'transform-origin': origin,\n            'transform': 'scale(' + scale + ')'\n        }\">\n            <div class=\"screen-inner {{ screenType }}\" [ngStyle]=\"{ 'width.px': screenData.size.w, 'height.px': screenData.size.h }\"\n                (click)=\"scaleUp($event)\">\n\n                <div *ngFor=\"let object of screenData.objects\" class=\"object\" [ngStyle]=\"{\n                    'width.px': object.w, \n                    'height.px': object.h, \n                    'top.px': object.y, \n                    'left.px': object.x, \n                    'background-image': 'url(' + object.image + ')',\n                    'background-size': object.w + 'px ' +object.h + 'px'\n                }\"></div>\n\n                <div *ngFor=\"let columnLabel of screenData.columnLabels\" class=\"object label-object column-object column-object-{{ columnLabel.id }}\"\n                    [ngStyle]=\"{\n                    'width.px': columnLabel.w,\n                    'height.px': columnLabel.h, \n                    'top.px': columnLabel.y, \n                    'left.px': columnLabel.x\n                }\">{{\n                    columnLabel.label }}</div>\n\n                <div *ngFor=\"let lineLabel of screenData.lineLabels\" class=\"object label-object line-object line-object-{{ lineLabel.id }}\"\n                    [ngStyle]=\"{\n                    'width.px': lineLabel.w,\n                    'height.px': lineLabel.h, \n                    'top.px': lineLabel.y, \n                    'left.px': lineLabel.x\n                }\">{{\n                    lineLabel.label }}</div>\n\n\n                <div *ngFor=\"let seat of seats\" class=\"seat {{ seat.className }}\" [ngStyle]=\"{\n                    'top.px': seat.y, \n                    'left.px': seat.x,\n                    'width.px': seat.w,\n                    'height.px': seat.h\n                }\"\n                    (click)=\"seatSelect(seat)\">\n                    <span>{{ seat.code }}</span>\n                </div>\n            </div>\n        </div>\n        <div *ngIf=\"screenData\" [innerHTML]=\"screenData.style\"></div>\n    </div>\n</div>"
+module.exports = "<div class=\"radius bg-light-gray\">\n    <div class=\"screen\" [class.zoom]=\"zoomState\" style=\"visibility: visible;\" (window:resize)=\"resize()\">\n        <div [class.active]=\"zoomState\" class=\"zoom-btn text-center\" (click)=\"scaleDown()\">\n            <div class=\"small-x-text\" href=\"#\">ズーム\n                <br>解除</div>\n        </div>\n        <div *ngIf=\"screenData\" class=\"screen-scroll\" [ngStyle]=\"{ \n            'height.px': height,\n            'transform-origin': origin,\n            'transform': 'scale(' + scale + ')'\n        }\">\n            <div class=\"screen-inner {{ screenType }}\" [ngStyle]=\"{ 'width.px': screenData.size.w, 'height.px': screenData.size.h }\"\n                (click)=\"scaleUp($event)\">\n\n                <div *ngFor=\"let object of screenData.objects\" class=\"object\" [ngStyle]=\"{\n                    'width.px': object.w, \n                    'height.px': object.h, \n                    'top.px': object.y, \n                    'left.px': object.x, \n                    'background-image': 'url(' + object.image + ')',\n                    'background-size': object.w + 'px ' +object.h + 'px'\n                }\"></div>\n\n                <div *ngFor=\"let columnLabel of screenData.columnLabels\" class=\"object label-object column-object column-object-{{ columnLabel.id }}\"\n                    [ngStyle]=\"{\n                    'width.px': columnLabel.w,\n                    'height.px': columnLabel.h, \n                    'top.px': columnLabel.y, \n                    'left.px': columnLabel.x\n                }\">{{\n                    columnLabel.label }}</div>\n\n                <div *ngFor=\"let lineLabel of screenData.lineLabels\" class=\"object label-object line-object line-object-{{ lineLabel.id }}\"\n                    [ngStyle]=\"{\n                    'width.px': lineLabel.w,\n                    'height.px': lineLabel.h, \n                    'top.px': lineLabel.y, \n                    'left.px': lineLabel.x\n                }\">{{\n                    lineLabel.label }}</div>\n\n\n                <div *ngFor=\"let seat of seats\" class=\"seat {{ seat.className }} {{ seat.status }}\" [ngStyle]=\"{\n                    'top.px': seat.y, \n                    'left.px': seat.x,\n                    'width.px': seat.w,\n                    'height.px': seat.h\n                }\"\n                    (click)=\"seatSelect(seat)\">\n                    <span>{{ seat.code }}</span>\n                </div>\n            </div>\n        </div>\n        <div *ngIf=\"screenData\" [innerHTML]=\"screenData.style\"></div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -4753,16 +4758,13 @@ var ScreenComponent = /** @class */ (function () {
     function ScreenComponent(elementRef) {
         this.elementRef = elementRef;
         this.select = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.isCreate = false;
     }
     ScreenComponent_1 = ScreenComponent;
     /**
      * 初期化
      */
     ScreenComponent.prototype.ngOnInit = function () {
-        this.zoomState = false;
-        this.scale = 1;
-        this.height = 0;
-        this.origin = '0 0';
     };
     ScreenComponent.prototype.ngOnChanges = function () {
         if (this.screenData === undefined) {
@@ -4771,7 +4773,15 @@ var ScreenComponent = /** @class */ (function () {
         if (this.height === 0) {
             this.scaleDown();
         }
-        this.createScreen();
+        if (!this.isCreate) {
+            this.zoomState = false;
+            this.scale = 1;
+            this.height = 0;
+            this.origin = '0 0';
+            this.createScreen();
+            this.isCreate = true;
+        }
+        this.changeStatus();
     };
     /**
      * モバイル判定
@@ -4783,6 +4793,24 @@ var ScreenComponent = /** @class */ (function () {
             return false;
         }
         return true;
+    };
+    /**
+     * status変更
+     */
+    ScreenComponent.prototype.changeStatus = function () {
+        var _this = this;
+        this.seats.forEach(function (seat) {
+            if (seat.status === _models__WEBPACK_IMPORTED_MODULE_1__["SeatStatus"].Active) {
+                seat.status = _models__WEBPACK_IMPORTED_MODULE_1__["SeatStatus"].Default;
+            }
+            var findReservationSeatResult = _this.reservations.find(function (reservation) {
+                return (reservation.seat.seatNumber === seat.code
+                    && reservation.seat.seatSection === seat.section);
+            });
+            if (findReservationSeatResult !== undefined) {
+                seat.status = _models__WEBPACK_IMPORTED_MODULE_1__["SeatStatus"].Active;
+            }
+        });
     };
     /**
      * 拡大
@@ -4929,35 +4957,35 @@ var ScreenComponent = /** @class */ (function () {
                         ? labels[labelCount] + "-" + String(x + 1)
                         : labels[labelCount] + "-" + String(this_1.screenData.map[y].length - x);
                     var className = ["seat-" + code_1];
-                    var section_1 = '';
+                    var section = '';
                     var status_1 = _models__WEBPACK_IMPORTED_MODULE_1__["SeatStatus"].Disabled;
                     // 席の状態変更
                     for (var _i = 0, _a = this_1.screeningEventOffers; _i < _a.length; _i++) {
                         var screeningEventOffer = _a[_i];
-                        section_1 = screeningEventOffer.branchCode;
+                        section = screeningEventOffer.branchCode;
                         var findContainsPlaceResult = screeningEventOffer.containsPlace.find(function (containsPlace) {
                             return (containsPlace.branchCode === code_1);
                         });
                         if (findContainsPlaceResult !== undefined
                             && findContainsPlaceResult.offers !== undefined) {
                             if (findContainsPlaceResult.offers[0].availability === 'InStock') {
-                                className.push('default');
+                                // className.push('default');
                                 status_1 = _models__WEBPACK_IMPORTED_MODULE_1__["SeatStatus"].Default;
                             }
                             break;
                         }
                     }
-                    var findReservationSeatResult = this_1.reservations.find(function (reservation) {
-                        return (reservation.seat.seatNumber === code_1
-                            && reservation.seat.seatSection === section_1);
-                    });
-                    if (findReservationSeatResult !== undefined) {
-                        className.push('active');
-                        status_1 = _models__WEBPACK_IMPORTED_MODULE_1__["SeatStatus"].Active;
-                    }
-                    if (className.length === 1) {
-                        className.push('disabled');
-                    }
+                    // const findReservationSeatResult = this.reservations.find((reservation) => {
+                    //     return (reservation.seat.seatNumber === code
+                    //         && reservation.seat.seatSection === section);
+                    // });
+                    // if (findReservationSeatResult !== undefined) {
+                    //     className.push('active');
+                    //     status = SeatStatus.Active;
+                    // }
+                    // if (className.length === 1) {
+                    //     className.push('disabled');
+                    // }
                     if (this_1.screenData.hc.indexOf(code_1) !== -1) {
                         className.push('seat-hc');
                     }
@@ -4968,7 +4996,7 @@ var ScreenComponent = /** @class */ (function () {
                         y: pos.y,
                         x: pos.x,
                         code: code_1,
-                        section: section_1,
+                        section: section,
                         status: status_1
                     };
                     seats.push(seat);
