@@ -1,0 +1,12 @@
+<div *ngIf="prev" class="position-fixed rounded-circle prev" [routerLink]="prevLink">
+    <img class="w-100" src="/assets/images/icon/prev.svg">
+</div>
+<div *ngIf="home" class="position-fixed rounded-circle home" routerLink="/purchase/schedule">
+    <img class="w-100" src="/assets/images/icon/home.svg">
+</div>
+<div *ngIf="print" class="position-fixed rounded-circle print" routerLink="/inquiry/input">
+    <img class="w-100" src="/assets/images/icon/print.svg">
+</div>
+<div *ngIf="setting" class="position-fixed rounded-circle setting" routerLink="/setting">
+    <img class="w-100" src="/assets/images/icon/setting.svg">
+</div>

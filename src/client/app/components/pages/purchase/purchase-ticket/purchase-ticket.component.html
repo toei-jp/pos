@@ -1,36 +1,30 @@
-<div class="py-3 px-2 d-block d-md-flex">
-    <div class="main">
-        <h2 class="bg-secondary text-white p-3 mb-3">券種選択</h2>
+<div class="py-4 px-3">
+    <h2 class="text-center large-text text-white mb-4">券種選択</h2>
 
-        <p class="mb-3">券種を選択してください。</p>
-
-        <div class="mb-4">
-            <div class="bg-white p-3">
-                <p class="mb-2">ムビチケを使う</p>
-                <button type="button" (click)="openMovieTicket()" class="btn btn-outline-primary btn-block py-2">
-                    <img src="/assets/images/mvtk.svg" height="24">
-                </button>
-            </div>
-        </div>
-
-        <div class="ticket mb-4">
-            <div *ngFor="let reservation of (purchase | async).reservations" class="bg-white p-3 d-block d-md-flex justify-content-between align-items-center mb-2">
-                <div class="seat text-center text-md-left mb-3 mb-md-0">
-                    <span class="mr-3">座席</span>{{ reservation.seat.seatNumber }}</div>
-                <button *ngIf="reservation.ticket === undefined" type="button" (click)="openTicketList(reservation)"
-                    class="btn btn-primary btn-block py-2">券種を選択してください</button>
-                <button *ngIf="reservation.ticket !== undefined" type="button" (click)="openTicketList(reservation)"
-                    class="btn btn-outline-primary btn-block py-2">{{ reservation.ticket.ticketOffer.name.ja }} {{
-                    reservation.getTicketPrice().total | currency : 'JPY' }}</button>
-            </div>
-        </div>
-
-        <div class="w-75 mx-auto">
-            <button type="button" class="btn btn-primary btn-block py-2 mb-2" [disabled]="isLoading | async"
-                (click)="onSubmit()">次へ</button>
-            <button type="button" class="btn btn-outline-primary btn-block py-2" routerLink="/purchase/seat">座席選択へ戻る</button>
+    <div class="mb-4">
+        <div class="d-flex justify-content-center align-items-center">
+            <p class="text-white">ムビチケ券を利用</p>
+            <button type="button" (click)="openMovieTicket()" class="movie-ticket ml-3 btn btn-block bg-white border-danger py-3">
+                <img src="/assets/images/mvtk.svg" height="24">
+            </button>
         </div>
     </div>
-    <app-purchase-info class="sub d-none d-md-block" [purchase]="purchase | async"></app-purchase-info>
+
+    <div class="reservations d-grid align-items-center mb-4">
+        <div *ngFor="let reservation of (purchase | async).reservations" class="reservation bg-secondary d-grid align-items-center border rounded">
+            <div class="seat text-center text-white">
+                <span class="mr-3">座席</span>{{ reservation.seat.seatNumber }}</div>
+            <button *ngIf="reservation.ticket === undefined" type="button" (click)="openTicketList(reservation)" class="btn btn-block rounded-0 py-3 bg-white">券種を選択してください</button>
+            <button *ngIf="reservation.ticket !== undefined" type="button" (click)="openTicketList(reservation)" class="btn btn-block rounded-0 py-3 bg-white">{{
+                reservation.ticket.ticketOffer.name.ja | slice:0:10 }} {{
+                reservation.getTicketPrice().total | currency : 'JPY' }}</button>
+        </div>
+    </div>
+
+    <div class="w-50 mx-auto">
+        <button type="button" class="btn btn-block bg-primary py-3 text-white large-text" [disabled]="isLoading | async" (click)="onSubmit()">次へ</button>
+    </div>
 
 </div>
+
+<app-navigation prevLink="/purchase/seat"></app-navigation>

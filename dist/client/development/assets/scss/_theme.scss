@@ -2,8 +2,8 @@
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
 
-$body-bg: #000;
-$body-color: #FFF;
+$body-bg: #271916;
+$body-color: #444;
 $theme-colors: (
     primary: #f5aa01, 
     secondary: #271916, 
@@ -11,7 +11,7 @@ $theme-colors: (
     info: $cyan, 
     warning: $yellow, 
     danger: $red, 
-    light: $gray-100, 
+    light: $gray-300, 
     dark: $gray-800
 );
 

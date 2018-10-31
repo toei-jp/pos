@@ -420,16 +420,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_parts_header_header_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/parts/header/header.component */ "./app/components/parts/header/header.component.ts");
 /* harmony import */ var _components_parts_loading_loading_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/parts/loading/loading.component */ "./app/components/parts/loading/loading.component.ts");
 /* harmony import */ var _components_parts_mvtk_check_modal_mvtk_check_modal_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/parts/mvtk-check-modal/mvtk-check-modal.component */ "./app/components/parts/mvtk-check-modal/mvtk-check-modal.component.ts");
-/* harmony import */ var _components_parts_purchase_contents_purchase_contents_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/parts/purchase-contents/purchase-contents.component */ "./app/components/parts/purchase-contents/purchase-contents.component.ts");
-/* harmony import */ var _components_parts_purchase_detail_modal_purchase_detail_modal_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/parts/purchase-detail-modal/purchase-detail-modal.component */ "./app/components/parts/purchase-detail-modal/purchase-detail-modal.component.ts");
-/* harmony import */ var _components_parts_purchase_info_purchase_info_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/parts/purchase-info/purchase-info.component */ "./app/components/parts/purchase-info/purchase-info.component.ts");
-/* harmony import */ var _components_parts_purchase_payment_modal_purchase_payment_modal_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/parts/purchase-payment-modal/purchase-payment-modal.component */ "./app/components/parts/purchase-payment-modal/purchase-payment-modal.component.ts");
-/* harmony import */ var _components_parts_purchase_schedule_film_purchase_schedule_film_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/parts/purchase-schedule-film/purchase-schedule-film.component */ "./app/components/parts/purchase-schedule-film/purchase-schedule-film.component.ts");
-/* harmony import */ var _components_parts_screen_screen_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/parts/screen/screen.component */ "./app/components/parts/screen/screen.component.ts");
-/* harmony import */ var _components_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/parts/ticket-list-modal/ticket-list-modal.component */ "./app/components/parts/ticket-list-modal/ticket-list-modal.component.ts");
-/* harmony import */ var _pipes_libphonenumber_format_pipe__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./pipes/libphonenumber-format.pipe */ "./app/pipes/libphonenumber-format.pipe.ts");
-/* harmony import */ var _store_module__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./store.module */ "./app/store.module.ts");
-/* harmony import */ var _store_core_store__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./store/core/store */ "./app/store/core/store/index.ts");
+/* harmony import */ var _components_parts_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/parts/navigation/navigation.component */ "./app/components/parts/navigation/navigation.component.ts");
+/* harmony import */ var _components_parts_purchase_contents_purchase_contents_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/parts/purchase-contents/purchase-contents.component */ "./app/components/parts/purchase-contents/purchase-contents.component.ts");
+/* harmony import */ var _components_parts_purchase_detail_modal_purchase_detail_modal_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/parts/purchase-detail-modal/purchase-detail-modal.component */ "./app/components/parts/purchase-detail-modal/purchase-detail-modal.component.ts");
+/* harmony import */ var _components_parts_purchase_info_purchase_info_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/parts/purchase-info/purchase-info.component */ "./app/components/parts/purchase-info/purchase-info.component.ts");
+/* harmony import */ var _components_parts_purchase_payment_modal_purchase_payment_modal_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/parts/purchase-payment-modal/purchase-payment-modal.component */ "./app/components/parts/purchase-payment-modal/purchase-payment-modal.component.ts");
+/* harmony import */ var _components_parts_purchase_schedule_film_purchase_schedule_film_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/parts/purchase-schedule-film/purchase-schedule-film.component */ "./app/components/parts/purchase-schedule-film/purchase-schedule-film.component.ts");
+/* harmony import */ var _components_parts_screen_screen_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/parts/screen/screen.component */ "./app/components/parts/screen/screen.component.ts");
+/* harmony import */ var _components_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./components/parts/ticket-list-modal/ticket-list-modal.component */ "./app/components/parts/ticket-list-modal/ticket-list-modal.component.ts");
+/* harmony import */ var _pipes_libphonenumber_format_pipe__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./pipes/libphonenumber-format.pipe */ "./app/pipes/libphonenumber-format.pipe.ts");
+/* harmony import */ var _store_module__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./store.module */ "./app/store.module.ts");
+/* harmony import */ var _store_core_store__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./store/core/store */ "./app/store/core/store/index.ts");
 /**
  * NgModule
  */
@@ -440,6 +441,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 // tslint:disable:no-submodule-imports max-line-length
+
 
 
 
@@ -506,34 +508,35 @@ var AppModule = /** @class */ (function () {
                 _components_parts_contents_contents_component__WEBPACK_IMPORTED_MODULE_28__["ContentsComponent"],
                 _components_parts_header_header_component__WEBPACK_IMPORTED_MODULE_31__["HeaderComponent"],
                 _components_parts_footer_footer_component__WEBPACK_IMPORTED_MODULE_29__["FooterComponent"],
-                _components_parts_purchase_contents_purchase_contents_component__WEBPACK_IMPORTED_MODULE_34__["PurchaseContentsComponent"],
-                _components_parts_purchase_schedule_film_purchase_schedule_film_component__WEBPACK_IMPORTED_MODULE_38__["PurchaseScheduleFilmComponent"],
-                _components_parts_screen_screen_component__WEBPACK_IMPORTED_MODULE_39__["ScreenComponent"],
-                _components_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_40__["TicketListModalComponent"],
+                _components_parts_purchase_contents_purchase_contents_component__WEBPACK_IMPORTED_MODULE_35__["PurchaseContentsComponent"],
+                _components_parts_purchase_schedule_film_purchase_schedule_film_component__WEBPACK_IMPORTED_MODULE_39__["PurchaseScheduleFilmComponent"],
+                _components_parts_screen_screen_component__WEBPACK_IMPORTED_MODULE_40__["ScreenComponent"],
+                _components_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_41__["TicketListModalComponent"],
                 _components_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_26__["AlertModalComponent"],
-                _components_parts_purchase_info_purchase_info_component__WEBPACK_IMPORTED_MODULE_36__["PurchaseInfoComponent"],
+                _components_parts_purchase_info_purchase_info_component__WEBPACK_IMPORTED_MODULE_37__["PurchaseInfoComponent"],
                 _components_parts_loading_loading_component__WEBPACK_IMPORTED_MODULE_32__["LoadingComponent"],
                 _components_pages_error_error_component__WEBPACK_IMPORTED_MODULE_12__["ErrorComponent"],
                 _components_pages_base_base_component__WEBPACK_IMPORTED_MODULE_11__["BaseComponent"],
                 _components_parts_header_menu_header_menu_component__WEBPACK_IMPORTED_MODULE_30__["HeaderMenuComponent"],
                 _components_parts_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_27__["ConfirmModalComponent"],
                 _components_pages_purchase_purchase_history_purchase_history_component__WEBPACK_IMPORTED_MODULE_19__["PurchaseHistoryComponent"],
-                _components_parts_purchase_detail_modal_purchase_detail_modal_component__WEBPACK_IMPORTED_MODULE_35__["PurchaseDetailModalComponent"],
+                _components_parts_purchase_detail_modal_purchase_detail_modal_component__WEBPACK_IMPORTED_MODULE_36__["PurchaseDetailModalComponent"],
                 _components_parts_mvtk_check_modal_mvtk_check_modal_component__WEBPACK_IMPORTED_MODULE_33__["MvtkCheckModalComponent"],
                 _components_pages_setting_setting_component__WEBPACK_IMPORTED_MODULE_25__["SettingComponent"],
                 _components_pages_inquiry_inquiry_input_inquiry_input_component__WEBPACK_IMPORTED_MODULE_14__["InquiryInputComponent"],
                 _components_pages_inquiry_inquiry_confirm_inquiry_confirm_component__WEBPACK_IMPORTED_MODULE_13__["InquiryConfirmComponent"],
                 _components_pages_purchase_purchase_payment_purchase_payment_component__WEBPACK_IMPORTED_MODULE_21__["PurchasePaymentComponent"],
-                _components_parts_purchase_payment_modal_purchase_payment_modal_component__WEBPACK_IMPORTED_MODULE_37__["PurchasePaymentModalComponent"],
-                _pipes_libphonenumber_format_pipe__WEBPACK_IMPORTED_MODULE_41__["LibphonenumberFormatPipe"]
+                _components_parts_purchase_payment_modal_purchase_payment_modal_component__WEBPACK_IMPORTED_MODULE_38__["PurchasePaymentModalComponent"],
+                _pipes_libphonenumber_format_pipe__WEBPACK_IMPORTED_MODULE_42__["LibphonenumberFormatPipe"],
+                _components_parts_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_34__["NavigationComponent"]
             ],
             entryComponents: [
-                _components_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_40__["TicketListModalComponent"],
+                _components_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_41__["TicketListModalComponent"],
                 _components_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_26__["AlertModalComponent"],
                 _components_parts_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_27__["ConfirmModalComponent"],
-                _components_parts_purchase_detail_modal_purchase_detail_modal_component__WEBPACK_IMPORTED_MODULE_35__["PurchaseDetailModalComponent"],
+                _components_parts_purchase_detail_modal_purchase_detail_modal_component__WEBPACK_IMPORTED_MODULE_36__["PurchaseDetailModalComponent"],
                 _components_parts_mvtk_check_modal_mvtk_check_modal_component__WEBPACK_IMPORTED_MODULE_33__["MvtkCheckModalComponent"],
-                _components_parts_purchase_payment_modal_purchase_payment_modal_component__WEBPACK_IMPORTED_MODULE_37__["PurchasePaymentModalComponent"]
+                _components_parts_purchase_payment_modal_purchase_payment_modal_component__WEBPACK_IMPORTED_MODULE_38__["PurchasePaymentModalComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"],
@@ -542,8 +545,8 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 ngx_swiper_wrapper__WEBPACK_IMPORTED_MODULE_5__["SwiperModule"],
-                _store_module__WEBPACK_IMPORTED_MODULE_42__["StoreModule"],
-                _store_core_store__WEBPACK_IMPORTED_MODULE_43__["CoreStoreModule"],
+                _store_module__WEBPACK_IMPORTED_MODULE_43__["StoreModule"],
+                _store_core_store__WEBPACK_IMPORTED_MODULE_44__["CoreStoreModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__["NgbModule"]
             ],
             providers: [],
@@ -1145,7 +1148,7 @@ var AuthSignoutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<app-purchase-contents>\n    <router-outlet></router-outlet>\n    <app-footer></app-footer>\n</app-purchase-contents>\n\n<app-loading [show]=\"isLoading | async\"></app-loading>"
+module.exports = "<app-purchase-contents>\n    <router-outlet></router-outlet>\n</app-purchase-contents>\n\n<app-loading [show]=\"isLoading | async\"></app-loading>"
 
 /***/ }),
 
@@ -1294,7 +1297,7 @@ var ErrorComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <h2 class=\"bg-secondary text-white p-3 mb-3\">照会結果</h2>\n\n        <div class=\"mb-4 px-3 bg-white\">\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row align-items-center\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-key mr-2\"></i>購入番号</p>\n                    <p class=\"col-md-8 large-x-text text-success\">\n                        <strong>{{ (inquiry | async).order.confirmationNumber }}</strong>\n                    </p>\n                </div>\n            </div>\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-map-marker-alt mr-2\"></i>劇場 / スクリーン</p>\n                    <p class=\"col-md-8\">{{ (inquiry |\n                        async).order.acceptedOffers[0].itemOffered.reservationFor.superEvent.location.name.ja }} / {{\n                        (inquiry | async).order.acceptedOffers[0].itemOffered.reservationFor.location.name.ja }}</p>\n                </div>\n            </div>\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-film mr-2\"></i>作品</p>\n                    <p class=\"col-md-8\">{{ (inquiry | async).order.acceptedOffers[0].itemOffered.reservationFor.name.ja\n                        }}</p>\n                </div>\n            </div>\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"far fa-clock mr-2\"></i>上映開始日時</p>\n                    <p class=\"col-md-8\">{{ moment((inquiry |\n                        async).order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YYYY/MM/DD (ddd)\n                        HH:mm') }}</p>\n                </div>\n            </div>\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-ticket-alt mr-2\"></i>座席・券種</p>\n                    <div class=\"col-md-8\">\n                        <div *ngFor=\"let acceptedOffer of (inquiry | async).order.acceptedOffers\" class=\"mb-2\">\n                            <p>{{ acceptedOffer.itemOffered.reservedTicket.ticketedSeat.seatNumber }}</p>\n                            <p>{{ acceptedOffer.itemOffered.reservedTicket.ticketType.name.ja }} / {{\n                                acceptedOffer.itemOffered.reservedTicket.totalPrice | currency : 'JPY' }}</p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-user-circle mr-2\"></i>お名前</p>\n                    <p class=\"col-md-8\">{{ (inquiry | async).order.customer.familyName }} {{ (inquiry |\n                        async).order.customer.givenName }}</p>\n                </div>\n            </div>\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"far fa-envelope mr-2\"></i>メールアドレス</p>\n                    <p class=\"col-md-8\">{{ (inquiry | async).order.customer.email }}</p>\n                </div>\n            </div>\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-phone mr-2\"></i>電話番号</p>\n                    <p class=\"col-md-8\">{{ (inquiry | async).order.customer.telephone | libphonenumberFormat }}</p>\n                </div>\n            </div>\n            <!-- <div class=\"py-3\" *ngIf=\"(inquiry | async).order.price > 0\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"far fa-credit-card mr-2\"></i>決済方法</p>\n                    <p class=\"col-md-8\">クレジットカード</p>\n                </div>\n            </div> -->\n        </div>\n    </div>\n\n    <div class=\"w-75 mx-auto\">\n        <button type=\"button\" class=\"btn btn-primary btn-block py-2 mb-2\" [disabled]=\"isLoading | async\" (click)=\"print()\">印刷</button>\n        <button type=\"button\" class=\"btn btn-outline-primary btn-block py-2\" routerLink=\"/inquiry/input\">戻る</button>\n    </div>\n\n</div>"
+module.exports = "<div class=\"py-4 px-3\">\n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">照会結果</h2>\n        <div class=\"container mb-4\">\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    購入番号</p>\n                <p class=\"col-8 bg-white py-3\">\n                    <strong>{{ (inquiry | async).order.confirmationNumber }}</strong>\n                </p>\n            </div>\n            <!-- <div class=\"row\">\n                    <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                        劇場 / スクリーン</p>\n                    <p class=\"col-8 bg-white py-3\">{{ (inquiry |\n                        async).order.acceptedOffers[0].itemOffered.reservationFor.superEvent.location.name.ja }} / {{\n                        (inquiry | async).order.acceptedOffers[0].itemOffered.reservationFor.location.name.ja }}</p>\n                </div> -->\n            <div class=\"row\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    作品</p>\n                <p class=\"col-8 bg-white py-3\">{{ (inquiry |\n                    async).order.acceptedOffers[0].itemOffered.reservationFor.name.ja }}</p>\n            </div>\n            <div class=\"row\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    鑑賞日</p>\n                <p class=\"col-8 bg-white py-3\">{{ moment((inquiry |\n                    async).order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YYYY/MM/DD (ddd)') }}</p>\n            </div>\n            <div class=\"row\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    座席・券種</p>\n                <div class=\"col-8 bg-white py-3\">\n                    <div *ngFor=\"let acceptedOffer of (inquiry | async).order.acceptedOffers\" class=\"mb-2\">\n                        <p>{{ acceptedOffer.itemOffered.reservedTicket.ticketedSeat.seatNumber }}</p>\n                        <p>{{ acceptedOffer.itemOffered.reservedTicket.ticketType.name.ja }} / {{\n                            acceptedOffer.itemOffered.reservedTicket.totalPrice | currency : 'JPY' }}</p>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text\" [disabled]=\"isLoading | async\"\n            (click)=\"print()\">印刷</button>\n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/inquiry/input\" [print]=\"false\"></app-navigation>"
 
 /***/ }),
 
@@ -1305,7 +1308,7 @@ module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".container {\n  border-right: 1px solid #dee2e6;\n  border-top: 1px solid #dee2e6; }\n\n.col-4, .col-8 {\n  border-left: 1px solid #dee2e6;\n  border-bottom: 1px solid #dee2e6; }\n"
 
 /***/ }),
 
@@ -1423,7 +1426,7 @@ var InquiryConfirmComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <h2 class=\"bg-secondary text-white p-3 mb-3\">チケット情報照会</h2>\n        <p class=\"mb-3\">予約番号と電話番号を入力してください。</p>\n        <div class=\"p-3 bg-white\">\n            <form [formGroup]=\"inquiryForm\">\n                <div class=\"form-group\">\n                    <label class=\"mb-2\" for=\"\">購入番号</label>\n                    <input type=\"text\" class=\"form-control\" formControlName=\"confirmationNumber\" id=\"confirmationNumber\" placeholder=\"12345678\">\n                    <div *ngIf=\"inquiryForm.controls.confirmationNumber.invalid && inquiryForm.controls.confirmationNumber.touched\"\n                        class=\"mt-2\">\n                        <p *ngIf=\"inquiryForm.controls.confirmationNumber.errors.required\" class=\"text-danger\">購入番号が未入力です</p>\n                        <p *ngIf=\"inquiryForm.controls.confirmationNumber.errors.pattern\" class=\"text-danger\">購入番号は数字で入力してください</p>\n                    </div>\n                </div>\n                <div class=\"form-group mb-0\">\n                    <label class=\"mb-2\" for=\"\">電話番号</label>\n                    <input type=\"tel\" class=\"form-control\" formControlName=\"telephone\" id=\"telephone\" placeholder=\"0362778824\">\n                    <div *ngIf=\"inquiryForm.controls.telephone.invalid && inquiryForm.controls.telephone.touched\"\n                        class=\"mt-2\">\n                        <p *ngIf=\"inquiryForm.controls.telephone.errors.required\" class=\"text-danger\">電話番号が未入力です</p>\n                        <p *ngIf=\"inquiryForm.controls.telephone.errors.minlength\" class=\"text-danger\">電話番号は{{\n                            inquiryForm.controls.telephone.errors.minlength.requiredLength }}文字以上で入力してください\n                        </p>\n                        <p *ngIf=\"inquiryForm.controls.telephone.errors.maxlength\" class=\"text-danger\">電話番号は{{\n                            inquiryForm.controls.telephone.errors.maxlength.requiredLength }}文字以下で入力してください\n                        </p>\n                        <p *ngIf=\"inquiryForm.controls.telephone.errors.pattern\" class=\"text-danger\">電話番号は数字で入力してください</p>\n                        <p *ngIf=\"inquiryForm.controls.telephone.errors.telephone\" class=\"text-danger\">電話番号が正しくありません</p>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n\n    <div class=\"w-75 mx-auto\">\n        <button type=\"button\" class=\"btn btn-primary btn-block py-2\" (click)=\"onSubmit()\">照会</button>\n        <button type=\"button\" class=\"btn btn-outline-primary btn-block py-2\" routerLink=\"/purchase/schedule\">TOPへ戻る</button>\n    </div>\n\n</div>"
+module.exports = "<div class=\"py-4 px-3\">\n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">チケット発券</h2>\n        \n        <form [formGroup]=\"inquiryForm\">\n            <div class=\"form-group mx-auto\">\n                <div class=\"bg-secondary d-grid align-items-center border rounded\">\n                    <label class=\"text-center text-white\" for=\"\">購入番号</label>\n                    <input type=\"text\" class=\"form-control py-3 large-text rounded-0\" formControlName=\"confirmationNumber\" id=\"confirmationNumber\"\n                        placeholder=\"（例）11223344\">\n                </div>\n                <div *ngIf=\"inquiryForm.controls.confirmationNumber.invalid && inquiryForm.controls.confirmationNumber.touched\"\n                    class=\"mt-2\">\n                    <p *ngIf=\"inquiryForm.controls.confirmationNumber.errors.required\" class=\"text-danger\">購入番号が未入力です</p>\n                    <p *ngIf=\"inquiryForm.controls.confirmationNumber.errors.pattern\" class=\"text-danger\">購入番号は数字で入力してください</p>\n                </div>\n            </div>\n            <div class=\"form-group mx-auto\">\n                <div class=\"bg-secondary d-grid align-items-center border rounded\">\n                    <label class=\"text-center text-white\" for=\"\">電話番号</label>\n                    <input type=\"tel\" class=\"form-control py-3 large-text rounded-0\" formControlName=\"telephone\" id=\"telephone\" placeholder=\"（例）09000000000\">\n                </div>\n                <div *ngIf=\"inquiryForm.controls.telephone.invalid && inquiryForm.controls.telephone.touched\" class=\"mt-2\">\n                    <p *ngIf=\"inquiryForm.controls.telephone.errors.required\" class=\"text-danger\">電話番号が未入力です</p>\n                    <p *ngIf=\"inquiryForm.controls.telephone.errors.minlength\" class=\"text-danger\">電話番号は{{\n                        inquiryForm.controls.telephone.errors.minlength.requiredLength }}文字以上で入力してください\n                    </p>\n                    <p *ngIf=\"inquiryForm.controls.telephone.errors.maxlength\" class=\"text-danger\">電話番号は{{\n                        inquiryForm.controls.telephone.errors.maxlength.requiredLength }}文字以下で入力してください\n                    </p>\n                    <p *ngIf=\"inquiryForm.controls.telephone.errors.pattern\" class=\"text-danger\">電話番号は数字で入力してください</p>\n                    <p *ngIf=\"inquiryForm.controls.telephone.errors.telephone\" class=\"text-danger\">電話番号が正しくありません</p>\n                </div>\n            </div>\n        </form>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text\" (click)=\"onSubmit()\">照会</button>\n    </div>\n\n</div>\n\n\n<app-navigation prevLink=\"/purchase/schedule\" [print]=\"false\"></app-navigation>"
 
 /***/ }),
 
@@ -1434,7 +1437,7 @@ module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".d-grid {\n  -ms-grid-columns: 1fr 2fr;\n      grid-template-columns: 1fr 2fr; }\n\n.form-group {\n  width: 600px; }\n\n.form-control {\n  height: auto; }\n"
 
 /***/ }),
 
@@ -1643,7 +1646,7 @@ var NotfoundComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<app-purchase-contents class=\"purchase\">\n    <router-outlet></router-outlet>\n    <app-footer></app-footer>\n</app-purchase-contents>\n\n<app-loading [show]=\"isLoading | async\"></app-loading>"
+module.exports = "<app-purchase-contents class=\"purchase\">\n    <router-outlet></router-outlet>\n</app-purchase-contents>\n\n<app-loading [show]=\"isLoading | async\"></app-loading>"
 
 /***/ }),
 
@@ -1720,7 +1723,7 @@ var PurchaseBaseComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <h2 class=\"bg-secondary text-white p-3 mb-3\">購入完了</h2>\n\n        <p class=\"mb-3\">ご購入ありがとうございます。</p>\n\n        <div class=\"mb-4 px-3 bg-white\">\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row align-items-center\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-key mr-2\"></i>購入番号</p>\n                    <p class=\"col-md-8 large-x-text text-success\">\n                        <strong>{{ (purchase | async).order.confirmationNumber }}</strong>\n                    </p>\n                </div>\n            </div>\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-map-marker-alt mr-2\"></i>劇場 / スクリーン</p>\n                    <p class=\"col-md-8\">{{ (purchase |\n                        async).order.acceptedOffers[0].itemOffered.reservationFor.superEvent.location.name.ja }} / {{\n                        (purchase | async).order.acceptedOffers[0].itemOffered.reservationFor.location.name.ja }}</p>\n                </div>\n            </div>\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-film mr-2\"></i>作品</p>\n                    <p class=\"col-md-8\">{{ (purchase |\n                        async).order.acceptedOffers[0].itemOffered.reservationFor.name.ja }}</p>\n                </div>\n            </div>\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"far fa-clock mr-2\"></i>上映開始日時</p>\n                    <p class=\"col-md-8\">{{ moment((purchase |\n                        async).order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YYYY/MM/DD (ddd)\n                        HH:mm') }}</p>\n                </div>\n            </div>\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-ticket-alt mr-2\"></i>座席・券種</p>\n                    <div class=\"col-md-8\">\n                        <div *ngFor=\"let acceptedOffer of (purchase | async).order.acceptedOffers\" class=\"mb-2\">\n                            <p>{{ acceptedOffer.itemOffered.reservedTicket.ticketedSeat.seatNumber }}</p>\n                            <p>{{ acceptedOffer.itemOffered.reservedTicket.ticketType.name.ja }} / {{\n                                acceptedOffer.itemOffered.reservedTicket.totalPrice | currency : 'JPY' }}</p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <!-- <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-user-circle mr-2\"></i>お名前</p>\n                    <p class=\"col-md-8\">{{ (purchase | async).order.customer.familyName }} {{ (purchase |\n                        async).order.customer.givenName }}</p>\n                </div>\n            </div>\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"far fa-envelope mr-2\"></i>メールアドレス</p>\n                    <p class=\"col-md-8\">{{ (purchase | async).order.customer.email }}</p>\n                </div>\n            </div>\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-phone mr-2\"></i>電話番号</p>\n                    <p class=\"col-md-8\">{{ (purchase | async).order.customer.telephone }}</p>\n                </div>\n            </div> -->\n            <!-- <div class=\"py-3\" *ngIf=\"(purchase | async).authorizeSeatReservation.result.price > 0\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"far fa-credit-card mr-2\"></i>決済方法</p>\n                    <p class=\"col-md-8\">{{ (purchase | async).paymentMethod.name }}</p>\n                </div>\n            </div> -->\n        </div>\n    </div>\n\n    <div class=\"w-75 mx-auto\">\n        <button type=\"button\" class=\"btn btn-primary btn-block py-2 mb-2\" [disabled]=\"isLoading | async\"\n            (click)=\"print()\">再印刷</button>\n        <button type=\"button\" class=\"btn btn-outline-primary btn-block py-2\" routerLink=\"/purchase/schedule\">TOPへ戻る</button>\n    </div>\n\n</div>"
+module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">購入完了</h2>\n        <div class=\"container mb-4\">\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    購入番号</p>\n                <p class=\"col-8 bg-white py-3\">\n                    <strong>{{ (purchase | async).order.confirmationNumber }}</strong>\n                </p>\n            </div>\n            <!-- <div class=\"row\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    劇場 / スクリーン</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase |\n                    async).order.acceptedOffers[0].itemOffered.reservationFor.superEvent.location.name.ja }} / {{\n                    (purchase | async).order.acceptedOffers[0].itemOffered.reservationFor.location.name.ja }}</p>\n            </div> -->\n            <div class=\"row\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    作品</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase |\n                    async).order.acceptedOffers[0].itemOffered.reservationFor.name.ja }}</p>\n            </div>\n            <div class=\"row\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    鑑賞日</p>\n                <p class=\"col-8 bg-white py-3\">{{ moment((purchase |\n                    async).order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YYYY/MM/DD (ddd)') }}</p>\n            </div>\n            <div class=\"row\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    座席・券種</p>\n                <div class=\"col-8 bg-white py-3\">\n                    <div *ngFor=\"let acceptedOffer of (purchase | async).order.acceptedOffers\" class=\"mb-2\">\n                        <p>{{ acceptedOffer.itemOffered.reservedTicket.ticketedSeat.seatNumber }}</p>\n                        <p>{{ acceptedOffer.itemOffered.reservedTicket.ticketType.name.ja }} / {{\n                            acceptedOffer.itemOffered.reservedTicket.totalPrice | currency : 'JPY' }}</p>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text\" [disabled]=\"isLoading | async\" (click)=\"print()\">再印刷</button>\n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/purchase/schedule\"></app-navigation>"
 
 /***/ }),
 
@@ -1731,7 +1734,7 @@ module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".container {\n  border-right: 1px solid #dee2e6;\n  border-top: 1px solid #dee2e6; }\n\n.col-4, .col-8 {\n  border-left: 1px solid #dee2e6;\n  border-bottom: 1px solid #dee2e6; }\n"
 
 /***/ }),
 
@@ -1850,7 +1853,7 @@ var PurchaseCompleteComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <h2 class=\"bg-secondary text-white p-3 mb-3\">購入情報確認</h2>\n\n        <p class=\"mb-3\">購入情報をご確認ください。</p>\n\n        <div class=\"mb-4 px-3 bg-white\">\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-map-marker-alt mr-2\"></i>劇場 / スクリーン</p>\n                    <p class=\"col-md-8\">{{ (purchase | async).screeningEvent.superEvent.location.name.ja }} / {{ (purchase | async).screeningEvent.location.name.ja }}</p>\n                </div>\n            </div>\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-film mr-2\"></i>作品</p>\n                    <p class=\"col-md-8\">{{ (purchase | async).screeningEvent.name.ja }}</p>\n                </div>\n            </div>\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"far fa-clock mr-2\"></i>上映開始日時</p>\n                    <p class=\"col-md-8\">{{ moment((purchase | async).screeningEvent.startDate).format('YYYY/MM/DD (ddd) HH:mm') }}</p>\n                </div>\n            </div>\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-ticket-alt mr-2\"></i>座席・券種</p>\n                    <div class=\"col-md-8\">\n                        <div *ngFor=\"let reservation of (purchase | async).reservations\" class=\"mb-2\">\n                            <p>{{ reservation.seat.seatNumber }}</p> \n                            <p *ngIf=\"reservation.ticket\">{{ reservation.ticket.ticketOffer.name.ja }} / {{ reservation.getTicketPrice().total | currency : 'JPY' }}</p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <!-- <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-user-circle mr-2\"></i>お名前</p>\n                    <p class=\"col-md-8\">{{ (purchase | async).customerContact.familyName }} {{ (purchase | async).customerContact.givenName }}</p>\n                </div>\n            </div>\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"far fa-envelope mr-2\"></i>メールアドレス</p>\n                    <p class=\"col-md-8\">{{ (purchase | async).customerContact.email }}</p>\n                </div>\n            </div>\n            <div class=\"py-3 border-bottom\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-phone mr-2\"></i>電話番号</p>\n                    <p class=\"col-md-8\">{{ (purchase | async).customerContact.telephone }}</p>\n                </div>\n            </div> -->\n            <div class=\"py-3\" *ngIf=\"(purchase | async).authorizeSeatReservation.result.price > 0\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"far fa-credit-card mr-2\"></i>決済方法</p>\n                    <p class=\"col-md-8\">{{ (purchase | async).paymentMethod.name }}</p>\n                </div>\n            </div>\n            <div class=\"py-3\" *ngIf=\"(purchase | async).authorizeSeatReservation.result.price > 0\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-yen-sign mr-2\"></i>合計金額</p>\n                    <p class=\"col-md-8\">{{ (purchase | async).authorizeSeatReservation.result.price | currency : 'JPY' }}</p>\n                </div>\n            </div>\n            <div class=\"py-3\" *ngIf=\"(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-arrow-right mr-2\"></i>お預かり金額</p>\n                    <p class=\"col-md-8\">\n                        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"depositAmount\">\n                    </p>\n                </div>\n            </div>\n            <div class=\"py-3\" *ngIf=\"(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash\">\n                <div class=\"row\">\n                    <p class=\"mb-2 mb-md-0 col-md-4\">\n                        <i class=\"fas fa-arrow-left mr-2\"></i>お釣り</p>\n                    <p class=\"col-md-8\">{{ (depositAmount - (purchase | async).authorizeSeatReservation.result.price) | currency : 'JPY' }}</p>\n                </div>\n            </div>\n        </div>\n\n    </div>\n    \n    <div class=\"w-75 mx-auto\">\n        <button type=\"button\" class=\"btn btn-primary btn-block py-2 mb-2\" [disabled]=\"isLoading | async\" (click)=\"onSubmit()\">購入確定</button>\n        <button type=\"button\" class=\"btn btn-outline-primary btn-block py-2\" routerLink=\"/purchase/payment\">決済方法選択へ戻る</button>\n    </div>\n</div>\n"
+module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">購入内容確認</h2>\n\n        <p class=\"mb-3 text-white text-center\">※この先の操作の取り消しはできませんのでご注意ください。</p>\n\n        <div class=\"container mb-4\">\n            <!-- <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    劇場 / スクリーン</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).screeningEvent.superEvent.location.name.ja }} / {{\n                    (purchase | async).screeningEvent.location.name.ja }}</p>\n            </div> -->\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    作品</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).screeningEvent.name.ja }}</p>\n            </div>\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    鑑賞日</p>\n                <p class=\"col-8 bg-white py-3\">{{ moment((purchase |\n                    async).screeningEvent.startDate).format('YYYY/MM/DD (ddd)') }}</p>\n            </div>\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    座席・券種</p>\n                <div class=\"col-8 bg-white py-3\">\n                    <div *ngFor=\"let reservation of (purchase | async).reservations\" class=\"mb-2\">\n                        <p>{{ reservation.seat.seatNumber }}</p>\n                        <p *ngIf=\"reservation.ticket\">{{ reservation.ticket.ticketOffer.name.ja }} / {{\n                            reservation.getTicketPrice().total | currency : 'JPY' }}</p>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).authorizeSeatReservation.result.price > 0\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    決済方法</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).paymentMethod.name }}</p>\n            </div>\n        </div>\n        <div class=\"container mb-4\">\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    合計金額</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).authorizeSeatReservation.result.price | currency :\n                    'JPY' }}</p>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    お預かり金額</p>\n                <p class=\"col-8 bg-white py-3\">\n                    <input type=\"text\" class=\"form-control large-text\" [(ngModel)]=\"depositAmount\">\n                </p>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    お釣り</p>\n                <p class=\"col-8 bg-white py-3\">{{ (depositAmount - (purchase |\n                    async).authorizeSeatReservation.result.price) | currency : 'JPY' }}</p>\n            </div>\n        </div>\n\n        <div class=\"w-50 mx-auto\">\n            <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text\" [disabled]=\"isLoading | async\"\n                (click)=\"onSubmit()\">購入確定</button>\n        </div>\n    </div>\n</div>\n\n<app-navigation prevLink=\"/purchase/payment\"></app-navigation>"
 
 /***/ }),
 
@@ -1861,7 +1864,7 @@ module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".container {\n  border-right: 1px solid #dee2e6;\n  border-top: 1px solid #dee2e6; }\n\n.col-4, .col-8 {\n  border-left: 1px solid #dee2e6;\n  border-bottom: 1px solid #dee2e6; }\n"
 
 /***/ }),
 
@@ -2565,7 +2568,7 @@ var PurchaseInputComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-3 px-2 d-block d-md-flex\">\n    <div class=\"main\">\n        <h2 class=\"bg-secondary text-white p-3 mb-3\">決済方法選択</h2>\n\n        <p class=\"mb-3\">決済方法を選択してください。</p>\n\n        <div class=\"payment-select d-grid mb-4\">\n            <button type=\"button\" class=\"btn btn-primary btn-block py-3 m-0\" (click)=\"selectPaymentMethodType(paymentMethodType.Cash)\">\n                <div class=\"mb-md-3\"><i class=\"fas fa-yen-sign mr-2 d-md-none\"></i>現金</div>\n                <div class=\"image d-none d-md-block\"><i class=\"fas fa-yen-sign\"></i></div>\n            </button>\n            <button type=\"button\" class=\"btn btn-primary btn-block py-3 m-0\" (click)=\"selectPaymentMethodType(paymentMethodType.CreditCard)\">\n                <div class=\"mb-md-3\"><i class=\"fas fa-credit-card mr-2 d-md-none\"></i>クレジットカード</div>\n                <div class=\"image d-none d-md-block\"><i class=\"fas fa-credit-card\"></i></div>\n            </button>\n            <button type=\"button\" class=\"btn btn-primary btn-block py-3 m-0\" (click)=\"selectPaymentMethodType(paymentMethodType.EMoney)\">\n                <div class=\"mb-md-3\"><i class=\"fas fa-mobile-alt mr-2 d-md-none\"></i>電子マネー</div>\n                <div class=\"image d-none d-md-block\"><i class=\"fas fa-mobile-alt\"></i></div>\n            </button>\n            <!-- <button type=\"button\" class=\"btn btn-primary btn-block py-3 m-0\">\n                <div class=\"mb-md-3\"><i class=\"far fa-question-circle mr-2 d-md-none\"></i>その他</div>\n                <div class=\"image d-none d-md-block\"><i class=\"far fa-question-circle\"></i></div>\n            </button> -->\n        </div>\n\n        <div class=\"w-75 mx-auto\">\n            <button type=\"button\" class=\"btn btn-outline-primary btn-block py-2\" routerLink=\"/purchase/ticket\">券種選択へ戻る</button>\n        </div>\n    </div>\n    <app-purchase-info class=\"sub d-none d-md-block\" [purchase]=\"purchase | async\"></app-purchase-info>\n\n</div>"
+module.exports = "<div class=\"py-4 px-3\">\n    <h2 class=\"text-center large-text text-white mb-4\">決済方法選択</h2>\n\n    <div class=\"payment-select mb-4\">\n        <button type=\"button\" class=\"btn btn-block bg-primary p-4 text-left text-white large-text mb-4\" (click)=\"selectPaymentMethodType(paymentMethodType.Cash)\">\n            <div><i class=\"fas fa-yen-sign mr-3\"></i>現金</div>\n        </button>\n        <button type=\"button\" class=\"btn btn-block bg-primary p-4 text-left text-white large-text mb-4\" (click)=\"selectPaymentMethodType(paymentMethodType.CreditCard)\">\n            <div><i class=\"fas fa-credit-card mr-3\"></i>クレジットカード</div>\n        </button>\n        <button type=\"button\" class=\"btn btn-block bg-primary p-4 text-left text-white large-text mb-4\" (click)=\"selectPaymentMethodType(paymentMethodType.EMoney)\">\n            <div><i class=\"fas fa-mobile-alt mr-3\"></i>電子マネー</div>\n        </button>\n        \n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/purchase/ticket\"></app-navigation>"
 
 /***/ }),
 
@@ -2661,7 +2664,7 @@ var PurchasePaymentComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"p-3\">\n    <h2 class=\"bg-secondary text-white p-3 mb-3\">上映スケジュール</h2>\n    <div class=\"swiper-container date mb-3\" #swiper [swiper]=\"swiperConfig\" (resize)=\"resize()\">\n        <div class=\"swiper-wrapper\">\n            <div *ngFor=\"let scheduleDate of (purchase | async).scheduleDates\" class=\"swiper-slide\">\n                <div class=\"text-center text-white py-4 px-2\" \n                [class.bg-secondary]=\"scheduleDate.format !== (purchase | async).scheduleDate.format\"\n                [class.bg-primary]=\"scheduleDate.format === (purchase | async).scheduleDate.format\"\n                (click)=\"selectDate(scheduleDate)\">\n                    <div>{{ scheduleDate.string }}</div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <app-purchase-schedule-film *ngFor=\"let screeningFilmEvent of (purchase | async).screeningFilmEvents\"\n        [screeningFilmEvent]=\"screeningFilmEvent\" (select)=\"selectSchedule($event)\" class=\"mb-3\"></app-purchase-schedule-film>\n</div>"
+module.exports = "<div class=\"py-4 px-3\">\n    <h2 class=\"text-center large-text text-white mb-4\">スケジュール選択</h2>\n    <div class=\"form-group border rounded d-grid align-items-center mx-auto\">\n        <div class=\"label text-white text-center\">鑑賞日</div>\n        <select class=\"form-control rounded-0 py-3\" (change)=\"selectDate()\" [(ngModel)]=\"scheduleDateValue\">\n            <option *ngFor=\"let scheduleDate of (purchase | async).scheduleDates\" [value]=\"scheduleDate.format\">{{\n                scheduleDate.string }}</option>\n        </select>\n    </div>\n    <app-purchase-schedule-film *ngFor=\"let screeningFilmEvent of (purchase | async).screeningFilmEvents\"\n        [screeningFilmEvent]=\"screeningFilmEvent\" (select)=\"selectSchedule($event)\" class=\"mb-3\"></app-purchase-schedule-film>\n</div>\n\n<app-navigation [prev]=\"false\" [home]=\"false\"></app-navigation>"
 
 /***/ }),
 
@@ -2672,7 +2675,7 @@ module.exports = "<div class=\"p-3\">\n    <h2 class=\"bg-secondary text-white p
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".btn-primary {\n  color: #FFF; }\n\n.btn-outline-primary:hover {\n  color: #FFF; }\n\n.theaters {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-columns: 1fr 1fr 1fr;\n      grid-template-columns: 1fr 1fr 1fr;\n  grid-gap: 1rem; }\n\n@media (max-width: 767.98px) {\n    .theaters {\n      -ms-grid-columns: 1fr;\n          grid-template-columns: 1fr; } }\n"
+module.exports = ".btn-primary {\n  color: #FFF; }\n\n.btn-outline-primary:hover {\n  color: #FFF; }\n\n.theaters {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-columns: 1fr 1fr 1fr;\n      grid-template-columns: 1fr 1fr 1fr;\n  grid-gap: 1rem; }\n\n@media (max-width: 767.98px) {\n    .theaters {\n      -ms-grid-columns: 1fr;\n          grid-template-columns: 1fr; } }\n\n.form-group {\n  width: 300px;\n  -ms-grid-columns: 1fr 2fr;\n      grid-template-columns: 1fr 2fr; }\n\nselect {\n  height: auto; }\n"
 
 /***/ }),
 
@@ -2692,12 +2695,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var ngx_swiper_wrapper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-swiper-wrapper */ "../../node_modules/ngx-swiper-wrapper/dist/ngx-swiper-wrapper.es5.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "../../node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../../environments/environment */ "./environments/environment.ts");
-/* harmony import */ var _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../store/actions/purchase.action */ "./app/store/actions/purchase.action.ts");
-/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../store/reducers */ "./app/store/reducers/index.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "../../node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../environments/environment */ "./environments/environment.ts");
+/* harmony import */ var _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../store/actions/purchase.action */ "./app/store/actions/purchase.action.ts");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../store/reducers */ "./app/store/reducers/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2752,7 +2754,6 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
-
 var PurchaseScheduleComponent = /** @class */ (function () {
     function PurchaseScheduleComponent(store, actions, router) {
         this.store = store;
@@ -2763,18 +2764,9 @@ var PurchaseScheduleComponent = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                this.swiperConfig = {
-                    spaceBetween: 1,
-                    slidesPerView: 7,
-                    breakpoints: {
-                        320: { slidesPerView: 2 },
-                        767: { slidesPerView: 3 },
-                        1024: { slidesPerView: 6 }
-                    }
-                };
-                this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["Delete"]({}));
-                this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_3__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getPurchase"]));
-                this.user = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_3__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getUser"]));
+                this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["Delete"]({}));
+                this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_3__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_9__["getPurchase"]));
+                this.user = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_3__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_9__["getUser"]));
                 this.user.subscribe(function (user) {
                     if (user.movieTheater === undefined) {
                         _this.router.navigate(['/error']);
@@ -2787,41 +2779,52 @@ var PurchaseScheduleComponent = /** @class */ (function () {
         });
     };
     /**
-     * resize
-     */
-    PurchaseScheduleComponent.prototype.resize = function () {
-        this.directiveRef.update();
-    };
-    /**
      * selectTheater
      */
     PurchaseScheduleComponent.prototype.selectTheater = function (movieTheater) {
         var _this = this;
-        this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["SelectTheater"]({ movieTheater: movieTheater }));
-        this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["GetSchedule"]({
+        this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["SelectTheater"]({ movieTheater: movieTheater }));
+        var today = moment__WEBPACK_IMPORTED_MODULE_4__().format('YYYYMMDD');
+        this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["GetSchedule"]({
             params: {
-                startFrom: moment__WEBPACK_IMPORTED_MODULE_4__().toDate(),
-                startThrough: moment__WEBPACK_IMPORTED_MODULE_4__().add(7, 'day').toDate(),
+                startFrom: moment__WEBPACK_IMPORTED_MODULE_4__(today).toDate(),
+                startThrough: moment__WEBPACK_IMPORTED_MODULE_4__(today).add(7, 'day').toDate(),
                 superEvent: {
                     locationBranchCodes: [movieTheater.location.branchCode]
                 }
             }
         }));
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetScheduleSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
-            if (_this.directiveRef !== undefined) {
-                _this.directiveRef.update();
-            }
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetScheduleSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(function () {
+            _this.purchase.subscribe(function (purchase) {
+                if (purchase.scheduleDate === undefined) {
+                    return;
+                }
+                _this.scheduleDateValue = purchase.scheduleDate.format;
+            }).unsubscribe();
         }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetScheduleFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetScheduleFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(function () {
             _this.router.navigate(['/error']);
         }));
-        Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["take"])(1)).subscribe();
     };
     /**
      * selectDate
      */
-    PurchaseScheduleComponent.prototype.selectDate = function (scheduleDate) {
-        this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["SelectScheduleDate"]({ scheduleDate: scheduleDate }));
+    PurchaseScheduleComponent.prototype.selectDate = function () {
+        var _this = this;
+        this.purchase.subscribe(function (purchase) {
+            if (purchase.scheduleDate === undefined) {
+                return;
+            }
+            var findResult = purchase.scheduleDates.find(function (scheduleDate) {
+                return (scheduleDate.format === _this.scheduleDateValue);
+            });
+            console.log(findResult);
+            if (findResult === undefined) {
+                return;
+            }
+            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["SelectScheduleDate"]({ scheduleDate: findResult }));
+        }).unsubscribe();
     };
     /**
      * selectSchedule
@@ -2832,7 +2835,7 @@ var PurchaseScheduleComponent = /** @class */ (function () {
             || screeningEvent.remainingAttendeeCapacity === 0) {
             return;
         }
-        this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["SelectSchedule"]({ screeningEvent: screeningEvent }));
+        this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["SelectSchedule"]({ screeningEvent: screeningEvent }));
         this.purchase.subscribe(function (purchase) {
             _this.user.subscribe(function (user) {
                 if (purchase.movieTheater === undefined
@@ -2840,9 +2843,9 @@ var PurchaseScheduleComponent = /** @class */ (function () {
                     _this.router.navigate(['/error']);
                     return;
                 }
-                _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["StartTransaction"]({
+                _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["StartTransaction"]({
                     params: {
-                        expires: moment__WEBPACK_IMPORTED_MODULE_4__().add(_environments_environment__WEBPACK_IMPORTED_MODULE_8__["environment"].TRANSACTION_TIME, 'minutes').toDate(),
+                        expires: moment__WEBPACK_IMPORTED_MODULE_4__().add(_environments_environment__WEBPACK_IMPORTED_MODULE_7__["environment"].TRANSACTION_TIME, 'minutes').toDate(),
                         seller: {
                             typeOf: purchase.movieTheater.typeOf,
                             id: purchase.movieTheater.id
@@ -2858,22 +2861,14 @@ var PurchaseScheduleComponent = /** @class */ (function () {
                 }));
             }).unsubscribe();
         }).unsubscribe();
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].StartTransactionSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].StartTransactionSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(function () {
             _this.router.navigate(['/purchase/seat']);
         }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].StartTransactionFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].StartTransactionFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(function () {
             _this.router.navigate(['/error']);
         }));
-        Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["take"])(1)).subscribe();
     };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(ngx_swiper_wrapper__WEBPACK_IMPORTED_MODULE_5__["SwiperComponent"]),
-        __metadata("design:type", ngx_swiper_wrapper__WEBPACK_IMPORTED_MODULE_5__["SwiperComponent"])
-    ], PurchaseScheduleComponent.prototype, "componentRef", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(ngx_swiper_wrapper__WEBPACK_IMPORTED_MODULE_5__["SwiperDirective"]),
-        __metadata("design:type", ngx_swiper_wrapper__WEBPACK_IMPORTED_MODULE_5__["SwiperDirective"])
-    ], PurchaseScheduleComponent.prototype, "directiveRef", void 0);
     PurchaseScheduleComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-purchase-schedule',
@@ -2898,7 +2893,7 @@ var PurchaseScheduleComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-3 px-2 d-block d-md-flex\">\n    <div class=\"main\">\n        <h2 class=\"bg-secondary text-white p-3 mb-3\">座席選択</h2>\n\n        <p class=\"mb-3\">座席を選択してください。</p>\n\n        <app-screen class=\"mb-3 bg-white\" [screenData]=\"(purchase | async).screenData\" [screeningEventOffers]=\"(purchase | async).screeningEventOffers\"\n            [reservations]=\"(purchase | async).reservations\" (select)=\"selectSeat($event)\">\n        </app-screen>\n\n        <h3 class=\"mb-2 font-weight-bold\">利用規約</h3>\n\n        <p class=\"bg-white p-3 mb-4 small-text scroll border\">\n            インターネットチケット販売（以下「本サービス」といいます）をご利用いただくに当たってvit®利用規約（以下「本規約」といいます）を以下の通りに定めます。本規約に同意の上本サービスをご利用ください。\n        </p>\n\n        <div class=\"w-75 mx-auto\">\n            <button type=\"button\" class=\"btn btn-primary btn-block py-2 mb-2\" [disabled]=\"isLoading | async\"\n                (click)=\"onSubmit()\">利用規約に同意して次へ</button>\n            <button type=\"button\" class=\"btn btn-outline-primary btn-block py-2\" routerLink=\"/purchase/schedule\">スケジュール選択へ戻る</button>\n        </div>\n    </div>\n\n    <app-purchase-info class=\"sub d-none d-md-block\" [purchase]=\"purchase | async\"></app-purchase-info>\n\n</div>"
+module.exports = "<div class=\"py-4\">\n    <h2 class=\"text-center large-text text-white mb-4\">座席選択</h2>\n\n    <p class=\"p-3 large-text bg-white mb-3\">{{ (purchase | async).screeningEvent?.name.ja }}</p>\n\n    <div class=\"d-flex justify-content-center align-items-center mb-3 text-white\">\n        <div class=\"d-flex align-items-center mx-3\">\n            <div class=\"small-text border p-2\">スクリーン</div>\n            <div class=\"large-text ml-3\"><strong>{{ (purchase | async).screeningEvent?.location.name.ja }}</strong></div>\n        </div>\n        <div class=\"d-flex align-items-center mx-3\">\n            <div class=\"small-text border p-2\">上映時間</div>\n            <div class=\"ml-3 text-warning\">\n                <strong class=\"large-text\">{{ moment((purchase | async).screeningEvent?.startDate).format('HH:mm') }}</strong>\n                <span> - {{ moment((purchase | async).screeningEvent?.endDate).format('HH:mm') }}</span>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"px-5 mb-4\">\n        <div class=\"bg-white\">\n            <div class=\"pt-4 pb-3 d-flex justify-content-center align-items-center seats border-bottom mx-auto\">\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/seat/normal.svg\"></div>\n                    <div class=\"ml-3\">空席</div>\n                </div>\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/seat/normal_active.svg\"></div>\n                    <div class=\"ml-3\">選択中</div>\n                </div>\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/seat/normal_disabled.svg\"></div>\n                    <div class=\"ml-3\">購入不可</div>\n                </div>\n            </div>\n        </div>\n        <app-screen class=\"bg-white\" [screenData]=\"(purchase | async).screenData\" [screeningEventOffers]=\"(purchase | async).screeningEventOffers\"\n            [reservations]=\"(purchase | async).reservations\" (select)=\"selectSeat($event)\">\n        </app-screen>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text\" [disabled]=\"isLoading | async\" (click)=\"onSubmit()\">次へ</button>\n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/purchase/schedule\"></app-navigation>"
 
 /***/ }),
 
@@ -2909,7 +2904,7 @@ module.exports = "<div class=\"py-3 px-2 d-block d-md-flex\">\n    <div class=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".scroll {\n  -webkit-overflow-scrolling: touch;\n  overflow-y: scroll;\n  height: 100px; }\n"
+module.exports = ".scroll {\n  -webkit-overflow-scrolling: touch;\n  overflow-y: scroll;\n  height: 100px; }\n\n.seats {\n  border-width: 4px !important;\n  width: 400px; }\n\n.seats img {\n    height: 20px; }\n"
 
 /***/ }),
 
@@ -2928,12 +2923,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
 /* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
 /* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "../../node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../models */ "./app/models/index.ts");
-/* harmony import */ var _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../store/actions/purchase.action */ "./app/store/actions/purchase.action.ts");
-/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../store/reducers */ "./app/store/reducers/index.ts");
-/* harmony import */ var _parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../parts/alert-modal/alert-modal.component */ "./app/components/parts/alert-modal/alert-modal.component.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "../../node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../models */ "./app/models/index.ts");
+/* harmony import */ var _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../store/actions/purchase.action */ "./app/store/actions/purchase.action.ts");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../store/reducers */ "./app/store/reducers/index.ts");
+/* harmony import */ var _parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../parts/alert-modal/alert-modal.component */ "./app/components/parts/alert-modal/alert-modal.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2989,18 +2986,20 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
+
 var PurchaseSeatComponent = /** @class */ (function () {
     function PurchaseSeatComponent(store, actions, router, modal) {
         this.store = store;
         this.actions = actions;
         this.router = router;
         this.modal = modal;
+        this.moment = moment__WEBPACK_IMPORTED_MODULE_5__;
     }
     PurchaseSeatComponent.prototype.ngOnInit = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_9__["getPurchase"]));
-                this.isLoading = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_9__["getLoading"]));
+                this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getPurchase"]));
+                this.isLoading = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getLoading"]));
                 this.getScreen();
                 return [2 /*return*/];
             });
@@ -3017,25 +3016,25 @@ var PurchaseSeatComponent = /** @class */ (function () {
                 _this.router.navigate(['/error']);
                 return;
             }
-            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["GetScreen"]({ screeningEvent: screeningEvent }));
+            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["GetScreen"]({ screeningEvent: screeningEvent }));
         }).unsubscribe();
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetScreenSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(function () {
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetScreenSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
             _this.getTickets();
         }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetScreenFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(function () {
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetScreenFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
             _this.router.navigate(['/error']);
         }));
-        Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["take"])(1)).subscribe();
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
     };
     /**
      * selectSeat
      */
     PurchaseSeatComponent.prototype.selectSeat = function (data) {
-        if (data.status === _models__WEBPACK_IMPORTED_MODULE_7__["SeatStatus"].Default) {
-            this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["SelectSeat"]({ seat: data.seat }));
+        if (data.status === _models__WEBPACK_IMPORTED_MODULE_8__["SeatStatus"].Default) {
+            this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["SelectSeat"]({ seat: data.seat }));
         }
         else {
-            this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["CancelSeat"]({ seat: data.seat }));
+            this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["CancelSeat"]({ seat: data.seat }));
         }
     };
     /**
@@ -3065,20 +3064,20 @@ var PurchaseSeatComponent = /** @class */ (function () {
                 _this.router.navigate(['/error']);
                 return;
             }
-            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["TemporaryReservation"]({
+            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["TemporaryReservation"]({
                 transaction: transaction,
                 screeningEvent: screeningEvent,
                 reservations: reservations,
                 authorizeSeatReservation: authorizeSeatReservation
             }));
         }).unsubscribe();
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].TemporaryReservationSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(function () {
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].TemporaryReservationSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
             _this.router.navigate(['/purchase/ticket']);
         }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].TemporaryReservationFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(function () {
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].TemporaryReservationFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
             _this.router.navigate(['/error']);
         }));
-        Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["take"])(1)).subscribe();
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
     };
     /**
      * getTickets
@@ -3093,16 +3092,16 @@ var PurchaseSeatComponent = /** @class */ (function () {
                 _this.router.navigate(['/error']);
                 return;
             }
-            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["GetTicketList"]({ screeningEvent: screeningEvent, movieTheater: movieTheater }));
+            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["GetTicketList"]({ screeningEvent: screeningEvent, movieTheater: movieTheater }));
         }).unsubscribe();
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetTicketListSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(function () { }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetTicketListFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(function () {
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetTicketListSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () { }));
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetTicketListFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
             _this.router.navigate(['/error']);
         }));
-        Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["take"])(1)).subscribe();
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
     };
     PurchaseSeatComponent.prototype.openAlert = function (args) {
-        var modalRef = this.modal.open(_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_10__["AlertModalComponent"], {
+        var modalRef = this.modal.open(_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_11__["AlertModalComponent"], {
             centered: true
         });
         modalRef.componentInstance.title = args.title;
@@ -3133,7 +3132,7 @@ var PurchaseSeatComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-3 px-2 d-block d-md-flex\">\n    <div class=\"main\">\n        <h2 class=\"bg-secondary text-white p-3 mb-3\">券種選択</h2>\n\n        <p class=\"mb-3\">券種を選択してください。</p>\n\n        <div class=\"mb-4\">\n            <div class=\"bg-white p-3\">\n                <p class=\"mb-2\">ムビチケを使う</p>\n                <button type=\"button\" (click)=\"openMovieTicket()\" class=\"btn btn-outline-primary btn-block py-2\">\n                    <img src=\"/assets/images/mvtk.svg\" height=\"24\">\n                </button>\n            </div>\n        </div>\n\n        <div class=\"ticket mb-4\">\n            <div *ngFor=\"let reservation of (purchase | async).reservations\" class=\"bg-white p-3 d-block d-md-flex justify-content-between align-items-center mb-2\">\n                <div class=\"seat text-center text-md-left mb-3 mb-md-0\">\n                    <span class=\"mr-3\">座席</span>{{ reservation.seat.seatNumber }}</div>\n                <button *ngIf=\"reservation.ticket === undefined\" type=\"button\" (click)=\"openTicketList(reservation)\"\n                    class=\"btn btn-primary btn-block py-2\">券種を選択してください</button>\n                <button *ngIf=\"reservation.ticket !== undefined\" type=\"button\" (click)=\"openTicketList(reservation)\"\n                    class=\"btn btn-outline-primary btn-block py-2\">{{ reservation.ticket.ticketOffer.name.ja }} {{\n                    reservation.getTicketPrice().total | currency : 'JPY' }}</button>\n            </div>\n        </div>\n\n        <div class=\"w-75 mx-auto\">\n            <button type=\"button\" class=\"btn btn-primary btn-block py-2 mb-2\" [disabled]=\"isLoading | async\"\n                (click)=\"onSubmit()\">次へ</button>\n            <button type=\"button\" class=\"btn btn-outline-primary btn-block py-2\" routerLink=\"/purchase/seat\">座席選択へ戻る</button>\n        </div>\n    </div>\n    <app-purchase-info class=\"sub d-none d-md-block\" [purchase]=\"purchase | async\"></app-purchase-info>\n\n</div>"
+module.exports = "<div class=\"py-4 px-3\">\n    <h2 class=\"text-center large-text text-white mb-4\">券種選択</h2>\n\n    <div class=\"mb-4\">\n        <div class=\"d-flex justify-content-center align-items-center\">\n            <p class=\"text-white\">ムビチケ券を利用</p>\n            <button type=\"button\" (click)=\"openMovieTicket()\" class=\"movie-ticket ml-3 btn btn-block bg-white border-danger py-3\">\n                <img src=\"/assets/images/mvtk.svg\" height=\"24\">\n            </button>\n        </div>\n    </div>\n\n    <div class=\"reservations d-grid align-items-center mb-4\">\n        <div *ngFor=\"let reservation of (purchase | async).reservations\" class=\"reservation bg-secondary d-grid align-items-center border rounded\">\n            <div class=\"seat text-center text-white\">\n                <span class=\"mr-3\">座席</span>{{ reservation.seat.seatNumber }}</div>\n            <button *ngIf=\"reservation.ticket === undefined\" type=\"button\" (click)=\"openTicketList(reservation)\" class=\"btn btn-block rounded-0 py-3 bg-white\">券種を選択してください</button>\n            <button *ngIf=\"reservation.ticket !== undefined\" type=\"button\" (click)=\"openTicketList(reservation)\" class=\"btn btn-block rounded-0 py-3 bg-white\">{{\n                reservation.ticket.ticketOffer.name.ja | slice:0:10 }} {{\n                reservation.getTicketPrice().total | currency : 'JPY' }}</button>\n        </div>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text\" [disabled]=\"isLoading | async\" (click)=\"onSubmit()\">次へ</button>\n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/purchase/seat\"></app-navigation>"
 
 /***/ }),
 
@@ -3144,7 +3143,7 @@ module.exports = "<div class=\"py-3 px-2 d-block d-md-flex\">\n    <div class=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".btn-primary {\n  color: #FFF; }\n\n.btn-outline-primary:hover {\n  color: #FFF; }\n\n.ticket button {\n  width: 70%; }\n\n@media (max-width: 767.98px) {\n    .ticket button {\n      width: 100%; } }\n"
+module.exports = ".btn-primary {\n  color: #FFF; }\n\n.btn-outline-primary:hover {\n  color: #FFF; }\n\n.reservations {\n  -ms-grid-columns: 1fr 1fr;\n      grid-template-columns: 1fr 1fr;\n  grid-gap: 1rem; }\n\n.reservations .reservation {\n    -ms-grid-columns: 1fr 2fr;\n        grid-template-columns: 1fr 2fr; }\n\n.movie-ticket {\n  width: 300px; }\n"
 
 /***/ }),
 
@@ -3302,7 +3301,7 @@ var PurchaseTicketComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <h2 class=\"bg-secondary text-white p-3 mb-3\">設定</h2>\n        <div class=\"p-3 bg-white\">\n            <form [formGroup]=\"settingForm\">\n                <div class=\"form-group\">\n                    <label class=\"mb-2\" for=\"\">劇場</label>\n                    <select class=\"form-control\" formControlName=\"theaterCode\" (change)=\"changePosList()\">\n                        <option value=\"\">選択してください</option>\n                        <option *ngFor=\"let theater of (user | async).movieTheaters\" [value]=\"theater.location.branchCode\">{{\n                            theater.name.ja }}</option>\n                    </select>\n                    <div *ngIf=\"settingForm.controls.theaterCode.invalid && settingForm.controls.theaterCode.touched\"\n                        class=\"mt-2\">\n                        <p *ngIf=\"settingForm.controls.theaterCode.errors.required\" class=\"text-danger\">劇場が未選択です</p>\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                    <label class=\"mb-2\" for=\"\">POS</label>\n                    <select class=\"form-control\" formControlName=\"posId\">\n                        <option value=\"\">選択してください</option>\n                        <option *ngFor=\"let pos of posList\" [value]=\"pos.id\">{{ pos.name }}</option>\n                    </select>\n                    <div *ngIf=\"settingForm.controls.posId.invalid && settingForm.controls.posId.touched\" class=\"mt-2\">\n                        <p *ngIf=\"settingForm.controls.posId.errors.required\" class=\"text-danger\">POSが未選択です</p>\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                    <label class=\"mb-2\" for=\"\">セイ</label>\n                    <input type=\"text\" class=\"form-control\" formControlName=\"familyName\" placeholder=\"モーション\">\n                    <div *ngIf=\"settingForm.controls.familyName.invalid && settingForm.controls.familyName.touched\"\n                        class=\"mt-2\">\n                        <p *ngIf=\"settingForm.controls.familyName.errors.required\" class=\"text-danger\">セイが未入力です</p>\n                        <p *ngIf=\"settingForm.controls.familyName.errors.maxlength\" class=\"text-danger\">セイは{{\n                            settingForm.controls.familyName.errors.maxlength.requiredLength }}文字以下で入力してください</p>\n                        <p *ngIf=\"settingForm.controls.familyName.errors.pattern\" class=\"text-danger\">セイは全角カタカナで入力してください</p>\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                    <label class=\"mb-2\" for=\"\">メイ</label>\n                    <input type=\"text\" class=\"form-control\" formControlName=\"givenName\" placeholder=\"ピクチャー\">\n                    <div *ngIf=\"settingForm.controls.givenName.invalid && settingForm.controls.givenName.touched\" class=\"mt-2\">\n                        <p *ngIf=\"settingForm.controls.givenName.errors.required\" class=\"text-danger\">メイが未入力です</p>\n                        <p *ngIf=\"settingForm.controls.givenName.errors.maxlength\" class=\"text-danger\">メイは{{\n                            settingForm.controls.givenName.errors.maxlength.requiredLength }}文字以下で入力してください\n                        </p>\n                        <p *ngIf=\"settingForm.controls.givenName.errors.pattern\" class=\"text-danger\">メイは全角カタカナで入力してください\n                        </p>\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                    <label class=\"mb-2\" for=\"\">メールアドレス</label>\n                    <input type=\"email\" class=\"form-control\" formControlName=\"email\" placeholder=\"motionpicture@example.jp\">\n                    <div *ngIf=\"settingForm.controls.email.invalid && settingForm.controls.email.touched\" class=\"mt-2\">\n                        <p *ngIf=\"settingForm.controls.email.errors.required\" class=\"text-danger\">メールアドレスが未入力です</p>\n                        <p *ngIf=\"settingForm.controls.email.errors.maxlength\" class=\"text-danger\">メールアドレスは{{\n                            settingForm.controls.email.errors.maxlength.requiredLength }}文字以下で入力してください\n                        </p>\n                        <p *ngIf=\"settingForm.controls.email.errors.email\" class=\"text-danger\">メールアドレスが正しくありません</p>\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                    <label class=\"mb-2\" for=\"\">電話番号</label>\n                    <input type=\"tel\" class=\"form-control\" formControlName=\"telephone\" placeholder=\"0362778824\">\n                    <div *ngIf=\"settingForm.controls.telephone.invalid && settingForm.controls.telephone.touched\" class=\"mt-2\">\n                        <p *ngIf=\"settingForm.controls.telephone.errors.required\" class=\"text-danger\">電話番号が未入力です</p>\n                        <p *ngIf=\"settingForm.controls.telephone.errors.minlength\" class=\"text-danger\">電話番号は{{\n                            settingForm.controls.telephone.errors.minlength.requiredLength }}文字以上で入力してください\n                        </p>\n                        <p *ngIf=\"settingForm.controls.telephone.errors.maxlength\" class=\"text-danger\">電話番号は{{\n                            settingForm.controls.telephone.errors.maxlength.requiredLength }}文字以下で入力してください\n                        </p>\n                        <p *ngIf=\"settingForm.controls.telephone.errors.pattern\" class=\"text-danger\">電話番号は数字で入力してください</p>\n                        <p *ngIf=\"settingForm.controls.telephone.errors.telephone\" class=\"text-danger\">電話番号が正しくありません</p>\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                    <label class=\"mb-2\" for=\"\">プリンターIPアドレス</label>\n                    <input type=\"text\" class=\"form-control\" formControlName=\"printerIpAddress\" placeholder=\"0.0.0.0\">\n                    <div *ngIf=\"settingForm.controls.printerIpAddress.invalid && settingForm.controls.printerIpAddress.touched\" class=\"mt-2\">\n                        <p *ngIf=\"settingForm.controls.printerIpAddress.errors.required\" class=\"text-danger\">プリンターIPアドレスが未入力です</p>\n                        <p *ngIf=\"settingForm.controls.printerIpAddress.errors.pattern\" class=\"text-danger\">プリンターIPアドレスが正しくありません</p>\n                    </div>\n                    <button type=\"button\" class=\"btn btn-sm btn-primary py-2 mt-2\" (click)=\"print()\">テスト印刷</button>\n                </div>\n            </form>\n        </div>\n    </div>\n\n    <div class=\"w-75 mx-auto\">\n        <button type=\"button\" class=\"btn btn-primary btn-block py-2\" (click)=\"onSubmit()\">設定</button>\n        <button type=\"button\" class=\"btn btn-outline-primary btn-block py-2\" routerLink=\"/purchase/schedule\">TOPへ戻る</button>\n    </div>\n\n</div>"
+module.exports = "<div class=\"py-4 px-3\">\n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">設定</h2>\n        <form [formGroup]=\"settingForm\" class=\"text-white\">\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">劇場</label>\n                <select class=\"form-control py-2 large-text\" formControlName=\"theaterCode\" (change)=\"changePosList()\">\n                    <option value=\"\">選択してください</option>\n                    <option *ngFor=\"let theater of (user | async).movieTheaters\" [value]=\"theater.location.branchCode\">{{\n                        theater.name.ja }}</option>\n                </select>\n                <div *ngIf=\"settingForm.controls.theaterCode.invalid && settingForm.controls.theaterCode.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.theaterCode.errors.required\" class=\"text-danger\">劇場が未選択です</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">POS</label>\n                <select class=\"form-control py-2 large-text\" formControlName=\"posId\">\n                    <option value=\"\">選択してください</option>\n                    <option *ngFor=\"let pos of posList\" [value]=\"pos.id\">{{ pos.name }}</option>\n                </select>\n                <div *ngIf=\"settingForm.controls.posId.invalid && settingForm.controls.posId.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.posId.errors.required\" class=\"text-danger\">POSが未選択です</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">セイ</label>\n                <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"familyName\" placeholder=\"モーション\">\n                <div *ngIf=\"settingForm.controls.familyName.invalid && settingForm.controls.familyName.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.familyName.errors.required\" class=\"text-danger\">セイが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.familyName.errors.maxlength\" class=\"text-danger\">セイは{{\n                        settingForm.controls.familyName.errors.maxlength.requiredLength }}文字以下で入力してください</p>\n                    <p *ngIf=\"settingForm.controls.familyName.errors.pattern\" class=\"text-danger\">セイは全角カタカナで入力してください</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">メイ</label>\n                <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"givenName\" placeholder=\"ピクチャー\">\n                <div *ngIf=\"settingForm.controls.givenName.invalid && settingForm.controls.givenName.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.givenName.errors.required\" class=\"text-danger\">メイが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.givenName.errors.maxlength\" class=\"text-danger\">メイは{{\n                        settingForm.controls.givenName.errors.maxlength.requiredLength }}文字以下で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.givenName.errors.pattern\" class=\"text-danger\">メイは全角カタカナで入力してください\n                    </p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">メールアドレス</label>\n                <input type=\"email\" class=\"form-control py-2 large-text\" formControlName=\"email\" placeholder=\"motionpicture@example.jp\">\n                <div *ngIf=\"settingForm.controls.email.invalid && settingForm.controls.email.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.email.errors.required\" class=\"text-danger\">メールアドレスが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.email.errors.maxlength\" class=\"text-danger\">メールアドレスは{{\n                        settingForm.controls.email.errors.maxlength.requiredLength }}文字以下で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.email.errors.email\" class=\"text-danger\">メールアドレスが正しくありません</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">電話番号</label>\n                <input type=\"tel\" class=\"form-control py-2 large-text\" formControlName=\"telephone\" placeholder=\"0362778824\">\n                <div *ngIf=\"settingForm.controls.telephone.invalid && settingForm.controls.telephone.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.telephone.errors.required\" class=\"text-danger\">電話番号が未入力です</p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.minlength\" class=\"text-danger\">電話番号は{{\n                        settingForm.controls.telephone.errors.minlength.requiredLength }}文字以上で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.maxlength\" class=\"text-danger\">電話番号は{{\n                        settingForm.controls.telephone.errors.maxlength.requiredLength }}文字以下で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.pattern\" class=\"text-danger\">電話番号は数字で入力してください</p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.telephone\" class=\"text-danger\">電話番号が正しくありません</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">プリンターIPアドレス</label>\n                <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"printerIpAddress\" placeholder=\"0.0.0.0\">\n                <div *ngIf=\"settingForm.controls.printerIpAddress.invalid && settingForm.controls.printerIpAddress.touched\"\n                    class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.printerIpAddress.errors.required\" class=\"text-danger\">プリンターIPアドレスが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.printerIpAddress.errors.pattern\" class=\"text-danger\">プリンターIPアドレスが正しくありません</p>\n                </div>\n                <button type=\"button\" class=\"btn btn-sm btn-primary py-2 px-3 mt-2\" (click)=\"print()\">テスト印刷</button>\n            </div>\n        </form>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text\" (click)=\"onSubmit()\">設定</button>\n    </div>\n\n</div>\n\n<app-navigation [setting]=\"false\" prevLink=\"/purchase/schedule\"></app-navigation>"
 
 /***/ }),
 
@@ -3313,7 +3312,7 @@ module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".form-control {\n  height: auto; }\n"
 
 /***/ }),
 
@@ -3577,7 +3576,7 @@ var SettingComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"p-3 scroll\">\n    <div *ngIf=\"title\" class=\"mb-3 large-text\">{{ title }}</div>\n    <p class=\"mb-3\" [innerHTML]=\"body\"></p>\n    <div class=\"w-75 mx-auto\">\n        <button type=\"button\" class=\"btn btn-outline-primary btn-block\" (click)=\"activeModal.dismiss()\">閉じる</button>\n    </div>\n</div>"
+module.exports = "<div class=\"p-3 scroll bg-white\">\n    <div *ngIf=\"title\" class=\"mb-3 large-text\">{{ title }}</div>\n    <p class=\"mb-3\" [innerHTML]=\"body\"></p>\n</div>\n\n\n<div class=\"close-button text-white\" (click)=\"activeModal.dismiss()\"><img class=\"w-100\" src=\"/assets/images/icon/close.svg\"></div>"
 
 /***/ }),
 
@@ -3588,7 +3587,7 @@ module.exports = "<div class=\"p-3 scroll\">\n    <div *ngIf=\"title\" class=\"m
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".scroll {\n  -webkit-overflow-scrolling: touch;\n  overflow-y: auto;\n  max-height: 75vh; }\n"
+module.exports = ".scroll {\n  -webkit-overflow-scrolling: touch;\n  overflow-y: auto;\n  max-height: 75vh; }\n\n.close-button {\n  position: absolute;\n  top: -50px;\n  right: 0;\n  width: 40px;\n  height: 40px; }\n"
 
 /***/ }),
 
@@ -3725,7 +3724,7 @@ var ConfirmModalComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"contents\" class=\"scroll bg-light\" [class.touch]=\"touch\">\n    <div class=\"contents mx-auto\">\n        <ng-content></ng-content>\n    </div>\n</div>"
+module.exports = "<div id=\"contents\" class=\"scroll\" [class.touch]=\"touch\">\n    <div class=\"contents mx-auto\">\n        <ng-content></ng-content>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -3736,7 +3735,7 @@ module.exports = "<div id=\"contents\" class=\"scroll bg-light\" [class.touch]=\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  box-sizing: border-box;\n  position: absolute;\n  top: 54px;\n  bottom: 0;\n  left: 0;\n  right: 0; }\n\n.contents {\n  max-width: 960px; }\n\n.scroll {\n  overflow-x: hidden;\n  overflow-y: auto;\n  height: 100%; }\n\n.touch {\n  -webkit-overflow-scrolling: touch; }\n"
+module.exports = ":host {\n  box-sizing: border-box;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0; }\n\n.contents {\n  max-width: 960px; }\n\n.scroll {\n  overflow-x: hidden;\n  overflow-y: auto;\n  height: 100%; }\n\n.touch {\n  -webkit-overflow-scrolling: touch; }\n"
 
 /***/ }),
 
@@ -4048,7 +4047,7 @@ module.exports = "<div class=\"fixed-top bg-secondary text-white shadow-sm\">\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".header {\n  max-width: 960px; }\n\n.menu-button {\n  width: 20px;\n  height: 16px;\n  position: relative; }\n\n.menu-button div {\n    position: absolute;\n    top: 50%;\n    left: 0;\n    margin-top: -0.5px;\n    width: 100%;\n    height: 1px;\n    background-color: #FFF; }\n\n.menu-button div:first-child {\n      top: 0;\n      margin-top: 0; }\n\n.menu-button div:last-child {\n      top: initial;\n      bottom: 0;\n      margin-top: 0; }\n\n.menu-button.active div {\n    opacity: 0; }\n\n.menu-button.active div:first-child {\n      opacity: 1;\n      top: 50%;\n      margin-top: -1px;\n      -webkit-transform: rotate(45deg);\n              transform: rotate(45deg); }\n\n.menu-button.active div:last-child {\n      opacity: 1;\n      top: 50%;\n      bottom: initial;\n      margin-top: -1px;\n      -webkit-transform: rotate(-45deg);\n              transform: rotate(-45deg); }\n"
+module.exports = ".menu-button {\n  width: 20px;\n  height: 16px;\n  position: relative; }\n  .menu-button div {\n    position: absolute;\n    top: 50%;\n    left: 0;\n    margin-top: -0.5px;\n    width: 100%;\n    height: 1px;\n    background-color: #FFF; }\n  .menu-button div:first-child {\n      top: 0;\n      margin-top: 0; }\n  .menu-button div:last-child {\n      top: initial;\n      bottom: 0;\n      margin-top: 0; }\n  .menu-button.active div {\n    opacity: 0; }\n  .menu-button.active div:first-child {\n      opacity: 1;\n      top: 50%;\n      margin-top: -1px;\n      -webkit-transform: rotate(45deg);\n              transform: rotate(45deg); }\n  .menu-button.active div:last-child {\n      opacity: 1;\n      top: 50%;\n      bottom: initial;\n      margin-top: -1px;\n      -webkit-transform: rotate(-45deg);\n              transform: rotate(-45deg); }\n"
 
 /***/ }),
 
@@ -4173,7 +4172,7 @@ var LoadingComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"p-3 scroll\">\n    <form [formGroup]=\"mvtkForm\">\n        <div class=\"mb-3\">\n            <p *ngIf=\"errorMessage !== '' && !isSuccess\" class=\"mb-3 p-2 alert alert-danger\">{{ errorMessage }}</p>\n            <p *ngIf=\"isSuccess\" class=\"mb-3 p-2 alert alert-success\">ムビチケ券を追加しました</p>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">ムビチケ購入番号</label>\n                <input type=\"text\" class=\"form-control\" formControlName=\"code\" id=\"code\" autocomplete=\"off\" placeholder=\"(例)012345789\"\n                    maxlength=\"10\">\n                <div *ngIf=\"mvtkForm.controls.code.invalid && mvtkForm.controls.code.touched\" class=\"mt-2\">\n                    <p *ngIf=\"mvtkForm.controls.code.errors.required\" class=\"text-danger\">ムビチケ購入番号が未入力です</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.maxlength\" class=\"text-danger\">ムビチケ購入番号は{{\n                        mvtkForm.controls.code.errors.maxlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.minlength\" class=\"text-danger\">ムビチケ購入番号は{{\n                        mvtkForm.controls.code.errors.minlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.pattern\" class=\"text-danger\">ムビチケ購入番号は数字で入力してください</p>\n                </div>\n            </div>\n\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">ムビチケ暗証番号</label>\n                <input type=\"password\" class=\"form-control\" formControlName=\"password\" id=\"password\" autocomplete=\"off\" placeholder=\"(例)0123\"\n                    maxlength=\"4\">\n                <div *ngIf=\"mvtkForm.controls.password.invalid && mvtkForm.controls.password.touched\" class=\"mt-2\">\n                    <p *ngIf=\"mvtkForm.controls.password.errors.required\" class=\"text-danger\">ムビチケ暗証番号が未入力です</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.maxlength\" class=\"text-danger\">ムビチケ暗証番号は{{\n                        mvtkForm.controls.password.errors.maxlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.minlength\" class=\"text-danger\">ムビチケ暗証番号は{{\n                        mvtkForm.controls.password.errors.minlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.pattern\" class=\"text-danger\">ムビチケ暗証番号は数字で入力してください</p>\n                </div>\n            </div>\n        </div>\n        <div class=\"w-75 mx-auto\">\n            <button type=\"button\" class=\"btn btn-primary btn-block\" [disabled]=\"isLoading | async\" (click)=\"checkMovieTicket()\">認証</button>\n            <button type=\"button\" class=\"btn btn-outline-primary btn-block\" (click)=\"activeModal.dismiss()\">閉じる</button>\n        </div>\n    </form>\n</div>"
+module.exports = "<div class=\"p-4 scroll bg-white\">\n    <form [formGroup]=\"mvtkForm\">\n        <div class=\"mb-4\">\n            <p *ngIf=\"errorMessage !== '' && !isSuccess\" class=\"mb-3 p-2 alert alert-danger\">{{ errorMessage }}</p>\n            <p *ngIf=\"isSuccess\" class=\"mb-3 p-2 alert alert-success\">ムビチケ券を追加しました</p>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">ムビチケ購入番号</label>\n                <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"code\" id=\"code\" autocomplete=\"off\" placeholder=\"(例)012345789\"\n                    maxlength=\"10\">\n                <div *ngIf=\"mvtkForm.controls.code.invalid && mvtkForm.controls.code.touched\" class=\"mt-2\">\n                    <p *ngIf=\"mvtkForm.controls.code.errors.required\" class=\"text-danger\">ムビチケ購入番号が未入力です</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.maxlength\" class=\"text-danger\">ムビチケ購入番号は{{\n                        mvtkForm.controls.code.errors.maxlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.minlength\" class=\"text-danger\">ムビチケ購入番号は{{\n                        mvtkForm.controls.code.errors.minlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.pattern\" class=\"text-danger\">ムビチケ購入番号は数字で入力してください</p>\n                </div>\n            </div>\n\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">ムビチケ暗証番号</label>\n                <input type=\"password\" class=\"form-control py-2 large-text\" formControlName=\"password\" id=\"password\" autocomplete=\"off\" placeholder=\"(例)0123\"\n                    maxlength=\"4\">\n                <div *ngIf=\"mvtkForm.controls.password.invalid && mvtkForm.controls.password.touched\" class=\"mt-2\">\n                    <p *ngIf=\"mvtkForm.controls.password.errors.required\" class=\"text-danger\">ムビチケ暗証番号が未入力です</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.maxlength\" class=\"text-danger\">ムビチケ暗証番号は{{\n                        mvtkForm.controls.password.errors.maxlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.minlength\" class=\"text-danger\">ムビチケ暗証番号は{{\n                        mvtkForm.controls.password.errors.minlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.pattern\" class=\"text-danger\">ムビチケ暗証番号は数字で入力してください</p>\n                </div>\n            </div>\n        </div>\n        <div class=\"w-75 mx-auto\">\n            <button type=\"button\" class=\"btn btn-primary btn-block py-3 large-text\" [disabled]=\"isLoading | async\" (click)=\"checkMovieTicket()\">認証</button>\n        </div>\n    </form>\n</div>\n\n\n<div class=\"close-button text-white\" (click)=\"activeModal.dismiss()\"><img class=\"w-100\" src=\"/assets/images/icon/close.svg\"></div>"
 
 /***/ }),
 
@@ -4184,7 +4183,7 @@ module.exports = "<div class=\"p-3 scroll\">\n    <form [formGroup]=\"mvtkForm\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".scroll {\n  -webkit-overflow-scrolling: touch;\n  overflow-y: auto;\n  max-height: 75vh; }\n"
+module.exports = ".scroll {\n  -webkit-overflow-scrolling: touch;\n  overflow-y: auto;\n  max-height: 75vh; }\n\n.close-button {\n  position: absolute;\n  top: -50px;\n  right: 0;\n  width: 40px;\n  height: 40px; }\n\n.form-control {\n  height: auto; }\n"
 
 /***/ }),
 
@@ -4327,6 +4326,93 @@ var MvtkCheckModalComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./app/components/parts/navigation/navigation.component.html":
+/*!*******************************************************************!*\
+  !*** ./app/components/parts/navigation/navigation.component.html ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"prev\" class=\"position-fixed rounded-circle prev\" [routerLink]=\"prevLink\">\n    <img class=\"w-100\" src=\"/assets/images/icon/prev.svg\">\n</div>\n<div *ngIf=\"home\" class=\"position-fixed rounded-circle home\" routerLink=\"/purchase/schedule\">\n    <img class=\"w-100\" src=\"/assets/images/icon/home.svg\">\n</div>\n<div *ngIf=\"print\" class=\"position-fixed rounded-circle print\" routerLink=\"/inquiry/input\">\n    <img class=\"w-100\" src=\"/assets/images/icon/print.svg\">\n</div>\n<div *ngIf=\"setting\" class=\"position-fixed rounded-circle setting\" routerLink=\"/setting\">\n    <img class=\"w-100\" src=\"/assets/images/icon/setting.svg\">\n</div>"
+
+/***/ }),
+
+/***/ "./app/components/parts/navigation/navigation.component.scss":
+/*!*******************************************************************!*\
+  !*** ./app/components/parts/navigation/navigation.component.scss ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".position-fixed {\n  bottom: 20px;\n  width: 60px;\n  height: 60px;\n  padding: 15px;\n  background-color: #0264a3; }\n\n.prev {\n  left: 20px; }\n\n.home {\n  left: 100px; }\n\n.print {\n  right: 20px; }\n\n.setting {\n  right: 100px; }\n"
+
+/***/ }),
+
+/***/ "./app/components/parts/navigation/navigation.component.ts":
+/*!*****************************************************************!*\
+  !*** ./app/components/parts/navigation/navigation.component.ts ***!
+  \*****************************************************************/
+/*! exports provided: NavigationComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationComponent", function() { return NavigationComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var NavigationComponent = /** @class */ (function () {
+    function NavigationComponent() {
+    }
+    NavigationComponent.prototype.ngOnInit = function () {
+        this.setting = (this.setting === undefined) ? true : this.setting;
+        this.prev = (this.prev === undefined) ? true : this.prev;
+        this.home = (this.home === undefined) ? true : this.home;
+        this.print = (this.print === undefined) ? true : this.print;
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], NavigationComponent.prototype, "prevLink", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], NavigationComponent.prototype, "setting", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], NavigationComponent.prototype, "prev", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], NavigationComponent.prototype, "home", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], NavigationComponent.prototype, "print", void 0);
+    NavigationComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-navigation',
+            template: __webpack_require__(/*! ./navigation.component.html */ "./app/components/parts/navigation/navigation.component.html"),
+            styles: [__webpack_require__(/*! ./navigation.component.scss */ "./app/components/parts/navigation/navigation.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], NavigationComponent);
+    return NavigationComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./app/components/parts/purchase-contents/purchase-contents.component.html":
 /*!*********************************************************************************!*\
   !*** ./app/components/parts/purchase-contents/purchase-contents.component.html ***!
@@ -4334,7 +4420,7 @@ var MvtkCheckModalComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"purchaseContents\" class=\"scroll bg-light\" [class.touch]=\"touch\">\n    <div class=\"contents mx-auto\">\n        <ng-content></ng-content>\n    </div>\n</div>"
+module.exports = "<div id=\"purchaseContents\" class=\"scroll\" [class.touch]=\"touch\">\n    <div class=\"contents mx-auto\">\n        <ng-content></ng-content>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -4345,7 +4431,7 @@ module.exports = "<div id=\"purchaseContents\" class=\"scroll bg-light\" [class.
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  box-sizing: border-box;\n  position: absolute;\n  top: 54px;\n  bottom: 0;\n  left: 0;\n  right: 0; }\n\n.contents {\n  max-width: 960px; }\n\n.scroll {\n  overflow-x: hidden;\n  overflow-y: auto;\n  height: 100%; }\n\n.touch {\n  -webkit-overflow-scrolling: touch; }\n"
+module.exports = ":host {\n  box-sizing: border-box;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0; }\n\n.contents {\n  max-width: 960px;\n  padding-bottom: 100px; }\n\n.scroll {\n  overflow-x: hidden;\n  overflow-y: auto;\n  height: 100%; }\n\n.touch {\n  -webkit-overflow-scrolling: touch; }\n"
 
 /***/ }),
 
@@ -4641,7 +4727,7 @@ var PurchasePaymentModalComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"bg-secondary p-3 text-white\">\n    <div class=\"film border-bottom border-white pb-3 mb-3\">\n        <p class=\"title\">{{ screeningFilmEvent.info.name.ja }}</p>\n        <div class=\"info\">\n            <div class=\"en small-x-text mb-1\">{{ screeningFilmEvent.info.name.en }}</div>\n            <div class=\"time small-x-text\">[上映時間: {{ moment.duration(screeningFilmEvent.info.duration).asMinutes() }}分]</div>\n        </div>\n    </div>\n    <ul>\n        <li *ngFor=\"let screeningEvent of screeningFilmEvent.data\" class=\"p-3 py-md-3 text-md-center d-md-block d-flex justify-content-between align-items-center\"\n            [ngClass]=\"{ \n            'bg-primary':  screeningEvent.remainingAttendeeCapacity >= 30, \n            'bg-warning':  screeningEvent.remainingAttendeeCapacity < 30 && screeningEvent.remainingAttendeeCapacity > 0, \n            'bg-dark':  screeningEvent.remainingAttendeeCapacity === 0}\" (click)=\"select.emit(screeningEvent)\">\n            <div class=\"mb-md-2\">\n                <span>{{ moment(screeningEvent.startDate).format('HH:mm') }}</span>\n                <span>-</span>\n                <span>{{ moment(screeningEvent.endDate).format('HH:mm') }}</span>\n            </div>\n            <div class=\"mb-md-2\">\n                {{ screeningEvent.location.name.ja }}\n            </div>\n            <div class=\"status text-center\">\n                <div class=\"mb-1\">空席状況</div>\n                <div>{{ screeningEvent.remainingAttendeeCapacity }} / {{ screeningEvent.maximumAttendeeCapacity }}</div>\n            </div>\n        </li>\n    </ul>\n</div>"
+module.exports = "<div class=\"film p-3 bg-white\">\n    <p class=\"title large-text\"><strong>{{ screeningFilmEvent.info.name.ja }}</strong></p>\n    <div class=\"info\">\n        <div class=\"time small-text text-right\">{{ moment.duration(screeningFilmEvent.info.duration).asMinutes() }}分</div>\n    </div>\n</div>\n<ul class=\"bg-light p-3\">\n    <li *ngFor=\"let screeningEvent of screeningFilmEvent.data\" class=\"rounded border py-3 py-md-3 text-md-center d-md-block d-flex justify-content-between align-items-center\"\n        [ngClass]=\"{ \n        'bg-white':  screeningEvent.remainingAttendeeCapacity > 0, \n        'bg-dark text-light':  screeningEvent.remainingAttendeeCapacity === 0}\"\n        (click)=\"select.emit(screeningEvent)\">\n        <div class=\"mb-md-2 small-text\">\n            {{ screeningEvent.location.name.ja }}\n        </div>\n        <div class=\"mb-md-2\">\n            <strong class=\"large-text\">{{ moment(screeningEvent.startDate).format('HH:mm') }}</strong>\n            <span>-</span>\n            <span>{{ moment(screeningEvent.endDate).format('HH:mm') }}</span>\n        </div>\n        <div *ngIf=\"screeningEvent.remainingAttendeeCapacity >= 30\" class=\"status text-center\">\n            <img src=\"/assets/images/status_01.svg\">\n        </div>\n        <div *ngIf=\"screeningEvent.remainingAttendeeCapacity < 30 && screeningEvent.remainingAttendeeCapacity > 0\"\n            class=\"status text-center\">\n            <img src=\"/assets/images/status_02.svg\">\n        </div>\n        <div *ngIf=\"screeningEvent.remainingAttendeeCapacity === 0\" class=\"status text-center\">\n            <img src=\"/assets/images/status_03.svg\">\n        </div>\n        <div *ngIf=\"screeningEvent.remainingAttendeeCapacity === 0\" class=\"status text-center\">\n            <p>販売終了</p>\n        </div>\n    </li>\n</ul>"
 
 /***/ }),
 
@@ -4652,7 +4738,7 @@ module.exports = "<div class=\"bg-secondary p-3 text-white\">\n    <div class=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".btn-primary {\n  color: #FFF; }\n\n.btn-outline-primary:hover {\n  color: #FFF; }\n\n:host {\n  display: block; }\n\nul {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;\n      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;\n  grid-gap: 1rem; }\n\n@media (max-width: 767.98px) {\n    ul {\n      -ms-grid-columns: 1fr;\n          grid-template-columns: 1fr;\n      grid-gap: 0.5rem; } }\n"
+module.exports = ".btn-primary {\n  color: #FFF; }\n\n.btn-outline-primary:hover {\n  color: #FFF; }\n\n:host {\n  display: block; }\n\nul {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-columns: 1fr 1fr 1fr 1fr;\n      grid-template-columns: 1fr 1fr 1fr 1fr;\n  grid-gap: 1rem; }\n\n@media (max-width: 767.98px) {\n    ul {\n      -ms-grid-columns: 1fr;\n          grid-template-columns: 1fr;\n      grid-gap: 0.5rem; } }\n\n.status img {\n  height: 30px; }\n\n.status p {\n  line-height: 30px; }\n"
 
 /***/ }),
 
@@ -4727,7 +4813,7 @@ module.exports = "<div class=\"radius bg-light-gray\">\n    <div class=\"screen\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: block; }\n\n.screen {\n  position: relative;\n  overflow: hidden; }\n\n.screen .screen-scroll {\n    height: 500px; }\n\n.screen .screen-inner {\n    position: relative;\n    width: 1600px;\n    height: 1400px; }\n\n.screen .seat {\n    position: absolute;\n    cursor: pointer;\n    text-align: center;\n    font-weight: bold;\n    color: #9a9a9b;\n    padding-top: 20px;\n    background-image: url(/images/theater/seat/normal.svg);\n    background-size: 40px 50px;\n    background-repeat: no-repeat; }\n\n.screen .seat.active {\n      color: #FFF;\n      background-image: url(/images/theater/seat/normal_active.svg); }\n\n.screen .seat.disabled {\n      color: #FFF;\n      background-image: url(/images/theater/seat/normal_disabled.svg);\n      cursor: default; }\n\n.screen .seat-hc {\n    background-image: url(/images/theater/seat/hc_disabled.svg) !important;\n    background-size: 40px 50px; }\n\n.screen .seat-hc span {\n      display: none !important; }\n\n.screen .object {\n    position: absolute;\n    background-repeat: no-repeat; }\n\n.screen .label-object {\n    text-align: center;\n    line-height: 50px;\n    font-size: 24px;\n    color: #9a9a9b;\n    font-weight: bold; }\n\n.screen-4dx .seat {\n  background-image: url(/images/theater/seat/4dx.svg);\n  background-size: 50px 50px; }\n\n.screen-4dx .seat.active {\n    color: #FFF;\n    background-image: url(/images/theater/seat/4dx_active.svg); }\n\n.screen-4dx .seat.disabled {\n    color: #FFF;\n    background-image: url(/images/theater/seat/4dx_disabled.svg);\n    cursor: default; }\n\n.zoom .screen-scroll {\n  overflow: auto;\n  transition: -webkit-transform 0.2s;\n  transition: transform 0.2s;\n  transition: transform 0.2s, -webkit-transform 0.2s;\n  -webkit-overflow-scrolling: touch; }\n\n.zoom .seat span {\n  display: block; }\n\n.zoom-btn {\n  display: none;\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  z-index: 10;\n  width: 50px;\n  height: 50px;\n  color: #FFF;\n  background-color: #3e3a39;\n  border-radius: 3px;\n  align-items: center;\n  justify-content: center; }\n\n.zoom-btn.active {\n    display: flex; }\n\n.zoom-btn.scroll {\n    position: fixed; }\n"
+module.exports = ":host {\n  display: block; }\n\n.screen {\n  position: relative;\n  overflow: hidden; }\n\n.screen .screen-scroll {\n    height: 500px; }\n\n.screen .screen-inner {\n    position: relative;\n    width: 1600px;\n    height: 1400px; }\n\n.screen .seat {\n    position: absolute;\n    cursor: pointer;\n    text-align: center;\n    font-weight: bold;\n    color: #9a9a9b;\n    padding-top: 20px;\n    background-image: url(/images/theater/seat/normal.svg);\n    background-size: 40px 50px;\n    background-repeat: no-repeat;\n    font-size: 12px; }\n\n.screen .seat.active {\n      color: #FFF;\n      background-image: url(/images/theater/seat/normal_active.svg); }\n\n.screen .seat.disabled {\n      color: #FFF;\n      background-image: url(/images/theater/seat/normal_disabled.svg);\n      cursor: default; }\n\n.screen .seat-hc {\n    background-image: url(/images/theater/seat/hc_disabled.svg) !important;\n    background-size: 40px 50px; }\n\n.screen .seat-hc span {\n      display: none !important; }\n\n.screen .object {\n    position: absolute;\n    background-repeat: no-repeat; }\n\n.screen .label-object {\n    text-align: center;\n    line-height: 50px;\n    font-size: 24px;\n    color: #9a9a9b;\n    font-weight: bold; }\n\n.screen-4dx .seat {\n  background-image: url(/images/theater/seat/4dx.svg);\n  background-size: 50px 50px; }\n\n.screen-4dx .seat.active {\n    color: #FFF;\n    background-image: url(/images/theater/seat/4dx_active.svg); }\n\n.screen-4dx .seat.disabled {\n    color: #FFF;\n    background-image: url(/images/theater/seat/4dx_disabled.svg);\n    cursor: default; }\n\n.zoom .screen-scroll {\n  overflow: auto;\n  transition: -webkit-transform 0.2s;\n  transition: transform 0.2s;\n  transition: transform 0.2s, -webkit-transform 0.2s;\n  -webkit-overflow-scrolling: touch; }\n\n.zoom .seat span {\n  display: block; }\n\n.zoom-btn {\n  display: none;\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  z-index: 10;\n  width: 50px;\n  height: 50px;\n  color: #FFF;\n  background-color: #3e3a39;\n  border-radius: 3px;\n  align-items: center;\n  justify-content: center; }\n\n.zoom-btn.active {\n    display: flex; }\n\n.zoom-btn.scroll {\n    position: fixed; }\n"
 
 /***/ }),
 
@@ -5091,7 +5177,7 @@ var ScreenComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"p-3 scroll\">\n    <div *ngFor=\"let ticket of tickets\" class=\"ticket mb-2\">\n        <button type=\"button\" (click)=\"activeModal.close(ticket)\" class=\"btn btn-block btn-outline-primary p-3\">\n            <div class=\"d-flex justify-content-between align-items-center\">\n                <div class=\"w-75 text-left\">\n                    <div>{{ ticket.ticketOffer.name.ja }}</div>\n                    <p *ngIf=\"ticket.movieTicket\" class=\"text-left small-text\">購入管理番号{{ ticket.movieTicket.identifier\n                        }}</p>\n                </div>\n                <div class=\"w-25 text-right\">{{ getTicketPrice(ticket.ticketOffer).total | currency : 'JPY' }}</div>\n            </div>\n        </button>\n    </div>\n</div>"
+module.exports = "<div class=\"scroll\">\n    <div *ngFor=\"let ticket of tickets\" class=\"ticket mb-2\">\n        <button type=\"button\" (click)=\"activeModal.close(ticket)\" class=\"btn btn-block bg-white large-text rounded-0 p-4\">\n            <div class=\"d-flex justify-content-between align-items-center\">\n                <div class=\"w-75 text-left\">\n                    <div>{{ ticket.ticketOffer.name.ja | slice:0:15 }}</div>\n                    <p *ngIf=\"ticket.movieTicket\" class=\"text-left small-text\">購入管理番号{{ ticket.movieTicket.identifier\n                        }}</p>\n                </div>\n                <div class=\"w-25 text-right\">{{ getTicketPrice(ticket.ticketOffer).total | currency : 'JPY' }}</div>\n            </div>\n        </button>\n    </div>\n</div>\n<div class=\"close-button text-white\" (click)=\"activeModal.dismiss()\"><img class=\"w-100\" src=\"/assets/images/icon/close.svg\"></div>"
 
 /***/ }),
 
@@ -5102,7 +5188,7 @@ module.exports = "<div class=\"p-3 scroll\">\n    <div *ngFor=\"let ticket of ti
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".close {\n  position: absolute;\n  top: -30px;\n  right: 0; }\n\n.scroll {\n  -webkit-overflow-scrolling: touch;\n  overflow-y: auto;\n  max-height: 75vh; }\n\n.ticket:last-child {\n  margin-bottom: 0 !important; }\n"
+module.exports = ".close-button {\n  position: absolute;\n  top: -50px;\n  right: 0;\n  width: 40px;\n  height: 40px; }\n\n.scroll {\n  -webkit-overflow-scrolling: touch;\n  overflow-y: auto;\n  max-height: 75vh;\n  position: relative; }\n\n.ticket:last-child {\n  margin-bottom: 0 !important; }\n"
 
 /***/ }),
 
@@ -8708,8 +8794,9 @@ function reducer(state, action) {
             var scheduleDate = action.payload.scheduleDate;
             var screeningEvents = state.purchase.screeningEvents;
             var screeningFilmEvents = Object(_functions__WEBPACK_IMPORTED_MODULE_4__["createScreeningFilmEvents"])({ screeningEvents: screeningEvents, scheduleDate: scheduleDate });
-            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { scheduleDate: scheduleDate,
-                    screeningFilmEvents: screeningFilmEvents }) });
+            state.purchase.scheduleDate = scheduleDate;
+            state.purchase.screeningFilmEvents = screeningFilmEvents;
+            return __assign({}, state, { loading: false, error: null });
         }
         case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_2__["ActionTypes"].GetSchedule: {
             return __assign({}, state, { loading: true });

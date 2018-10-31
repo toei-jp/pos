@@ -1,100 +1,71 @@
 <div class="py-3 px-2">
     <div class="mb-4">
-        <h2 class="bg-secondary text-white p-3 mb-3">購入情報確認</h2>
+        <h2 class="text-center large-text text-white mb-4">購入内容確認</h2>
 
-        <p class="mb-3">購入情報をご確認ください。</p>
+        <p class="mb-3 text-white text-center">※この先の操作の取り消しはできませんのでご注意ください。</p>
 
-        <div class="mb-4 px-3 bg-white">
-            <div class="py-3 border-bottom">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="fas fa-map-marker-alt mr-2"></i>劇場 / スクリーン</p>
-                    <p class="col-md-8">{{ (purchase | async).screeningEvent.superEvent.location.name.ja }} / {{ (purchase | async).screeningEvent.location.name.ja }}</p>
-                </div>
+        <div class="container mb-4">
+            <!-- <div class="row align-items-stretch">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    劇場 / スクリーン</p>
+                <p class="col-8 bg-white py-3">{{ (purchase | async).screeningEvent.superEvent.location.name.ja }} / {{
+                    (purchase | async).screeningEvent.location.name.ja }}</p>
+            </div> -->
+            <div class="row align-items-stretch">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    作品</p>
+                <p class="col-8 bg-white py-3">{{ (purchase | async).screeningEvent.name.ja }}</p>
             </div>
-            <div class="py-3 border-bottom">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="fas fa-film mr-2"></i>作品</p>
-                    <p class="col-md-8">{{ (purchase | async).screeningEvent.name.ja }}</p>
-                </div>
+            <div class="row align-items-stretch">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    鑑賞日</p>
+                <p class="col-8 bg-white py-3">{{ moment((purchase |
+                    async).screeningEvent.startDate).format('YYYY/MM/DD (ddd)') }}</p>
             </div>
-            <div class="py-3 border-bottom">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="far fa-clock mr-2"></i>上映開始日時</p>
-                    <p class="col-md-8">{{ moment((purchase | async).screeningEvent.startDate).format('YYYY/MM/DD (ddd) HH:mm') }}</p>
-                </div>
-            </div>
-            <div class="py-3 border-bottom">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="fas fa-ticket-alt mr-2"></i>座席・券種</p>
-                    <div class="col-md-8">
-                        <div *ngFor="let reservation of (purchase | async).reservations" class="mb-2">
-                            <p>{{ reservation.seat.seatNumber }}</p> 
-                            <p *ngIf="reservation.ticket">{{ reservation.ticket.ticketOffer.name.ja }} / {{ reservation.getTicketPrice().total | currency : 'JPY' }}</p>
-                        </div>
+            <div class="row align-items-stretch">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    座席・券種</p>
+                <div class="col-8 bg-white py-3">
+                    <div *ngFor="let reservation of (purchase | async).reservations" class="mb-2">
+                        <p>{{ reservation.seat.seatNumber }}</p>
+                        <p *ngIf="reservation.ticket">{{ reservation.ticket.ticketOffer.name.ja }} / {{
+                            reservation.getTicketPrice().total | currency : 'JPY' }}</p>
                     </div>
                 </div>
             </div>
-            <!-- <div class="py-3 border-bottom">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="fas fa-user-circle mr-2"></i>お名前</p>
-                    <p class="col-md-8">{{ (purchase | async).customerContact.familyName }} {{ (purchase | async).customerContact.givenName }}</p>
-                </div>
+            <div class="row align-items-stretch" *ngIf="(purchase | async).authorizeSeatReservation.result.price > 0">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    決済方法</p>
+                <p class="col-8 bg-white py-3">{{ (purchase | async).paymentMethod.name }}</p>
             </div>
-            <div class="py-3 border-bottom">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="far fa-envelope mr-2"></i>メールアドレス</p>
-                    <p class="col-md-8">{{ (purchase | async).customerContact.email }}</p>
-                </div>
+        </div>
+        <div class="container mb-4">
+            <div class="row align-items-stretch">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    合計金額</p>
+                <p class="col-8 bg-white py-3">{{ (purchase | async).authorizeSeatReservation.result.price | currency :
+                    'JPY' }}</p>
             </div>
-            <div class="py-3 border-bottom">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="fas fa-phone mr-2"></i>電話番号</p>
-                    <p class="col-md-8">{{ (purchase | async).customerContact.telephone }}</p>
-                </div>
-            </div> -->
-            <div class="py-3" *ngIf="(purchase | async).authorizeSeatReservation.result.price > 0">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="far fa-credit-card mr-2"></i>決済方法</p>
-                    <p class="col-md-8">{{ (purchase | async).paymentMethod.name }}</p>
-                </div>
+            <div class="row align-items-stretch" *ngIf="(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    お預かり金額</p>
+                <p class="col-8 bg-white py-3">
+                    <input type="text" class="form-control large-text" [(ngModel)]="depositAmount">
+                </p>
             </div>
-            <div class="py-3" *ngIf="(purchase | async).authorizeSeatReservation.result.price > 0">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="fas fa-yen-sign mr-2"></i>合計金額</p>
-                    <p class="col-md-8">{{ (purchase | async).authorizeSeatReservation.result.price | currency : 'JPY' }}</p>
-                </div>
-            </div>
-            <div class="py-3" *ngIf="(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="fas fa-arrow-right mr-2"></i>お預かり金額</p>
-                    <p class="col-md-8">
-                        <input type="text" class="form-control" [(ngModel)]="depositAmount">
-                    </p>
-                </div>
-            </div>
-            <div class="py-3" *ngIf="(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="fas fa-arrow-left mr-2"></i>お釣り</p>
-                    <p class="col-md-8">{{ (depositAmount - (purchase | async).authorizeSeatReservation.result.price) | currency : 'JPY' }}</p>
-                </div>
+            <div class="row align-items-stretch" *ngIf="(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    お釣り</p>
+                <p class="col-8 bg-white py-3">{{ (depositAmount - (purchase |
+                    async).authorizeSeatReservation.result.price) | currency : 'JPY' }}</p>
             </div>
         </div>
 
-    </div>
-    
-    <div class="w-75 mx-auto">
-        <button type="button" class="btn btn-primary btn-block py-2 mb-2" [disabled]="isLoading | async" (click)="onSubmit()">購入確定</button>
-        <button type="button" class="btn btn-outline-primary btn-block py-2" routerLink="/purchase/payment">決済方法選択へ戻る</button>
+        <div class="w-50 mx-auto">
+            <button type="button" class="btn btn-block bg-primary py-3 text-white large-text" [disabled]="isLoading | async"
+                (click)="onSubmit()">購入確定</button>
+        </div>
     </div>
 </div>
+
+<app-navigation prevLink="/purchase/payment"></app-navigation>

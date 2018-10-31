@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { factory } from '@cinerino/api-javascript-client';
 import { Actions, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
 import * as moment from 'moment';
-import { SwiperComponent, SwiperConfigInterface, SwiperDirective } from 'ngx-swiper-wrapper';
 import { Observable, race } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
 import { environment } from '../../../../../environments/environment';
@@ -17,7 +16,6 @@ import {
     SelectTheater,
     StartTransaction
 } from '../../../../store/actions/purchase.action';
-import { IScreeningEventDate } from '../../../../store/functions';
 import * as reducers from '../../../../store/reducers';
 
 @Component({
@@ -26,11 +24,9 @@ import * as reducers from '../../../../store/reducers';
     styleUrls: ['./purchase-schedule.component.scss']
 })
 export class PurchaseScheduleComponent implements OnInit {
-    @ViewChild(SwiperComponent) public componentRef: SwiperComponent;
-    @ViewChild(SwiperDirective) public directiveRef: SwiperDirective;
     public purchase: Observable<reducers.IPurchaseState>;
     public user: Observable<reducers.IUserState>;
-    public swiperConfig: SwiperConfigInterface;
+    public scheduleDateValue: string;
     constructor(
         private store: Store<reducers.IState>,
         private actions: Actions,
@@ -38,15 +34,6 @@ export class PurchaseScheduleComponent implements OnInit {
     ) { }
 
     public async ngOnInit() {
-        this.swiperConfig = {
-            spaceBetween: 1,
-            slidesPerView: 7,
-            breakpoints: {
-                320: { slidesPerView: 2 },
-                767: { slidesPerView: 3 },
-                1024: { slidesPerView: 6 }
-            }
-        };
         this.store.dispatch(new Delete({}));
         this.purchase = this.store.pipe(select(reducers.getPurchase));
         this.user = this.store.pipe(select(reducers.getUser));
@@ -60,21 +47,15 @@ export class PurchaseScheduleComponent implements OnInit {
     }
 
     /**
-     * resize
-     */
-    public resize() {
-        this.directiveRef.update();
-    }
-
-    /**
      * selectTheater
      */
     public selectTheater(movieTheater: factory.organization.movieTheater.IOrganization) {
         this.store.dispatch(new SelectTheater({ movieTheater }));
+        const today = moment().format('YYYYMMDD');
         this.store.dispatch(new GetSchedule({
             params: {
-                startFrom: moment().toDate(),
-                startThrough: moment().add(7, 'day').toDate(),
+                startFrom: moment(today).toDate(),
+                startThrough: moment(today).add(7, 'day').toDate(),
                 superEvent: {
                     locationBranchCodes: [movieTheater.location.branchCode]
                 }
@@ -84,9 +65,12 @@ export class PurchaseScheduleComponent implements OnInit {
         const success = this.actions.pipe(
             ofType(ActionTypes.GetScheduleSuccess),
             tap(() => {
-                if (this.directiveRef !== undefined) {
-                    this.directiveRef.update();
-                }
+                this.purchase.subscribe((purchase) => {
+                    if (purchase.scheduleDate === undefined) {
+                        return;
+                    }
+                    this.scheduleDateValue = purchase.scheduleDate.format;
+                }).unsubscribe();
             })
         );
 
@@ -102,8 +86,21 @@ export class PurchaseScheduleComponent implements OnInit {
     /**
      * selectDate
      */
-    public selectDate(scheduleDate: IScreeningEventDate) {
-        this.store.dispatch(new SelectScheduleDate({ scheduleDate }));
+    public selectDate() {
+        this.purchase.subscribe((purchase) => {
+            if (purchase.scheduleDate === undefined) {
+                return;
+            }
+            const findResult = purchase.scheduleDates.find((scheduleDate) => {
+                return (scheduleDate.format === this.scheduleDateValue);
+            });
+            console.log(findResult);
+
+            if (findResult === undefined) {
+                return;
+            }
+            this.store.dispatch(new SelectScheduleDate({ scheduleDate: findResult }));
+        }).unsubscribe();
     }
 
     /**

@@ -1,17 +1,14 @@
-<div class="p-3">
-    <h2 class="bg-secondary text-white p-3 mb-3">上映スケジュール</h2>
-    <div class="swiper-container date mb-3" #swiper [swiper]="swiperConfig" (resize)="resize()">
-        <div class="swiper-wrapper">
-            <div *ngFor="let scheduleDate of (purchase | async).scheduleDates" class="swiper-slide">
-                <div class="text-center text-white py-4 px-2" 
-                [class.bg-secondary]="scheduleDate.format !== (purchase | async).scheduleDate.format"
-                [class.bg-primary]="scheduleDate.format === (purchase | async).scheduleDate.format"
-                (click)="selectDate(scheduleDate)">
-                    <div>{{ scheduleDate.string }}</div>
-                </div>
-            </div>
-        </div>
+<div class="py-4 px-3">
+    <h2 class="text-center large-text text-white mb-4">スケジュール選択</h2>
+    <div class="form-group border rounded d-grid align-items-center mx-auto">
+        <div class="label text-white text-center">鑑賞日</div>
+        <select class="form-control rounded-0 py-3" (change)="selectDate()" [(ngModel)]="scheduleDateValue">
+            <option *ngFor="let scheduleDate of (purchase | async).scheduleDates" [value]="scheduleDate.format">{{
+                scheduleDate.string }}</option>
+        </select>
     </div>
     <app-purchase-schedule-film *ngFor="let screeningFilmEvent of (purchase | async).screeningFilmEvents"
         [screeningFilmEvent]="screeningFilmEvent" (select)="selectSchedule($event)" class="mb-3"></app-purchase-schedule-film>
 </div>
+
+<app-navigation [prev]="false" [home]="false"></app-navigation>

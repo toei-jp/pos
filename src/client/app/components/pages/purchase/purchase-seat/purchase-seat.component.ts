@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Actions, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
+import * as moment from 'moment';
 import { Observable, race } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
 import { IReservationSeat, SeatStatus } from '../../../../models';
@@ -25,6 +26,7 @@ import { AlertModalComponent } from '../../../parts/alert-modal/alert-modal.comp
 export class PurchaseSeatComponent implements OnInit {
     public purchase: Observable<reducers.IPurchaseState>;
     public isLoading: Observable<boolean>;
+    public moment = moment;
     constructor(
         private store: Store<reducers.IState>,
         private actions: Actions,

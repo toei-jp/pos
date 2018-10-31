@@ -9,3 +9,11 @@
     }
 }
 
+.form-group {
+    width: 300px;
+    grid-template-columns: 1fr 2fr;
+}
+
+select {
+    height: auto;
+}

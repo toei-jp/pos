@@ -1,91 +1,53 @@
-<div class="py-3 px-2">
+<div class="py-4 px-3">
     <div class="mb-4">
-        <h2 class="bg-secondary text-white p-3 mb-3">照会結果</h2>
-
-        <div class="mb-4 px-3 bg-white">
-            <div class="py-3 border-bottom">
-                <div class="row align-items-center">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="fas fa-key mr-2"></i>購入番号</p>
-                    <p class="col-md-8 large-x-text text-success">
-                        <strong>{{ (inquiry | async).order.confirmationNumber }}</strong>
-                    </p>
-                </div>
+        <h2 class="text-center large-text text-white mb-4">照会結果</h2>
+        <div class="container mb-4">
+            <div class="row align-items-stretch">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    購入番号</p>
+                <p class="col-8 bg-white py-3">
+                    <strong>{{ (inquiry | async).order.confirmationNumber }}</strong>
+                </p>
             </div>
-            <div class="py-3 border-bottom">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="fas fa-map-marker-alt mr-2"></i>劇場 / スクリーン</p>
-                    <p class="col-md-8">{{ (inquiry |
+            <!-- <div class="row">
+                    <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                        劇場 / スクリーン</p>
+                    <p class="col-8 bg-white py-3">{{ (inquiry |
                         async).order.acceptedOffers[0].itemOffered.reservationFor.superEvent.location.name.ja }} / {{
                         (inquiry | async).order.acceptedOffers[0].itemOffered.reservationFor.location.name.ja }}</p>
-                </div>
+                </div> -->
+            <div class="row">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    作品</p>
+                <p class="col-8 bg-white py-3">{{ (inquiry |
+                    async).order.acceptedOffers[0].itemOffered.reservationFor.name.ja }}</p>
             </div>
-            <div class="py-3 border-bottom">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="fas fa-film mr-2"></i>作品</p>
-                    <p class="col-md-8">{{ (inquiry | async).order.acceptedOffers[0].itemOffered.reservationFor.name.ja
-                        }}</p>
-                </div>
+            <div class="row">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    鑑賞日</p>
+                <p class="col-8 bg-white py-3">{{ moment((inquiry |
+                    async).order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YYYY/MM/DD (ddd)') }}</p>
             </div>
-            <div class="py-3 border-bottom">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="far fa-clock mr-2"></i>上映開始日時</p>
-                    <p class="col-md-8">{{ moment((inquiry |
-                        async).order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YYYY/MM/DD (ddd)
-                        HH:mm') }}</p>
-                </div>
-            </div>
-            <div class="py-3 border-bottom">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="fas fa-ticket-alt mr-2"></i>座席・券種</p>
-                    <div class="col-md-8">
-                        <div *ngFor="let acceptedOffer of (inquiry | async).order.acceptedOffers" class="mb-2">
-                            <p>{{ acceptedOffer.itemOffered.reservedTicket.ticketedSeat.seatNumber }}</p>
-                            <p>{{ acceptedOffer.itemOffered.reservedTicket.ticketType.name.ja }} / {{
-                                acceptedOffer.itemOffered.reservedTicket.totalPrice | currency : 'JPY' }}</p>
-                        </div>
+            <div class="row">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    座席・券種</p>
+                <div class="col-8 bg-white py-3">
+                    <div *ngFor="let acceptedOffer of (inquiry | async).order.acceptedOffers" class="mb-2">
+                        <p>{{ acceptedOffer.itemOffered.reservedTicket.ticketedSeat.seatNumber }}</p>
+                        <p>{{ acceptedOffer.itemOffered.reservedTicket.ticketType.name.ja }} / {{
+                            acceptedOffer.itemOffered.reservedTicket.totalPrice | currency : 'JPY' }}</p>
                     </div>
                 </div>
             </div>
-            <div class="py-3 border-bottom">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="fas fa-user-circle mr-2"></i>お名前</p>
-                    <p class="col-md-8">{{ (inquiry | async).order.customer.familyName }} {{ (inquiry |
-                        async).order.customer.givenName }}</p>
-                </div>
-            </div>
-            <div class="py-3 border-bottom">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="far fa-envelope mr-2"></i>メールアドレス</p>
-                    <p class="col-md-8">{{ (inquiry | async).order.customer.email }}</p>
-                </div>
-            </div>
-            <div class="py-3 border-bottom">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="fas fa-phone mr-2"></i>電話番号</p>
-                    <p class="col-md-8">{{ (inquiry | async).order.customer.telephone | libphonenumberFormat }}</p>
-                </div>
-            </div>
-            <!-- <div class="py-3" *ngIf="(inquiry | async).order.price > 0">
-                <div class="row">
-                    <p class="mb-2 mb-md-0 col-md-4">
-                        <i class="far fa-credit-card mr-2"></i>決済方法</p>
-                    <p class="col-md-8">クレジットカード</p>
-                </div>
-            </div> -->
         </div>
+        
     </div>
 
-    <div class="w-75 mx-auto">
-        <button type="button" class="btn btn-primary btn-block py-2 mb-2" [disabled]="isLoading | async" (click)="print()">印刷</button>
-        <button type="button" class="btn btn-outline-primary btn-block py-2" routerLink="/inquiry/input">戻る</button>
+    <div class="w-50 mx-auto">
+        <button type="button" class="btn btn-block bg-primary py-3 text-white large-text" [disabled]="isLoading | async"
+            (click)="print()">印刷</button>
     </div>
 
 </div>
+
+<app-navigation prevLink="/inquiry/input" [print]="false"></app-navigation>

@@ -2,23 +2,6 @@
 $font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック  Medium', meiryo, sans-serif;
 
 
-::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-    @include media-breakpoint-down(sm) {
-        width: 5px;
-        height: 5px;
-    }
-}
-
-::-webkit-scrollbar-track {
-    background-color: rgba(0, 0, 0, .1);
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, .5);
-}
-
 html, body {
     height: 100%;
 }
@@ -26,10 +9,8 @@ body {
     text-size-adjust: 100%;
     -webkit-touch-callout: none;
     user-select: none;
-    background-color: #FFF;
     background-attachment: fixed;
-    font-size: 14px;
-    color: #333;
+    font-size: 18px;
     font-family: $font-family;
 }
 
@@ -72,13 +53,13 @@ div {
     font-size: 10px;
 }
 .small-text {
-    font-size: 12px;
+    font-size: 14px;
 }
 .large-text {
-    font-size: 18px;
+    font-size: 24px;
 }
 .large-x-text {
-    font-size: 24px;
+    font-size: 34px;
 }
 .large-xx-text {
     font-size: 50px;
@@ -101,4 +82,8 @@ div {
             width: 100%;
         }
     }
+}
+
+.modal-content {
+    background-color: transparent !important;
 }

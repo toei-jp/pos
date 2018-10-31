@@ -1,11 +1,11 @@
-<div class="p-3 scroll">
+<div class="p-4 scroll bg-white">
     <form [formGroup]="mvtkForm">
-        <div class="mb-3">
+        <div class="mb-4">
             <p *ngIf="errorMessage !== '' && !isSuccess" class="mb-3 p-2 alert alert-danger">{{ errorMessage }}</p>
             <p *ngIf="isSuccess" class="mb-3 p-2 alert alert-success">ムビチケ券を追加しました</p>
             <div class="form-group">
                 <label class="mb-2" for="">ムビチケ購入番号</label>
-                <input type="text" class="form-control" formControlName="code" id="code" autocomplete="off" placeholder="(例)012345789"
+                <input type="text" class="form-control py-2 large-text" formControlName="code" id="code" autocomplete="off" placeholder="(例)012345789"
                     maxlength="10">
                 <div *ngIf="mvtkForm.controls.code.invalid && mvtkForm.controls.code.touched" class="mt-2">
                     <p *ngIf="mvtkForm.controls.code.errors.required" class="text-danger">ムビチケ購入番号が未入力です</p>
@@ -19,7 +19,7 @@
 
             <div class="form-group">
                 <label class="mb-2" for="">ムビチケ暗証番号</label>
-                <input type="password" class="form-control" formControlName="password" id="password" autocomplete="off" placeholder="(例)0123"
+                <input type="password" class="form-control py-2 large-text" formControlName="password" id="password" autocomplete="off" placeholder="(例)0123"
                     maxlength="4">
                 <div *ngIf="mvtkForm.controls.password.invalid && mvtkForm.controls.password.touched" class="mt-2">
                     <p *ngIf="mvtkForm.controls.password.errors.required" class="text-danger">ムビチケ暗証番号が未入力です</p>
@@ -32,8 +32,10 @@
             </div>
         </div>
         <div class="w-75 mx-auto">
-            <button type="button" class="btn btn-primary btn-block" [disabled]="isLoading | async" (click)="checkMovieTicket()">認証</button>
-            <button type="button" class="btn btn-outline-primary btn-block" (click)="activeModal.dismiss()">閉じる</button>
+            <button type="button" class="btn btn-primary btn-block py-3 large-text" [disabled]="isLoading | async" (click)="checkMovieTicket()">認証</button>
         </div>
     </form>
 </div>
+
+
+<div class="close-button text-white" (click)="activeModal.dismiss()"><img class="w-100" src="/assets/images/icon/close.svg"></div>

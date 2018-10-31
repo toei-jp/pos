@@ -1,12 +1,15 @@
-.close {
+.close-button {
     position: absolute;
-    top: -30px;
+    top: -50px;
     right: 0;
+    width: 40px;
+    height: 40px;
 }
 .scroll {
     -webkit-overflow-scrolling: touch;
     overflow-y: auto;
     max-height: 75vh;
+    position: relative;
 }
 .ticket {
     &:last-child {

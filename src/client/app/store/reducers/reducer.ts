@@ -160,13 +160,9 @@ export function reducer(
             const scheduleDate = action.payload.scheduleDate;
             const screeningEvents = state.purchase.screeningEvents;
             const screeningFilmEvents = createScreeningFilmEvents({ screeningEvents, scheduleDate });
-            return {
-                ...state, loading: false, error: null, purchase: {
-                    ...state.purchase,
-                    scheduleDate,
-                    screeningFilmEvents
-                }
-            };
+            state.purchase.scheduleDate = scheduleDate;
+            state.purchase.screeningFilmEvents = screeningFilmEvents;
+            return { ...state, loading: false, error: null };
         }
         case purchase.ActionTypes.GetSchedule: {
             return { ...state, loading: true };
