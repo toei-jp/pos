@@ -7,6 +7,7 @@ import { environment } from '../../../environments/environment';
 import { IScreen } from '../../models';
 import { CinerinoService } from '../../services/cinerino.service';
 import { StarPrintService } from '../../services/star-print.service';
+import { UtilService } from '../../services/util.service';
 import * as purchase from '../actions/purchase.action';
 import {
     createGmoTokenObject,
@@ -24,6 +25,7 @@ export class PurchaseEffects {
         private actions: Actions,
         private cinerino: CinerinoService,
         private starPrint: StarPrintService,
+        private util: UtilService,
         private http: HttpClient
     ) { }
 
@@ -370,6 +372,8 @@ export class PurchaseEffects {
                         sendEmailMessage: true
                     }
                 });
+                await this.util.sleep(5000);
+
                 return new purchase.ReserveSuccess({ order: result.order });
             } catch (error) {
                 await this.cinerino.transaction.placeOrder.cancel({
