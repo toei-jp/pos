@@ -2893,7 +2893,7 @@ var PurchaseScheduleComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-4\">\n    <h2 class=\"text-center large-text text-white mb-4\">座席選択</h2>\n\n    <p class=\"p-3 large-text bg-white mb-3\">{{ (purchase | async).screeningEvent?.name.ja }}</p>\n\n    <div class=\"d-flex justify-content-center align-items-center mb-3 text-white\">\n        <div class=\"d-flex align-items-center mx-3\">\n            <div class=\"small-text border p-2\">スクリーン</div>\n            <div class=\"large-text ml-3\"><strong>{{ (purchase | async).screeningEvent?.location.name.ja }}</strong></div>\n        </div>\n        <div class=\"d-flex align-items-center mx-3\">\n            <div class=\"small-text border p-2\">上映時間</div>\n            <div class=\"ml-3 text-warning\">\n                <strong class=\"large-text\">{{ moment((purchase | async).screeningEvent?.startDate).format('HH:mm') }}</strong>\n                <span> - {{ moment((purchase | async).screeningEvent?.endDate).format('HH:mm') }}</span>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"px-5 mb-4\">\n        <div class=\"bg-white\">\n            <div class=\"pt-4 pb-3 d-flex justify-content-center align-items-center seats border-bottom mx-auto\">\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/seat/normal.svg\"></div>\n                    <div class=\"ml-3\">空席</div>\n                </div>\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/seat/normal_active.svg\"></div>\n                    <div class=\"ml-3\">選択中</div>\n                </div>\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/seat/normal_disabled.svg\"></div>\n                    <div class=\"ml-3\">購入不可</div>\n                </div>\n            </div>\n        </div>\n        <app-screen class=\"bg-white\" [screenData]=\"(purchase | async).screenData\" [screeningEventOffers]=\"(purchase | async).screeningEventOffers\"\n            [reservations]=\"(purchase | async).reservations\" (select)=\"selectSeat($event)\">\n        </app-screen>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text\" [disabled]=\"isLoading | async\" (click)=\"onSubmit()\">次へ</button>\n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/purchase/schedule\"></app-navigation>"
+module.exports = "<div class=\"py-4\">\n    <h2 class=\"text-center large-text text-white mb-4\">座席選択</h2>\n\n    <p class=\"p-3 large-text bg-white mb-3\">{{ (purchase | async).screeningEvent?.name.ja }}</p>\n\n    <div class=\"d-flex justify-content-center align-items-center mb-3 text-white\">\n        <div class=\"d-flex align-items-center mx-3\">\n            <div class=\"small-text border p-2\">スクリーン</div>\n            <div class=\"large-text ml-3\"><strong>{{ (purchase | async).screeningEvent?.location.name.ja }}</strong></div>\n        </div>\n        <div class=\"d-flex align-items-center mx-3\">\n            <div class=\"small-text border p-2\">上映時間</div>\n            <div class=\"ml-3 text-warning\">\n                <strong class=\"large-text\">{{ moment((purchase | async).screeningEvent?.startDate).format('HH:mm') }}</strong>\n                <span> - {{ moment((purchase | async).screeningEvent?.endDate).format('HH:mm') }}</span>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"px-5 mb-4\">\n        <div class=\"bg-white\">\n            <div class=\"pt-4 pb-3 d-flex justify-content-center align-items-center seats border-bottom mx-auto\">\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/seat/normal.svg\"></div>\n                    <div class=\"ml-3\">空席</div>\n                </div>\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/seat/normal_active.svg\"></div>\n                    <div class=\"ml-3\">選択中</div>\n                </div>\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/seat/normal_disabled.svg\"></div>\n                    <div class=\"ml-3\">購入不可</div>\n                </div>\n            </div>\n        </div>\n        <app-screen class=\"bg-white\" [screenData]=\"(purchase | async).screenData\" [screeningEventOffers]=\"(purchase | async).screeningEventOffers\"\n            [reservations]=\"(purchase | async).reservations\" [authorizeSeatReservation]=\"(purchase | async).authorizeSeatReservation\" (select)=\"selectSeat($event)\">\n        </app-screen>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text\" [disabled]=\"isLoading | async\" (click)=\"onSubmit()\">次へ</button>\n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/purchase/schedule\"></app-navigation>"
 
 /***/ }),
 
@@ -3053,10 +3053,12 @@ var PurchaseSeatComponent = /** @class */ (function () {
                 return;
             }
             var reservations = purchase.reservations.map(function (reservation) {
-                reservation.ticket = (reservation.ticket === undefined)
-                    ? { ticketOffer: purchase.screeningEventTicketOffers[0] }
-                    : reservation.ticket;
-                return reservation;
+                return new _models__WEBPACK_IMPORTED_MODULE_8__["Reservation"]({
+                    seat: reservation.seat,
+                    ticket: (reservation.ticket === undefined)
+                        ? { ticketOffer: purchase.screeningEventTicketOffers[0] }
+                        : reservation.ticket
+                });
             });
             var authorizeSeatReservation = purchase.authorizeSeatReservation;
             if (transaction === undefined
@@ -4828,7 +4830,9 @@ module.exports = ":host {\n  display: block; }\n\n.screen {\n  position: relativ
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScreenComponent", function() { return ScreenComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../models */ "./app/models/index.ts");
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../models */ "./app/models/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4838,6 +4842,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 var ScreenComponent = /** @class */ (function () {
@@ -4886,15 +4891,15 @@ var ScreenComponent = /** @class */ (function () {
     ScreenComponent.prototype.changeStatus = function () {
         var _this = this;
         this.seats.forEach(function (seat) {
-            if (seat.status === _models__WEBPACK_IMPORTED_MODULE_1__["SeatStatus"].Active) {
-                seat.status = _models__WEBPACK_IMPORTED_MODULE_1__["SeatStatus"].Default;
+            if (seat.status === _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Active) {
+                seat.status = _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Default;
             }
             var findReservationSeatResult = _this.reservations.find(function (reservation) {
                 return (reservation.seat.seatNumber === seat.code
                     && reservation.seat.seatSection === seat.section);
             });
             if (findReservationSeatResult !== undefined) {
-                seat.status = _models__WEBPACK_IMPORTED_MODULE_1__["SeatStatus"].Active;
+                seat.status = _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Active;
             }
         });
     };
@@ -5043,35 +5048,32 @@ var ScreenComponent = /** @class */ (function () {
                         ? labels[labelCount] + "-" + String(x + 1)
                         : labels[labelCount] + "-" + String(this_1.screenData.map[y].length - x);
                     var className = ["seat-" + code_1];
-                    var section = '';
-                    var status_1 = _models__WEBPACK_IMPORTED_MODULE_1__["SeatStatus"].Disabled;
+                    var section_1 = '';
+                    var status_1 = _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Disabled;
                     // 席の状態変更
                     for (var _i = 0, _a = this_1.screeningEventOffers; _i < _a.length; _i++) {
                         var screeningEventOffer = _a[_i];
-                        section = screeningEventOffer.branchCode;
+                        section_1 = screeningEventOffer.branchCode;
                         var findContainsPlaceResult = screeningEventOffer.containsPlace.find(function (containsPlace) {
                             return (containsPlace.branchCode === code_1);
                         });
                         if (findContainsPlaceResult !== undefined
                             && findContainsPlaceResult.offers !== undefined) {
                             if (findContainsPlaceResult.offers[0].availability === 'InStock') {
-                                // className.push('default');
-                                status_1 = _models__WEBPACK_IMPORTED_MODULE_1__["SeatStatus"].Default;
+                                status_1 = _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Default;
                             }
                             break;
                         }
                     }
-                    // const findReservationSeatResult = this.reservations.find((reservation) => {
-                    //     return (reservation.seat.seatNumber === code
-                    //         && reservation.seat.seatSection === section);
-                    // });
-                    // if (findReservationSeatResult !== undefined) {
-                    //     className.push('active');
-                    //     status = SeatStatus.Active;
-                    // }
-                    // if (className.length === 1) {
-                    //     className.push('disabled');
-                    // }
+                    if (this_1.authorizeSeatReservation !== undefined) {
+                        var findResult = this_1.authorizeSeatReservation.object.acceptedOffer.find(function (offer) {
+                            return (offer.ticketedSeat.seatNumber === code_1
+                                && offer.ticketedSeat.seatSection === section_1);
+                        });
+                        if (findResult !== undefined) {
+                            status_1 = _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Default;
+                        }
+                    }
                     if (this_1.screenData.hc.indexOf(code_1) !== -1) {
                         className.push('seat-hc');
                     }
@@ -5082,7 +5084,7 @@ var ScreenComponent = /** @class */ (function () {
                         y: pos.y,
                         x: pos.x,
                         code: code_1,
-                        section: section,
+                        section: section_1,
                         status: status_1
                     };
                     seats.push(seat);
@@ -5126,7 +5128,7 @@ var ScreenComponent = /** @class */ (function () {
         if (this.isMobile() && !this.zoomState) {
             return;
         }
-        if (seat.status === _models__WEBPACK_IMPORTED_MODULE_1__["SeatStatus"].Disabled) {
+        if (seat.status === _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Disabled) {
             return;
         }
         this.select.emit({
@@ -5151,6 +5153,10 @@ var ScreenComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Array)
     ], ScreenComponent.prototype, "reservations", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], ScreenComponent.prototype, "authorizeSeatReservation", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", Object)
