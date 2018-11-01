@@ -35,7 +35,7 @@
             </div>
         </div>
         <app-screen class="bg-white" [screenData]="(purchase | async).screenData" [screeningEventOffers]="(purchase | async).screeningEventOffers"
-            [reservations]="(purchase | async).reservations" (select)="selectSeat($event)">
+            [reservations]="(purchase | async).reservations" [authorizeSeatReservation]="(purchase | async).authorizeSeatReservation" (select)="selectSeat($event)">
         </app-screen>
     </div>
 
