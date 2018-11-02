@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
 /***/ "../../node_modules/moment/locale sync recursive ^\\.\\/.*$":
-/*!************************************************************************************************************!*\
-  !*** C:/Users/hataguchi/Desktop/workspace/motionpicture/TOEI/pos/node_modules/moment/locale sync ^\.\/.*$ ***!
-  \************************************************************************************************************/
+/*!********************************************************************************************************!*\
+  !*** C:/Users/hatag/Desktop/workspace/motionpicture/TOEI/pos/node_modules/moment/locale sync ^\.\/.*$ ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4177,7 +4177,7 @@ var LoadingComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"p-4 scroll bg-white\">\n    <form [formGroup]=\"mvtkForm\">\n        <div class=\"mb-4\">\n            <p *ngIf=\"errorMessage !== '' && !isSuccess\" class=\"mb-3 p-2 alert alert-danger\">{{ errorMessage }}</p>\n            <p *ngIf=\"isSuccess\" class=\"mb-3 p-2 alert alert-success\">ムビチケ券を追加しました</p>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">ムビチケ購入番号</label>\n                <app-numeric-keypad [inputValue]=\"mvtkForm.controls.code.value\" (change)=\"mvtkForm.controls.code.setValue($event)\">\n                    <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"code\" id=\"code\"\n                        autocomplete=\"off\" placeholder=\"(例)012345789\" maxlength=\"10\" readonly=\"readonly\">\n                </app-numeric-keypad>\n                <div *ngIf=\"mvtkForm.controls.code.invalid && mvtkForm.controls.code.touched\" class=\"mt-2\">\n                    <p *ngIf=\"mvtkForm.controls.code.errors.required\" class=\"text-danger\">ムビチケ購入番号が未入力です</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.maxlength\" class=\"text-danger\">ムビチケ購入番号は{{\n                        mvtkForm.controls.code.errors.maxlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.minlength\" class=\"text-danger\">ムビチケ購入番号は{{\n                        mvtkForm.controls.code.errors.minlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.pattern\" class=\"text-danger\">ムビチケ購入番号は数字で入力してください</p>\n                </div>\n            </div>\n\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">ムビチケ暗証番号</label>\n\n                <app-numeric-keypad [inputValue]=\"mvtkForm.controls.password.value\" (change)=\"mvtkForm.controls.password.setValue($event)\">\n                    <input type=\"password\" class=\"form-control py-2 large-text\" formControlName=\"password\" id=\"password\"\n                        autocomplete=\"off\" placeholder=\"(例)0123\" maxlength=\"4\" readonly=\"readonly\">\n                </app-numeric-keypad>\n                <div *ngIf=\"mvtkForm.controls.password.invalid && mvtkForm.controls.password.touched\" class=\"mt-2\">\n                    <p *ngIf=\"mvtkForm.controls.password.errors.required\" class=\"text-danger\">ムビチケ暗証番号が未入力です</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.maxlength\" class=\"text-danger\">ムビチケ暗証番号は{{\n                        mvtkForm.controls.password.errors.maxlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.minlength\" class=\"text-danger\">ムビチケ暗証番号は{{\n                        mvtkForm.controls.password.errors.minlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.pattern\" class=\"text-danger\">ムビチケ暗証番号は数字で入力してください</p>\n                </div>\n            </div>\n        </div>\n        <div [class.d-block]=\"isShowVideo\" [class.d-none]=\"!isShowVideo\">\n            <div class=\"d-flex align-items-center video-area\"><video id=\"video\" class=\"bg-black\" src=\"\" autoplay muted\n                    playsinline></video></div>\n            <div class=\"d-none\"><canvas id=\"canvas\"></canvas></div>\n        </div>\n        <div class=\"w-75 mx-auto mb-2\">\n            <button *ngIf=\"stream === null\" type=\"button\" class=\"btn btn-primary btn-block py-3 large-text\" [disabled]=\"isLoading | async\"\n                (click)=\"activationCamera()\">カメラで読み取り</button>\n            <button *ngIf=\"stream !== null\" type=\"button\" class=\"btn btn-primary btn-block py-3 large-text\" [disabled]=\"isLoading | async\"\n                (click)=\"stopCamera()\">カメラを停止</button>\n        </div>\n        <div class=\"w-75 mx-auto\">\n            <button type=\"button\" class=\"btn btn-primary btn-block py-3 large-text\" [disabled]=\"isLoading | async\"\n                (click)=\"checkMovieTicket()\">認証</button>\n        </div>\n    </form>\n</div>\n\n\n<div class=\"close-button text-white\" (click)=\"activeModal.dismiss()\"><img class=\"w-100\" src=\"/assets/images/icon/close.svg\"></div>"
+module.exports = "<div class=\"p-4 scroll bg-white\">\n    <form [formGroup]=\"mvtkForm\">\n        <div [class.d-none]=\"isShowVideo\" class=\"mb-4\">\n            <p *ngIf=\"errorMessage !== '' && !isSuccess\" class=\"mb-3 p-2 alert alert-danger\">{{ errorMessage }}</p>\n            <p *ngIf=\"isSuccess\" class=\"mb-3 p-2 alert alert-success\">ムビチケ券を追加しました</p>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">ムビチケ購入番号</label>\n                <app-numeric-keypad [inputValue]=\"mvtkForm.controls.code.value\" (change)=\"mvtkForm.controls.code.setValue($event)\">\n                    <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"code\" id=\"code\"\n                        autocomplete=\"off\" placeholder=\"(例)012345789\" maxlength=\"10\" readonly=\"readonly\">\n                </app-numeric-keypad>\n                <div *ngIf=\"mvtkForm.controls.code.invalid && mvtkForm.controls.code.touched\" class=\"mt-2\">\n                    <p *ngIf=\"mvtkForm.controls.code.errors.required\" class=\"text-danger\">ムビチケ購入番号が未入力です</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.maxlength\" class=\"text-danger\">ムビチケ購入番号は{{\n                        mvtkForm.controls.code.errors.maxlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.minlength\" class=\"text-danger\">ムビチケ購入番号は{{\n                        mvtkForm.controls.code.errors.minlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.pattern\" class=\"text-danger\">ムビチケ購入番号は数字で入力してください</p>\n                </div>\n            </div>\n\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">ムビチケ暗証番号</label>\n\n                <app-numeric-keypad [inputValue]=\"mvtkForm.controls.password.value\" (change)=\"mvtkForm.controls.password.setValue($event)\">\n                    <input type=\"password\" class=\"form-control py-2 large-text\" formControlName=\"password\" id=\"password\"\n                        autocomplete=\"off\" placeholder=\"(例)0123\" readonly=\"readonly\">\n                </app-numeric-keypad>\n                <div *ngIf=\"mvtkForm.controls.password.invalid && mvtkForm.controls.password.touched\" class=\"mt-2\">\n                    <p *ngIf=\"mvtkForm.controls.password.errors.required\" class=\"text-danger\">ムビチケ暗証番号が未入力です</p>\n                    <!-- <p *ngIf=\"mvtkForm.controls.password.errors.maxlength\" class=\"text-danger\">ムビチケ暗証番号は{{\n                        mvtkForm.controls.password.errors.maxlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.minlength\" class=\"text-danger\">ムビチケ暗証番号は{{\n                        mvtkForm.controls.password.errors.minlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.pattern\" class=\"text-danger\">ムビチケ暗証番号は数字で入力してください</p> -->\n                </div>\n            </div>\n        </div>\n        <div [class.d-block]=\"isShowVideo\" [class.d-none]=\"!isShowVideo\" class=\"mb-2\">\n            <div class=\"video-area text-center\">\n                <video id=\"video\" class=\"bg-black mx-auto\" src=\"\" autoplay muted playsinline></video>\n            </div>\n            <div class=\"d-none\"><canvas id=\"canvas\"></canvas></div>\n        </div>\n        <div class=\"w-75 mx-auto mb-2\">\n            <button *ngIf=\"stream === null\" type=\"button\" class=\"btn btn-primary btn-block py-3 large-text\" [disabled]=\"isLoading | async\"\n                (click)=\"activationCamera()\">カメラで読み取り</button>\n            <button *ngIf=\"stream !== null\" type=\"button\" class=\"btn btn-primary btn-block py-3 large-text\" [disabled]=\"isLoading | async\"\n                (click)=\"stopCamera()\">カメラを停止</button>\n        </div>\n        <div [class.d-none]=\"isShowVideo\" class=\"w-75 mx-auto\">\n            <button type=\"button\" class=\"btn btn-primary btn-block py-3 large-text\" [disabled]=\"isLoading | async\"\n                (click)=\"checkMovieTicket()\">認証</button>\n        </div>\n    </form>\n</div>\n\n\n<div class=\"close-button text-white\" (click)=\"activeModal.dismiss()\"><img class=\"w-100\" src=\"/assets/images/icon/close.svg\"></div>"
 
 /***/ }),
 
@@ -4280,15 +4280,18 @@ var MvtkCheckModalComponent = /** @class */ (function () {
     MvtkCheckModalComponent.prototype.ngOnInit = function () {
         this.stream = null;
         this.video = document.getElementById('video');
-        this.video.width = window.innerWidth;
+        this.video.width = 300;
         this.errorMessage = '';
         this.isLoading = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getLoading"]));
         this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getPurchase"]));
         this.createMvtkForm();
     };
+    MvtkCheckModalComponent.prototype.ngOnDestroy = function () {
+        this.stopCamera();
+    };
     MvtkCheckModalComponent.prototype.createMvtkForm = function () {
         var CODE_LENGTH = 10;
-        var PASSWORD_LENGTH = 4;
+        // const PASSWORD_LENGTH = 4;
         this.mvtkForm = this.formBuilder.group({
             code: ['', [
                     _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required,
@@ -4297,10 +4300,7 @@ var MvtkCheckModalComponent = /** @class */ (function () {
                     _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].pattern(/^[0-9]+$/)
                 ]],
             password: ['', [
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required,
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].maxLength(PASSWORD_LENGTH),
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(PASSWORD_LENGTH),
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].pattern(/^[0-9]+$/)
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required
                 ]]
         });
     };
@@ -4373,9 +4373,14 @@ var MvtkCheckModalComponent = /** @class */ (function () {
                         this.video.srcObject = this.stream;
                         scanLoopTime = 500;
                         this.scanLoop = setInterval(function () {
-                            var code = _this.scan();
-                            if (code !== null) {
+                            var result = _this.scan();
+                            if (result !== null) {
                                 // 読み取り完了
+                                var code = result.slice(0, 10);
+                                var password = result.slice(10, result.length);
+                                _this.mvtkForm.controls.code.setValue(code);
+                                _this.mvtkForm.controls.password.setValue(password);
+                                _this.stopCamera();
                             }
                         }, scanLoopTime);
                         this.isShowVideo = true;
@@ -9463,7 +9468,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\hataguchi\Desktop\workspace\motionpicture\TOEI\pos\src\client\main.ts */"./main.ts");
+module.exports = __webpack_require__(/*! C:\Users\hatag\Desktop\workspace\motionpicture\TOEI\pos\src\client\main.ts */"./main.ts");
 
 
 /***/ })

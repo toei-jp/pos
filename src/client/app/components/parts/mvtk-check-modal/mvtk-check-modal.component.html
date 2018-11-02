@@ -1,6 +1,6 @@
 <div class="p-4 scroll bg-white">
     <form [formGroup]="mvtkForm">
-        <div class="mb-4">
+        <div [class.d-none]="isShowVideo" class="mb-4">
             <p *ngIf="errorMessage !== '' && !isSuccess" class="mb-3 p-2 alert alert-danger">{{ errorMessage }}</p>
             <p *ngIf="isSuccess" class="mb-3 p-2 alert alert-success">ムビチケ券を追加しました</p>
             <div class="form-group">
@@ -24,21 +24,22 @@
 
                 <app-numeric-keypad [inputValue]="mvtkForm.controls.password.value" (change)="mvtkForm.controls.password.setValue($event)">
                     <input type="password" class="form-control py-2 large-text" formControlName="password" id="password"
-                        autocomplete="off" placeholder="(例)0123" maxlength="4" readonly="readonly">
+                        autocomplete="off" placeholder="(例)0123" readonly="readonly">
                 </app-numeric-keypad>
                 <div *ngIf="mvtkForm.controls.password.invalid && mvtkForm.controls.password.touched" class="mt-2">
                     <p *ngIf="mvtkForm.controls.password.errors.required" class="text-danger">ムビチケ暗証番号が未入力です</p>
-                    <p *ngIf="mvtkForm.controls.password.errors.maxlength" class="text-danger">ムビチケ暗証番号は{{
+                    <!-- <p *ngIf="mvtkForm.controls.password.errors.maxlength" class="text-danger">ムビチケ暗証番号は{{
                         mvtkForm.controls.password.errors.maxlength.requiredLength }}文字で入力してください</p>
                     <p *ngIf="mvtkForm.controls.password.errors.minlength" class="text-danger">ムビチケ暗証番号は{{
                         mvtkForm.controls.password.errors.minlength.requiredLength }}文字で入力してください</p>
-                    <p *ngIf="mvtkForm.controls.password.errors.pattern" class="text-danger">ムビチケ暗証番号は数字で入力してください</p>
+                    <p *ngIf="mvtkForm.controls.password.errors.pattern" class="text-danger">ムビチケ暗証番号は数字で入力してください</p> -->
                 </div>
             </div>
         </div>
-        <div [class.d-block]="isShowVideo" [class.d-none]="!isShowVideo">
-            <div class="d-flex align-items-center video-area"><video id="video" class="bg-black" src="" autoplay muted
-                    playsinline></video></div>
+        <div [class.d-block]="isShowVideo" [class.d-none]="!isShowVideo" class="mb-2">
+            <div class="video-area text-center">
+                <video id="video" class="bg-black mx-auto" src="" autoplay muted playsinline></video>
+            </div>
             <div class="d-none"><canvas id="canvas"></canvas></div>
         </div>
         <div class="w-75 mx-auto mb-2">
@@ -47,7 +48,7 @@
             <button *ngIf="stream !== null" type="button" class="btn btn-primary btn-block py-3 large-text" [disabled]="isLoading | async"
                 (click)="stopCamera()">カメラを停止</button>
         </div>
-        <div class="w-75 mx-auto">
+        <div [class.d-none]="isShowVideo" class="w-75 mx-auto">
             <button type="button" class="btn btn-primary btn-block py-3 large-text" [disabled]="isLoading | async"
                 (click)="checkMovieTicket()">認証</button>
         </div>
