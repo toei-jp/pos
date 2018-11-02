@@ -38,6 +38,7 @@ import { HeaderComponent } from './components/parts/header/header.component';
 import { LoadingComponent } from './components/parts/loading/loading.component';
 import { MvtkCheckModalComponent } from './components/parts/mvtk-check-modal/mvtk-check-modal.component';
 import { NavigationComponent } from './components/parts/navigation/navigation.component';
+import { NumericKeypadComponent } from './components/parts/numeric-keypad/numeric-keypad.component';
 import { PurchaseContentsComponent } from './components/parts/purchase-contents/purchase-contents.component';
 import { PurchaseDetailModalComponent } from './components/parts/purchase-detail-modal/purchase-detail-modal.component';
 import { PurchaseInfoComponent } from './components/parts/purchase-info/purchase-info.component';
@@ -87,7 +88,8 @@ import { CoreStoreModule } from './store/core/store';
         PurchasePaymentComponent,
         PurchasePaymentModalComponent,
         LibphonenumberFormatPipe,
-        NavigationComponent
+        NavigationComponent,
+        NumericKeypadComponent
     ],
     entryComponents: [
         TicketListModalComponent,

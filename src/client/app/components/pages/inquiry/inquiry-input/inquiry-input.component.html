@@ -1,13 +1,16 @@
 <div class="py-4 px-3">
     <div class="mb-4">
         <h2 class="text-center large-text text-white mb-4">チケット発券</h2>
-        
+
         <form [formGroup]="inquiryForm">
             <div class="form-group mx-auto">
                 <div class="bg-secondary d-grid align-items-center border rounded">
                     <label class="text-center text-white" for="">購入番号</label>
-                    <input type="text" class="form-control py-3 large-text rounded-0" formControlName="confirmationNumber" id="confirmationNumber"
-                        placeholder="（例）11223344">
+                    <app-numeric-keypad [inputValue]="inquiryForm.controls.confirmationNumber.value" (change)="inquiryForm.controls.confirmationNumber.setValue($event)">
+                        <input type="text" class="form-control py-3 large-text rounded-0" formControlName="confirmationNumber"
+                            id="confirmationNumber" placeholder="（例）11223344" readonly="readonly">
+                    </app-numeric-keypad>
+
                 </div>
                 <div *ngIf="inquiryForm.controls.confirmationNumber.invalid && inquiryForm.controls.confirmationNumber.touched"
                     class="mt-2">
@@ -18,7 +21,11 @@
             <div class="form-group mx-auto">
                 <div class="bg-secondary d-grid align-items-center border rounded">
                     <label class="text-center text-white" for="">電話番号</label>
-                    <input type="tel" class="form-control py-3 large-text rounded-0" formControlName="telephone" id="telephone" placeholder="（例）09000000000">
+                    <app-numeric-keypad [inputValue]="inquiryForm.controls.telephone.value" (change)="inquiryForm.controls.telephone.setValue($event)">
+                        <input type="tel" class="form-control py-3 large-text rounded-0" formControlName="telephone" id="telephone"
+                            placeholder="（例）09000000000" readonly="readonly">
+                    </app-numeric-keypad>
+
                 </div>
                 <div *ngIf="inquiryForm.controls.telephone.invalid && inquiryForm.controls.telephone.touched" class="mt-2">
                     <p *ngIf="inquiryForm.controls.telephone.errors.required" class="text-danger">電話番号が未入力です</p>

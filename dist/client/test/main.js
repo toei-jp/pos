@@ -421,16 +421,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_parts_loading_loading_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/parts/loading/loading.component */ "./app/components/parts/loading/loading.component.ts");
 /* harmony import */ var _components_parts_mvtk_check_modal_mvtk_check_modal_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/parts/mvtk-check-modal/mvtk-check-modal.component */ "./app/components/parts/mvtk-check-modal/mvtk-check-modal.component.ts");
 /* harmony import */ var _components_parts_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/parts/navigation/navigation.component */ "./app/components/parts/navigation/navigation.component.ts");
-/* harmony import */ var _components_parts_purchase_contents_purchase_contents_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/parts/purchase-contents/purchase-contents.component */ "./app/components/parts/purchase-contents/purchase-contents.component.ts");
-/* harmony import */ var _components_parts_purchase_detail_modal_purchase_detail_modal_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/parts/purchase-detail-modal/purchase-detail-modal.component */ "./app/components/parts/purchase-detail-modal/purchase-detail-modal.component.ts");
-/* harmony import */ var _components_parts_purchase_info_purchase_info_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/parts/purchase-info/purchase-info.component */ "./app/components/parts/purchase-info/purchase-info.component.ts");
-/* harmony import */ var _components_parts_purchase_payment_modal_purchase_payment_modal_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/parts/purchase-payment-modal/purchase-payment-modal.component */ "./app/components/parts/purchase-payment-modal/purchase-payment-modal.component.ts");
-/* harmony import */ var _components_parts_purchase_schedule_film_purchase_schedule_film_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/parts/purchase-schedule-film/purchase-schedule-film.component */ "./app/components/parts/purchase-schedule-film/purchase-schedule-film.component.ts");
-/* harmony import */ var _components_parts_screen_screen_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/parts/screen/screen.component */ "./app/components/parts/screen/screen.component.ts");
-/* harmony import */ var _components_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./components/parts/ticket-list-modal/ticket-list-modal.component */ "./app/components/parts/ticket-list-modal/ticket-list-modal.component.ts");
-/* harmony import */ var _pipes_libphonenumber_format_pipe__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./pipes/libphonenumber-format.pipe */ "./app/pipes/libphonenumber-format.pipe.ts");
-/* harmony import */ var _store_module__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./store.module */ "./app/store.module.ts");
-/* harmony import */ var _store_core_store__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./store/core/store */ "./app/store/core/store/index.ts");
+/* harmony import */ var _components_parts_numeric_keypad_numeric_keypad_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/parts/numeric-keypad/numeric-keypad.component */ "./app/components/parts/numeric-keypad/numeric-keypad.component.ts");
+/* harmony import */ var _components_parts_purchase_contents_purchase_contents_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/parts/purchase-contents/purchase-contents.component */ "./app/components/parts/purchase-contents/purchase-contents.component.ts");
+/* harmony import */ var _components_parts_purchase_detail_modal_purchase_detail_modal_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/parts/purchase-detail-modal/purchase-detail-modal.component */ "./app/components/parts/purchase-detail-modal/purchase-detail-modal.component.ts");
+/* harmony import */ var _components_parts_purchase_info_purchase_info_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/parts/purchase-info/purchase-info.component */ "./app/components/parts/purchase-info/purchase-info.component.ts");
+/* harmony import */ var _components_parts_purchase_payment_modal_purchase_payment_modal_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/parts/purchase-payment-modal/purchase-payment-modal.component */ "./app/components/parts/purchase-payment-modal/purchase-payment-modal.component.ts");
+/* harmony import */ var _components_parts_purchase_schedule_film_purchase_schedule_film_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/parts/purchase-schedule-film/purchase-schedule-film.component */ "./app/components/parts/purchase-schedule-film/purchase-schedule-film.component.ts");
+/* harmony import */ var _components_parts_screen_screen_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./components/parts/screen/screen.component */ "./app/components/parts/screen/screen.component.ts");
+/* harmony import */ var _components_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./components/parts/ticket-list-modal/ticket-list-modal.component */ "./app/components/parts/ticket-list-modal/ticket-list-modal.component.ts");
+/* harmony import */ var _pipes_libphonenumber_format_pipe__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./pipes/libphonenumber-format.pipe */ "./app/pipes/libphonenumber-format.pipe.ts");
+/* harmony import */ var _store_module__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./store.module */ "./app/store.module.ts");
+/* harmony import */ var _store_core_store__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./store/core/store */ "./app/store/core/store/index.ts");
 /**
  * NgModule
  */
@@ -441,6 +442,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 // tslint:disable:no-submodule-imports max-line-length
+
 
 
 
@@ -508,35 +510,36 @@ var AppModule = /** @class */ (function () {
                 _components_parts_contents_contents_component__WEBPACK_IMPORTED_MODULE_28__["ContentsComponent"],
                 _components_parts_header_header_component__WEBPACK_IMPORTED_MODULE_31__["HeaderComponent"],
                 _components_parts_footer_footer_component__WEBPACK_IMPORTED_MODULE_29__["FooterComponent"],
-                _components_parts_purchase_contents_purchase_contents_component__WEBPACK_IMPORTED_MODULE_35__["PurchaseContentsComponent"],
-                _components_parts_purchase_schedule_film_purchase_schedule_film_component__WEBPACK_IMPORTED_MODULE_39__["PurchaseScheduleFilmComponent"],
-                _components_parts_screen_screen_component__WEBPACK_IMPORTED_MODULE_40__["ScreenComponent"],
-                _components_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_41__["TicketListModalComponent"],
+                _components_parts_purchase_contents_purchase_contents_component__WEBPACK_IMPORTED_MODULE_36__["PurchaseContentsComponent"],
+                _components_parts_purchase_schedule_film_purchase_schedule_film_component__WEBPACK_IMPORTED_MODULE_40__["PurchaseScheduleFilmComponent"],
+                _components_parts_screen_screen_component__WEBPACK_IMPORTED_MODULE_41__["ScreenComponent"],
+                _components_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_42__["TicketListModalComponent"],
                 _components_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_26__["AlertModalComponent"],
-                _components_parts_purchase_info_purchase_info_component__WEBPACK_IMPORTED_MODULE_37__["PurchaseInfoComponent"],
+                _components_parts_purchase_info_purchase_info_component__WEBPACK_IMPORTED_MODULE_38__["PurchaseInfoComponent"],
                 _components_parts_loading_loading_component__WEBPACK_IMPORTED_MODULE_32__["LoadingComponent"],
                 _components_pages_error_error_component__WEBPACK_IMPORTED_MODULE_12__["ErrorComponent"],
                 _components_pages_base_base_component__WEBPACK_IMPORTED_MODULE_11__["BaseComponent"],
                 _components_parts_header_menu_header_menu_component__WEBPACK_IMPORTED_MODULE_30__["HeaderMenuComponent"],
                 _components_parts_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_27__["ConfirmModalComponent"],
                 _components_pages_purchase_purchase_history_purchase_history_component__WEBPACK_IMPORTED_MODULE_19__["PurchaseHistoryComponent"],
-                _components_parts_purchase_detail_modal_purchase_detail_modal_component__WEBPACK_IMPORTED_MODULE_36__["PurchaseDetailModalComponent"],
+                _components_parts_purchase_detail_modal_purchase_detail_modal_component__WEBPACK_IMPORTED_MODULE_37__["PurchaseDetailModalComponent"],
                 _components_parts_mvtk_check_modal_mvtk_check_modal_component__WEBPACK_IMPORTED_MODULE_33__["MvtkCheckModalComponent"],
                 _components_pages_setting_setting_component__WEBPACK_IMPORTED_MODULE_25__["SettingComponent"],
                 _components_pages_inquiry_inquiry_input_inquiry_input_component__WEBPACK_IMPORTED_MODULE_14__["InquiryInputComponent"],
                 _components_pages_inquiry_inquiry_confirm_inquiry_confirm_component__WEBPACK_IMPORTED_MODULE_13__["InquiryConfirmComponent"],
                 _components_pages_purchase_purchase_payment_purchase_payment_component__WEBPACK_IMPORTED_MODULE_21__["PurchasePaymentComponent"],
-                _components_parts_purchase_payment_modal_purchase_payment_modal_component__WEBPACK_IMPORTED_MODULE_38__["PurchasePaymentModalComponent"],
-                _pipes_libphonenumber_format_pipe__WEBPACK_IMPORTED_MODULE_42__["LibphonenumberFormatPipe"],
-                _components_parts_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_34__["NavigationComponent"]
+                _components_parts_purchase_payment_modal_purchase_payment_modal_component__WEBPACK_IMPORTED_MODULE_39__["PurchasePaymentModalComponent"],
+                _pipes_libphonenumber_format_pipe__WEBPACK_IMPORTED_MODULE_43__["LibphonenumberFormatPipe"],
+                _components_parts_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_34__["NavigationComponent"],
+                _components_parts_numeric_keypad_numeric_keypad_component__WEBPACK_IMPORTED_MODULE_35__["NumericKeypadComponent"]
             ],
             entryComponents: [
-                _components_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_41__["TicketListModalComponent"],
+                _components_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_42__["TicketListModalComponent"],
                 _components_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_26__["AlertModalComponent"],
                 _components_parts_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_27__["ConfirmModalComponent"],
-                _components_parts_purchase_detail_modal_purchase_detail_modal_component__WEBPACK_IMPORTED_MODULE_36__["PurchaseDetailModalComponent"],
+                _components_parts_purchase_detail_modal_purchase_detail_modal_component__WEBPACK_IMPORTED_MODULE_37__["PurchaseDetailModalComponent"],
                 _components_parts_mvtk_check_modal_mvtk_check_modal_component__WEBPACK_IMPORTED_MODULE_33__["MvtkCheckModalComponent"],
-                _components_parts_purchase_payment_modal_purchase_payment_modal_component__WEBPACK_IMPORTED_MODULE_38__["PurchasePaymentModalComponent"]
+                _components_parts_purchase_payment_modal_purchase_payment_modal_component__WEBPACK_IMPORTED_MODULE_39__["PurchasePaymentModalComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"],
@@ -545,8 +548,8 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 ngx_swiper_wrapper__WEBPACK_IMPORTED_MODULE_5__["SwiperModule"],
-                _store_module__WEBPACK_IMPORTED_MODULE_43__["StoreModule"],
-                _store_core_store__WEBPACK_IMPORTED_MODULE_44__["CoreStoreModule"],
+                _store_module__WEBPACK_IMPORTED_MODULE_44__["StoreModule"],
+                _store_core_store__WEBPACK_IMPORTED_MODULE_45__["CoreStoreModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__["NgbModule"]
             ],
             providers: [],
@@ -1426,7 +1429,7 @@ var InquiryConfirmComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-4 px-3\">\n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">チケット発券</h2>\n        \n        <form [formGroup]=\"inquiryForm\">\n            <div class=\"form-group mx-auto\">\n                <div class=\"bg-secondary d-grid align-items-center border rounded\">\n                    <label class=\"text-center text-white\" for=\"\">購入番号</label>\n                    <input type=\"text\" class=\"form-control py-3 large-text rounded-0\" formControlName=\"confirmationNumber\" id=\"confirmationNumber\"\n                        placeholder=\"（例）11223344\">\n                </div>\n                <div *ngIf=\"inquiryForm.controls.confirmationNumber.invalid && inquiryForm.controls.confirmationNumber.touched\"\n                    class=\"mt-2\">\n                    <p *ngIf=\"inquiryForm.controls.confirmationNumber.errors.required\" class=\"text-danger\">購入番号が未入力です</p>\n                    <p *ngIf=\"inquiryForm.controls.confirmationNumber.errors.pattern\" class=\"text-danger\">購入番号は数字で入力してください</p>\n                </div>\n            </div>\n            <div class=\"form-group mx-auto\">\n                <div class=\"bg-secondary d-grid align-items-center border rounded\">\n                    <label class=\"text-center text-white\" for=\"\">電話番号</label>\n                    <input type=\"tel\" class=\"form-control py-3 large-text rounded-0\" formControlName=\"telephone\" id=\"telephone\" placeholder=\"（例）09000000000\">\n                </div>\n                <div *ngIf=\"inquiryForm.controls.telephone.invalid && inquiryForm.controls.telephone.touched\" class=\"mt-2\">\n                    <p *ngIf=\"inquiryForm.controls.telephone.errors.required\" class=\"text-danger\">電話番号が未入力です</p>\n                    <p *ngIf=\"inquiryForm.controls.telephone.errors.minlength\" class=\"text-danger\">電話番号は{{\n                        inquiryForm.controls.telephone.errors.minlength.requiredLength }}文字以上で入力してください\n                    </p>\n                    <p *ngIf=\"inquiryForm.controls.telephone.errors.maxlength\" class=\"text-danger\">電話番号は{{\n                        inquiryForm.controls.telephone.errors.maxlength.requiredLength }}文字以下で入力してください\n                    </p>\n                    <p *ngIf=\"inquiryForm.controls.telephone.errors.pattern\" class=\"text-danger\">電話番号は数字で入力してください</p>\n                    <p *ngIf=\"inquiryForm.controls.telephone.errors.telephone\" class=\"text-danger\">電話番号が正しくありません</p>\n                </div>\n            </div>\n        </form>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text\" (click)=\"onSubmit()\">照会</button>\n    </div>\n\n</div>\n\n\n<app-navigation prevLink=\"/purchase/schedule\" [print]=\"false\"></app-navigation>"
+module.exports = "<div class=\"py-4 px-3\">\n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">チケット発券</h2>\n\n        <form [formGroup]=\"inquiryForm\">\n            <div class=\"form-group mx-auto\">\n                <div class=\"bg-secondary d-grid align-items-center border rounded\">\n                    <label class=\"text-center text-white\" for=\"\">購入番号</label>\n                    <app-numeric-keypad [inputValue]=\"inquiryForm.controls.confirmationNumber.value\" (change)=\"inquiryForm.controls.confirmationNumber.setValue($event)\">\n                        <input type=\"text\" class=\"form-control py-3 large-text rounded-0\" formControlName=\"confirmationNumber\"\n                            id=\"confirmationNumber\" placeholder=\"（例）11223344\" readonly=\"readonly\">\n                    </app-numeric-keypad>\n\n                </div>\n                <div *ngIf=\"inquiryForm.controls.confirmationNumber.invalid && inquiryForm.controls.confirmationNumber.touched\"\n                    class=\"mt-2\">\n                    <p *ngIf=\"inquiryForm.controls.confirmationNumber.errors.required\" class=\"text-danger\">購入番号が未入力です</p>\n                    <p *ngIf=\"inquiryForm.controls.confirmationNumber.errors.pattern\" class=\"text-danger\">購入番号は数字で入力してください</p>\n                </div>\n            </div>\n            <div class=\"form-group mx-auto\">\n                <div class=\"bg-secondary d-grid align-items-center border rounded\">\n                    <label class=\"text-center text-white\" for=\"\">電話番号</label>\n                    <app-numeric-keypad [inputValue]=\"inquiryForm.controls.telephone.value\" (change)=\"inquiryForm.controls.telephone.setValue($event)\">\n                        <input type=\"tel\" class=\"form-control py-3 large-text rounded-0\" formControlName=\"telephone\" id=\"telephone\"\n                            placeholder=\"（例）09000000000\" readonly=\"readonly\">\n                    </app-numeric-keypad>\n\n                </div>\n                <div *ngIf=\"inquiryForm.controls.telephone.invalid && inquiryForm.controls.telephone.touched\" class=\"mt-2\">\n                    <p *ngIf=\"inquiryForm.controls.telephone.errors.required\" class=\"text-danger\">電話番号が未入力です</p>\n                    <p *ngIf=\"inquiryForm.controls.telephone.errors.minlength\" class=\"text-danger\">電話番号は{{\n                        inquiryForm.controls.telephone.errors.minlength.requiredLength }}文字以上で入力してください\n                    </p>\n                    <p *ngIf=\"inquiryForm.controls.telephone.errors.maxlength\" class=\"text-danger\">電話番号は{{\n                        inquiryForm.controls.telephone.errors.maxlength.requiredLength }}文字以下で入力してください\n                    </p>\n                    <p *ngIf=\"inquiryForm.controls.telephone.errors.pattern\" class=\"text-danger\">電話番号は数字で入力してください</p>\n                    <p *ngIf=\"inquiryForm.controls.telephone.errors.telephone\" class=\"text-danger\">電話番号が正しくありません</p>\n                </div>\n            </div>\n        </form>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text\" (click)=\"onSubmit()\">照会</button>\n    </div>\n\n</div>\n\n\n<app-navigation prevLink=\"/purchase/schedule\" [print]=\"false\"></app-navigation>"
 
 /***/ }),
 
@@ -1853,7 +1856,7 @@ var PurchaseCompleteComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">購入内容確認</h2>\n\n        <p class=\"mb-3 text-white text-center\">※この先の操作の取り消しはできませんのでご注意ください。</p>\n\n        <div class=\"container mb-4\">\n            <!-- <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    劇場 / スクリーン</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).screeningEvent.superEvent.location.name.ja }} / {{\n                    (purchase | async).screeningEvent.location.name.ja }}</p>\n            </div> -->\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    作品</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).screeningEvent.name.ja }}</p>\n            </div>\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    鑑賞日</p>\n                <p class=\"col-8 bg-white py-3\">{{ moment((purchase |\n                    async).screeningEvent.startDate).format('YYYY/MM/DD (ddd)') }}</p>\n            </div>\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    座席・券種</p>\n                <div class=\"col-8 bg-white py-3\">\n                    <div *ngFor=\"let reservation of (purchase | async).reservations\" class=\"mb-2\">\n                        <p>{{ reservation.seat.seatNumber }}</p>\n                        <p *ngIf=\"reservation.ticket\">{{ reservation.ticket.ticketOffer.name.ja }} / {{\n                            reservation.getTicketPrice().total | currency : 'JPY' }}</p>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).authorizeSeatReservation.result.price > 0\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    決済方法</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).paymentMethod.name }}</p>\n            </div>\n        </div>\n        <div class=\"container mb-4\">\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    合計金額</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).authorizeSeatReservation.result.price | currency :\n                    'JPY' }}</p>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    お預かり金額</p>\n                <p class=\"col-8 bg-white py-3\">\n                    <input type=\"text\" class=\"form-control large-text\" [(ngModel)]=\"depositAmount\">\n                </p>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    お釣り</p>\n                <p class=\"col-8 bg-white py-3\">{{ (depositAmount - (purchase |\n                    async).authorizeSeatReservation.result.price) | currency : 'JPY' }}</p>\n            </div>\n        </div>\n\n        <div class=\"w-50 mx-auto\">\n            <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text\" [disabled]=\"isLoading | async\"\n                (click)=\"onSubmit()\">購入確定</button>\n        </div>\n    </div>\n</div>\n\n<app-navigation prevLink=\"/purchase/payment\"></app-navigation>"
+module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">購入内容確認</h2>\n\n        <p class=\"mb-3 text-white text-center\">※この先の操作の取り消しはできませんのでご注意ください。</p>\n\n        <div class=\"container mb-4\">\n            <!-- <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    劇場 / スクリーン</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).screeningEvent.superEvent.location.name.ja }} / {{\n                    (purchase | async).screeningEvent.location.name.ja }}</p>\n            </div> -->\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    作品</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).screeningEvent.name.ja }}</p>\n            </div>\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    鑑賞日</p>\n                <p class=\"col-8 bg-white py-3\">{{ moment((purchase |\n                    async).screeningEvent.startDate).format('YYYY/MM/DD (ddd)') }}</p>\n            </div>\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    座席・券種</p>\n                <div class=\"col-8 bg-white py-3\">\n                    <div *ngFor=\"let reservation of (purchase | async).reservations\" class=\"mb-2\">\n                        <p>{{ reservation.seat.seatNumber }}</p>\n                        <p *ngIf=\"reservation.ticket\">{{ reservation.ticket.ticketOffer.name.ja }} / {{\n                            reservation.getTicketPrice().total | currency : 'JPY' }}</p>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).authorizeSeatReservation.result.price > 0\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    決済方法</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).paymentMethod.name }}</p>\n            </div>\n        </div>\n        <div class=\"container mb-4\">\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    合計金額</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).authorizeSeatReservation.result.price | currency :\n                    'JPY' }}</p>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    お預かり金額</p>\n                <p class=\"col-8 bg-white py-0 pr-0 d-flex align-items-center position-static\">\n                    <span>￥</span>\n                    <app-numeric-keypad [inputValue]=\"depositAmount\" (change)=\"depositAmount = $event\" (hidden)=\"depositAmount = ($event.length > 0) ? $event : 0\">\n                        <input type=\"text\" class=\"form-control large-text border-0 py-3 h-auto\" id=\"depositAmount\" [(ngModel)]=\"depositAmount\" readonly=\"readonly\">\n                    </app-numeric-keypad>\n                </p>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    お釣り</p>\n                <p class=\"col-8 bg-white py-3\">{{\n                    (depositAmount - (purchase | async).authorizeSeatReservation.result.price) | currency : 'JPY' }}</p>\n            </div>\n        </div>\n\n        <div class=\"w-50 mx-auto\">\n            <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text\" [disabled]=\"isLoading | async\"\n                (click)=\"onSubmit()\">購入確定</button>\n        </div>\n    </div>\n</div>\n\n<app-navigation prevLink=\"/purchase/payment\"></app-navigation>"
 
 /***/ }),
 
@@ -1926,7 +1929,7 @@ var PurchaseConfirmComponent = /** @class */ (function () {
         this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getPurchase"]));
         this.isLoading = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getLoading"]));
         this.user = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getUser"]));
-        this.depositAmount = 0;
+        this.depositAmount = '0';
     };
     PurchaseConfirmComponent.prototype.registerContact = function () {
         var _this = this;
@@ -3737,7 +3740,7 @@ module.exports = "<div id=\"contents\" class=\"scroll\" [class.touch]=\"touch\">
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  box-sizing: border-box;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0; }\n\n.contents {\n  max-width: 960px; }\n\n.scroll {\n  overflow-x: hidden;\n  overflow-y: auto;\n  height: 100%; }\n\n.touch {\n  -webkit-overflow-scrolling: touch; }\n"
+module.exports = ""
 
 /***/ }),
 
@@ -4174,7 +4177,7 @@ var LoadingComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"p-4 scroll bg-white\">\n    <form [formGroup]=\"mvtkForm\">\n        <div class=\"mb-4\">\n            <p *ngIf=\"errorMessage !== '' && !isSuccess\" class=\"mb-3 p-2 alert alert-danger\">{{ errorMessage }}</p>\n            <p *ngIf=\"isSuccess\" class=\"mb-3 p-2 alert alert-success\">ムビチケ券を追加しました</p>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">ムビチケ購入番号</label>\n                <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"code\" id=\"code\" autocomplete=\"off\" placeholder=\"(例)012345789\"\n                    maxlength=\"10\">\n                <div *ngIf=\"mvtkForm.controls.code.invalid && mvtkForm.controls.code.touched\" class=\"mt-2\">\n                    <p *ngIf=\"mvtkForm.controls.code.errors.required\" class=\"text-danger\">ムビチケ購入番号が未入力です</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.maxlength\" class=\"text-danger\">ムビチケ購入番号は{{\n                        mvtkForm.controls.code.errors.maxlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.minlength\" class=\"text-danger\">ムビチケ購入番号は{{\n                        mvtkForm.controls.code.errors.minlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.pattern\" class=\"text-danger\">ムビチケ購入番号は数字で入力してください</p>\n                </div>\n            </div>\n\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">ムビチケ暗証番号</label>\n                <input type=\"password\" class=\"form-control py-2 large-text\" formControlName=\"password\" id=\"password\" autocomplete=\"off\" placeholder=\"(例)0123\"\n                    maxlength=\"4\">\n                <div *ngIf=\"mvtkForm.controls.password.invalid && mvtkForm.controls.password.touched\" class=\"mt-2\">\n                    <p *ngIf=\"mvtkForm.controls.password.errors.required\" class=\"text-danger\">ムビチケ暗証番号が未入力です</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.maxlength\" class=\"text-danger\">ムビチケ暗証番号は{{\n                        mvtkForm.controls.password.errors.maxlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.minlength\" class=\"text-danger\">ムビチケ暗証番号は{{\n                        mvtkForm.controls.password.errors.minlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.pattern\" class=\"text-danger\">ムビチケ暗証番号は数字で入力してください</p>\n                </div>\n            </div>\n        </div>\n        <div class=\"w-75 mx-auto\">\n            <button type=\"button\" class=\"btn btn-primary btn-block py-3 large-text\" [disabled]=\"isLoading | async\" (click)=\"checkMovieTicket()\">認証</button>\n        </div>\n    </form>\n</div>\n\n\n<div class=\"close-button text-white\" (click)=\"activeModal.dismiss()\"><img class=\"w-100\" src=\"/assets/images/icon/close.svg\"></div>"
+module.exports = "<div class=\"p-4 scroll bg-white\">\n    <form [formGroup]=\"mvtkForm\">\n        <div class=\"mb-4\">\n            <p *ngIf=\"errorMessage !== '' && !isSuccess\" class=\"mb-3 p-2 alert alert-danger\">{{ errorMessage }}</p>\n            <p *ngIf=\"isSuccess\" class=\"mb-3 p-2 alert alert-success\">ムビチケ券を追加しました</p>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">ムビチケ購入番号</label>\n                <app-numeric-keypad [inputValue]=\"mvtkForm.controls.code.value\" (change)=\"mvtkForm.controls.code.setValue($event)\">\n                    <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"code\" id=\"code\"\n                        autocomplete=\"off\" placeholder=\"(例)012345789\" maxlength=\"10\" readonly=\"readonly\">\n                </app-numeric-keypad>\n                <div *ngIf=\"mvtkForm.controls.code.invalid && mvtkForm.controls.code.touched\" class=\"mt-2\">\n                    <p *ngIf=\"mvtkForm.controls.code.errors.required\" class=\"text-danger\">ムビチケ購入番号が未入力です</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.maxlength\" class=\"text-danger\">ムビチケ購入番号は{{\n                        mvtkForm.controls.code.errors.maxlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.minlength\" class=\"text-danger\">ムビチケ購入番号は{{\n                        mvtkForm.controls.code.errors.minlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.pattern\" class=\"text-danger\">ムビチケ購入番号は数字で入力してください</p>\n                </div>\n            </div>\n\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">ムビチケ暗証番号</label>\n\n                <app-numeric-keypad [inputValue]=\"mvtkForm.controls.password.value\" (change)=\"mvtkForm.controls.password.setValue($event)\">\n                    <input type=\"password\" class=\"form-control py-2 large-text\" formControlName=\"password\" id=\"password\"\n                        autocomplete=\"off\" placeholder=\"(例)0123\" maxlength=\"4\" readonly=\"readonly\">\n                </app-numeric-keypad>\n                <div *ngIf=\"mvtkForm.controls.password.invalid && mvtkForm.controls.password.touched\" class=\"mt-2\">\n                    <p *ngIf=\"mvtkForm.controls.password.errors.required\" class=\"text-danger\">ムビチケ暗証番号が未入力です</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.maxlength\" class=\"text-danger\">ムビチケ暗証番号は{{\n                        mvtkForm.controls.password.errors.maxlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.minlength\" class=\"text-danger\">ムビチケ暗証番号は{{\n                        mvtkForm.controls.password.errors.minlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.pattern\" class=\"text-danger\">ムビチケ暗証番号は数字で入力してください</p>\n                </div>\n            </div>\n        </div>\n        <div [class.d-block]=\"isShowVideo\" [class.d-none]=\"!isShowVideo\">\n            <div class=\"d-flex align-items-center video-area\"><video id=\"video\" class=\"bg-black\" src=\"\" autoplay muted\n                    playsinline></video></div>\n            <div class=\"d-none\"><canvas id=\"canvas\"></canvas></div>\n        </div>\n        <div class=\"w-75 mx-auto mb-2\">\n            <button *ngIf=\"stream === null\" type=\"button\" class=\"btn btn-primary btn-block py-3 large-text\" [disabled]=\"isLoading | async\"\n                (click)=\"activationCamera()\">カメラで読み取り</button>\n            <button *ngIf=\"stream !== null\" type=\"button\" class=\"btn btn-primary btn-block py-3 large-text\" [disabled]=\"isLoading | async\"\n                (click)=\"stopCamera()\">カメラを停止</button>\n        </div>\n        <div class=\"w-75 mx-auto\">\n            <button type=\"button\" class=\"btn btn-primary btn-block py-3 large-text\" [disabled]=\"isLoading | async\"\n                (click)=\"checkMovieTicket()\">認証</button>\n        </div>\n    </form>\n</div>\n\n\n<div class=\"close-button text-white\" (click)=\"activeModal.dismiss()\"><img class=\"w-100\" src=\"/assets/images/icon/close.svg\"></div>"
 
 /***/ }),
 
@@ -4206,10 +4209,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
 /* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
 /* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "../../node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../store/actions/purchase.action */ "./app/store/actions/purchase.action.ts");
-/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../store/reducers */ "./app/store/reducers/index.ts");
+/* harmony import */ var jsqr__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! jsqr */ "../../node_modules/jsqr/dist/jsQR.js");
+/* harmony import */ var jsqr__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(jsqr__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs */ "../../node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../store/actions/purchase.action */ "./app/store/actions/purchase.action.ts");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../store/reducers */ "./app/store/reducers/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4219,6 +4224,42 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
 
 
 
@@ -4237,9 +4278,12 @@ var MvtkCheckModalComponent = /** @class */ (function () {
         this.activeModal = activeModal;
     }
     MvtkCheckModalComponent.prototype.ngOnInit = function () {
+        this.stream = null;
+        this.video = document.getElementById('video');
+        this.video.width = window.innerWidth;
         this.errorMessage = '';
-        this.isLoading = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_9__["getLoading"]));
-        this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_9__["getPurchase"]));
+        this.isLoading = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getLoading"]));
+        this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getPurchase"]));
         this.createMvtkForm();
     };
     MvtkCheckModalComponent.prototype.createMvtkForm = function () {
@@ -4279,7 +4323,7 @@ var MvtkCheckModalComponent = /** @class */ (function () {
                 || purchase.screeningEvent === undefined) {
                 return;
             }
-            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["CheckMovieTicket"]({
+            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["CheckMovieTicket"]({
                 transaction: purchase.transaction,
                 movieTickets: [{
                         typeOf: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].paymentMethodType.MovieTicket,
@@ -4289,7 +4333,7 @@ var MvtkCheckModalComponent = /** @class */ (function () {
                 screeningEvent: purchase.screeningEvent
             }));
         }).unsubscribe();
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].CheckMovieTicketSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].CheckMovieTicketSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
             _this.purchase.subscribe(function (purchase) {
                 var checkMovieTicketAction = purchase.checkMovieTicketAction;
                 if (checkMovieTicketAction === undefined
@@ -4304,11 +4348,76 @@ var MvtkCheckModalComponent = /** @class */ (function () {
                 _this.isSuccess = true;
             }).unsubscribe();
         }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].CheckMovieTicketFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].CheckMovieTicketFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
             _this.isSuccess = false;
             _this.errorMessage = 'エラーが発生しました';
         }));
-        Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["take"])(1)).subscribe();
+    };
+    MvtkCheckModalComponent.prototype.activationCamera = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var constraints, stream, scanLoopTime, error_1;
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        constraints = {
+                            audio: false,
+                            video: { facingMode: { exact: 'environment' } }
+                        };
+                        return [4 /*yield*/, navigator.mediaDevices.getUserMedia(constraints)];
+                    case 1:
+                        stream = _a.sent();
+                        this.stream = stream;
+                        this.video.srcObject = this.stream;
+                        scanLoopTime = 500;
+                        this.scanLoop = setInterval(function () {
+                            var code = _this.scan();
+                            if (code !== null) {
+                                // 読み取り完了
+                            }
+                        }, scanLoopTime);
+                        this.isShowVideo = true;
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_1 = _a.sent();
+                        console.error(error_1);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    MvtkCheckModalComponent.prototype.stopCamera = function () {
+        if (this.stream === null) {
+            return;
+        }
+        this.stream.getVideoTracks().forEach(function (track) {
+            track.stop();
+        });
+        this.stream = null;
+        this.isShowVideo = false;
+    };
+    MvtkCheckModalComponent.prototype.scan = function () {
+        if (this.stream === null) {
+            return null;
+        }
+        // キャンバスへ反映
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+        var width = this.video.offsetWidth;
+        var height = this.video.offsetHeight;
+        canvas.setAttribute('width', String(width));
+        canvas.setAttribute('height', String(height));
+        context.drawImage(this.video, 0, 0, width, height);
+        // QRコードデコード
+        var imageData = context.getImageData(0, 0, width, height);
+        var qrcode = jsqr__WEBPACK_IMPORTED_MODULE_6___default()(imageData.data, width, height);
+        if (qrcode === null) {
+            return null;
+        }
+        return qrcode.data;
     };
     MvtkCheckModalComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -4415,6 +4524,117 @@ var NavigationComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./app/components/parts/numeric-keypad/numeric-keypad.component.html":
+/*!***************************************************************************!*\
+  !*** ./app/components/parts/numeric-keypad/numeric-keypad.component.html ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div #trigger (click)=\"show()\">\n    <ng-content></ng-content>\n</div>\n<div *ngIf=\"isOpen\" class=\"position-fixed\">\n    <div class=\"position-fixed\" (click)=\"hide()\"></div>\n\n    <div class=\"numeric-keypad bg-light p-3 text-center large-text\" [ngStyle]=\"{\n    'top.px': position.y, \n    'left.px': position.x\n}\">\n        <div class=\"number d-grid mb-2\">\n            <div class=\"bg-white py-3 shadow-sm\" (click)=\"inputNumber('7')\">7</div>\n            <div class=\"bg-white py-3 shadow-sm\" (click)=\"inputNumber('8')\">8</div>\n            <div class=\"bg-white py-3 shadow-sm\" (click)=\"inputNumber('9')\">9</div>\n            <div class=\"bg-white py-3 shadow-sm\" (click)=\"inputNumber('4')\">4</div>\n            <div class=\"bg-white py-3 shadow-sm\" (click)=\"inputNumber('5')\">5</div>\n            <div class=\"bg-white py-3 shadow-sm\" (click)=\"inputNumber('6')\">6</div>\n            <div class=\"bg-white py-3 shadow-sm\" (click)=\"inputNumber('1')\">1</div>\n            <div class=\"bg-white py-3 shadow-sm\" (click)=\"inputNumber('2')\">2</div>\n            <div class=\"bg-white py-3 shadow-sm\" (click)=\"inputNumber('3')\">3</div>\n            <div class=\"bg-white py-3 shadow-sm\" (click)=\"inputNumber('0')\">0</div>\n            <div class=\"bg-white py-3 shadow-sm\" (click)=\"inputNumber('00')\">00</div>\n            <div class=\"bg-dark text-white py-3 shadow-sm\" (click)=\"inputNumber('000')\">000</div>\n        </div>\n        <div class=\"etc d-grid\">\n            <div class=\"clear text-white py-3 shadow-sm\" (click)=\"clear()\">C</div>\n            <div class=\"done text-white py-3 shadow-sm\" (click)=\"hide()\">確定</div>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./app/components/parts/numeric-keypad/numeric-keypad.component.scss":
+/*!***************************************************************************!*\
+  !*** ./app/components/parts/numeric-keypad/numeric-keypad.component.scss ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: block;\n  width: 100%; }\n\n.position-fixed {\n  width: 100vw;\n  height: 100vh;\n  top: 50%;\n  left: 50%;\n  right: 0;\n  bottom: 0;\n  z-index: 1051;\n  margin: -50vh 0 0 -50vw; }\n\n.numeric-keypad {\n  position: absolute;\n  width: 300px;\n  z-index: 1051; }\n\n.number {\n  -ms-grid-columns: 1fr 1fr 1fr;\n      grid-template-columns: 1fr 1fr 1fr;\n  grid-gap: 0.5rem; }\n\n.etc {\n  -ms-grid-columns: 1fr 2fr;\n      grid-template-columns: 1fr 2fr;\n  grid-gap: 0.5rem; }\n\n.etc .clear {\n    background-color: #AAA; }\n\n.etc .done {\n    background-color: #1586e2; }\n"
+
+/***/ }),
+
+/***/ "./app/components/parts/numeric-keypad/numeric-keypad.component.ts":
+/*!*************************************************************************!*\
+  !*** ./app/components/parts/numeric-keypad/numeric-keypad.component.ts ***!
+  \*************************************************************************/
+/*! exports provided: NumericKeypadComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NumericKeypadComponent", function() { return NumericKeypadComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var NumericKeypadComponent = /** @class */ (function () {
+    function NumericKeypadComponent() {
+        this.change = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.hidden = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    NumericKeypadComponent.prototype.ngOnInit = function () {
+        this.isOpen = false;
+        this.position = { y: 0, x: 0 };
+        if (this.inputValue === '0') {
+            this.inputValue = '';
+        }
+    };
+    NumericKeypadComponent.prototype.show = function () {
+        var height = this.trigger.nativeElement.clientHeight;
+        var rect = this.trigger.nativeElement.getBoundingClientRect();
+        // const scrollTop = window.pageYOffset || (<HTMLElement>document.documentElement).scrollTop;
+        // const scrollLeft = window.pageXOffset || (<HTMLElement>document.documentElement).scrollLeft;
+        this.position = {
+            y: rect.top + height,
+            x: rect.left
+        };
+        this.isOpen = true;
+    };
+    NumericKeypadComponent.prototype.hide = function () {
+        this.isOpen = false;
+        this.hidden.emit(this.inputValue);
+    };
+    NumericKeypadComponent.prototype.inputNumber = function (number) {
+        this.inputValue = String(Number(this.inputValue + number));
+        this.change.emit(this.inputValue);
+    };
+    NumericKeypadComponent.prototype.clear = function () {
+        if (this.inputValue.length === 0) {
+            return;
+        }
+        this.change.emit(this.inputValue.slice(0, -1));
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], NumericKeypadComponent.prototype, "inputValue", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], NumericKeypadComponent.prototype, "change", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], NumericKeypadComponent.prototype, "hidden", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('trigger'),
+        __metadata("design:type", Object)
+    ], NumericKeypadComponent.prototype, "trigger", void 0);
+    NumericKeypadComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-numeric-keypad',
+            template: __webpack_require__(/*! ./numeric-keypad.component.html */ "./app/components/parts/numeric-keypad/numeric-keypad.component.html"),
+            styles: [__webpack_require__(/*! ./numeric-keypad.component.scss */ "./app/components/parts/numeric-keypad/numeric-keypad.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], NumericKeypadComponent);
+    return NumericKeypadComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./app/components/parts/purchase-contents/purchase-contents.component.html":
 /*!*********************************************************************************!*\
   !*** ./app/components/parts/purchase-contents/purchase-contents.component.html ***!
@@ -4433,7 +4653,7 @@ module.exports = "<div id=\"purchaseContents\" class=\"scroll\" [class.touch]=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  box-sizing: border-box;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0; }\n\n.contents {\n  max-width: 960px;\n  padding-bottom: 100px; }\n\n.scroll {\n  overflow-x: hidden;\n  overflow-y: auto;\n  height: 100%; }\n\n.touch {\n  -webkit-overflow-scrolling: touch; }\n"
+module.exports = ""
 
 /***/ }),
 
@@ -4729,7 +4949,7 @@ var PurchasePaymentModalComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"film p-3 bg-white\">\n    <p class=\"title large-text\"><strong>{{ screeningFilmEvent.info.name.ja }}</strong></p>\n    <div class=\"info\">\n        <div class=\"time small-text text-right\">{{ moment.duration(screeningFilmEvent.info.duration).asMinutes() }}分</div>\n    </div>\n</div>\n<ul class=\"bg-light p-3\">\n    <li *ngFor=\"let screeningEvent of screeningFilmEvent.data\" class=\"rounded border py-3 py-md-3 text-md-center d-md-block d-flex justify-content-between align-items-center\"\n        [ngClass]=\"{ \n        'bg-white':  screeningEvent.remainingAttendeeCapacity > 0, \n        'bg-dark text-light':  screeningEvent.remainingAttendeeCapacity === 0}\"\n        (click)=\"select.emit(screeningEvent)\">\n        <div class=\"mb-md-2 small-text\">\n            {{ screeningEvent.location.name.ja }}\n        </div>\n        <div class=\"mb-md-2\">\n            <strong class=\"large-text\">{{ moment(screeningEvent.startDate).format('HH:mm') }}</strong>\n            <span>-</span>\n            <span>{{ moment(screeningEvent.endDate).format('HH:mm') }}</span>\n        </div>\n        <div *ngIf=\"screeningEvent.remainingAttendeeCapacity >= 30\" class=\"status text-center\">\n            <img src=\"/assets/images/status_01.svg\">\n        </div>\n        <div *ngIf=\"screeningEvent.remainingAttendeeCapacity < 30 && screeningEvent.remainingAttendeeCapacity > 0\"\n            class=\"status text-center\">\n            <img src=\"/assets/images/status_02.svg\">\n        </div>\n        <div *ngIf=\"screeningEvent.remainingAttendeeCapacity === 0\" class=\"status text-center\">\n            <img src=\"/assets/images/status_03.svg\">\n        </div>\n        <div *ngIf=\"screeningEvent.remainingAttendeeCapacity === 0\" class=\"status text-center\">\n            <p>販売終了</p>\n        </div>\n    </li>\n</ul>"
+module.exports = "<div class=\"film p-3 bg-white\">\n    <p class=\"title large-text\"><strong>{{ screeningFilmEvent.info.name.ja }}</strong></p>\n    <div class=\"info\">\n        <div class=\"time small-text text-right\">{{ moment.duration(screeningFilmEvent.info.duration).asMinutes() }}分</div>\n    </div>\n</div>\n<ul class=\"bg-light p-3\">\n    <li *ngFor=\"let screeningEvent of screeningFilmEvent.data\" class=\"rounded border py-3 px-3 px-md-0 text-md-center d-md-block d-flex justify-content-between align-items-center\"\n        [ngClass]=\"{ \n        'bg-white':  screeningEvent.remainingAttendeeCapacity > 0, \n        'bg-dark text-light':  screeningEvent.remainingAttendeeCapacity === 0}\"\n        (click)=\"select.emit(screeningEvent)\">\n        <div class=\"mb-md-2 small-text\">\n            {{ screeningEvent.location.name.ja }}\n        </div>\n        <div class=\"mb-md-2\">\n            <strong class=\"large-text\">{{ moment(screeningEvent.startDate).format('HH:mm') }}</strong>\n            <span>-</span>\n            <span>{{ moment(screeningEvent.endDate).format('HH:mm') }}</span>\n        </div>\n        <div *ngIf=\"screeningEvent.remainingAttendeeCapacity >= 30\" class=\"status text-center\">\n            <img src=\"/assets/images/status_01.svg\">\n        </div>\n        <div *ngIf=\"screeningEvent.remainingAttendeeCapacity < 30 && screeningEvent.remainingAttendeeCapacity > 0\"\n            class=\"status text-center\">\n            <img src=\"/assets/images/status_02.svg\">\n        </div>\n        <div *ngIf=\"screeningEvent.remainingAttendeeCapacity === 0\" class=\"status text-center\">\n            <img src=\"/assets/images/status_03.svg\">\n        </div>\n        <div *ngIf=\"screeningEvent.remainingAttendeeCapacity === 0\" class=\"status text-center\">\n            <p>販売終了</p>\n        </div>\n    </li>\n</ul>"
 
 /***/ }),
 
