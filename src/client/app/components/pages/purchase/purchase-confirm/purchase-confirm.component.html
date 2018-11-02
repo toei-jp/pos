@@ -51,8 +51,10 @@
                     お預かり金額</p>
                 <p class="col-8 bg-white py-0 pr-0 d-flex align-items-center position-static">
                     <span>￥</span>
-                    <app-numeric-keypad [inputValue]="depositAmount" (change)="depositAmount = $event" (hidden)="depositAmount = ($event.length > 0) ? $event : 0">
-                        <input type="text" class="form-control large-text border-0 py-3 h-auto" id="depositAmount" [(ngModel)]="depositAmount" readonly="readonly">
+                    <app-numeric-keypad [inputValue]="depositAmount" viewPosition="Top" (change)="depositAmount = $event"
+                        (hidden)="depositAmount = ($event.length > 0) ? $event : 0">
+                        <input type="text" class="form-control large-text border-0 py-3 h-auto" id="depositAmount"
+                            [(ngModel)]="depositAmount" readonly="readonly">
                     </app-numeric-keypad>
                 </p>
             </div>
@@ -64,8 +66,13 @@
             </div>
         </div>
 
+        <div class="d-flex align-items-center justify-content-center mb-4">
+            <input class="mr-2" type="checkbox" [value]="true" id="agree" [(ngModel)]="agree">
+            <label class="text-white" for="agree"> 注意事項に同意する </label>
+        </div>
+
         <div class="w-50 mx-auto">
-            <button type="button" class="btn btn-block bg-primary py-3 text-white large-text" [disabled]="isLoading | async"
+            <button type="button" class="btn btn-block bg-primary py-3 text-white large-text btn-arrow" [disabled]="(isLoading | async) || !agree"
                 (click)="onSubmit()">購入確定</button>
         </div>
     </div>

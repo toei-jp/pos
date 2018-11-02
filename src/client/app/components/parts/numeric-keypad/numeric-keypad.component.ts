@@ -9,9 +9,11 @@ export class NumericKeypadComponent implements OnInit {
     public isOpen: boolean;
     public position: { y: number; x: number; };
     @Input() public inputValue: string;
+    @Input() public viewPosition?: 'Top';
     @Output() public change = new EventEmitter<string>();
     @Output() public hidden = new EventEmitter<string>();
     @ViewChild('trigger') private trigger: { nativeElement: HTMLElement };
+    @ViewChild('keypad') private keypad: { nativeElement: HTMLElement };
     constructor() { }
 
     public ngOnInit() {
@@ -32,6 +34,12 @@ export class NumericKeypadComponent implements OnInit {
             x: rect.left
         };
         this.isOpen = true;
+
+        setTimeout(() => {
+            if (this.viewPosition === 'Top') {
+                this.position.y = rect.top - this.keypad.nativeElement.clientHeight;
+            }
+        }, 0);
     }
 
     public hide() {

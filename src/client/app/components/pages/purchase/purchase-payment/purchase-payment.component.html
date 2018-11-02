@@ -2,16 +2,28 @@
     <h2 class="text-center large-text text-white mb-4">決済方法選択</h2>
 
     <div class="payment-select mb-4">
-        <button type="button" class="btn btn-block bg-primary p-4 text-left text-white large-text mb-4" (click)="selectPaymentMethodType(paymentMethodType.Cash)">
-            <div><i class="fas fa-yen-sign mr-3"></i>現金</div>
+        <button type="button" class="btn btn-block bg-primary p-4 text-left text-white large-text mb-4 btn-arrow"
+            (click)="selectPaymentMethodType(paymentMethodType.Cash)">
+            <div class="d-flex align-items-center">
+                <i class="icon mr-3"><img class="w-100" src="/assets/images/icon/cache.svg"></i>
+                <strong>現金</strong>
+            </div>
         </button>
-        <button type="button" class="btn btn-block bg-primary p-4 text-left text-white large-text mb-4" (click)="selectPaymentMethodType(paymentMethodType.CreditCard)">
-            <div><i class="fas fa-credit-card mr-3"></i>クレジットカード</div>
+        <button type="button" class="btn btn-block bg-primary p-4 text-left text-white large-text mb-4 btn-arrow"
+            (click)="selectPaymentMethodType(paymentMethodType.CreditCard)">
+            <div class="d-flex align-items-center">
+                <i class="icon mr-3"><img class="w-100" src="/assets/images/icon/credit_card.svg"></i>
+                <strong>クレジットカード</strong>
+            </div>
         </button>
-        <button type="button" class="btn btn-block bg-primary p-4 text-left text-white large-text mb-4" (click)="selectPaymentMethodType(paymentMethodType.EMoney)">
-            <div><i class="fas fa-mobile-alt mr-3"></i>電子マネー</div>
+        <button type="button" class="btn btn-block bg-primary p-4 text-left text-white large-text mb-4 btn-arrow"
+            (click)="selectPaymentMethodType(paymentMethodType.EMoney)">
+            <div class="d-flex align-items-center">
+                <i class="icon mr-3"><img class="w-100" src="/assets/images/icon/e_money.svg"></i>
+                <strong>電子マネー</strong>
+            </div>
         </button>
-        
+
     </div>
 
 </div>

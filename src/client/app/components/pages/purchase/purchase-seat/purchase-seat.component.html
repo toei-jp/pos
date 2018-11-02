@@ -21,15 +21,15 @@
         <div class="bg-white">
             <div class="pt-4 pb-3 d-flex justify-content-center align-items-center seats border-bottom mx-auto">
                 <div class="mx-3 d-flex align-items-center">
-                    <div><img src="/images/theater/seat/normal.svg"></div>
+                    <div><img src="/images/theater/parts/seat.svg"></div>
                     <div class="ml-3">空席</div>
                 </div>
                 <div class="mx-3 d-flex align-items-center">
-                    <div><img src="/images/theater/seat/normal_active.svg"></div>
+                    <div><img src="/images/theater/parts/seat_active.svg"></div>
                     <div class="ml-3">選択中</div>
                 </div>
                 <div class="mx-3 d-flex align-items-center">
-                    <div><img src="/images/theater/seat/normal_disabled.svg"></div>
+                    <div><img src="/images/theater/parts/seat_disabled.svg"></div>
                     <div class="ml-3">購入不可</div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
     </div>
 
     <div class="w-50 mx-auto">
-        <button type="button" class="btn btn-block bg-primary py-3 text-white large-text" [disabled]="isLoading | async" (click)="onSubmit()">次へ</button>
+        <button type="button" class="btn btn-block bg-primary py-3 text-white large-text btn-arrow" [disabled]="isLoading | async" (click)="onSubmit()">次へ</button>
     </div>
 
 </div>

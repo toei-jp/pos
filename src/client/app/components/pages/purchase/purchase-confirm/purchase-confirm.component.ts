@@ -29,6 +29,7 @@ export class PurchaseConfirmComponent implements OnInit {
     public moment: typeof moment = moment;
     public paymentMethodType: typeof factory.paymentMethodType = factory.paymentMethodType;
     public depositAmount: string;
+    public agree: boolean;
     constructor(
         private store: Store<reducers.IState>,
         private actions: Actions,
@@ -41,6 +42,7 @@ export class PurchaseConfirmComponent implements OnInit {
         this.isLoading = this.store.pipe(select(reducers.getLoading));
         this.user = this.store.pipe(select(reducers.getUser));
         this.depositAmount = '0';
+        this.agree = false;
     }
 
     public registerContact() {
