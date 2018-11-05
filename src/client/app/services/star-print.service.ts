@@ -212,11 +212,11 @@ export class StarPrintService {
             size: args.size,
             data: {
                 confirmationNumber: 12345678,
-                theaterName: 'テスト劇場',
+                theaterName: 'テストTOEI',
                 screenName: 'テストスクリーン',
-                eventName: 'テスト-----------------------------作品',
+                eventName: 'テスト作品',
                 startDate: moment().format('YY/MM/DD (ddd) HH:mm'),
-                seatNumber: 'TEST-1',
+                seatNumber: 'Z-1',
                 ticketName: 'テスト券種',
                 price: 1000
             }
@@ -403,7 +403,7 @@ export class StarPrintService {
         // 券種
         context.textAlign = 'left';
         context.font = `normal 40px ${font}`;
-        context.fillText(data.ticketName.slice(0, 12), 0, 540);
+        context.fillText(data.ticketName.slice(0, 8), 0, 540);
         // 金額
         context.textAlign = 'right';
         context.fillText('￥' + data.price.toLocaleString(), right, 540);
