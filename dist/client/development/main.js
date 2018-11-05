@@ -3307,7 +3307,7 @@ var PurchaseTicketComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-4 px-3\">\n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">設定</h2>\n        <form [formGroup]=\"settingForm\" class=\"text-white\">\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">劇場</label>\n                <select class=\"form-control py-2 large-text\" formControlName=\"theaterCode\" (change)=\"changePosList()\">\n                    <option value=\"\">選択してください</option>\n                    <option *ngFor=\"let theater of (user | async).movieTheaters\" [value]=\"theater.location.branchCode\">{{\n                        theater.name.ja }}</option>\n                </select>\n                <div *ngIf=\"settingForm.controls.theaterCode.invalid && settingForm.controls.theaterCode.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.theaterCode.errors.required\" class=\"text-danger\">劇場が未選択です</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">POS</label>\n                <select class=\"form-control py-2 large-text\" formControlName=\"posId\">\n                    <option value=\"\">選択してください</option>\n                    <option *ngFor=\"let pos of posList\" [value]=\"pos.id\">{{ pos.name }}</option>\n                </select>\n                <div *ngIf=\"settingForm.controls.posId.invalid && settingForm.controls.posId.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.posId.errors.required\" class=\"text-danger\">POSが未選択です</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">セイ</label>\n                <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"familyName\" placeholder=\"モーション\">\n                <div *ngIf=\"settingForm.controls.familyName.invalid && settingForm.controls.familyName.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.familyName.errors.required\" class=\"text-danger\">セイが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.familyName.errors.maxlength\" class=\"text-danger\">セイは{{\n                        settingForm.controls.familyName.errors.maxlength.requiredLength }}文字以下で入力してください</p>\n                    <p *ngIf=\"settingForm.controls.familyName.errors.pattern\" class=\"text-danger\">セイは全角カタカナで入力してください</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">メイ</label>\n                <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"givenName\" placeholder=\"ピクチャー\">\n                <div *ngIf=\"settingForm.controls.givenName.invalid && settingForm.controls.givenName.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.givenName.errors.required\" class=\"text-danger\">メイが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.givenName.errors.maxlength\" class=\"text-danger\">メイは{{\n                        settingForm.controls.givenName.errors.maxlength.requiredLength }}文字以下で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.givenName.errors.pattern\" class=\"text-danger\">メイは全角カタカナで入力してください\n                    </p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">メールアドレス</label>\n                <input type=\"email\" class=\"form-control py-2 large-text\" formControlName=\"email\" placeholder=\"motionpicture@example.jp\">\n                <div *ngIf=\"settingForm.controls.email.invalid && settingForm.controls.email.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.email.errors.required\" class=\"text-danger\">メールアドレスが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.email.errors.maxlength\" class=\"text-danger\">メールアドレスは{{\n                        settingForm.controls.email.errors.maxlength.requiredLength }}文字以下で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.email.errors.email\" class=\"text-danger\">メールアドレスが正しくありません</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">電話番号</label>\n                <input type=\"tel\" class=\"form-control py-2 large-text\" formControlName=\"telephone\" placeholder=\"0362778824\">\n                <div *ngIf=\"settingForm.controls.telephone.invalid && settingForm.controls.telephone.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.telephone.errors.required\" class=\"text-danger\">電話番号が未入力です</p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.minlength\" class=\"text-danger\">電話番号は{{\n                        settingForm.controls.telephone.errors.minlength.requiredLength }}文字以上で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.maxlength\" class=\"text-danger\">電話番号は{{\n                        settingForm.controls.telephone.errors.maxlength.requiredLength }}文字以下で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.pattern\" class=\"text-danger\">電話番号は数字で入力してください</p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.telephone\" class=\"text-danger\">電話番号が正しくありません</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">プリンターIPアドレス</label>\n                <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"printerIpAddress\" placeholder=\"0.0.0.0\">\n                <div *ngIf=\"settingForm.controls.printerIpAddress.invalid && settingForm.controls.printerIpAddress.touched\"\n                    class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.printerIpAddress.errors.required\" class=\"text-danger\">プリンターIPアドレスが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.printerIpAddress.errors.pattern\" class=\"text-danger\">プリンターIPアドレスが正しくありません</p>\n                </div>\n                <button type=\"button\" class=\"btn btn-sm btn-primary py-2 px-3 mt-2\" (click)=\"print()\">テスト印刷</button>\n            </div>\n        </form>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" (click)=\"onSubmit()\">設定</button>\n    </div>\n\n</div>\n\n<app-navigation [setting]=\"false\" prevLink=\"/purchase/schedule\"></app-navigation>"
+module.exports = "<div class=\"py-4 px-3\">\n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">設定</h2>\n        <form [formGroup]=\"settingForm\" class=\"text-white\">\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">劇場</label>\n                <select class=\"form-control py-2 large-text\" formControlName=\"theaterCode\" (change)=\"changePosList()\">\n                    <option value=\"\">選択してください</option>\n                    <option *ngFor=\"let theater of (user | async).movieTheaters\" [value]=\"theater.location.branchCode\">{{\n                        theater.name.ja }}</option>\n                </select>\n                <div *ngIf=\"settingForm.controls.theaterCode.invalid && settingForm.controls.theaterCode.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.theaterCode.errors.required\" class=\"text-danger\">劇場が未選択です</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">POS</label>\n                <select class=\"form-control py-2 large-text\" formControlName=\"posId\">\n                    <option value=\"\">選択してください</option>\n                    <option *ngFor=\"let pos of posList\" [value]=\"pos.id\">{{ pos.name }}</option>\n                </select>\n                <div *ngIf=\"settingForm.controls.posId.invalid && settingForm.controls.posId.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.posId.errors.required\" class=\"text-danger\">POSが未選択です</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">セイ</label>\n                <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"familyName\" placeholder=\"モーション\">\n                <div *ngIf=\"settingForm.controls.familyName.invalid && settingForm.controls.familyName.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.familyName.errors.required\" class=\"text-danger\">セイが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.familyName.errors.maxlength\" class=\"text-danger\">セイは{{\n                        settingForm.controls.familyName.errors.maxlength.requiredLength }}文字以下で入力してください</p>\n                    <p *ngIf=\"settingForm.controls.familyName.errors.pattern\" class=\"text-danger\">セイは全角カタカナで入力してください</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">メイ</label>\n                <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"givenName\" placeholder=\"ピクチャー\">\n                <div *ngIf=\"settingForm.controls.givenName.invalid && settingForm.controls.givenName.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.givenName.errors.required\" class=\"text-danger\">メイが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.givenName.errors.maxlength\" class=\"text-danger\">メイは{{\n                        settingForm.controls.givenName.errors.maxlength.requiredLength }}文字以下で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.givenName.errors.pattern\" class=\"text-danger\">メイは全角カタカナで入力してください\n                    </p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">メールアドレス</label>\n                <input type=\"email\" class=\"form-control py-2 large-text\" formControlName=\"email\" placeholder=\"motionpicture@example.jp\">\n                <div *ngIf=\"settingForm.controls.email.invalid && settingForm.controls.email.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.email.errors.required\" class=\"text-danger\">メールアドレスが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.email.errors.maxlength\" class=\"text-danger\">メールアドレスは{{\n                        settingForm.controls.email.errors.maxlength.requiredLength }}文字以下で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.email.errors.email\" class=\"text-danger\">メールアドレスが正しくありません</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">電話番号</label>\n                <input type=\"tel\" class=\"form-control py-2 large-text\" formControlName=\"telephone\" placeholder=\"0362778824\">\n                <div *ngIf=\"settingForm.controls.telephone.invalid && settingForm.controls.telephone.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.telephone.errors.required\" class=\"text-danger\">電話番号が未入力です</p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.minlength\" class=\"text-danger\">電話番号は{{\n                        settingForm.controls.telephone.errors.minlength.requiredLength }}文字以上で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.maxlength\" class=\"text-danger\">電話番号は{{\n                        settingForm.controls.telephone.errors.maxlength.requiredLength }}文字以下で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.pattern\" class=\"text-danger\">電話番号は数字で入力してください</p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.telephone\" class=\"text-danger\">電話番号が正しくありません</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">プリンターIPアドレス</label>\n                <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"printerIpAddress\" placeholder=\"0.0.0.0\">\n                <div *ngIf=\"settingForm.controls.printerIpAddress.invalid && settingForm.controls.printerIpAddress.touched\"\n                    class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.printerIpAddress.errors.required\" class=\"text-danger\">プリンターIPアドレスが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.printerIpAddress.errors.pattern\" class=\"text-danger\">プリンターIPアドレスが正しくありません</p>\n                </div>\n                <button type=\"button\" class=\"btn btn-sm btn-primary py-2 px-3 mt-2\" (click)=\"print()\">テスト印刷</button>\n            </div>\n        </form>\n    </div>\n\n    <!-- <canvas class=\"bg-white\" id=\"test\"></canvas> -->\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" (click)=\"onSubmit()\">設定</button>\n    </div>\n\n</div>\n\n<app-navigation [setting]=\"false\" prevLink=\"/purchase/schedule\"></app-navigation>"
 
 /***/ }),
 
@@ -6231,21 +6231,11 @@ var StarPrintService = /** @class */ (function () {
      */
     StarPrintService.prototype.createPrintImage = function (args) {
         return __awaiter(this, void 0, void 0, function () {
-            var canvas, context, left, right, bottom, center, order, acceptedOffer, data, title, titleLimit, qrcodeCanvas, date;
+            var canvas, order, acceptedOffer, data, context;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         canvas = document.createElement('canvas');
-                        canvas.width = args.size.width;
-                        canvas.height = args.size.height;
-                        context = canvas.getContext('2d');
-                        if (context === null) {
-                            throw new Error('context is null');
-                        }
-                        left = 0;
-                        right = canvas.width;
-                        bottom = args.size.height;
-                        center = canvas.width / 2;
                         order = args.order;
                         acceptedOffer = order.acceptedOffers[args.offerIndex];
                         data = {
@@ -6253,79 +6243,25 @@ var StarPrintService = /** @class */ (function () {
                             theaterName: order.acceptedOffers[0].itemOffered.reservationFor.superEvent.location.name.ja,
                             screenName: order.acceptedOffers[0].itemOffered.reservationFor.location.name.ja,
                             eventName: order.acceptedOffers[0].itemOffered.reservationFor.name.ja,
-                            startDate: moment__WEBPACK_IMPORTED_MODULE_1__(order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YYYY/MM/DD (ddd) HH:mm'),
+                            startDate: moment__WEBPACK_IMPORTED_MODULE_1__(order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YY/MM/DD (ddd) HH:mm'),
                             seatNumber: acceptedOffer.itemOffered.reservedTicket.ticketedSeat.seatNumber,
                             ticketName: acceptedOffer.itemOffered.reservedTicket.ticketType.name.ja,
                             price: acceptedOffer.itemOffered.reservedTicket.totalPrice,
                             qrcode: acceptedOffer.itemOffered.reservedTicket.ticketToken
                         };
-                        // 劇場
-                        context.fillStyle = 'black';
-                        context.font = 'normal 24px sans-serif';
-                        context.textAlign = 'center';
-                        context.fillText(data.theaterName, center, 30);
-                        // 鑑賞日時
-                        context.font = 'bold 30px sans-serif';
-                        context.fillText(data.startDate, center, 70);
-                        context.strokeStyle = '#000';
-                        context.beginPath();
-                        context.moveTo(80, 80);
-                        context.lineTo((canvas.width - 80), 80);
-                        context.closePath();
-                        context.stroke();
-                        // 作品名
-                        context.font = 'normal 30px sans-serif';
-                        title = data.eventName;
-                        titleLimit = 18;
-                        if (title.length > titleLimit) {
-                            context.fillText(title.slice(0, titleLimit), center, 120);
-                            context.fillText(title.slice(titleLimit, title.length), center, 160);
-                        }
-                        else {
-                            context.fillText(title, center, 120);
-                        }
-                        // スクリーン
-                        context.beginPath();
-                        context.fillRect(0, 170, canvas.width, 50);
-                        context.font = 'bold 40px sans-serif';
-                        context.fillStyle = '#FFF';
-                        context.fillText(data.screenName, center, 210);
-                        // 座席
-                        context.beginPath();
-                        context.lineWidth = 2;
-                        context.strokeRect(1, 220, canvas.width - 2, 50);
-                        context.strokeRect(0, 220, canvas.width, 50);
-                        context.fillStyle = '#000';
-                        context.fillText(data.seatNumber, center, 260);
-                        // 券種
-                        context.textAlign = 'left';
-                        context.font = 'normal 30px sans-serif';
-                        context.fillText(data.ticketName, 0, 310);
-                        // 金額
-                        context.textAlign = 'right';
-                        context.fillText('￥' + data.price + '-', right, 310);
-                        qrcodeCanvas = document.createElement('canvas');
-                        return [4 /*yield*/, qrcode__WEBPACK_IMPORTED_MODULE_2__["toCanvas"](qrcodeCanvas, data.qrcode)];
+                        return [4 /*yield*/, this.draw({
+                                canvas: canvas,
+                                size: args.size,
+                                data: data
+                            })];
                     case 1:
-                        _a.sent();
-                        context.drawImage(qrcodeCanvas, (canvas.width - 120), 320, 120, 120);
-                        // 発券時間
-                        context.textAlign = 'left';
-                        context.font = 'normal 24px sans-serif';
-                        date = moment__WEBPACK_IMPORTED_MODULE_1__().format('YYYY/MM/DD HH:mm');
-                        context.fillText(date, left, bottom);
-                        // 購入番号
-                        context.fillText("\u8CFC\u5165\u756A\u53F7 " + data.confirmationNumber, left, bottom - 60);
-                        if (this.pos !== undefined) {
-                            // 端末
-                            context.fillText("\u7AEF\u672B " + this.pos.name, left, bottom - 30);
-                        }
+                        context = _a.sent();
                         return [2 /*return*/, {
                                 context: context,
                                 x: 0,
                                 y: 0,
-                                width: 560,
-                                height: 450
+                                width: args.size.width,
+                                height: args.size.height
                             }];
                 }
             });
@@ -6342,7 +6278,7 @@ var StarPrintService = /** @class */ (function () {
                     case 0:
                         request = '';
                         return [4 /*yield*/, this.createPrintImage({
-                                size: { width: 560, height: 450 },
+                                size: { width: 560, height: 730 },
                                 order: args.order,
                                 offerIndex: args.offerIndex
                             })];
@@ -6361,96 +6297,70 @@ var StarPrintService = /** @class */ (function () {
      */
     StarPrintService.prototype.createPrintTestImage = function (args) {
         return __awaiter(this, void 0, void 0, function () {
-            var canvas, context, left, right, bottom, center, data, title, titleLimit, qrcodeCanvas, date;
+            var canvas, context;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         canvas = document.createElement('canvas');
-                        canvas.width = args.size.width;
-                        canvas.height = args.size.height;
-                        context = canvas.getContext('2d');
-                        if (context === null) {
-                            throw new Error('context is null');
-                        }
-                        left = 0;
-                        right = canvas.width;
-                        bottom = args.size.height;
-                        center = canvas.width / 2;
-                        data = {
-                            confirmationNumber: '12345678',
-                            theaterName: 'テスト劇場',
-                            screenName: 'テストスクリーン',
-                            eventName: 'テスト作品',
-                            startDate: moment__WEBPACK_IMPORTED_MODULE_1__().format('YYYY/MM/DD (ddd) HH:mm'),
-                            seatNumber: 'TEST-1',
-                            ticketName: 'テスト券種',
-                            price: '1000'
-                        };
-                        // 劇場
-                        context.fillStyle = 'black';
-                        context.font = 'normal 24px sans-serif';
-                        context.textAlign = 'center';
-                        context.fillText(data.theaterName, center, 30);
-                        // 鑑賞日時
-                        context.font = 'bold 30px sans-serif';
-                        context.fillText(data.startDate, center, 70);
-                        context.strokeStyle = '#000';
-                        context.beginPath();
-                        context.moveTo(80, 80);
-                        context.lineTo((canvas.width - 80), 80);
-                        context.closePath();
-                        context.stroke();
-                        // 作品名
-                        context.font = 'normal 30px sans-serif';
-                        title = data.eventName;
-                        titleLimit = 18;
-                        if (title.length > titleLimit) {
-                            context.fillText(title.slice(0, titleLimit), center, 120);
-                            context.fillText(title.slice(titleLimit, title.length), center, 160);
-                        }
-                        else {
-                            context.fillText(title, center, 120);
-                        }
-                        // スクリーン
-                        context.beginPath();
-                        context.fillRect(0, 170, canvas.width, 50);
-                        context.font = 'bold 40px sans-serif';
-                        context.fillStyle = '#FFF';
-                        context.fillText(data.screenName, center, 210);
-                        // 座席
-                        context.beginPath();
-                        context.lineWidth = 2;
-                        context.strokeRect(1, 220, canvas.width - 2, 50);
-                        context.strokeRect(0, 220, canvas.width, 50);
-                        context.fillStyle = '#000';
-                        context.fillText(data.seatNumber, center, 260);
-                        // 券種
-                        context.textAlign = 'left';
-                        context.font = 'normal 30px sans-serif';
-                        context.fillText(data.ticketName, 0, 310);
-                        // 金額
-                        context.textAlign = 'right';
-                        context.fillText('￥' + data.price + '-', right, 310);
-                        qrcodeCanvas = document.createElement('canvas');
-                        return [4 /*yield*/, qrcode__WEBPACK_IMPORTED_MODULE_2__["toCanvas"](qrcodeCanvas, 'QRコード文字列')];
+                        return [4 /*yield*/, this.draw({
+                                canvas: canvas,
+                                size: args.size,
+                                data: {
+                                    confirmationNumber: 12345678,
+                                    theaterName: 'テスト劇場',
+                                    screenName: 'テストスクリーン',
+                                    eventName: 'テスト-----------------------------作品',
+                                    startDate: moment__WEBPACK_IMPORTED_MODULE_1__().format('YY/MM/DD (ddd) HH:mm'),
+                                    seatNumber: 'TEST-1',
+                                    ticketName: 'テスト1234567890券種',
+                                    price: 1000
+                                }
+                            })];
                     case 1:
-                        _a.sent();
-                        context.drawImage(qrcodeCanvas, (canvas.width - 120), 320, 120, 120);
-                        // 発券時間
-                        context.textAlign = 'left';
-                        context.font = 'normal 24px sans-serif';
-                        date = moment__WEBPACK_IMPORTED_MODULE_1__().format('YYYY/MM/DD HH:mm');
-                        context.fillText(date, left, bottom);
-                        // 購入番号
-                        context.fillText("\u8CFC\u5165\u756A\u53F7 " + data.confirmationNumber, left, bottom - 60);
-                        // 端末
-                        context.fillText("\u7AEF\u672B TEST", left, bottom - 30);
+                        context = _a.sent();
                         return [2 /*return*/, {
                                 context: context,
                                 x: 0,
                                 y: 0,
-                                width: 560,
-                                height: 450
+                                width: args.size.width,
+                                height: args.size.height
+                            }];
+                }
+            });
+        });
+    };
+    /**
+     * 印刷テスト用イメージ作成確認用
+     */
+    StarPrintService.prototype.createPrintTestImageToCanvas = function (args) {
+        return __awaiter(this, void 0, void 0, function () {
+            var canvas, context;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        canvas = document.getElementById('test');
+                        return [4 /*yield*/, this.draw({
+                                canvas: canvas,
+                                size: args.size,
+                                data: {
+                                    confirmationNumber: 12345678,
+                                    theaterName: 'テスト劇場',
+                                    screenName: 'テストスクリーン',
+                                    eventName: 'テスト-----------------------------作品',
+                                    startDate: moment__WEBPACK_IMPORTED_MODULE_1__().format('YY/MM/DD (ddd) HH:mm'),
+                                    seatNumber: 'TEST-1',
+                                    ticketName: 'テスト券種',
+                                    price: 1000
+                                }
+                            })];
+                    case 1:
+                        context = _a.sent();
+                        return [2 /*return*/, {
+                                context: context,
+                                x: 0,
+                                y: 0,
+                                width: args.size.width,
+                                height: args.size.height
                             }];
                 }
             });
@@ -6467,10 +6377,15 @@ var StarPrintService = /** @class */ (function () {
                     case 0:
                         request = '';
                         return [4 /*yield*/, this.createPrintTestImage({
-                                size: { width: 560, height: 450 }
+                                size: { width: 560, height: 730 }
                             })];
                     case 1:
                         printImage = _a.sent();
+                        // canvas確認
+                        // await this.createPrintTestImageToCanvas({
+                        //     size: { width: 560, height: 730 }
+                        // });
+                        // return;
                         request = this.builder.createBitImageElement(printImage);
                         // 紙を切断
                         request += this.builder.createCutPaperElement({ feed: true, type: 'partial' });
@@ -6556,6 +6471,100 @@ var StarPrintService = /** @class */ (function () {
                         // プリンターに送信
                         _this.trader.sendMessage({ request: args.printerRequest });
                     })];
+            });
+        });
+    };
+    StarPrintService.prototype.draw = function (args) {
+        return __awaiter(this, void 0, void 0, function () {
+            var canvas, data, context, drawImage, left, right, bottom, center, font, logoImage, title, titleLimit, boxImage, qrcodeCanvas, date;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        canvas = args.canvas;
+                        data = args.data;
+                        canvas.width = args.size.width;
+                        canvas.height = args.size.height;
+                        context = canvas.getContext('2d');
+                        if (context === null) {
+                            throw new Error('context is null');
+                        }
+                        drawImage = function (drawImageArgs) {
+                            return new Promise(function (resolve) {
+                                drawImageArgs.image.onload = function () {
+                                    context.drawImage(drawImageArgs.image, drawImageArgs.x, drawImageArgs.y, drawImageArgs.width, drawImageArgs.height);
+                                    resolve();
+                                };
+                            });
+                        };
+                        left = 0;
+                        right = canvas.width;
+                        bottom = args.size.height;
+                        center = canvas.width / 2;
+                        font = "\"Hiragino Sans\", \"Hiragino Kaku Gothic ProN\", \"\u6E38\u30B4\u30B7\u30C3\u30AF  Medium\", meiryo, sans-serif";
+                        logoImage = new Image();
+                        logoImage.src = '/assets/images/logo.svg';
+                        return [4 /*yield*/, drawImage({ image: logoImage, x: (canvas.width / 2) - 100, y: 5, width: 40, height: 40 })];
+                    case 1:
+                        _a.sent();
+                        // 劇場
+                        context.fillStyle = 'black';
+                        context.font = "bold 34px " + font;
+                        context.textAlign = 'left';
+                        context.fillText(data.theaterName, (canvas.width / 2) - (100 - 35 - 15), 35);
+                        // 鑑賞日時
+                        context.font = "normal 40px " + font;
+                        context.textAlign = 'center';
+                        context.fillText(data.startDate + "\uFF5E", center, 110);
+                        context.strokeStyle = '#000';
+                        // 作品名
+                        context.font = "bold 40px " + font;
+                        title = data.eventName;
+                        titleLimit = 18;
+                        if (title.length > titleLimit) {
+                            context.fillText(title.slice(0, titleLimit), center, 180);
+                            context.fillText(title.slice(titleLimit, title.length), center, 230);
+                        }
+                        else {
+                            context.fillText(title, center, 180);
+                        }
+                        boxImage = new Image();
+                        boxImage.src = '/assets/images/print_box.svg';
+                        return [4 /*yield*/, drawImage({ image: boxImage, x: 0, y: 270, width: canvas.width, height: 210 })];
+                    case 2:
+                        _a.sent();
+                        // スクリーン
+                        context.beginPath();
+                        context.font = "bold 40px " + font;
+                        context.fillText(data.screenName, center, 340);
+                        // 座席
+                        context.beginPath();
+                        context.fillText(data.seatNumber, center, 440);
+                        // 券種
+                        context.textAlign = 'left';
+                        context.font = "normal 40px " + font;
+                        context.fillText(data.ticketName.slice(0, 12), 0, 540);
+                        // 金額
+                        context.textAlign = 'right';
+                        context.fillText('￥' + data.price.toLocaleString(), right, 540);
+                        qrcodeCanvas = document.createElement('canvas');
+                        return [4 /*yield*/, qrcode__WEBPACK_IMPORTED_MODULE_2__["toCanvas"](qrcodeCanvas, 'QRコード文字列')];
+                    case 3:
+                        _a.sent();
+                        context.drawImage(qrcodeCanvas, (canvas.width - 170), (bottom - 170), 170, 170);
+                        // 説明
+                        context.textAlign = 'left';
+                        context.font = "normal 22px " + font;
+                        context.fillText('■ 上記日時1回限り有効', left, bottom - 140);
+                        context.fillText('■ 変更、払戻不可', left, bottom - 110);
+                        // 購入番号
+                        context.font = "normal 22px " + font;
+                        context.fillText("\u8CFC\u5165\u756A\u53F7 " + data.confirmationNumber, left, bottom - 60);
+                        // 端末
+                        context.fillText("\u7AEF\u672B TEST", left, bottom - 30);
+                        date = moment__WEBPACK_IMPORTED_MODULE_1__().format('YYYY/MM/DD HH:mm');
+                        context.fillText("(" + date + " \u767A\u5238)", left, bottom);
+                        return [2 /*return*/, context];
+                }
             });
         });
     };

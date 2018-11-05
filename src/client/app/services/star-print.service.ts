@@ -121,16 +121,6 @@ export class StarPrintService {
         offerIndex: number;
     }) {
         const canvas = document.createElement('canvas');
-        canvas.width = args.size.width;
-        canvas.height = args.size.height;
-        const context = canvas.getContext('2d');
-        if (context === null) {
-            throw new Error('context is null');
-        }
-        const left = 0;
-        const right = canvas.width;
-        const bottom = args.size.height;
-        const center = canvas.width / 2;
         const order = args.order;
         const acceptedOffer = order.acceptedOffers[args.offerIndex];
         const data = {
@@ -138,79 +128,24 @@ export class StarPrintService {
             theaterName: order.acceptedOffers[0].itemOffered.reservationFor.superEvent.location.name.ja,
             screenName: order.acceptedOffers[0].itemOffered.reservationFor.location.name.ja,
             eventName: order.acceptedOffers[0].itemOffered.reservationFor.name.ja,
-            startDate: moment(order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YYYY/MM/DD (ddd) HH:mm'),
+            startDate: moment(order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YY/MM/DD (ddd) HH:mm'),
             seatNumber: acceptedOffer.itemOffered.reservedTicket.ticketedSeat.seatNumber,
             ticketName: acceptedOffer.itemOffered.reservedTicket.ticketType.name.ja,
             price: acceptedOffer.itemOffered.reservedTicket.totalPrice,
             qrcode: <string>acceptedOffer.itemOffered.reservedTicket.ticketToken
         };
-
-        // 劇場
-        context.fillStyle = 'black';
-        context.font = 'normal 24px sans-serif';
-        context.textAlign = 'center';
-        context.fillText(data.theaterName, center, 30);
-        // 鑑賞日時
-        context.font = 'bold 30px sans-serif';
-        context.fillText(data.startDate, center, 70);
-        context.strokeStyle = '#000';
-        context.beginPath();
-        context.moveTo(80, 80);
-        context.lineTo((canvas.width - 80), 80);
-        context.closePath();
-        context.stroke();
-        // 作品名
-        context.font = 'normal 30px sans-serif';
-        const title = data.eventName;
-        const titleLimit = 18;
-        if (title.length > titleLimit) {
-            context.fillText(title.slice(0, titleLimit), center, 120);
-            context.fillText(title.slice(titleLimit, title.length), center, 160);
-        } else {
-            context.fillText(title, center, 120);
-        }
-        // スクリーン
-        context.beginPath();
-        context.fillRect(0, 170, canvas.width, 50);
-        context.font = 'bold 40px sans-serif';
-        context.fillStyle = '#FFF';
-        context.fillText(data.screenName, center, 210);
-        // 座席
-        context.beginPath();
-        context.lineWidth = 2;
-        context.strokeRect(1, 220, canvas.width - 2, 50);
-        context.strokeRect(0, 220, canvas.width, 50);
-        context.fillStyle = '#000';
-        context.fillText(data.seatNumber, center, 260);
-        // 券種
-        context.textAlign = 'left';
-        context.font = 'normal 30px sans-serif';
-        context.fillText(data.ticketName, 0, 310);
-        // 金額
-        context.textAlign = 'right';
-        context.fillText('￥' + data.price + '-', right, 310);
-        // QR
-        const qrcodeCanvas = document.createElement('canvas');
-        await qrcode.toCanvas(qrcodeCanvas, data.qrcode);
-        context.drawImage(qrcodeCanvas, (canvas.width - 120), 320, 120, 120);
-        // 発券時間
-        context.textAlign = 'left';
-        context.font = 'normal 24px sans-serif';
-        const date = moment().format('YYYY/MM/DD HH:mm');
-        context.fillText(date, left, bottom);
-        // 購入番号
-        context.fillText(`購入番号 ${data.confirmationNumber}`, left, bottom - 60);
-        if (this.pos !== undefined) {
-            // 端末
-            context.fillText(`端末 ${this.pos.name}`, left, bottom - 30);
-        }
+        const context = await this.draw({
+            canvas,
+            size: args.size,
+            data
+        });
 
         return {
             context,
             x: 0,
             y: 0,
-            width: 560,
-            height: 450
+            width: args.size.width,
+            height: args.size.height
         };
     }
 
@@ -223,7 +158,7 @@ export class StarPrintService {
     }) {
         let request = '';
         const printImage = await this.createPrintImage({
-            size: { width: 560, height: 450 },
+            size: { width: 560, height: 730 },
             order: args.order,
             offerIndex: args.offerIndex
         });
@@ -241,91 +176,58 @@ export class StarPrintService {
         size: { width: number; height: number; }
     }) {
         const canvas = document.createElement('canvas');
-        canvas.width = args.size.width;
-        canvas.height = args.size.height;
-        const context = canvas.getContext('2d');
-        if (context === null) {
-            throw new Error('context is null');
-        }
-        const left = 0;
-        const right = canvas.width;
-        const bottom = args.size.height;
-        const center = canvas.width / 2;
-        const data = {
-            confirmationNumber: '12345678',
-            theaterName: 'テスト劇場',
-            screenName: 'テストスクリーン',
-            eventName: 'テスト作品',
-            startDate: moment().format('YYYY/MM/DD (ddd) HH:mm'),
-            seatNumber: 'TEST-1',
-            ticketName: 'テスト券種',
-            price: '1000'
-        };
-
-        // 劇場
-        context.fillStyle = 'black';
-        context.font = 'normal 24px sans-serif';
-        context.textAlign = 'center';
-        context.fillText(data.theaterName, center, 30);
-        // 鑑賞日時
-        context.font = 'bold 30px sans-serif';
-        context.fillText(data.startDate, center, 70);
-        context.strokeStyle = '#000';
-        context.beginPath();
-        context.moveTo(80, 80);
-        context.lineTo((canvas.width - 80), 80);
-        context.closePath();
-        context.stroke();
-        // 作品名
-        context.font = 'normal 30px sans-serif';
-        const title = data.eventName;
-        const titleLimit = 18;
-        if (title.length > titleLimit) {
-            context.fillText(title.slice(0, titleLimit), center, 120);
-            context.fillText(title.slice(titleLimit, title.length), center, 160);
-        } else {
-            context.fillText(title, center, 120);
-        }
-        // スクリーン
-        context.beginPath();
-        context.fillRect(0, 170, canvas.width, 50);
-        context.font = 'bold 40px sans-serif';
-        context.fillStyle = '#FFF';
-        context.fillText(data.screenName, center, 210);
-        // 座席
-        context.beginPath();
-        context.lineWidth = 2;
-        context.strokeRect(1, 220, canvas.width - 2, 50);
-        context.strokeRect(0, 220, canvas.width, 50);
-        context.fillStyle = '#000';
-        context.fillText(data.seatNumber, center, 260);
-        // 券種
-        context.textAlign = 'left';
-        context.font = 'normal 30px sans-serif';
-        context.fillText(data.ticketName, 0, 310);
-        // 金額
-        context.textAlign = 'right';
-        context.fillText('￥' + data.price + '-', right, 310);
-        // QR
-        const qrcodeCanvas = document.createElement('canvas');
-        await qrcode.toCanvas(qrcodeCanvas, 'QRコード文字列');
-        context.drawImage(qrcodeCanvas, (canvas.width - 120), 320, 120, 120);
-        // 発券時間
-        context.textAlign = 'left';
-        context.font = 'normal 24px sans-serif';
-        const date = moment().format('YYYY/MM/DD HH:mm');
-        context.fillText(date, left, bottom);
-        // 購入番号
-        context.fillText(`購入番号 ${data.confirmationNumber}`, left, bottom - 60);
-        // 端末
-        context.fillText(`端末 TEST`, left, bottom - 30);
+        const context = await this.draw({
+            canvas,
+            size: args.size,
+            data: {
+                confirmationNumber: 12345678,
+                theaterName: 'テスト劇場',
+                screenName: 'テストスクリーン',
+                eventName: 'テスト-----------------------------作品',
+                startDate: moment().format('YY/MM/DD (ddd) HH:mm'),
+                seatNumber: 'TEST-1',
+                ticketName: 'テスト1234567890券種',
+                price: 1000
+            }
+        });
 
         return {
             context,
             x: 0,
             y: 0,
-            width: 560,
-            height: 450
+            width: args.size.width,
+            height: args.size.height
+        };
+    }
+
+    /**
+     * 印刷テスト用イメージ作成確認用
+     */
+    public async createPrintTestImageToCanvas(args: {
+        size: { width: number; height: number; }
+    }) {
+        const canvas = (<HTMLCanvasElement>document.getElementById('test'));
+        const context = await this.draw({
+            canvas,
+            size: args.size,
+            data: {
+                confirmationNumber: 12345678,
+                theaterName: 'テスト劇場',
+                screenName: 'テストスクリーン',
+                eventName: 'テスト-----------------------------作品',
+                startDate: moment().format('YY/MM/DD (ddd) HH:mm'),
+                seatNumber: 'TEST-1',
+                ticketName: 'テスト券種',
+                price: 1000
+            }
+        });
+
+        return {
+            context,
+            x: 0,
+            y: 0,
+            width: args.size.width,
+            height: args.size.height
         };
     }
 
@@ -335,8 +237,13 @@ export class StarPrintService {
     public async createPrinterTestRequest() {
         let request = '';
         const printImage = await this.createPrintTestImage({
-            size: { width: 560, height: 450 }
+            size: { width: 560, height: 730 }
         });
+        // canvas確認
+        // await this.createPrintTestImageToCanvas({
+        //     size: { width: 560, height: 730 }
+        // });
+        // return;
         request = this.builder.createBitImageElement(printImage);
         // 紙を切断
         request += this.builder.createCutPaperElement({ feed: true, type: 'partial' });
@@ -408,5 +315,116 @@ export class StarPrintService {
             // プリンターに送信
             this.trader.sendMessage({ request: args.printerRequest });
         });
+    }
+
+    private async draw(args: {
+        canvas: HTMLCanvasElement,
+        size: { width: number; height: number; },
+        data: {
+            confirmationNumber: number;
+            theaterName: string;
+            screenName: string;
+            eventName: string;
+            startDate: string;
+            seatNumber: string;
+            ticketName: string;
+            price: number;
+        }
+    }) {
+        const canvas = args.canvas;
+        const data = args.data;
+        canvas.width = args.size.width;
+        canvas.height = args.size.height;
+        const context = canvas.getContext('2d');
+        if (context === null) {
+            throw new Error('context is null');
+        }
+        const drawImage = (drawImageArgs: {
+            image: HTMLImageElement;
+            x: number;
+            y: number;
+            width: number;
+            height: number;
+        }) => {
+            return new Promise((resolve) => {
+                drawImageArgs.image.onload = () => {
+                    context.drawImage(
+                        drawImageArgs.image,
+                        drawImageArgs.x,
+                        drawImageArgs.y,
+                        drawImageArgs.width,
+                        drawImageArgs.height
+                    );
+                    resolve();
+                };
+            });
+        };
+        const left = 0;
+        const right = canvas.width;
+        const bottom = args.size.height;
+        const center = canvas.width / 2;
+        const font = `"Hiragino Sans", "Hiragino Kaku Gothic ProN", "游ゴシック  Medium", meiryo, sans-serif`;
+        // ロゴ
+        const logoImage = new Image();
+        logoImage.src = '/assets/images/logo.svg';
+        await drawImage({ image: logoImage, x: (canvas.width / 2) - 100, y: 5, width: 40, height: 40 });
+
+        // 劇場
+        context.fillStyle = 'black';
+        context.font = `bold 34px ${font}`;
+        context.textAlign = 'left';
+        context.fillText(data.theaterName, (canvas.width / 2) - (100 - 35 - 15), 35);
+        // 鑑賞日時
+        context.font = `normal 40px ${font}`;
+        context.textAlign = 'center';
+        context.fillText(`${data.startDate}～`, center, 110);
+        context.strokeStyle = '#000';
+        // 作品名
+        context.font = `bold 40px ${font}`;
+        const title = data.eventName;
+        const titleLimit = 18;
+        if (title.length > titleLimit) {
+            context.fillText(title.slice(0, titleLimit), center, 180);
+            context.fillText(title.slice(titleLimit, title.length), center, 230);
+        } else {
+            context.fillText(title, center, 180);
+        }
+        // 背景
+        const boxImage = new Image();
+        boxImage.src = '/assets/images/print_box.svg';
+        await drawImage({ image: boxImage, x: 0, y: 270, width: canvas.width, height: 210 });
+        // スクリーン
+        context.beginPath();
+        context.font = `bold 40px ${font}`;
+        context.fillText(data.screenName, center, 340);
+        // 座席
+        context.beginPath();
+        context.fillText(data.seatNumber, center, 440);
+        // 券種
+        context.textAlign = 'left';
+        context.font = `normal 40px ${font}`;
+        context.fillText(data.ticketName.slice(0, 12), 0, 540);
+        // 金額
+        context.textAlign = 'right';
+        context.fillText('￥' + data.price.toLocaleString(), right, 540);
+        // QR
+        const qrcodeCanvas = document.createElement('canvas');
+        await qrcode.toCanvas(qrcodeCanvas, 'QRコード文字列');
+        context.drawImage(qrcodeCanvas, (canvas.width - 170), (bottom - 170), 170, 170);
+        // 説明
+        context.textAlign = 'left';
+        context.font = `normal 22px ${font}`;
+        context.fillText('■ 上記日時1回限り有効', left, bottom - 140);
+        context.fillText('■ 変更、払戻不可', left, bottom - 110);
+        // 購入番号
+        context.font = `normal 22px ${font}`;
+        context.fillText(`購入番号 ${data.confirmationNumber}`, left, bottom - 60);
+        // 端末
+        context.fillText(`端末 TEST`, left, bottom - 30);
+        // 発券時間
+        const date = moment().format('YYYY/MM/DD HH:mm');
+        context.fillText(`(${date} 発券)`, left, bottom);
+
+        return context;
     }
 }
