@@ -52,7 +52,7 @@
                     お預かり金額</p>
                 <p class="col-8 bg-white py-0 pr-0 d-flex align-items-center position-static">
                     <span>￥</span>
-                    <app-numeric-keypad [inputValue]="depositAmount" viewPosition="Top" (change)="depositAmount = $event"
+                    <app-numeric-keypad [inputValue]="depositAmount" viewPosition="Top" (change)="changeDepositAmount($event)"
                         (hidden)="depositAmount = ($event.length > 0) ? $event : 0">
                         <input type="text" class="form-control large-text border-0 py-3 h-auto" id="depositAmount"
                             [(ngModel)]="depositAmount" readonly="readonly">

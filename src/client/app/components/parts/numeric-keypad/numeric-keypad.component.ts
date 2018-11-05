@@ -48,7 +48,7 @@ export class NumericKeypadComponent implements OnInit {
     }
 
     public inputNumber(number: string) {
-        this.inputValue = String(Number(this.inputValue + number));
+        this.inputValue = this.inputValue + number;
         this.change.emit(this.inputValue);
     }
 

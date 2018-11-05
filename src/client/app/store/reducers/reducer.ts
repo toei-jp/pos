@@ -40,6 +40,7 @@ export interface IPurchaseState {
     checkMovieTicketAction?: factory.action.check.paymentMethod.movieTicket.IAction;
     authorizeAnyPayment?: factory.action.authorize.paymentMethod.any.IAction<any>;
     paymentMethod?: { name: string; typeOf: factory.paymentMethodType | string; };
+    isUsedMovieTicket: boolean;
 }
 
 export interface IHistoryState {
@@ -86,7 +87,8 @@ export const initialState: IState = {
         screeningEventTicketOffers: [],
         orderCount: 0,
         checkMovieTicketActions: [],
-        authorizeMovieTicketPayments: []
+        authorizeMovieTicketPayments: [],
+        isUsedMovieTicket: false
     },
     history: {
         purchase: []
@@ -137,7 +139,8 @@ export function reducer(
                 screeningEventTicketOffers: [],
                 orderCount: 0,
                 checkMovieTicketActions: [],
-                authorizeMovieTicketPayments: []
+                authorizeMovieTicketPayments: [],
+                isUsedMovieTicket: false
             };
             return { ...state };
         }
@@ -244,12 +247,15 @@ export function reducer(
         }
         case purchase.ActionTypes.GetTicketListSuccess: {
             const screeningEventTicketOffers = action.payload.screeningEventTicketOffers;
-            return {
-                ...state, loading: false, error: null, purchase: {
-                    ...state.purchase,
-                    screeningEventTicketOffers
-                }
-            };
+            const movieTicketTypeOffers = screeningEventTicketOffers.filter((offer) => {
+                const movieTicketTypeChargeSpecifications = offer.priceSpecification.priceComponent.filter((priceComponent) => {
+                    return (priceComponent.typeOf === factory.chevre.priceSpecificationType.MovieTicketTypeChargeSpecification);
+                });
+                return (movieTicketTypeChargeSpecifications.length > 0);
+            });
+            state.purchase.screeningEventTicketOffers = screeningEventTicketOffers;
+            state.purchase.isUsedMovieTicket = (movieTicketTypeOffers.length > 0);
+            return { ...state, loading: false, error: null };
         }
         case purchase.ActionTypes.GetTicketListFail: {
             const error = action.payload.error;

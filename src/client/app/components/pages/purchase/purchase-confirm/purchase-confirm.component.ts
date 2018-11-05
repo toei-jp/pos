@@ -45,6 +45,10 @@ export class PurchaseConfirmComponent implements OnInit {
         this.agree = false;
     }
 
+    public changeDepositAmount(value: string) {
+        this.depositAmount = String(Number(value));
+    }
+
     public registerContact() {
         this.purchase.subscribe((purchase) => {
             this.user.subscribe((user) => {

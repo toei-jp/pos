@@ -1,7 +1,7 @@
 <div class="py-4 px-3">
     <h2 class="text-center large-text text-white mb-4">券種選択</h2>
 
-    <div class="mb-4">
+    <div *ngIf="(purchase | async).isUsedMovieTicket" class="mb-4">
         <div class="d-flex justify-content-center align-items-center">
             <p class="text-white">ムビチケ券を利用</p>
             <button type="button" (click)="openMovieTicket()" class="movie-ticket ml-3 btn btn-block bg-white border-danger py-3">
