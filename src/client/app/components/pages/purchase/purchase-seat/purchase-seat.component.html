@@ -1,4 +1,5 @@
 <div class="py-4">
+    
     <h2 class="text-center large-text text-white mb-4">座席選択</h2>
 
     <p class="p-3 large-text bg-white mb-3">{{ (purchase | async).screeningEvent?.name.ja }}</p>
@@ -35,12 +36,14 @@
             </div>
         </div>
         <app-screen class="bg-white" [screenData]="(purchase | async).screenData" [screeningEventOffers]="(purchase | async).screeningEventOffers"
-            [reservations]="(purchase | async).reservations" [authorizeSeatReservation]="(purchase | async).authorizeSeatReservation" (select)="selectSeat($event)">
+            [reservations]="(purchase | async).reservations" [authorizeSeatReservation]="(purchase | async).authorizeSeatReservation"
+            (select)="selectSeat($event)">
         </app-screen>
     </div>
 
     <div class="w-50 mx-auto">
-        <button type="button" class="btn btn-block bg-primary py-3 text-white large-text btn-arrow" [disabled]="isLoading | async" (click)="onSubmit()">次へ</button>
+        <button type="button" class="btn btn-block bg-primary py-3 text-white large-text btn-arrow" [disabled]="isLoading | async"
+            (click)="onSubmit()">次へ</button>
     </div>
 
 </div>

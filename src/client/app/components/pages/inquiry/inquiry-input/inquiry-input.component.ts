@@ -3,9 +3,9 @@ import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators }
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Actions, ofType } from '@ngrx/effects';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import * as libphonenumber from 'libphonenumber-js';
-import { race } from 'rxjs';
+import { Observable, race } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
 import { ActionTypes, Inquiry } from '../../../../store/actions/inquiry.action';
 import * as reducers from '../../../../store/reducers';
@@ -18,6 +18,7 @@ import { AlertModalComponent } from '../../../parts/alert-modal/alert-modal.comp
 })
 export class InquiryInputComponent implements OnInit {
     public inquiryForm: FormGroup;
+    public user: Observable<reducers.IUserState>;
     constructor(
         private actions: Actions,
         private formBuilder: FormBuilder,
@@ -27,6 +28,7 @@ export class InquiryInputComponent implements OnInit {
     ) { }
 
     public ngOnInit() {
+        this.user = this.store.pipe(select(reducers.getUser));
         this.createInquiryForm();
     }
 
