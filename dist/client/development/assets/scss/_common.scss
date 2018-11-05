@@ -73,6 +73,10 @@ div {
     display: grid !important;
 }
 
+.not-event {
+    pointer-events: none;
+}
+
 .purchase {
     .main {
         width: 75%;
@@ -108,4 +112,8 @@ div {
     position: absolute;
     top: 1.5rem;
     right: 0;
+}
+
+.bg-gray {
+    background-color: #888;
 }

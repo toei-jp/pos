@@ -32,6 +32,9 @@
             background-image: url(/images/theater/parts/seat_disabled.svg);
             cursor: default;
         }
+        span {
+            display: none;
+        }
     }
     .seat-hc {
         background-image: url(/images/theater/parts/seat_hc.svg) !important;
