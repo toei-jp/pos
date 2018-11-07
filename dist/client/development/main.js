@@ -2686,7 +2686,7 @@ module.exports = "<div class=\"py-4 px-3\">\n    \n    <h2 class=\"text-center l
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".btn-primary {\n  color: #FFF; }\n\n.btn-outline-primary:hover {\n  color: #FFF; }\n\n.theaters {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-columns: 1fr 1fr 1fr;\n      grid-template-columns: 1fr 1fr 1fr;\n  grid-gap: 1rem; }\n\n@media (max-width: 767.98px) {\n    .theaters {\n      -ms-grid-columns: 1fr;\n          grid-template-columns: 1fr; } }\n\n.form-group {\n  width: 300px;\n  -ms-grid-columns: 1fr 2fr;\n      grid-template-columns: 1fr 2fr; }\n\nselect {\n  height: auto; }\n"
+module.exports = ".btn-primary {\n  color: #FFF; }\n\n.btn-outline-primary:hover {\n  color: #FFF; }\n\napp-purchase-schedule-film:last-child {\n  margin-bottom: 0 !important; }\n\n.theaters {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-columns: 1fr 1fr 1fr;\n      grid-template-columns: 1fr 1fr 1fr;\n  grid-gap: 1rem; }\n\n@media (max-width: 767.98px) {\n    .theaters {\n      -ms-grid-columns: 1fr;\n          grid-template-columns: 1fr; } }\n\n.form-group {\n  width: 300px;\n  -ms-grid-columns: 1fr 2fr;\n      grid-template-columns: 1fr 2fr; }\n\nselect {\n  height: auto; }\n"
 
 /***/ }),
 
@@ -2810,7 +2810,7 @@ var PurchaseScheduleComponent = /** @class */ (function () {
         this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["GetSchedule"]({
             params: {
                 startFrom: moment__WEBPACK_IMPORTED_MODULE_4__(today).toDate(),
-                startThrough: moment__WEBPACK_IMPORTED_MODULE_4__(today).add(7, 'day').toDate(),
+                startThrough: moment__WEBPACK_IMPORTED_MODULE_4__(today).add(1, 'month').toDate(),
                 superEvent: {
                     locationBranchCodes: [movieTheater.location.branchCode]
                 }
@@ -3758,7 +3758,7 @@ module.exports = "<div id=\"contents\" class=\"scroll\" [class.touch]=\"touch\">
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".scroll {\n  padding-bottom: 80px; }\n"
 
 /***/ }),
 
@@ -4690,7 +4690,7 @@ module.exports = "<div id=\"purchaseContents\" class=\"scroll\" [class.touch]=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".scroll {\n  padding-bottom: 80px; }\n"
 
 /***/ }),
 
@@ -5520,7 +5520,10 @@ var TicketListModalComponent = /** @class */ (function () {
                 if (checkMovieTicketAction.result === undefined) {
                     return;
                 }
-                checkMovieTicketAction.result.movieTickets.forEach(function (movieTicket) {
+                var availabilityMovieTickets = checkMovieTicketAction.result.movieTickets.filter(function (movieTicket) {
+                    return (movieTicket.validThrough === undefined);
+                });
+                availabilityMovieTickets.forEach(function (movieTicket) {
                     if (movieTicket.serviceType === movieTicketTypeChargeSpecification.appliesToMovieTicketType) {
                         movieTickets.push(movieTicket);
                     }

@@ -1,5 +1,9 @@
 @import '../../../../../assets/scss/theme';
 
+app-purchase-schedule-film:last-child {
+    margin-bottom: 0 !important;
+}
+
 .theaters {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

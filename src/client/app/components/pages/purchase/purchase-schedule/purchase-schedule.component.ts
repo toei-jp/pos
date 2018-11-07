@@ -68,7 +68,7 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
         this.store.dispatch(new GetSchedule({
             params: {
                 startFrom: moment(today).toDate(),
-                startThrough: moment(today).add(7, 'day').toDate(),
+                startThrough: moment(today).add(1, 'month').toDate(),
                 superEvent: {
                     locationBranchCodes: [movieTheater.location.branchCode]
                 }
