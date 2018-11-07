@@ -1228,7 +1228,7 @@ var BaseComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <h2 class=\"bg-secondary text-white p-3 mb-3\">ERROR</h2>\n\n        <p class=\"mb-3 text-white\">エラーが発生しました。</p>\n        <div class=\"p-3 border bg-white select-text\">\n            <code>{{ (error | async) }}</code>\n        </div>\n    </div>\n\n    <div class=\"w-75 mx-auto\">\n        <button type=\"button\" class=\"btn btn-outline-primary btn-block py-2\" routerLink=\"/\">戻る</button>\n        <button type=\"button\" class=\"btn btn-outline-primary btn-block py-2\" routerLink=\"/setting\">設定</button>\n    </div>\n</div>"
+module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <h2 class=\"bg-secondary text-white p-3 mb-3\">エラー</h2>\n\n        <p class=\"mb-3 text-white\">エラーが発生しました。</p>\n        <div class=\"p-3 border bg-white select-text\">\n            <code>{{ (error | async) }}</code>\n        </div>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow mb-3\" routerLink=\"/\">戻る</button>\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" routerLink=\"/setting\">設定</button>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -1589,7 +1589,7 @@ var InquiryInputComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <h2 class=\"bg-secondary text-white p-3 mb-3\">NOT FOUND</h2>\n\n        <p class=\"mb-3\">ページが見つかりません。</p>\n\n    </div>\n\n    <div class=\"w-75 mx-auto\">\n        <button type=\"button\" class=\"btn btn-outline-primary btn-block py-2\" routerLink=\"/\">戻る</button>\n    </div>\n</div>"
+module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <h2 class=\"bg-secondary text-white p-3 mb-3\">NOT FOUND</h2>\n\n        <p class=\"mb-3\">ページが見つかりません。</p>\n\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow mb-3\" routerLink=\"/\">戻る</button>\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" routerLink=\"/setting\">設定</button>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -1730,7 +1730,7 @@ var PurchaseBaseComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-3 px-2\">\n    \n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">購入完了</h2>\n        <div class=\"container mb-4\">\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    購入番号</p>\n                <p class=\"col-8 bg-white py-3\">\n                    <strong>{{ (purchase | async).order.confirmationNumber }}</strong>\n                </p>\n            </div>\n            <!-- <div class=\"row\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    劇場 / スクリーン</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase |\n                    async).order.acceptedOffers[0].itemOffered.reservationFor.superEvent.location.name.ja }} / {{\n                    (purchase | async).order.acceptedOffers[0].itemOffered.reservationFor.location.name.ja }}</p>\n            </div> -->\n            <div class=\"row\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    作品</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase |\n                    async).order.acceptedOffers[0].itemOffered.reservationFor.name.ja }}</p>\n            </div>\n            <div class=\"row\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    鑑賞日</p>\n                <p class=\"col-8 bg-white py-3\">{{ moment((purchase |\n                    async).order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YYYY/MM/DD (ddd)') }}</p>\n            </div>\n            <div class=\"row\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    座席・券種</p>\n                <div class=\"col-8 bg-white py-3\">\n                    <div *ngFor=\"let acceptedOffer of (purchase | async).order.acceptedOffers\" class=\"mb-2\">\n                        <p>{{ acceptedOffer.itemOffered.reservedTicket.ticketedSeat.seatNumber }}</p>\n                        <p>{{ acceptedOffer.itemOffered.reservedTicket.ticketType.name.ja }} / {{\n                            acceptedOffer.itemOffered.reservedTicket.totalPrice | currency : 'JPY' }}</p>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" [disabled]=\"isLoading | async\"\n            (click)=\"print()\">再印刷</button>\n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/purchase/schedule\"></app-navigation>"
+module.exports = "<div class=\"py-3 px-2\">\n\n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">購入完了</h2>\n        <div class=\"container mb-4\">\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    購入番号</p>\n                <p class=\"col-8 bg-white py-3\">\n                    <strong>{{ (purchase | async).order.confirmationNumber }}</strong>\n                </p>\n            </div>\n            <div class=\"row\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    スクリーン</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase |\n                    async).order.acceptedOffers[0].itemOffered.reservationFor.location.name.ja }}</p>\n            </div>\n            <div class=\"row\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    作品</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase |\n                    async).order.acceptedOffers[0].itemOffered.reservationFor.name.ja }}</p>\n            </div>\n            <div class=\"row\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    鑑賞日時</p>\n                <p class=\"col-8 bg-white py-3\">{{ moment((purchase |\n                    async).order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YYYY/MM/DD (ddd)\n                    HH:mm') }}</p>\n            </div>\n            <div class=\"row\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    座席・券種</p>\n                <div class=\"col-8 bg-white py-3\">\n                    <div *ngFor=\"let acceptedOffer of (purchase | async).order.acceptedOffers\" class=\"mb-2\">\n                        <p>{{ acceptedOffer.itemOffered.reservedTicket.ticketedSeat.seatNumber }}</p>\n                        <p>{{ acceptedOffer.itemOffered.reservedTicket.ticketType.name.ja }} / {{\n                            acceptedOffer.itemOffered.reservedTicket.totalPrice | currency : 'JPY' }}</p>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow mb-3\" [disabled]=\"isLoading | async\"\n            (click)=\"print()\">再印刷</button>\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" routerLink=\"/purchase/schedule\">スケジュール選択へ戻る</button>\n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/purchase/schedule\"></app-navigation>"
 
 /***/ }),
 
@@ -1860,7 +1860,7 @@ var PurchaseCompleteComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-3 px-2\">\n    \n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">購入内容確認</h2>\n\n        <p class=\"mb-3 text-white text-center\">※この先の操作の取り消しはできませんのでご注意ください。</p>\n\n        <div class=\"container mb-4\">\n            <!-- <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    劇場 / スクリーン</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).screeningEvent.superEvent.location.name.ja }} / {{\n                    (purchase | async).screeningEvent.location.name.ja }}</p>\n            </div> -->\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    作品</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).screeningEvent.name.ja }}</p>\n            </div>\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    鑑賞日</p>\n                <p class=\"col-8 bg-white py-3\">{{ moment((purchase |\n                    async).screeningEvent.startDate).format('YYYY/MM/DD (ddd)') }}</p>\n            </div>\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    座席・券種</p>\n                <div class=\"col-8 bg-white py-3\">\n                    <div *ngFor=\"let reservation of (purchase | async).reservations\" class=\"mb-2\">\n                        <p>{{ reservation.seat.seatNumber }}</p>\n                        <p *ngIf=\"reservation.ticket\">{{ reservation.ticket.ticketOffer.name.ja }} / {{\n                            reservation.getTicketPrice().total | currency : 'JPY' }}</p>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).authorizeSeatReservation.result.price > 0\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    決済方法</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).paymentMethod.name }}</p>\n            </div>\n        </div>\n        <div class=\"container mb-4\">\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    合計金額</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).authorizeSeatReservation.result.price | currency :\n                    'JPY' }}</p>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    お預かり金額</p>\n                <p class=\"col-8 bg-white py-0 pr-0 d-flex align-items-center position-static\">\n                    <span>￥</span>\n                    <app-numeric-keypad [inputValue]=\"depositAmount\" viewPosition=\"Top\" (change)=\"changeDepositAmount($event)\"\n                        (hidden)=\"depositAmount = ($event.length > 0) ? $event : 0\">\n                        <input type=\"text\" class=\"form-control large-text border-0 py-3 h-auto\" id=\"depositAmount\"\n                            [(ngModel)]=\"depositAmount\" readonly=\"readonly\">\n                    </app-numeric-keypad>\n                </p>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    お釣り</p>\n                <p class=\"col-8 bg-white py-3\">{{\n                    (depositAmount - (purchase | async).authorizeSeatReservation.result.price) | currency : 'JPY' }}</p>\n            </div>\n        </div>\n\n        <div class=\"d-flex align-items-center justify-content-center mb-4\">\n            <input class=\"mr-2\" type=\"checkbox\" [value]=\"true\" id=\"agree\" [(ngModel)]=\"agree\">\n            <label class=\"text-white\" for=\"agree\"> 注意事項に同意する </label>\n        </div>\n\n        <div class=\"w-50 mx-auto\">\n            <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" [disabled]=\"(isLoading | async) || !agree\"\n                (click)=\"onSubmit()\">購入確定</button>\n        </div>\n    </div>\n</div>\n\n<app-navigation prevLink=\"/purchase/payment\"></app-navigation>"
+module.exports = "<div class=\"py-3 px-2\">\n    \n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">購入内容確認</h2>\n\n        <p class=\"mb-3 text-white text-center\">※この先の操作の取り消しはできませんのでご注意ください。</p>\n\n        <div class=\"container mb-4\">\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    スクリーン</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).screeningEvent.location.name.ja }}</p>\n            </div>\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    作品</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).screeningEvent.name.ja }}</p>\n            </div>\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    鑑賞日時</p>\n                <p class=\"col-8 bg-white py-3\">{{ moment((purchase |\n                    async).screeningEvent.startDate).format('YYYY/MM/DD (ddd) HH:mm') }}</p>\n            </div>\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    座席・券種</p>\n                <div class=\"col-8 bg-white py-3\">\n                    <div *ngFor=\"let reservation of (purchase | async).reservations\" class=\"mb-2\">\n                        <p>{{ reservation.seat.seatNumber }}</p>\n                        <p *ngIf=\"reservation.ticket\">{{ reservation.ticket.ticketOffer.name.ja }} / {{\n                            reservation.getTicketPrice().total | currency : 'JPY' }}</p>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).authorizeSeatReservation.result.price > 0\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    決済方法</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).paymentMethod.name }}</p>\n            </div>\n        </div>\n        <div class=\"container mb-4\">\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    合計金額</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).authorizeSeatReservation.result.price | currency :\n                    'JPY' }}</p>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    お預かり金額</p>\n                <p class=\"col-8 bg-white py-0 pr-0 d-flex align-items-center position-static\">\n                    <span>￥</span>\n                    <app-numeric-keypad [inputValue]=\"depositAmount\" viewPosition=\"Top\" (change)=\"changeDepositAmount($event)\"\n                        (hidden)=\"depositAmount = ($event.length > 0) ? $event : 0\">\n                        <input type=\"text\" class=\"form-control large-text border-0 py-3 h-auto\" id=\"depositAmount\"\n                            [(ngModel)]=\"depositAmount\" readonly=\"readonly\">\n                    </app-numeric-keypad>\n                </p>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    お釣り</p>\n                <p class=\"col-8 bg-white py-3\">{{\n                    (depositAmount - (purchase | async).authorizeSeatReservation.result.price) | currency : 'JPY' }}</p>\n            </div>\n        </div>\n\n        <div class=\"d-flex align-items-center justify-content-center mb-4\">\n            <input class=\"mr-2\" type=\"checkbox\" [value]=\"true\" id=\"agree\" [(ngModel)]=\"agree\">\n            <label class=\"text-white\" for=\"agree\"> 注意事項に同意する </label>\n        </div>\n\n        <div class=\"w-50 mx-auto\">\n            <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" [disabled]=\"(isLoading | async) || !agree\"\n                (click)=\"onSubmit()\">購入確定</button>\n        </div>\n    </div>\n</div>\n\n<app-navigation [prevLink]=\"((purchase | async).authorizeSeatReservation.result.price > 0) ? '/purchase/payment' : '/purchase/ticket'\"></app-navigation>"
 
 /***/ }),
 
@@ -2579,7 +2579,7 @@ var PurchaseInputComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-4 px-3\">\n    \n    <h2 class=\"text-center large-text text-white mb-4\">決済方法選択</h2>\n\n    <div class=\"payment-select mb-4\">\n        <button type=\"button\" class=\"btn btn-block bg-primary p-4 text-left text-white large-text mb-4 btn-arrow\"\n            (click)=\"selectPaymentMethodType(paymentMethodType.Cash)\">\n            <div class=\"d-flex align-items-center\">\n                <i class=\"icon mr-3\"><img class=\"w-100\" src=\"/assets/images/icon/cache.svg\"></i>\n                <strong>現金</strong>\n            </div>\n        </button>\n        <button type=\"button\" class=\"btn btn-block bg-primary p-4 text-left text-white large-text mb-4 btn-arrow\"\n            (click)=\"selectPaymentMethodType(paymentMethodType.CreditCard)\">\n            <div class=\"d-flex align-items-center\">\n                <i class=\"icon mr-3\"><img class=\"w-100\" src=\"/assets/images/icon/credit_card.svg\"></i>\n                <strong>クレジットカード</strong>\n                <div class=\"ml-3\"><img height=\"20\" src=\"/assets/images/credit_card.png\"></div>\n            </div>\n        </button>\n        <button type=\"button\" class=\"btn btn-block bg-primary p-4 text-left text-white large-text mb-4 btn-arrow\"\n            (click)=\"selectPaymentMethodType(paymentMethodType.EMoney)\">\n            <div class=\"d-flex align-items-center\">\n                <i class=\"icon mr-3\"><img class=\"w-100\" src=\"/assets/images/icon/e_money.svg\"></i>\n                <strong>電子マネー</strong>\n            </div>\n        </button>\n\n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/purchase/ticket\"></app-navigation>"
+module.exports = "<div class=\"py-4 px-3\">\n    \n    <h2 class=\"text-center large-text text-white mb-4\">決済方法選択</h2>\n\n    <div class=\"payment-select mb-4\">\n        <button type=\"button\" class=\"btn btn-block bg-primary p-4 text-left text-white large-text mb-4 btn-arrow\"\n            (click)=\"selectPaymentMethodType(paymentMethodType.Cash)\">\n            <div class=\"d-flex align-items-center\">\n                <i class=\"icon mr-3\"><img class=\"w-100\" src=\"/assets/images/icon/cache.svg\"></i>\n                <strong>現金</strong>\n            </div>\n        </button>\n        <button type=\"button\" class=\"btn btn-block bg-primary p-4 text-left text-white large-text mb-4 btn-arrow\"\n            (click)=\"selectPaymentMethodType(paymentMethodType.CreditCard)\">\n            <div class=\"d-flex align-items-center\">\n                <i class=\"icon mr-3\"><img class=\"w-100\" src=\"/assets/images/icon/credit_card.svg\"></i>\n                <strong>クレジットカード</strong>\n                <div class=\"ml-3\"><img height=\"20\" src=\"/assets/images/credit_card.png\"></div>\n            </div>\n        </button>\n        <button type=\"button\" class=\"btn btn-block bg-primary p-4 text-left text-white large-text mb-4 btn-arrow\"\n            (click)=\"selectPaymentMethodType(paymentMethodType.EMoney)\">\n            <div class=\"d-flex align-items-center\">\n                <i class=\"icon mr-3\"><img class=\"w-100\" src=\"/assets/images/icon/e_money.svg\"></i>\n                <strong>電子マネー</strong>\n                <div class=\"ml-3\"><img height=\"20\" src=\"/assets/images/e_money.png\"></div>\n            </div>\n        </button>\n\n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/purchase/ticket\"></app-navigation>"
 
 /***/ }),
 
@@ -2675,7 +2675,7 @@ var PurchasePaymentComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-4 px-3\">\n    \n    <h2 class=\"text-center large-text text-white mb-4\">スケジュール選択</h2>\n    <div class=\"form-group border rounded d-grid align-items-center mx-auto\">\n        <div class=\"label text-white text-center\">鑑賞日</div>\n        <select class=\"form-control rounded-0 py-3\" (change)=\"selectDate()\" [(ngModel)]=\"scheduleDateValue\">\n            <option *ngFor=\"let scheduleDate of (purchase | async).scheduleDates\" [value]=\"scheduleDate.format\">{{\n                scheduleDate.string }}</option>\n        </select>\n    </div>\n    <app-purchase-schedule-film *ngFor=\"let screeningFilmEvent of (purchase | async).screeningFilmEvents\"\n        [screeningFilmEvent]=\"screeningFilmEvent\" (select)=\"selectSchedule($event)\" class=\"mb-3\"></app-purchase-schedule-film>\n</div>\n\n<app-navigation [prev]=\"false\" [home]=\"false\"></app-navigation>"
+module.exports = "<div class=\"py-4 px-3\">\n    \n    <h2 class=\"text-center large-text text-white mb-4\">スケジュール選択</h2>\n    <div class=\"form-group border rounded d-grid align-items-center mx-auto\">\n        <div class=\"label text-white text-center\">鑑賞日</div>\n        <select class=\"form-control rounded-0 py-2 large-text\" (change)=\"selectDate()\" [(ngModel)]=\"scheduleDateValue\">\n            <option *ngFor=\"let scheduleDate of (purchase | async).scheduleDates\" [value]=\"scheduleDate.format\">{{\n                scheduleDate.string }}</option>\n        </select>\n    </div>\n    <app-purchase-schedule-film *ngFor=\"let screeningFilmEvent of (purchase | async).screeningFilmEvents\"\n        [screeningFilmEvent]=\"screeningFilmEvent\" (select)=\"selectSchedule($event)\" class=\"mb-3\"></app-purchase-schedule-film>\n</div>\n\n<app-navigation [prev]=\"false\" [home]=\"false\"></app-navigation>"
 
 /***/ }),
 
@@ -2784,10 +2784,21 @@ var PurchaseScheduleComponent = /** @class */ (function () {
                         return;
                     }
                     _this.selectTheater(user.movieTheater);
+                    _this.update(user.movieTheater);
                 }).unsubscribe();
                 return [2 /*return*/];
             });
         });
+    };
+    PurchaseScheduleComponent.prototype.ngOnDestroy = function () {
+        clearInterval(this.updateTimer);
+    };
+    PurchaseScheduleComponent.prototype.update = function (movieTheater) {
+        var _this = this;
+        var time = 600000; // 10 * 60 * 1000
+        this.updateTimer = setInterval(function () {
+            _this.selectTheater(movieTheater);
+        }, time);
     };
     /**
      * selectTheater
@@ -2830,7 +2841,6 @@ var PurchaseScheduleComponent = /** @class */ (function () {
             var findResult = purchase.scheduleDates.find(function (scheduleDate) {
                 return (scheduleDate.format === _this.scheduleDateValue);
             });
-            console.log(findResult);
             if (findResult === undefined) {
                 return;
             }
@@ -3145,7 +3155,7 @@ var PurchaseSeatComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-4 px-3\">\n    <h2 class=\"text-center large-text text-white mb-4\">券種選択</h2>\n\n    <div *ngIf=\"(purchase | async).isUsedMovieTicket\" class=\"mb-4\">\n        <div class=\"d-flex justify-content-center align-items-center\">\n            <p class=\"text-white\">ムビチケ券を利用</p>\n            <button type=\"button\" (click)=\"openMovieTicket()\" class=\"movie-ticket ml-3 btn btn-block bg-white border-danger py-3\">\n                <img src=\"/assets/images/mvtk.svg\" height=\"24\">\n            </button>\n        </div>\n    </div>\n\n    <div class=\"reservations d-grid align-items-center mb-4\">\n        <div *ngFor=\"let reservation of (purchase | async).reservations\" class=\"reservation bg-secondary d-grid align-items-center border rounded\">\n            <div class=\"seat text-center text-white\">\n                <span class=\"mr-3\">座席</span>{{ reservation.seat.seatNumber }}</div>\n            <button *ngIf=\"reservation.ticket === undefined\" type=\"button\" (click)=\"openTicketList(reservation)\" class=\"btn btn-block rounded-0 py-3 bg-white\">券種を選択してください</button>\n            <button *ngIf=\"reservation.ticket !== undefined\" type=\"button\" (click)=\"openTicketList(reservation)\" class=\"btn btn-block rounded-0 py-3 bg-white\">{{\n                reservation.ticket.ticketOffer.name.ja | slice:0:10 }} {{\n                reservation.getTicketPrice().total | currency : 'JPY' }}</button>\n        </div>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" [disabled]=\"isLoading | async\"\n            (click)=\"onSubmit()\">次へ</button>\n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/purchase/seat\"></app-navigation>"
+module.exports = "<div class=\"py-4 px-3\">\n    <h2 class=\"text-center large-text text-white mb-4\">券種選択</h2>\n\n    <div *ngIf=\"(purchase | async).isUsedMovieTicket\" class=\"mb-4\">\n        <div class=\"d-flex justify-content-center align-items-center\">\n            <p class=\"text-white\">ムビチケ券を利用</p>\n            <button type=\"button\" (click)=\"openMovieTicket()\" class=\"movie-ticket ml-3 btn btn-block bg-white border-danger py-3\">\n                <img src=\"/assets/images/mvtk.svg\" height=\"24\">\n            </button>\n        </div>\n    </div>\n    \n    <div class=\"reservations d-grid align-items-center mb-4\">\n        <div *ngFor=\"let reservation of (purchase | async).reservations\" class=\"reservation d-grid align-items-center border rounded\" [class.bg-primary]=\"reservation.ticket !== undefined\" [class.bg-secondary]=\"reservation.ticket === undefined\">\n            <div class=\"seat text-center text-white\">\n                <span class=\"mr-3\">座席</span>{{ reservation.seat.seatNumber }}</div>\n            <button *ngIf=\"reservation.ticket === undefined\" type=\"button\" (click)=\"openTicketList(reservation)\" class=\"btn btn-block rounded-0 py-3 bg-white\">券種を選択してください</button>\n            <button *ngIf=\"reservation.ticket !== undefined\" type=\"button\" (click)=\"openTicketList(reservation)\" class=\"btn btn-block rounded-0 py-3 bg-white\">{{\n                reservation.ticket.ticketOffer.name.ja | slice:0:10 }} {{\n                reservation.getTicketPrice().total | currency : 'JPY' }}</button>\n        </div>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" [disabled]=\"isLoading | async\"\n            (click)=\"onSubmit()\">次へ</button>\n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/purchase/seat\"></app-navigation>"
 
 /***/ }),
 
@@ -5062,7 +5072,7 @@ module.exports = "<div class=\"radius bg-light-gray\">\n    <div class=\"screen\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: block; }\n\n.screen {\n  position: relative;\n  overflow: hidden; }\n\n.screen .screen-scroll {\n    height: 500px; }\n\n.screen .screen-inner {\n    position: relative;\n    width: 1600px;\n    height: 1400px; }\n\n.screen .seat {\n    position: absolute;\n    cursor: pointer;\n    text-align: center;\n    font-weight: bold;\n    color: #9a9a9b;\n    padding-top: 20px;\n    background-image: url(/images/theater/parts/seat.svg);\n    background-size: 40px 50px;\n    background-repeat: no-repeat;\n    font-size: 12px; }\n\n.screen .seat.active {\n      color: #FFF;\n      background-image: url(/images/theater/parts/seat_active.svg); }\n\n.screen .seat.disabled {\n      color: #FFF;\n      background-image: url(/images/theater/parts/seat_disabled.svg);\n      cursor: default; }\n\n.screen .seat span {\n      display: none; }\n\n.screen .seat-hc {\n    background-image: url(/images/theater/parts/seat_hc.svg) !important;\n    background-size: 40px 50px; }\n\n.screen .seat-hc span {\n      display: none !important; }\n\n.screen .object {\n    position: absolute;\n    background-repeat: no-repeat; }\n\n.screen .label-object {\n    text-align: center;\n    line-height: 50px;\n    font-size: 24px;\n    color: #9a9a9b;\n    font-weight: bold; }\n\n.screen-4dx .seat {\n  background-image: url(/images/theater/seat/4dx.svg);\n  background-size: 50px 50px; }\n\n.screen-4dx .seat.active {\n    color: #FFF;\n    background-image: url(/images/theater/seat/4dx_active.svg); }\n\n.screen-4dx .seat.disabled {\n    color: #FFF;\n    background-image: url(/images/theater/seat/4dx_disabled.svg);\n    cursor: default; }\n\n.zoom .screen-scroll {\n  overflow: auto;\n  transition: -webkit-transform 0.2s;\n  transition: transform 0.2s;\n  transition: transform 0.2s, -webkit-transform 0.2s;\n  -webkit-overflow-scrolling: touch; }\n\n.zoom .seat span {\n  display: block; }\n\n.zoom-btn {\n  display: none;\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  z-index: 10;\n  width: 50px;\n  height: 50px;\n  color: #FFF;\n  background-color: #3e3a39;\n  border-radius: 3px;\n  align-items: center;\n  justify-content: center; }\n\n.zoom-btn.active {\n    display: flex; }\n\n.zoom-btn.scroll {\n    position: fixed; }\n"
+module.exports = ":host {\n  display: block; }\n\n.screen {\n  position: relative;\n  overflow: hidden; }\n\n.screen .screen-scroll {\n    height: 500px; }\n\n.screen .screen-inner {\n    position: relative;\n    width: 1600px;\n    height: 1400px; }\n\n.screen .seat {\n    position: absolute;\n    cursor: pointer;\n    text-align: center;\n    font-weight: bold;\n    color: #9a9a9b;\n    padding-top: 20px;\n    background-image: url(/images/theater/parts/seat.svg);\n    background-size: 40px 50px;\n    background-repeat: no-repeat;\n    font-size: 12px; }\n\n.screen .seat.active {\n      color: #FFF;\n      background-image: url(/images/theater/parts/seat_active.svg); }\n\n.screen .seat.disabled {\n      color: #FFF;\n      background-image: url(/images/theater/parts/seat_disabled.svg);\n      cursor: default; }\n\n.screen .seat span {\n      display: none; }\n\n.screen .seat-hc {\n    background-image: url(/images/theater/parts/seat_hc.svg) !important;\n    background-size: 40px 50px; }\n\n.screen .seat-hc span {\n      display: none !important; }\n\n.screen .object {\n    position: absolute;\n    background-repeat: no-repeat; }\n\n.screen .label-object {\n    text-align: center;\n    line-height: 50px;\n    font-size: 24px;\n    color: #9a9a9b;\n    font-weight: bold; }\n\n.zoom .screen-scroll {\n  overflow: auto;\n  transition: -webkit-transform 0.2s;\n  transition: transform 0.2s;\n  transition: transform 0.2s, -webkit-transform 0.2s;\n  -webkit-overflow-scrolling: touch; }\n\n.zoom .seat span {\n  display: block; }\n\n.zoom-btn {\n  display: none;\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  z-index: 10;\n  width: 50px;\n  height: 50px;\n  color: #FFF;\n  background-color: #3e3a39;\n  border-radius: 3px;\n  align-items: center;\n  justify-content: center; }\n\n.zoom-btn.active {\n    display: flex; }\n\n.zoom-btn.scroll {\n    position: fixed; }\n"
 
 /***/ }),
 
@@ -6413,7 +6423,7 @@ var StarPrintService = /** @class */ (function () {
                         request = this.builder.createBitImageElement(printImage);
                         // 紙を切断
                         request += this.builder.createCutPaperElement({ feed: true, type: 'partial' });
-                        return [2 /*return*/, request];
+                        return [2 /*return*/, [request]];
                 }
             });
         });
@@ -6423,7 +6433,7 @@ var StarPrintService = /** @class */ (function () {
      */
     StarPrintService.prototype.createPrinterRequestList = function (args) {
         return __awaiter(this, void 0, void 0, function () {
-            var printerRequest, orderNumber, customer, order, i, _a;
+            var printerRequest, orderNumber, customer, order, printerRequests, i, _a;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
@@ -6439,22 +6449,21 @@ var StarPrintService = /** @class */ (function () {
                         return [4 /*yield*/, this.cinerino.order.authorizeOwnershipInfos({ orderNumber: orderNumber, customer: customer })];
                     case 2:
                         order = _b.sent();
+                        printerRequests = [];
                         i = 0;
                         _b.label = 3;
                     case 3:
                         if (!(i < args.order.acceptedOffers.length)) return [3 /*break*/, 6];
                         _a = printerRequest;
-                        return [4 /*yield*/, this.createPrinterRequest({
-                                order: order,
-                                offerIndex: i
-                            })];
+                        return [4 /*yield*/, this.createPrinterRequest({ order: order, offerIndex: i })];
                     case 4:
                         printerRequest = _a + _b.sent();
+                        printerRequests.push(printerRequest);
                         _b.label = 5;
                     case 5:
                         i++;
                         return [3 /*break*/, 3];
-                    case 6: return [2 /*return*/, printerRequest];
+                    case 6: return [2 /*return*/, printerRequests];
                 }
             });
         });
@@ -8427,33 +8436,43 @@ var PurchaseEffects = /** @class */ (function () {
          * print
          */
         this.print = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].Print), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
-            var order, ipAddress, pos, printerRequest, error_12;
+            var order, ipAddress, pos, printerRequests, _i, printerRequests_1, printerRequest, error_12;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 6, , 7]);
+                        _a.trys.push([0, 9, , 10]);
                         order = payload.order;
                         ipAddress = payload.ipAddress;
                         pos = payload.pos;
                         this.starPrint.initialize({ ipAddress: ipAddress, pos: pos });
-                        printerRequest = void 0;
+                        printerRequests = void 0;
                         if (!(order === undefined)) return [3 /*break*/, 2];
                         return [4 /*yield*/, this.starPrint.createPrinterTestRequest()];
                     case 1:
-                        printerRequest = _a.sent();
+                        printerRequests = _a.sent();
                         return [3 /*break*/, 4];
                     case 2: return [4 /*yield*/, this.starPrint.createPrinterRequestList({ order: order })];
                     case 3:
-                        printerRequest = _a.sent();
+                        printerRequests = _a.sent();
                         _a.label = 4;
-                    case 4: return [4 /*yield*/, this.starPrint.print({ printerRequest: printerRequest })];
+                    case 4:
+                        _i = 0, printerRequests_1 = printerRequests;
+                        _a.label = 5;
                     case 5:
-                        _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["PrintSuccess"]()];
+                        if (!(_i < printerRequests_1.length)) return [3 /*break*/, 8];
+                        printerRequest = printerRequests_1[_i];
+                        return [4 /*yield*/, this.starPrint.print({ printerRequest: printerRequest })];
                     case 6:
+                        _a.sent();
+                        _a.label = 7;
+                    case 7:
+                        _i++;
+                        return [3 /*break*/, 5];
+                    case 8: return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["PrintSuccess"]()];
+                    case 9:
                         error_12 = _a.sent();
                         return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["PrintFail"]({ error: error_12 })];
-                    case 7: return [2 /*return*/];
+                    case 10: return [2 /*return*/];
                 }
             });
         }); }));
@@ -9178,11 +9197,20 @@ function reducer(state, action) {
         case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetScheduleSuccess: {
             var screeningEvents = action.payload.screeningEvents;
             var scheduleDates = Object(_functions__WEBPACK_IMPORTED_MODULE_5__["createscreeningEventDates"])(screeningEvents);
-            var scheduleDate = scheduleDates[0];
-            var screeningFilmEvents = Object(_functions__WEBPACK_IMPORTED_MODULE_5__["createScreeningFilmEvents"])({ screeningEvents: screeningEvents, scheduleDate: scheduleDate });
+            var scheduleDate_1 = state.purchase.scheduleDate;
+            var findResult = state.purchase.scheduleDates.find(function (date) {
+                if (scheduleDate_1 === undefined) {
+                    return false;
+                }
+                return (date.format === scheduleDate_1.format);
+            });
+            if (findResult === undefined || scheduleDate_1 === undefined) {
+                scheduleDate_1 = scheduleDates[0];
+            }
+            var screeningFilmEvents = Object(_functions__WEBPACK_IMPORTED_MODULE_5__["createScreeningFilmEvents"])({ screeningEvents: screeningEvents, scheduleDate: scheduleDate_1 });
             return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { screeningEvents: screeningEvents,
                     scheduleDates: scheduleDates,
-                    scheduleDate: scheduleDate,
+                    scheduleDate: scheduleDate_1,
                     screeningFilmEvents: screeningFilmEvents }) });
         }
         case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetScheduleFail: {

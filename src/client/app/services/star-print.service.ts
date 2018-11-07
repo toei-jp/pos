@@ -248,7 +248,7 @@ export class StarPrintService {
         // 紙を切断
         request += this.builder.createCutPaperElement({ feed: true, type: 'partial' });
 
-        return request;
+        return [request];
     }
 
     /**
@@ -265,14 +265,13 @@ export class StarPrintService {
         };
         await this.cinerino.getServices();
         const order = await this.cinerino.order.authorizeOwnershipInfos({ orderNumber, customer });
+        const printerRequests = [];
         for (let i = 0; i < args.order.acceptedOffers.length; i++) {
-            printerRequest += await this.createPrinterRequest({
-                order,
-                offerIndex: i
-            });
+            printerRequest += await this.createPrinterRequest({ order, offerIndex: i });
+            printerRequests.push(printerRequest);
         }
 
-        return printerRequest;
+        return printerRequests;
     }
 
     /**

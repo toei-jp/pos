@@ -1,5 +1,5 @@
 <div class="py-3 px-2">
-    
+
     <div class="mb-4">
         <h2 class="text-center large-text text-white mb-4">購入完了</h2>
         <div class="container mb-4">
@@ -10,13 +10,12 @@
                     <strong>{{ (purchase | async).order.confirmationNumber }}</strong>
                 </p>
             </div>
-            <!-- <div class="row">
+            <div class="row">
                 <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
-                    劇場 / スクリーン</p>
+                    スクリーン</p>
                 <p class="col-8 bg-white py-3">{{ (purchase |
-                    async).order.acceptedOffers[0].itemOffered.reservationFor.superEvent.location.name.ja }} / {{
-                    (purchase | async).order.acceptedOffers[0].itemOffered.reservationFor.location.name.ja }}</p>
-            </div> -->
+                    async).order.acceptedOffers[0].itemOffered.reservationFor.location.name.ja }}</p>
+            </div>
             <div class="row">
                 <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
                     作品</p>
@@ -25,9 +24,10 @@
             </div>
             <div class="row">
                 <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
-                    鑑賞日</p>
+                    鑑賞日時</p>
                 <p class="col-8 bg-white py-3">{{ moment((purchase |
-                    async).order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YYYY/MM/DD (ddd)') }}</p>
+                    async).order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YYYY/MM/DD (ddd)
+                    HH:mm') }}</p>
             </div>
             <div class="row">
                 <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
@@ -44,8 +44,9 @@
     </div>
 
     <div class="w-50 mx-auto">
-        <button type="button" class="btn btn-block bg-primary py-3 text-white large-text btn-arrow" [disabled]="isLoading | async"
+        <button type="button" class="btn btn-block bg-primary py-3 text-white large-text btn-arrow mb-3" [disabled]="isLoading | async"
             (click)="print()">再印刷</button>
+        <button type="button" class="btn btn-block bg-primary py-3 text-white large-text btn-arrow" routerLink="/purchase/schedule">スケジュール選択へ戻る</button>
     </div>
 
 </div>

@@ -9,9 +9,9 @@
             </button>
         </div>
     </div>
-
+    
     <div class="reservations d-grid align-items-center mb-4">
-        <div *ngFor="let reservation of (purchase | async).reservations" class="reservation bg-secondary d-grid align-items-center border rounded">
+        <div *ngFor="let reservation of (purchase | async).reservations" class="reservation d-grid align-items-center border rounded" [class.bg-primary]="reservation.ticket !== undefined" [class.bg-secondary]="reservation.ticket === undefined">
             <div class="seat text-center text-white">
                 <span class="mr-3">座席</span>{{ reservation.seat.seatNumber }}</div>
             <button *ngIf="reservation.ticket === undefined" type="button" (click)="openTicketList(reservation)" class="btn btn-block rounded-0 py-3 bg-white">券種を選択してください</button>

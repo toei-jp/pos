@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { factory } from '@cinerino/api-javascript-client';
 import { Actions, ofType } from '@ngrx/effects';
@@ -23,10 +23,11 @@ import * as reducers from '../../../../store/reducers';
     templateUrl: './purchase-schedule.component.html',
     styleUrls: ['./purchase-schedule.component.scss']
 })
-export class PurchaseScheduleComponent implements OnInit {
+export class PurchaseScheduleComponent implements OnInit, OnDestroy {
     public purchase: Observable<reducers.IPurchaseState>;
     public user: Observable<reducers.IUserState>;
     public scheduleDateValue: string;
+    private updateTimer: any;
     constructor(
         private store: Store<reducers.IState>,
         private actions: Actions,
@@ -43,7 +44,19 @@ export class PurchaseScheduleComponent implements OnInit {
                 return;
             }
             this.selectTheater(user.movieTheater);
+            this.update(user.movieTheater);
         }).unsubscribe();
+    }
+
+    public ngOnDestroy() {
+        clearInterval(this.updateTimer);
+    }
+
+    private update(movieTheater: factory.organization.movieTheater.IOrganization) {
+        const time = 600000; // 10 * 60 * 1000
+        this.updateTimer = setInterval(() => {
+            this.selectTheater(movieTheater);
+        }, time);
     }
 
     /**
@@ -94,7 +107,6 @@ export class PurchaseScheduleComponent implements OnInit {
             const findResult = purchase.scheduleDates.find((scheduleDate) => {
                 return (scheduleDate.format === this.scheduleDateValue);
             });
-            console.log(findResult);
 
             if (findResult === undefined) {
                 return;

@@ -6,12 +6,11 @@
         <p class="mb-3 text-white text-center">※この先の操作の取り消しはできませんのでご注意ください。</p>
 
         <div class="container mb-4">
-            <!-- <div class="row align-items-stretch">
+            <div class="row align-items-stretch">
                 <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
-                    劇場 / スクリーン</p>
-                <p class="col-8 bg-white py-3">{{ (purchase | async).screeningEvent.superEvent.location.name.ja }} / {{
-                    (purchase | async).screeningEvent.location.name.ja }}</p>
-            </div> -->
+                    スクリーン</p>
+                <p class="col-8 bg-white py-3">{{ (purchase | async).screeningEvent.location.name.ja }}</p>
+            </div>
             <div class="row align-items-stretch">
                 <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
                     作品</p>
@@ -19,9 +18,9 @@
             </div>
             <div class="row align-items-stretch">
                 <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
-                    鑑賞日</p>
+                    鑑賞日時</p>
                 <p class="col-8 bg-white py-3">{{ moment((purchase |
-                    async).screeningEvent.startDate).format('YYYY/MM/DD (ddd)') }}</p>
+                    async).screeningEvent.startDate).format('YYYY/MM/DD (ddd) HH:mm') }}</p>
             </div>
             <div class="row align-items-stretch">
                 <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
@@ -79,4 +78,4 @@
     </div>
 </div>
 
-<app-navigation prevLink="/purchase/payment"></app-navigation>
+<app-navigation [prevLink]="((purchase | async).authorizeSeatReservation.result.price > 0) ? '/purchase/payment' : '/purchase/ticket'"></app-navigation>

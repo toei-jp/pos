@@ -397,13 +397,16 @@ export class PurchaseEffects {
                 const ipAddress = payload.ipAddress;
                 const pos = payload.pos;
                 this.starPrint.initialize({ ipAddress, pos });
-                let printerRequest;
+                let printerRequests;
                 if (order === undefined) {
-                    printerRequest = await this.starPrint.createPrinterTestRequest();
+                    printerRequests = await this.starPrint.createPrinterTestRequest();
                 } else {
-                    printerRequest = await this.starPrint.createPrinterRequestList({ order });
+                    printerRequests = await this.starPrint.createPrinterRequestList({ order });
                 }
-                await this.starPrint.print({ printerRequest });
+                for (const printerRequest of printerRequests) {
+                    await this.starPrint.print({ printerRequest });
+                }
+
                 return new purchase.PrintSuccess();
             } catch (error) {
                 return new purchase.PrintFail({ error: error });

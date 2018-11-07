@@ -4,14 +4,15 @@
 	 y="0px" viewBox="0 0 26.2 26.2" style="enable-background:new 0 0 26.2 26.2;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#FFFFFF;}
-	.st1{font-family:'ShinGoPro-Light-83pv-RKSJ-H';}
-	.st2{font-size:17.4738px;}
 </style>
 <g>
 	<g>
 		<path class="st0" d="M13.1,2c6.1,0,11.1,5,11.1,11.1s-5,11.1-11.1,11.1S2,19.2,2,13.1S7,2,13.1,2 M13.1,0C5.9,0,0,5.9,0,13.1
 			s5.9,13.1,13.1,13.1s13.1-5.9,13.1-13.1S20.4,0,13.1,0L13.1,0z"/>
 	</g>
-	<text transform="matrix(1.0015 0 0 1 6.207 21.0236)" class="st0 st1 st2">¥</text>
+	<g>
+		<path class="st0" d="M13.4,21h-1.2V17H7.8v-0.9h4.4v-0.7l-0.5-0.7h-4v-0.9h3.3L6.7,7.3h1.5l4.7,7l4.7-7H19l-4.5,6.5h3.4v0.9h-4
+			l-0.5,0.7v0.7h4.5V17h-4.5V21z"/>
+	</g>
 </g>
 </svg>

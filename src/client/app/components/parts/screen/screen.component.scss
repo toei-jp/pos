@@ -55,21 +55,6 @@
         font-weight: bold;
     }   
 }
-.screen-4dx {
-    .seat {
-        background-image: url(/images/theater/seat/4dx.svg);
-        background-size: 50px 50px;
-        &.active {
-            color: #FFF;
-            background-image: url(/images/theater/seat/4dx_active.svg);
-        }
-        &.disabled {
-            color: #FFF;
-            background-image: url(/images/theater/seat/4dx_disabled.svg);
-            cursor: default;
-        }
-    }
-}
 
 .zoom {
     .screen-scroll {

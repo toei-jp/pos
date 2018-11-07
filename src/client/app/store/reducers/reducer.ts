@@ -173,7 +173,16 @@ export function reducer(
         case purchase.ActionTypes.GetScheduleSuccess: {
             const screeningEvents = action.payload.screeningEvents;
             const scheduleDates = createscreeningEventDates(screeningEvents);
-            const scheduleDate = scheduleDates[0];
+            let scheduleDate = state.purchase.scheduleDate;
+            const findResult = state.purchase.scheduleDates.find((date) => {
+                if (scheduleDate === undefined) {
+                    return false;
+                }
+                return (date.format === scheduleDate.format);
+            });
+            if (findResult === undefined || scheduleDate === undefined) {
+                scheduleDate = scheduleDates[0];
+            }
             const screeningFilmEvents = createScreeningFilmEvents({ screeningEvents, scheduleDate });
             return {
                 ...state, loading: false, error: null, purchase: {
