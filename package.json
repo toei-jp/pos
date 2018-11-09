@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "toei-pos",
   "version": "0.0.0",
   "license": "MIT",
   "author": {
@@ -45,8 +45,8 @@
     "@angular/platform-browser": "^6.0.7",
     "@angular/platform-browser-dynamic": "^6.0.7",
     "@angular/router": "^6.0.7",
-    "@cinerino/api-javascript-client": "^1.0.0-alpha.17",
-    "@cinerino/api-nodejs-client": "^1.1.0-alpha.20",
+    "@cinerino/api-javascript-client": "^1.0.0-alpha.20",
+    "@cinerino/api-nodejs-client": "^1.1.0-alpha.25",
     "@ng-bootstrap/ng-bootstrap": "^3.3.0",
     "@ngrx/effects": "^6.1.0",
     "@ngrx/store": "^6.1.0",

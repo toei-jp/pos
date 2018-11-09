@@ -115,7 +115,7 @@ export class SelectScheduleDate implements Action {
  */
 export class GetSchedule implements Action {
     public readonly type = ActionTypes.GetSchedule;
-    constructor(public payload: { params: factory.chevre.event.screeningEvent.ISearchConditions }) { }
+    constructor(public payload: { movieTheater: factory.organization.movieTheater.IOrganization }) { }
 }
 
 /**

@@ -257,7 +257,6 @@ export class StarPrintService {
     public async createPrinterRequestList(args: {
         order: factory.order.IOrder;
     }) {
-        let printerRequest = '';
         const orderNumber = args.order.orderNumber;
         const customer = {
             // email: args.order.customer.email,
@@ -267,7 +266,7 @@ export class StarPrintService {
         const order = await this.cinerino.order.authorizeOwnershipInfos({ orderNumber, customer });
         const printerRequests = [];
         for (let i = 0; i < args.order.acceptedOffers.length; i++) {
-            printerRequest += await this.createPrinterRequest({ order, offerIndex: i });
+            const printerRequest = await this.createPrinterRequest({ order, offerIndex: i });
             printerRequests.push(printerRequest);
         }
 

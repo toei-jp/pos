@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { factory } from '@cinerino/api-javascript-client';
 import { Actions, Effect, ofType } from '@ngrx/effects';
+import * as moment from 'moment';
 import { map, mergeMap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { IScreen } from '../../models';
@@ -58,8 +59,34 @@ export class PurchaseEffects {
         mergeMap(async (payload) => {
             try {
                 await this.cinerino.getServices();
-                const screeningEventsResult = await this.cinerino.event.searchScreeningEvents(payload.params);
+                const branchCode = payload.movieTheater.location.branchCode;
+                const today = moment().format('YYYY-MM-DDT00:00:00+09:00');
+                const screeningEventsResult = await this.cinerino.event.searchScreeningEvents({
+                    superEvent: {
+                        locationBranchCodes: [branchCode]
+                    },
+                    startFrom: moment(today).toDate(),
+                    startThrough: moment(today).add(3, 'day').toDate()
+                });
                 const screeningEvents = screeningEventsResult.data;
+                // 先行販売
+                const defaultOfferValidFrom = moment(moment().add(-3, 'days').format('YYYY-MM-DDT00:00:00+09:00')).toDate();
+                const preScreeningEventsResult = await this.cinerino.event.searchScreeningEvents({
+                    superEvent: {
+                        locationBranchCodes: [branchCode]
+                    },
+                    startFrom: moment().toDate(),
+                    offers: {
+                        // validFrom: new Date(),
+                        validThrough: defaultOfferValidFrom
+                    }
+                });
+                preScreeningEventsResult.data.forEach((preEvent) => {
+                    const findResult = screeningEventsResult.data.find(event => preEvent.id === event.id);
+                    if (findResult === undefined) {
+                        screeningEvents.push(preEvent);
+                    }
+                });
                 return new purchase.GetScheduleSuccess({ screeningEvents });
             } catch (error) {
                 return new purchase.GetScheduleFail({ error: error });

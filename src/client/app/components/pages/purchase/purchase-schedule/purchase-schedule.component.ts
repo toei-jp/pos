@@ -64,16 +64,7 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
      */
     public selectTheater(movieTheater: factory.organization.movieTheater.IOrganization) {
         this.store.dispatch(new SelectTheater({ movieTheater }));
-        const today = moment().format('YYYYMMDD');
-        this.store.dispatch(new GetSchedule({
-            params: {
-                startFrom: moment(today).toDate(),
-                startThrough: moment(today).add(1, 'month').toDate(),
-                superEvent: {
-                    locationBranchCodes: [movieTheater.location.branchCode]
-                }
-            }
-        }));
+        this.store.dispatch(new GetSchedule({ movieTheater }));
 
         const success = this.actions.pipe(
             ofType(ActionTypes.GetScheduleSuccess),

@@ -1,8 +1,8 @@
-@cinerino/factory@1.0.0-alpha.51
+@cinerino/factory@1.0.0-alpha.59
 ISC
 ISC
 
-@cinerino/api-javascript-client@1.0.0-alpha.17
+@cinerino/api-javascript-client@1.0.0-alpha.20
 ISC
 ISC
 
@@ -30,7 +30,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-@chevre/factory@1.0.0-alpha.25
+@chevre/factory@1.0.0-alpha.32
 ISC
 ISC
 
@@ -380,7 +380,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-@cinerino/api-abstract-client@1.0.0-alpha.52
+@cinerino/api-abstract-client@1.0.0-alpha.58
 ISC
 ISC
 

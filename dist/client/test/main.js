@@ -2,7 +2,7 @@
 
 /***/ "../../node_modules/moment/locale sync recursive ^\\.\\/.*$":
 /*!************************************************************************************************************!*\
-  !*** C:/Users/hataguchi/Desktop/workspace/motionpicture/TOEI/pos/node_modules/moment/locale sync ^\.\/.*$ ***!
+  !*** C:/Users/hataguchi/Desktop/workspace/TOEI Ticket System/pos/node_modules/moment/locale sync ^\.\/.*$ ***!
   \************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1860,7 +1860,7 @@ var PurchaseCompleteComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-3 px-2\">\n    \n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">購入内容確認</h2>\n\n        <p class=\"mb-3 text-white text-center\">※この先の操作の取り消しはできませんのでご注意ください。</p>\n\n        <div class=\"container mb-4\">\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    スクリーン</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).screeningEvent.location.name.ja }}</p>\n            </div>\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    作品</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).screeningEvent.name.ja }}</p>\n            </div>\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    鑑賞日時</p>\n                <p class=\"col-8 bg-white py-3\">{{ moment((purchase |\n                    async).screeningEvent.startDate).format('YYYY/MM/DD (ddd) HH:mm') }}</p>\n            </div>\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    座席・券種</p>\n                <div class=\"col-8 bg-white py-3\">\n                    <div *ngFor=\"let reservation of (purchase | async).reservations\" class=\"mb-2\">\n                        <p>{{ reservation.seat.seatNumber }}</p>\n                        <p *ngIf=\"reservation.ticket\">{{ reservation.ticket.ticketOffer.name.ja }} / {{\n                            reservation.getTicketPrice().total | currency : 'JPY' }}</p>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).authorizeSeatReservation.result.price > 0\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    決済方法</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).paymentMethod.name }}</p>\n            </div>\n        </div>\n        <div class=\"container mb-4\">\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    合計金額</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).authorizeSeatReservation.result.price | currency :\n                    'JPY' }}</p>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    お預かり金額</p>\n                <p class=\"col-8 bg-white py-0 pr-0 d-flex align-items-center position-static\">\n                    <span>￥</span>\n                    <app-numeric-keypad [inputValue]=\"depositAmount\" viewPosition=\"Top\" (change)=\"changeDepositAmount($event)\"\n                        (hidden)=\"depositAmount = ($event.length > 0) ? $event : 0\">\n                        <input type=\"text\" class=\"form-control large-text border-0 py-3 h-auto\" id=\"depositAmount\"\n                            [(ngModel)]=\"depositAmount\" readonly=\"readonly\">\n                    </app-numeric-keypad>\n                </p>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    お釣り</p>\n                <p class=\"col-8 bg-white py-3\">{{\n                    (depositAmount - (purchase | async).authorizeSeatReservation.result.price) | currency : 'JPY' }}</p>\n            </div>\n        </div>\n\n        <div class=\"d-flex align-items-center justify-content-center mb-4\">\n            <input class=\"mr-2\" type=\"checkbox\" [value]=\"true\" id=\"agree\" [(ngModel)]=\"agree\">\n            <label class=\"text-white\" for=\"agree\"> 注意事項に同意する </label>\n        </div>\n\n        <div class=\"w-50 mx-auto\">\n            <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" [disabled]=\"(isLoading | async) || !agree\"\n                (click)=\"onSubmit()\">購入確定</button>\n        </div>\n    </div>\n</div>\n\n<app-navigation [prevLink]=\"((purchase | async).authorizeSeatReservation.result.price > 0) ? '/purchase/payment' : '/purchase/ticket'\"></app-navigation>"
+module.exports = "<div class=\"py-3 px-2\">\n    \n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">購入内容確認</h2>\n\n        <p class=\"mb-3 text-white text-center\">※この先の操作の取り消しはできませんのでご注意ください。</p>\n\n        <div class=\"container mb-4\">\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    スクリーン</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).screeningEvent.location.name.ja }}</p>\n            </div>\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    作品</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).screeningEvent.name.ja }}</p>\n            </div>\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    鑑賞日時</p>\n                <p class=\"col-8 bg-white py-3\">{{ moment((purchase |\n                    async).screeningEvent.startDate).format('YYYY/MM/DD (ddd) HH:mm') }}</p>\n            </div>\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    座席・券種</p>\n                <div class=\"col-8 bg-white py-3\">\n                    <div *ngFor=\"let reservation of (purchase | async).reservations\" class=\"mb-2\">\n                        <p>{{ reservation.seat.seatNumber }}</p>\n                        <p *ngIf=\"reservation.ticket\">{{ reservation.ticket.ticketOffer.name.ja }} / {{\n                            reservation.getTicketPrice().total | currency : 'JPY' }}</p>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).authorizeSeatReservation.result.price > 0\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    決済方法</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).paymentMethod.name }}</p>\n            </div>\n        </div>\n        <div class=\"container mb-4\">\n            <div class=\"row align-items-stretch\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    合計金額</p>\n                <p class=\"col-8 bg-white py-3\">{{ (purchase | async).authorizeSeatReservation.result.price | currency :\n                    'JPY' }}</p>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    お預かり金額</p>\n                <p class=\"col-8 bg-white py-0 pr-0 d-flex align-items-center position-static\">\n                    <span>￥</span>\n                    <app-numeric-keypad [inputValue]=\"depositAmount\" viewPosition=\"Top\" [maxlength]=\"10\" (change)=\"changeDepositAmount($event)\"\n                        (hidden)=\"depositAmount = ($event.length > 0) ? $event : 0\">\n                        <input type=\"text\" class=\"form-control large-text border-0 py-3 h-auto\" id=\"depositAmount\"\n                            [(ngModel)]=\"depositAmount\" readonly=\"readonly\">\n                    </app-numeric-keypad>\n                </p>\n            </div>\n            <div class=\"row align-items-stretch\" *ngIf=\"(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash\">\n                <p class=\"col-4 py-3 text-white d-flex align-items-center justify-content-center\">\n                    お釣り</p>\n                <p class=\"col-8 bg-white py-3\">{{\n                    (depositAmount - (purchase | async).authorizeSeatReservation.result.price) | currency : 'JPY' }}</p>\n            </div>\n        </div>\n\n        <div class=\"d-flex align-items-center justify-content-center mb-4\">\n            <input class=\"mr-2\" type=\"checkbox\" [value]=\"true\" id=\"agree\" [(ngModel)]=\"agree\">\n            <label class=\"text-white\" for=\"agree\"> 注意事項に同意する </label>\n        </div>\n\n        <div class=\"w-50 mx-auto\">\n            <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" [disabled]=\"(isLoading | async) || !agree\"\n                (click)=\"onSubmit()\">購入確定</button>\n        </div>\n    </div>\n</div>\n\n<app-navigation [prevLink]=\"((purchase | async).authorizeSeatReservation.result.price > 0) ? '/purchase/payment' : '/purchase/ticket'\"></app-navigation>"
 
 /***/ }),
 
@@ -2806,16 +2806,7 @@ var PurchaseScheduleComponent = /** @class */ (function () {
     PurchaseScheduleComponent.prototype.selectTheater = function (movieTheater) {
         var _this = this;
         this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["SelectTheater"]({ movieTheater: movieTheater }));
-        var today = moment__WEBPACK_IMPORTED_MODULE_4__().format('YYYYMMDD');
-        this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["GetSchedule"]({
-            params: {
-                startFrom: moment__WEBPACK_IMPORTED_MODULE_4__(today).toDate(),
-                startThrough: moment__WEBPACK_IMPORTED_MODULE_4__(today).add(1, 'month').toDate(),
-                superEvent: {
-                    locationBranchCodes: [movieTheater.location.branchCode]
-                }
-            }
-        }));
+        this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["GetSchedule"]({ movieTheater: movieTheater }));
         var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetScheduleSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(function () {
             _this.purchase.subscribe(function (purchase) {
                 if (purchase.scheduleDate === undefined) {
@@ -4601,6 +4592,7 @@ var NumericKeypadComponent = /** @class */ (function () {
         if (this.inputValue === '0') {
             this.inputValue = '';
         }
+        this.maxlength = (this.maxlength === undefined) ? 20 : this.maxlength;
     };
     NumericKeypadComponent.prototype.show = function () {
         var _this = this;
@@ -4624,7 +4616,7 @@ var NumericKeypadComponent = /** @class */ (function () {
         this.hidden.emit(this.inputValue);
     };
     NumericKeypadComponent.prototype.inputNumber = function (number) {
-        this.inputValue = this.inputValue + number;
+        this.inputValue = (this.inputValue + number).slice(0, this.maxlength);
         this.change.emit(this.inputValue);
     };
     NumericKeypadComponent.prototype.clear = function () {
@@ -4641,6 +4633,10 @@ var NumericKeypadComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", String)
     ], NumericKeypadComponent.prototype, "viewPosition", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Number)
+    ], NumericKeypadComponent.prototype, "maxlength", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", Object)
@@ -4986,7 +4982,7 @@ var PurchasePaymentModalComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"film p-3 bg-white\">\n    <p class=\"title large-text\"><strong>{{ screeningFilmEvent.info.name.ja }}</strong></p>\n    <div class=\"d-flex justify-content-end align-items-center\">\n        <div class=\"small-text text-white bg-gray py-1 px-3 mx-2\">{{\n            screeningFilmEvent.info.workPerformed.contentRating }}</div>\n        <div class=\"small-text mx-2\">{{ moment.duration(screeningFilmEvent.info.duration).asMinutes() }}分</div>\n    </div>\n</div>\n<ul class=\"bg-light p-3\">\n    <li *ngFor=\"let screeningEvent of screeningFilmEvent.data\" class=\"rounded border py-3 px-3 px-md-0 text-md-center d-md-block d-flex justify-content-between align-items-center\"\n        [ngClass]=\"{ \n        'bg-white':  moment(screeningEvent.endDate).unix() >= moment().unix() && screeningEvent.remainingAttendeeCapacity > 0, \n        'bg-gray text-light not-event':  screeningEvent.remainingAttendeeCapacity === 0 || moment(screeningEvent.endDate).unix() < moment().unix()\n        }\"\n        (click)=\"select.emit(screeningEvent)\">\n        <div class=\"mb-md-2 small-text\">\n            {{ screeningEvent.location.name.ja }}\n        </div>\n        <div class=\"mb-md-2\">\n            <strong class=\"large-text\">{{ moment(screeningEvent.startDate).format('HH:mm') }}</strong>\n            <span>-</span>\n            <span>{{ moment(screeningEvent.endDate).format('HH:mm') }}</span>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.endDate).unix() >= moment().unix()\" class=\"status text-center\">\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity >= 30\" class=\"status text-center\">\n                <img src=\"/assets/images/status_01.svg\">\n            </div>\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity < 30 && screeningEvent.remainingAttendeeCapacity > 0\"\n                class=\"status text-center\">\n                <img src=\"/assets/images/status_02.svg\">\n            </div>\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity === 0\" class=\"status text-center\">\n                <img src=\"/assets/images/status_03.svg\">\n            </div>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.endDate).unix() < moment().unix()\" class=\"status text-center\">\n            <p>販売終了</p>\n        </div>\n    </li>\n</ul>"
+module.exports = "<div class=\"film p-3 bg-white\">\n    <p class=\"title large-text\"><strong>{{ screeningFilmEvent.info.name.ja }}</strong></p>\n    <div class=\"d-flex justify-content-end align-items-center\">\n        <div class=\"small-text text-white bg-gray py-1 px-3 mx-2\">{{\n            screeningFilmEvent.info.workPerformed.contentRating }}</div>\n        <div class=\"small-text text-white bg-gray py-1 px-3 mx-2\">吹替版</div>\n        <div class=\"small-text mx-2\">{{ moment.duration(screeningFilmEvent.info.duration).asMinutes() }}分</div>\n    </div>\n</div>\n<ul class=\"bg-light p-3\">\n    <li *ngFor=\"let screeningEvent of screeningFilmEvent.data\" class=\"rounded border py-3 px-3 px-md-0 text-md-center d-md-block d-flex justify-content-between align-items-center\"\n        [ngClass]=\"{ \n        'bg-white':  moment(screeningEvent.offers.validThrough).unix() >= moment().unix() && screeningEvent.remainingAttendeeCapacity > 0, \n        'bg-gray text-light not-event':  screeningEvent.remainingAttendeeCapacity === 0 || moment(screeningEvent.offers.validThrough).unix() < moment().unix()\n        }\"\n        (click)=\"select.emit(screeningEvent)\">\n        <div class=\"mb-md-2 small-text\">\n            {{ screeningEvent.location.name.ja }}\n        </div>\n        <div class=\"mb-md-2\">\n            <strong class=\"large-text\">{{ moment(screeningEvent.startDate).format('HH:mm') }}</strong>\n            <span>-</span>\n            <span>{{ moment(screeningEvent.endDate).format('HH:mm') }}</span>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.offers.validThrough).unix() >= moment().unix()\" class=\"status text-center\">\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity >= 30\" class=\"status text-center\">\n                <img src=\"/assets/images/status_01.svg\">\n            </div>\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity < 30 && screeningEvent.remainingAttendeeCapacity > 0\"\n                class=\"status text-center\">\n                <img src=\"/assets/images/status_02.svg\">\n            </div>\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity === 0\" class=\"status text-center\">\n                <img src=\"/assets/images/status_03.svg\">\n            </div>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.offers.validThrough).unix() < moment().unix()\" class=\"status text-center\">\n            <p>販売終了</p>\n        </div>\n    </li>\n</ul>"
 
 /***/ }),
 
@@ -6436,11 +6432,10 @@ var StarPrintService = /** @class */ (function () {
      */
     StarPrintService.prototype.createPrinterRequestList = function (args) {
         return __awaiter(this, void 0, void 0, function () {
-            var printerRequest, orderNumber, customer, order, printerRequests, i, _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
+            var orderNumber, customer, order, printerRequests, i, printerRequest;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
                     case 0:
-                        printerRequest = '';
                         orderNumber = args.order.orderNumber;
                         customer = {
                             // email: args.order.customer.email,
@@ -6448,21 +6443,20 @@ var StarPrintService = /** @class */ (function () {
                         };
                         return [4 /*yield*/, this.cinerino.getServices()];
                     case 1:
-                        _b.sent();
+                        _a.sent();
                         return [4 /*yield*/, this.cinerino.order.authorizeOwnershipInfos({ orderNumber: orderNumber, customer: customer })];
                     case 2:
-                        order = _b.sent();
+                        order = _a.sent();
                         printerRequests = [];
                         i = 0;
-                        _b.label = 3;
+                        _a.label = 3;
                     case 3:
                         if (!(i < args.order.acceptedOffers.length)) return [3 /*break*/, 6];
-                        _a = printerRequest;
                         return [4 /*yield*/, this.createPrinterRequest({ order: order, offerIndex: i })];
                     case 4:
-                        printerRequest = _a + _b.sent();
+                        printerRequest = _a.sent();
                         printerRequests.push(printerRequest);
-                        _b.label = 5;
+                        _a.label = 5;
                     case 5:
                         i++;
                         return [3 /*break*/, 3];
@@ -7921,13 +7915,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
 /* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../environments/environment */ "./environments/environment.ts");
-/* harmony import */ var _services_cinerino_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/cinerino.service */ "./app/services/cinerino.service.ts");
-/* harmony import */ var _services_star_print_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/star-print.service */ "./app/services/star-print.service.ts");
-/* harmony import */ var _services_util_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/util.service */ "./app/services/util.service.ts");
-/* harmony import */ var _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../actions/purchase.action */ "./app/store/actions/purchase.action.ts");
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../functions */ "./app/store/functions/index.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../environments/environment */ "./environments/environment.ts");
+/* harmony import */ var _services_cinerino_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/cinerino.service */ "./app/services/cinerino.service.ts");
+/* harmony import */ var _services_star_print_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/star-print.service */ "./app/services/star-print.service.ts");
+/* harmony import */ var _services_util_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/util.service */ "./app/services/util.service.ts");
+/* harmony import */ var _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../actions/purchase.action */ "./app/store/actions/purchase.action.ts");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../functions */ "./app/store/functions/index.ts");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -7994,6 +7990,7 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
+
 /**
  * Purchase Effects
  */
@@ -8008,7 +8005,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * GetTheaters
          */
-        this.getTheaters = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetTheaters), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.getTheaters = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetTheaters), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var searchMovieTheatersResult, movieTheaters, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8021,10 +8018,10 @@ var PurchaseEffects = /** @class */ (function () {
                     case 2:
                         searchMovieTheatersResult = _a.sent();
                         movieTheaters = searchMovieTheatersResult.data;
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["GetTheatersSuccess"]({ movieTheaters: movieTheaters })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetTheatersSuccess"]({ movieTheaters: movieTheaters })];
                     case 3:
                         error_1 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["GetTheatersFail"]({ error: error_1 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetTheatersFail"]({ error: error_1 })];
                     case 4: return [2 /*return*/];
                 }
             });
@@ -8032,31 +8029,58 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * GetSchedule
          */
-        this.getSchedule = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetSchedule), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
-            var screeningEventsResult, screeningEvents, error_2;
+        this.getSchedule = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetSchedule), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+            var branchCode, today, screeningEventsResult_1, screeningEvents_1, defaultOfferValidFrom, preScreeningEventsResult, error_2;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 3, , 4]);
+                        _a.trys.push([0, 4, , 5]);
                         return [4 /*yield*/, this.cinerino.getServices()];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, this.cinerino.event.searchScreeningEvents(payload.params)];
+                        branchCode = payload.movieTheater.location.branchCode;
+                        today = moment__WEBPACK_IMPORTED_MODULE_4__().format('YYYY-MM-DDT00:00:00+09:00');
+                        return [4 /*yield*/, this.cinerino.event.searchScreeningEvents({
+                                superEvent: {
+                                    locationBranchCodes: [branchCode]
+                                },
+                                startFrom: moment__WEBPACK_IMPORTED_MODULE_4__(today).toDate(),
+                                startThrough: moment__WEBPACK_IMPORTED_MODULE_4__(today).add(3, 'day').toDate()
+                            })];
                     case 2:
-                        screeningEventsResult = _a.sent();
-                        screeningEvents = screeningEventsResult.data;
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["GetScheduleSuccess"]({ screeningEvents: screeningEvents })];
+                        screeningEventsResult_1 = _a.sent();
+                        screeningEvents_1 = screeningEventsResult_1.data;
+                        defaultOfferValidFrom = moment__WEBPACK_IMPORTED_MODULE_4__(moment__WEBPACK_IMPORTED_MODULE_4__().add(-3, 'days').format('YYYY-MM-DDT00:00:00+09:00')).toDate();
+                        return [4 /*yield*/, this.cinerino.event.searchScreeningEvents({
+                                superEvent: {
+                                    locationBranchCodes: [branchCode]
+                                },
+                                startFrom: moment__WEBPACK_IMPORTED_MODULE_4__().toDate(),
+                                offers: {
+                                    // validFrom: new Date(),
+                                    validThrough: defaultOfferValidFrom
+                                }
+                            })];
                     case 3:
+                        preScreeningEventsResult = _a.sent();
+                        preScreeningEventsResult.data.forEach(function (preEvent) {
+                            var findResult = screeningEventsResult_1.data.find(function (event) { return preEvent.id === event.id; });
+                            if (findResult === undefined) {
+                                screeningEvents_1.push(preEvent);
+                            }
+                        });
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetScheduleSuccess"]({ screeningEvents: screeningEvents_1 })];
+                    case 4:
                         error_2 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["GetScheduleFail"]({ error: error_2 })];
-                    case 4: return [2 /*return*/];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetScheduleFail"]({ error: error_2 })];
+                    case 5: return [2 /*return*/];
                 }
             });
         }); }));
         /**
          * StartTransaction
          */
-        this.startTransaction = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].StartTransaction), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.startTransaction = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].StartTransaction), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var transaction, error_3;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8068,10 +8092,10 @@ var PurchaseEffects = /** @class */ (function () {
                         return [4 /*yield*/, this.cinerino.transaction.placeOrder.start(payload.params)];
                     case 2:
                         transaction = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["StartTransactionSuccess"]({ transaction: transaction })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["StartTransactionSuccess"]({ transaction: transaction })];
                     case 3:
                         error_3 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["StartTransactionFail"]({ error: error_3 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["StartTransactionFail"]({ error: error_3 })];
                     case 4: return [2 /*return*/];
                 }
             });
@@ -8079,7 +8103,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * getScreen
          */
-        this.getScreen = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetScreen), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.getScreen = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetScreen), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var screeningEventOffers, theaterCode, screenCode, screen_1, setting, screenData, error_4;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8102,10 +8126,10 @@ var PurchaseEffects = /** @class */ (function () {
                     case 4:
                         setting = _a.sent();
                         screenData = Object.assign(setting, screen_1);
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["GetScreenSuccess"]({ screeningEventOffers: screeningEventOffers, screenData: screenData })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetScreenSuccess"]({ screeningEventOffers: screeningEventOffers, screenData: screenData })];
                     case 5:
                         error_4 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["GetScreenFail"]({ error: error_4 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetScreenFail"]({ error: error_4 })];
                     case 6: return [2 /*return*/];
                 }
             });
@@ -8113,7 +8137,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * temporaryReservation
          */
-        this.temporaryReservation = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].TemporaryReservation), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.temporaryReservation = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].TemporaryReservation), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var transaction, screeningEvent, reservations, authorizeSeatReservation, error_5;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8153,10 +8177,10 @@ var PurchaseEffects = /** @class */ (function () {
                         })];
                     case 4:
                         authorizeSeatReservation = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["TemporaryReservationSuccess"]({ authorizeSeatReservation: authorizeSeatReservation })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["TemporaryReservationSuccess"]({ authorizeSeatReservation: authorizeSeatReservation })];
                     case 5:
                         error_5 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["TemporaryReservationFail"]({ error: error_5 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["TemporaryReservationFail"]({ error: error_5 })];
                     case 6: return [2 /*return*/];
                 }
             });
@@ -8164,7 +8188,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * getTicketList
          */
-        this.getTicketList = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetTicketList), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.getTicketList = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetTicketList), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var screeningEvent, movieTheater, screeningEventTicketOffers, error_6;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8178,14 +8202,14 @@ var PurchaseEffects = /** @class */ (function () {
                         return [4 /*yield*/, this.cinerino.event.searchScreeningEventTicketOffers({
                                 event: { id: screeningEvent.id },
                                 seller: { typeOf: movieTheater.typeOf, id: movieTheater.id },
-                                store: { id: _environments_environment__WEBPACK_IMPORTED_MODULE_5__["environment"].CLIENT_ID }
+                                store: { id: _environments_environment__WEBPACK_IMPORTED_MODULE_6__["environment"].CLIENT_ID }
                             })];
                     case 2:
                         screeningEventTicketOffers = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["GetTicketListSuccess"]({ screeningEventTicketOffers: screeningEventTicketOffers })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetTicketListSuccess"]({ screeningEventTicketOffers: screeningEventTicketOffers })];
                     case 3:
                         error_6 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["GetTicketListFail"]({ error: error_6 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetTicketListFail"]({ error: error_6 })];
                     case 4: return [2 /*return*/];
                 }
             });
@@ -8193,14 +8217,14 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * registerContact
          */
-        this.registerContact = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].RegisterContact), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.registerContact = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].RegisterContact), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var transaction, contact, customerContact, error_7;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         transaction = payload.transaction;
                         contact = payload.contact;
-                        contact.telephone = Object(_functions__WEBPACK_IMPORTED_MODULE_10__["formatTelephone"])(contact.telephone);
+                        contact.telephone = Object(_functions__WEBPACK_IMPORTED_MODULE_11__["formatTelephone"])(contact.telephone);
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 4, , 5]);
@@ -8215,10 +8239,10 @@ var PurchaseEffects = /** @class */ (function () {
                             })];
                     case 3:
                         customerContact = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["RegisterContactSuccess"]({ customerContact: customerContact })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["RegisterContactSuccess"]({ customerContact: customerContact })];
                     case 4:
                         error_7 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["RegisterContactFail"]({ error: error_7 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["RegisterContactFail"]({ error: error_7 })];
                     case 5: return [2 /*return*/];
                 }
             });
@@ -8226,7 +8250,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * authorizeCreditCard
          */
-        this.authorizeCreditCard = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].AuthorizeCreditCard), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.authorizeCreditCard = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].AuthorizeCreditCard), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var transaction, orderId, gmoTokenObject, creditCard, authorizeCreditCardPayment, error_8;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8242,12 +8266,12 @@ var PurchaseEffects = /** @class */ (function () {
                         _a.label = 3;
                     case 3:
                         transaction = payload.transaction;
-                        orderId = Object(_functions__WEBPACK_IMPORTED_MODULE_10__["createOrderId"])({
+                        orderId = Object(_functions__WEBPACK_IMPORTED_MODULE_11__["createOrderId"])({
                             orderCount: payload.orderCount,
                             authorizeSeatReservation: payload.authorizeSeatReservation,
                             movieTheater: payload.movieTheater
                         });
-                        return [4 /*yield*/, Object(_functions__WEBPACK_IMPORTED_MODULE_10__["createGmoTokenObject"])({
+                        return [4 /*yield*/, Object(_functions__WEBPACK_IMPORTED_MODULE_11__["createGmoTokenObject"])({
                                 creditCard: payload.creditCard,
                                 movieTheater: payload.movieTheater
                             })];
@@ -8266,10 +8290,10 @@ var PurchaseEffects = /** @class */ (function () {
                             })];
                     case 5:
                         authorizeCreditCardPayment = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["AuthorizeCreditCardSuccess"]({ authorizeCreditCardPayment: authorizeCreditCardPayment, gmoTokenObject: gmoTokenObject })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["AuthorizeCreditCardSuccess"]({ authorizeCreditCardPayment: authorizeCreditCardPayment, gmoTokenObject: gmoTokenObject })];
                     case 6:
                         error_8 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["AuthorizeCreditCardFail"]({ error: error_8 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["AuthorizeCreditCardFail"]({ error: error_8 })];
                     case 7: return [2 /*return*/];
                 }
             });
@@ -8277,7 +8301,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * authorizeMovieTicket
          */
-        this.authorizeMovieTicket = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].AuthorizeMovieTicket), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.authorizeMovieTicket = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].AuthorizeMovieTicket), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var _i, _a, authorizeMovieTicketPayment, transaction, reservations, authorizeSeatReservation, authorizeMovieTicketPayments, movieTickets, movieTicketIdentifiers_2, _b, movieTicketIdentifiers_1, movieTicketIdentifier, authorizeMovieTicketPaymentResult, error_9;
             return __generator(this, function (_c) {
                 switch (_c.label) {
@@ -8304,7 +8328,7 @@ var PurchaseEffects = /** @class */ (function () {
                         reservations = payload.reservations;
                         authorizeSeatReservation = payload.authorizeSeatReservation;
                         authorizeMovieTicketPayments = [];
-                        movieTickets = Object(_functions__WEBPACK_IMPORTED_MODULE_10__["createMovieTicketsFromAuthorizeSeatReservation"])({
+                        movieTickets = Object(_functions__WEBPACK_IMPORTED_MODULE_11__["createMovieTicketsFromAuthorizeSeatReservation"])({
                             authorizeSeatReservation: authorizeSeatReservation, reservations: reservations
                         });
                         movieTicketIdentifiers_2 = [];
@@ -8340,10 +8364,10 @@ var PurchaseEffects = /** @class */ (function () {
                     case 8:
                         _b++;
                         return [3 /*break*/, 6];
-                    case 9: return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["AuthorizeMovieTicketSuccess"]({ authorizeMovieTicketPayments: authorizeMovieTicketPayments })];
+                    case 9: return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["AuthorizeMovieTicketSuccess"]({ authorizeMovieTicketPayments: authorizeMovieTicketPayments })];
                     case 10:
                         error_9 = _c.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["AuthorizeMovieTicketFail"]({ error: error_9 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["AuthorizeMovieTicketFail"]({ error: error_9 })];
                     case 11: return [2 /*return*/];
                 }
             });
@@ -8351,7 +8375,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * checkMovieTicket
          */
-        this.checkMovieTicket = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].CheckMovieTicket), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.checkMovieTicket = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].CheckMovieTicket), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var screeningEvent_1, movieTickets, checkMovieTicketAction, error_10;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8388,10 +8412,10 @@ var PurchaseEffects = /** @class */ (function () {
                             })];
                     case 2:
                         checkMovieTicketAction = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["CheckMovieTicketSuccess"]({ checkMovieTicketAction: checkMovieTicketAction })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["CheckMovieTicketSuccess"]({ checkMovieTicketAction: checkMovieTicketAction })];
                     case 3:
                         error_10 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["CheckMovieTicketFail"]({ error: error_10 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["CheckMovieTicketFail"]({ error: error_10 })];
                     case 4: return [2 /*return*/];
                 }
             });
@@ -8399,7 +8423,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * reserve
          */
-        this.reserve = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].Reserve), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.reserve = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].Reserve), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var transaction, result, error_11;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8422,7 +8446,7 @@ var PurchaseEffects = /** @class */ (function () {
                         return [4 /*yield*/, this.util.sleep(5000)];
                     case 4:
                         _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ReserveSuccess"]({ order: result.order })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ReserveSuccess"]({ order: result.order })];
                     case 5:
                         error_11 = _a.sent();
                         return [4 /*yield*/, this.cinerino.transaction.placeOrder.cancel({
@@ -8430,7 +8454,7 @@ var PurchaseEffects = /** @class */ (function () {
                             })];
                     case 6:
                         _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ReserveFail"]({ error: error_11 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ReserveFail"]({ error: error_11 })];
                     case 7: return [2 /*return*/];
                 }
             });
@@ -8438,7 +8462,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * print
          */
-        this.print = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].Print), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.print = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].Print), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var order, ipAddress, pos, printerRequests, _i, printerRequests_1, printerRequest, error_12;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8471,10 +8495,10 @@ var PurchaseEffects = /** @class */ (function () {
                     case 7:
                         _i++;
                         return [3 /*break*/, 5];
-                    case 8: return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["PrintSuccess"]()];
+                    case 8: return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["PrintSuccess"]()];
                     case 9:
                         error_12 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["PrintFail"]({ error: error_12 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["PrintFail"]({ error: error_12 })];
                     case 10: return [2 /*return*/];
                 }
             });
@@ -8482,7 +8506,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * getPurchaseHistory
          */
-        this.getPurchaseHistory = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetPurchaseHistory), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.getPurchaseHistory = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetPurchaseHistory), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var params, searchOrdersResult, orders, error_13;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8496,10 +8520,10 @@ var PurchaseEffects = /** @class */ (function () {
                     case 2:
                         searchOrdersResult = _a.sent();
                         orders = searchOrdersResult.data;
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["GetPurchaseHistorySuccess"]({ result: orders })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetPurchaseHistorySuccess"]({ result: orders })];
                     case 3:
                         error_13 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["GetPurchaseHistoryFail"]({ error: error_13 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetPurchaseHistoryFail"]({ error: error_13 })];
                     case 4: return [2 /*return*/];
                 }
             });
@@ -8507,7 +8531,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * orderAuthorize
          */
-        this.orderAuthorize = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].OrderAuthorize), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.orderAuthorize = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].OrderAuthorize), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var params, order, error_14;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8520,10 +8544,10 @@ var PurchaseEffects = /** @class */ (function () {
                         return [4 /*yield*/, this.cinerino.order.authorizeOwnershipInfos(params)];
                     case 2:
                         order = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["OrderAuthorizeSuccess"]({ order: order })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["OrderAuthorizeSuccess"]({ order: order })];
                     case 3:
                         error_14 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["OrderAuthorizeFail"]({ error: error_14 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["OrderAuthorizeFail"]({ error: error_14 })];
                     case 4: return [2 /*return*/];
                 }
             });
@@ -8531,7 +8555,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * AuthorizeAnyPayment
          */
-        this.addAuthorizeAnyPayment = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].AuthorizeAnyPayment), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.addAuthorizeAnyPayment = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].AuthorizeAnyPayment), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var transaction, typeOf, amount, additionalProperty, authorizeAnyPayment, error_15;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8552,10 +8576,10 @@ var PurchaseEffects = /** @class */ (function () {
                             })];
                     case 3:
                         authorizeAnyPayment = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["AuthorizeAnyPaymentSuccess"]({ authorizeAnyPayment: authorizeAnyPayment })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["AuthorizeAnyPaymentSuccess"]({ authorizeAnyPayment: authorizeAnyPayment })];
                     case 4:
                         error_15 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["AuthorizeAnyPaymentFail"]({ error: error_15 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["AuthorizeAnyPaymentFail"]({ error: error_15 })];
                     case 5: return [2 /*return*/];
                 }
             });
@@ -8624,9 +8648,9 @@ var PurchaseEffects = /** @class */ (function () {
     PurchaseEffects = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
         __metadata("design:paramtypes", [_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["Actions"],
-            _services_cinerino_service__WEBPACK_IMPORTED_MODULE_6__["CinerinoService"],
-            _services_star_print_service__WEBPACK_IMPORTED_MODULE_7__["StarPrintService"],
-            _services_util_service__WEBPACK_IMPORTED_MODULE_8__["UtilService"],
+            _services_cinerino_service__WEBPACK_IMPORTED_MODULE_7__["CinerinoService"],
+            _services_star_print_service__WEBPACK_IMPORTED_MODULE_8__["StarPrintService"],
+            _services_util_service__WEBPACK_IMPORTED_MODULE_9__["UtilService"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"]])
     ], PurchaseEffects);
     return PurchaseEffects;
@@ -9560,7 +9584,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\hataguchi\Desktop\workspace\motionpicture\TOEI\pos\src\client\main.ts */"./main.ts");
+module.exports = __webpack_require__(/*! C:\Users\hataguchi\Desktop\workspace\TOEI Ticket System\pos\src\client\main.ts */"./main.ts");
 
 
 /***/ })

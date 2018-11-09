@@ -118,19 +118,19 @@ MIT
 MIT
 MIT
 
-@chevre/factory@1.0.0-alpha.25
+@chevre/factory@1.0.0-alpha.32
 ISC
 ISC
 
-@cinerino/api-abstract-client@1.0.0-alpha.52
+@cinerino/api-abstract-client@1.0.0-alpha.58
 ISC
 ISC
 
-@cinerino/api-javascript-client@1.0.0-alpha.17
+@cinerino/api-javascript-client@1.0.0-alpha.20
 ISC
 ISC
 
-@cinerino/factory@1.0.0-alpha.51
+@cinerino/factory@1.0.0-alpha.59
 ISC
 ISC
 
