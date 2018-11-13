@@ -1887,8 +1887,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PurchaseConfirmComponent", function() { return PurchaseConfirmComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @toei-jp/cinerino-api-javascript-client */ "../../node_modules/@toei-jp/cinerino-api-javascript-client/lib/index.js");
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
 /* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
 /* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
@@ -1927,7 +1927,7 @@ var PurchaseConfirmComponent = /** @class */ (function () {
         this.router = router;
         this.modal = modal;
         this.moment = moment__WEBPACK_IMPORTED_MODULE_6__;
-        this.paymentMethodType = _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].paymentMethodType;
+        this.paymentMethodType = _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].paymentMethodType;
     }
     PurchaseConfirmComponent.prototype.ngOnInit = function () {
         this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getPurchase"]));
@@ -1975,7 +1975,7 @@ var PurchaseConfirmComponent = /** @class */ (function () {
             var paymentMethodType = purchase.paymentMethod.typeOf;
             var amount = purchase.authorizeSeatReservation.result.price;
             var additionalProperty = [];
-            if (paymentMethodType === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].paymentMethodType.Cash) {
+            if (paymentMethodType === _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].paymentMethodType.Cash) {
                 if (Number(_this.depositAmount) < purchase.authorizeSeatReservation.result.price) {
                     _this.openAlert({
                         title: 'エラー',
@@ -2137,8 +2137,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PurchaseHistoryComponent", function() { return PurchaseHistoryComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @toei-jp/cinerino-api-javascript-client */ "../../node_modules/@toei-jp/cinerino-api-javascript-client/lib/index.js");
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
 /* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
 /* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
@@ -2194,7 +2194,7 @@ var PurchaseHistoryComponent = /** @class */ (function () {
                 limit: 20,
                 page: 1,
                 sort: {
-                    orderDate: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].sortType.Descending
+                    orderDate: _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].sortType.Descending
                 }
             }
         }));
@@ -2606,8 +2606,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PurchasePaymentComponent", function() { return PurchasePaymentComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @toei-jp/cinerino-api-javascript-client */ "../../node_modules/@toei-jp/cinerino-api-javascript-client/lib/index.js");
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
 /* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
 /* harmony import */ var _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../store/actions/purchase.action */ "./app/store/actions/purchase.action.ts");
@@ -2635,7 +2635,7 @@ var PurchasePaymentComponent = /** @class */ (function () {
         this.store = store;
         this.router = router;
         this.modal = modal;
-        this.paymentMethodType = _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].paymentMethodType;
+        this.paymentMethodType = _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].paymentMethodType;
     }
     PurchasePaymentComponent.prototype.ngOnInit = function () {
         this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_6__["getPurchase"]));
@@ -4213,8 +4213,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MvtkCheckModalComponent", function() { return MvtkCheckModalComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "../../node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @toei-jp/cinerino-api-javascript-client */ "../../node_modules/@toei-jp/cinerino-api-javascript-client/lib/index.js");
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
 /* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
 /* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
@@ -4335,7 +4335,7 @@ var MvtkCheckModalComponent = /** @class */ (function () {
             _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["CheckMovieTicket"]({
                 transaction: purchase.transaction,
                 movieTickets: [{
-                        typeOf: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].paymentMethodType.MovieTicket,
+                        typeOf: _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].paymentMethodType.MovieTicket,
                         identifier: _this.mvtkForm.controls.code.value,
                         accessCode: _this.mvtkForm.controls.password.value // PINコード
                     }],
@@ -5083,8 +5083,8 @@ module.exports = ":host {\n  display: block; }\n\n.screen {\n  position: relativ
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScreenComponent", function() { return ScreenComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @toei-jp/cinerino-api-javascript-client */ "../../node_modules/@toei-jp/cinerino-api-javascript-client/lib/index.js");
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../models */ "./app/models/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5479,8 +5479,8 @@ module.exports = ".close-button {\n  position: absolute;\n  top: -50px;\n  right
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TicketListModalComponent", function() { return TicketListModalComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @toei-jp/cinerino-api-javascript-client */ "../../node_modules/@toei-jp/cinerino-api-javascript-client/lib/index.js");
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5503,7 +5503,7 @@ var TicketListModalComponent = /** @class */ (function () {
         this.tickets = [];
         this.screeningEventTicketOffers.forEach(function (ticketOffer) {
             var movieTicketTypeChargeSpecification = ticketOffer.priceSpecification.priceComponent
-                .filter(function (s) { return s.typeOf === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.priceSpecificationType.MovieTicketTypeChargeSpecification; })
+                .filter(function (s) { return s.typeOf === _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.priceSpecificationType.MovieTicketTypeChargeSpecification; })
                 .shift();
             if (movieTicketTypeChargeSpecification === undefined) {
                 // ムビチケ以外
@@ -5554,13 +5554,13 @@ var TicketListModalComponent = /** @class */ (function () {
             total: 0
         };
         var unitPriceSpecifications = ticket.priceSpecification.priceComponent
-            .filter(function (s) { return s.typeOf === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.priceSpecificationType.UnitPriceSpecification; });
+            .filter(function (s) { return s.typeOf === _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.priceSpecificationType.UnitPriceSpecification; });
         var videoFormatCharges = ticket.priceSpecification.priceComponent
-            .filter(function (s) { return s.typeOf === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.priceSpecificationType.VideoFormatChargeSpecification; });
+            .filter(function (s) { return s.typeOf === _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.priceSpecificationType.VideoFormatChargeSpecification; });
         var soundFormatCharges = ticket.priceSpecification.priceComponent
-            .filter(function (s) { return s.typeOf === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.priceSpecificationType.SoundFormatChargeSpecification; });
+            .filter(function (s) { return s.typeOf === _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.priceSpecificationType.SoundFormatChargeSpecification; });
         var movieTicketTypeCharges = ticket.priceSpecification.priceComponent
-            .filter(function (s) { return s.typeOf === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.priceSpecificationType.MovieTicketTypeChargeSpecification; });
+            .filter(function (s) { return s.typeOf === _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.priceSpecificationType.MovieTicketTypeChargeSpecification; });
         unitPriceSpecifications.forEach(function (unitPriceSpecification) {
             result.unitPriceSpecification += unitPriceSpecification.price;
         });
@@ -5638,8 +5638,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Reservation", function() { return Reservation; });
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @toei-jp/cinerino-api-javascript-client */ "../../node_modules/@toei-jp/cinerino-api-javascript-client/lib/index.js");
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__);
 
 /**
  * Reservation
@@ -5673,13 +5673,13 @@ var Reservation = /** @class */ (function () {
             return result;
         }
         var unitPriceSpecifications = this.ticket.ticketOffer.priceSpecification.priceComponent
-            .filter(function (s) { return s.typeOf === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].chevre.priceSpecificationType.UnitPriceSpecification; });
+            .filter(function (s) { return s.typeOf === _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].chevre.priceSpecificationType.UnitPriceSpecification; });
         var videoFormatCharges = this.ticket.ticketOffer.priceSpecification.priceComponent
-            .filter(function (s) { return s.typeOf === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].chevre.priceSpecificationType.VideoFormatChargeSpecification; });
+            .filter(function (s) { return s.typeOf === _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].chevre.priceSpecificationType.VideoFormatChargeSpecification; });
         var soundFormatCharges = this.ticket.ticketOffer.priceSpecification.priceComponent
-            .filter(function (s) { return s.typeOf === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].chevre.priceSpecificationType.SoundFormatChargeSpecification; });
+            .filter(function (s) { return s.typeOf === _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].chevre.priceSpecificationType.SoundFormatChargeSpecification; });
         var movieTicketTypeCharges = this.ticket.ticketOffer.priceSpecification.priceComponent
-            .filter(function (s) { return s.typeOf === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].chevre.priceSpecificationType.MovieTicketTypeChargeSpecification; });
+            .filter(function (s) { return s.typeOf === _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].chevre.priceSpecificationType.MovieTicketTypeChargeSpecification; });
         unitPriceSpecifications.forEach(function (unitPriceSpecification) {
             result.unitPriceSpecification += unitPriceSpecification.price;
         });
@@ -5919,8 +5919,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CinerinoService", function() { return CinerinoService; });
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common/http */ "../../node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @toei-jp/cinerino-api-javascript-client */ "../../node_modules/@toei-jp/cinerino-api-javascript-client/lib/index.js");
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ "./environments/environment.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5987,16 +5987,16 @@ var CinerinoService = /** @class */ (function () {
                         return [4 /*yield*/, this.createOption()];
                     case 1:
                         option = _a.sent();
-                        this.event = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Event(option);
-                        this.order = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Order(option);
-                        this.organization = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Organization(option);
-                        this.person = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Person(option);
-                        this.ownershipInfo = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].person.OwnershipInfo(option);
-                        this.reservation = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Reservation(option);
-                        this.task = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Task(option);
-                        this.payment = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Payment(option);
+                        this.event = new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Event(option);
+                        this.order = new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Order(option);
+                        this.organization = new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Organization(option);
+                        this.person = new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Person(option);
+                        this.ownershipInfo = new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].person.OwnershipInfo(option);
+                        this.reservation = new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Reservation(option);
+                        this.task = new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Task(option);
+                        this.payment = new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Payment(option);
                         this.transaction = {
-                            placeOrder: new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].txn.PlaceOrder(option)
+                            placeOrder: new _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].txn.PlaceOrder(option)
                         };
                         return [3 /*break*/, 3];
                     case 2:
@@ -6054,7 +6054,7 @@ var CinerinoService = /** @class */ (function () {
                             nonce: null,
                             tokenIssuer: ''
                         };
-                        this.auth = _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["createAuthInstance"](option);
+                        this.auth = _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["createAuthInstance"](option);
                         this.auth.setCredentials(credentials);
                         return [2 /*return*/];
                 }
@@ -7912,8 +7912,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PurchaseEffects", function() { return PurchaseEffects; });
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common/http */ "../../node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @toei-jp/cinerino-api-javascript-client */ "../../node_modules/@toei-jp/cinerino-api-javascript-client/lib/index.js");
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
@@ -8280,7 +8280,7 @@ var PurchaseEffects = /** @class */ (function () {
                         creditCard = { token: gmoTokenObject.token };
                         return [4 /*yield*/, this.cinerino.transaction.placeOrder.authorizeCreditCardPayment({
                                 object: {
-                                    typeOf: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].paymentMethodType.CreditCard,
+                                    typeOf: _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].paymentMethodType.CreditCard,
                                     orderId: orderId,
                                     amount: payload.amount,
                                     method: '1',
@@ -8351,7 +8351,7 @@ var PurchaseEffects = /** @class */ (function () {
                         movieTicketIdentifier = movieTicketIdentifiers_1[_b];
                         return [4 /*yield*/, this.cinerino.transaction.placeOrder.authorizeMovieTicketPayment({
                                 object: {
-                                    typeOf: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].paymentMethodType.MovieTicket,
+                                    typeOf: _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].paymentMethodType.MovieTicket,
                                     amount: 0,
                                     movieTickets: movieTicketIdentifier.movieTickets
                                 },
@@ -8387,7 +8387,7 @@ var PurchaseEffects = /** @class */ (function () {
                         screeningEvent_1 = payload.screeningEvent;
                         movieTickets = payload.movieTickets;
                         return [4 /*yield*/, this.cinerino.payment.checkMovieTicket({
-                                typeOf: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].paymentMethodType.MovieTicket,
+                                typeOf: _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].paymentMethodType.MovieTicket,
                                 movieTickets: movieTickets.map(function (movieTicket) {
                                     return __assign({}, movieTicket, { serviceType: '', serviceOutput: {
                                             reservationFor: {
@@ -8396,7 +8396,7 @@ var PurchaseEffects = /** @class */ (function () {
                                             },
                                             reservedTicket: {
                                                 ticketedSeat: {
-                                                    typeOf: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.placeType.Seat,
+                                                    typeOf: _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.placeType.Seat,
                                                     seatingType: '',
                                                     seatNumber: '',
                                                     seatRow: '',
@@ -8825,8 +8825,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isAvailabilityMovieTicket", function() { return isAvailabilityMovieTicket; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createMovieTicketsFromAuthorizeSeatReservation", function() { return createMovieTicketsFromAuthorizeSeatReservation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createPaymentMethodFromType", function() { return createPaymentMethodFromType; });
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @toei-jp/cinerino-api-javascript-client */ "../../node_modules/@toei-jp/cinerino-api-javascript-client/lib/index.js");
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -8892,10 +8892,10 @@ function createGmoTokenObject(params) {
             throw new Error('movieTheater.paymentAccepted is undefined');
         }
         var findPaymentAcceptedResult = params.movieTheater.paymentAccepted.find(function (paymentAccepted) {
-            return (paymentAccepted.paymentMethodType === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].paymentMethodType.CreditCard);
+            return (paymentAccepted.paymentMethodType === _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].paymentMethodType.CreditCard);
         });
         if (findPaymentAcceptedResult === undefined
-            || findPaymentAcceptedResult.paymentMethodType !== _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].paymentMethodType.CreditCard) {
+            || findPaymentAcceptedResult.paymentMethodType !== _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].paymentMethodType.CreditCard) {
             throw new Error('paymentMethodType CreditCard not found');
         }
         window.someCallbackFunction = function someCallbackFunction(response) {
@@ -8965,7 +8965,7 @@ function createMovieTicketsFromAuthorizeSeatReservation(args) {
             return;
         }
         results.push({
-            typeOf: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].paymentMethodType.MovieTicket,
+            typeOf: _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].paymentMethodType.MovieTicket,
             identifier: findReservationResult.ticket.movieTicket.identifier,
             accessCode: findReservationResult.ticket.movieTicket.accessCode,
             serviceType: findReservationResult.ticket.movieTicket.serviceType,
@@ -8985,13 +8985,13 @@ function createMovieTicketsFromAuthorizeSeatReservation(args) {
  */
 function createPaymentMethodFromType(args) {
     switch (args.paymentMethodType) {
-        case _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].paymentMethodType.Cash: {
+        case _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].paymentMethodType.Cash: {
             return { typeOf: args.paymentMethodType, name: '現金' };
         }
-        case _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].paymentMethodType.CreditCard: {
+        case _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].paymentMethodType.CreditCard: {
             return { typeOf: args.paymentMethodType, name: 'クレジットカード' };
         }
-        case _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].paymentMethodType.EMoney: {
+        case _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].paymentMethodType.EMoney: {
             return { typeOf: args.paymentMethodType, name: '電子マネー' };
         }
         default: {
@@ -9103,8 +9103,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getHistory", function() { return getHistory; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getInquiry", function() { return getInquiry; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUser", function() { return getUser; });
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @toei-jp/cinerino-api-javascript-client */ "../../node_modules/@toei-jp/cinerino-api-javascript-client/lib/index.js");
+/* harmony import */ var _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../models */ "./app/models/index.ts");
 /* harmony import */ var _actions_inquiry_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/inquiry.action */ "./app/store/actions/inquiry.action.ts");
 /* harmony import */ var _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions/purchase.action */ "./app/store/actions/purchase.action.ts");
@@ -9294,7 +9294,7 @@ function reducer(state, action) {
             var screeningEventTicketOffers = action.payload.screeningEventTicketOffers;
             var movieTicketTypeOffers = screeningEventTicketOffers.filter(function (offer) {
                 var movieTicketTypeChargeSpecifications = offer.priceSpecification.priceComponent.filter(function (priceComponent) {
-                    return (priceComponent.typeOf === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].chevre.priceSpecificationType.MovieTicketTypeChargeSpecification);
+                    return (priceComponent.typeOf === _toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].chevre.priceSpecificationType.MovieTicketTypeChargeSpecification);
                 });
                 return (movieTicketTypeChargeSpecifications.length > 0);
             });

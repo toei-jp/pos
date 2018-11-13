@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { factory } from '@cinerino/api-javascript-client';
+import { factory } from '@toei-jp/cinerino-api-javascript-client';
 import * as moment from 'moment';
 import * as qrcode from 'qrcode';
 import { CinerinoService } from './cinerino.service';

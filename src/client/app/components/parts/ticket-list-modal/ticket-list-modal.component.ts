@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { factory } from '@cinerino/api-javascript-client';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { factory } from '@toei-jp/cinerino-api-javascript-client';
 import { IReservationTicket, Reservation } from '../../../models';
 
 type IMovieTicketTypeChargeSpecification =

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { factory } from '@cinerino/api-javascript-client';
 import { Actions, Effect, ofType } from '@ngrx/effects';
+import { factory } from '@toei-jp/cinerino-api-javascript-client';
 import * as moment from 'moment';
 import { map, mergeMap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';

@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
-import { factory } from '@cinerino/api-javascript-client';
+import { factory } from '@toei-jp/cinerino-api-javascript-client';
 import { ILabel, IReservationSeat, IScreen, ISeat, Reservation, SeatStatus } from '../../../models';
 
 @Component({

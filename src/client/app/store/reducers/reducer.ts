@@ -1,4 +1,4 @@
-import { factory } from '@cinerino/api-javascript-client';
+import { factory } from '@toei-jp/cinerino-api-javascript-client';
 import { IScreen, Reservation } from '../../models';
 import * as inquiry from '../actions/inquiry.action';
 import * as purchase from '../actions/purchase.action';
