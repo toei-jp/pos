@@ -1,4 +1,4 @@
-<div class="p-3 scroll">
+<div class="p-3 scroll bg-white">
     <div class="mb-3 large-text">{{ title }}</div>
     <p class="mb-3" [innerHTML]="body"></p>
     <div class="w-75 mx-auto">
@@ -6,3 +6,5 @@
         <button type="button" class="btn btn-outline-primary btn-block" (click)="activeModal.dismiss()">いいえ</button>
     </div>
 </div>
+
+<div class="close-button text-white" (click)="activeModal.dismiss()"><img class="w-100" src="/assets/images/icon/close.svg"></div>

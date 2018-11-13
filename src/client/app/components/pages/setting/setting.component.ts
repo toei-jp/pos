@@ -8,10 +8,12 @@ import * as libphonenumber from 'libphonenumber-js';
 import { Observable, race } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
 import { LibphonenumberFormatPipe } from '../../../pipes/libphonenumber-format.pipe';
+import { CinerinoService } from '../../../services/cinerino.service';
 import * as purchaseAction from '../../../store/actions/purchase.action';
 import * as userAction from '../../../store/actions/user.action';
 import * as reducers from '../../../store/reducers';
 import { AlertModalComponent } from '../../parts/alert-modal/alert-modal.component';
+import { ConfirmModalComponent } from '../../parts/confirm-modal/confirm-modal.component';
 
 @Component({
     selector: 'app-setting',
@@ -28,7 +30,8 @@ export class SettingComponent implements OnInit {
         private formBuilder: FormBuilder,
         private store: Store<reducers.IState>,
         private modal: NgbModal,
-        private router: Router
+        private router: Router,
+        private cinerino: CinerinoService
     ) { }
 
     public ngOnInit() {
@@ -223,6 +226,17 @@ export class SettingComponent implements OnInit {
             })
         );
         race(success, fail).pipe(take(1)).subscribe();
+    }
+
+    public signOut() {
+        const modalRef = this.modal.open(ConfirmModalComponent, {
+            centered: true
+        });
+        modalRef.componentInstance.title = '確認';
+        modalRef.componentInstance.body = '本当にログアウトしますか';
+        modalRef.result.then(async () => {
+            this.cinerino.signOut();
+        }).catch(() => { });
     }
 
     public openAlert(args: {
