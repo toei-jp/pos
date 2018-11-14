@@ -431,8 +431,8 @@ export class PurchaseEffects {
                     printerRequests = await this.starPrint.createPrinterRequestList({ order });
                 }
                 for (const printerRequest of printerRequests) {
-                    // safari対応のため0.5秒待つ
-                    await this.util.sleep(500);
+                    // safari対応のため0.3秒待つ
+                    await this.util.sleep(300);
                     await this.starPrint.print({ printerRequest });
                 }
 
