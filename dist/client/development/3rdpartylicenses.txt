@@ -154,7 +154,7 @@ MIT
 ISC
 ISC
 
-@toei-jp/chevre-factory@1.0.0-alpha.27
+@toei-jp/chevre-factory@1.0.0-alpha.33
 ISC
 ISC
 
@@ -166,7 +166,7 @@ ISC
 ISC
 ISC
 
-@toei-jp/cinerino-factory@1.0.1-alpha.19
+@toei-jp/cinerino-factory@1.0.1-alpha.21
 ISC
 ISC
 

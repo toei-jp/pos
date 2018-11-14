@@ -62,31 +62,27 @@ export class PurchaseEffects {
                 const branchCode = payload.movieTheater.location.branchCode;
                 const today = moment().format('YYYY-MM-DDT00:00:00+09:00');
                 const screeningEventsResult = await this.cinerino.event.searchScreeningEvents({
-                    superEvent: {
-                        locationBranchCodes: [branchCode]
-                    },
+                    eventStatuses: [factory.chevre.eventStatusType.EventScheduled],
+                    superEvent: { locationBranchCodes: [branchCode] },
                     startFrom: moment(today).toDate(),
-                    startThrough: moment(today).add(3, 'day').toDate()
+                    startThrough: moment(today).add(8, 'day').toDate()
                 });
-                const screeningEvents = screeningEventsResult.data;
+
+                const now = moment().toDate();
                 // 先行販売
-                const defaultOfferValidFrom = moment(moment().add(-3, 'days').format('YYYY-MM-DDT00:00:00+09:00')).toDate();
                 const preScreeningEventsResult = await this.cinerino.event.searchScreeningEvents({
-                    superEvent: {
-                        locationBranchCodes: [branchCode]
-                    },
-                    startFrom: moment().toDate(),
+                    eventStatuses: [factory.chevre.eventStatusType.EventScheduled],
+                    superEvent: { locationBranchCodes: [branchCode] },
+                    startFrom: moment(today).add(8, 'days').toDate(),
                     offers: {
-                        // validFrom: new Date(),
-                        validThrough: defaultOfferValidFrom
+                        validFrom: now,
+                        validThrough: now,
+                        availableFrom: now,
+                        availableThrough: now
                     }
                 });
-                preScreeningEventsResult.data.forEach((preEvent) => {
-                    const findResult = screeningEventsResult.data.find(event => preEvent.id === event.id);
-                    if (findResult === undefined) {
-                        screeningEvents.push(preEvent);
-                    }
-                });
+                const screeningEvents = screeningEventsResult.data.concat(preScreeningEventsResult.data);
+
                 return new purchase.GetScheduleSuccess({ screeningEvents });
             } catch (error) {
                 return new purchase.GetScheduleFail({ error: error });

@@ -3,15 +3,16 @@
     <div class="d-flex justify-content-end align-items-center">
         <div class="small-text text-white bg-gray py-1 px-3 mx-2">{{
             screeningFilmEvent.info.workPerformed.contentRating }}</div>
-        <div class="small-text text-white bg-gray py-1 px-3 mx-2">吹替版</div>
+        <div *ngIf="screeningFilmEvent.info.superEvent.dubLanguage" class="small-text text-white bg-gray py-1 px-3 mx-2">吹替版</div>
+        <div *ngIf="screeningFilmEvent.info.superEvent.subtitleLanguage" class="small-text text-white bg-gray py-1 px-3 mx-2">字幕版</div>
         <div class="small-text mx-2">{{ moment.duration(screeningFilmEvent.info.duration).asMinutes() }}分</div>
     </div>
 </div>
 <ul class="bg-light p-3">
     <li *ngFor="let screeningEvent of screeningFilmEvent.data" class="rounded border py-3 px-3 px-md-0 text-md-center d-md-block d-flex justify-content-between align-items-center"
         [ngClass]="{ 
-        'bg-white':  moment(screeningEvent.offers.validThrough).unix() >= moment().unix() && screeningEvent.remainingAttendeeCapacity > 0, 
-        'bg-gray text-light not-event':  screeningEvent.remainingAttendeeCapacity === 0 || moment(screeningEvent.offers.validThrough).unix() < moment().unix()
+        'bg-white':  moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.endDate).unix() > moment().unix() && screeningEvent.remainingAttendeeCapacity > 0, 
+        'bg-gray text-light not-event':  screeningEvent.remainingAttendeeCapacity === 0 || !(moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.endDate).unix() > moment().unix())
         }"
         (click)="select.emit(screeningEvent)">
         <div class="mb-md-2 small-text">
@@ -22,7 +23,7 @@
             <span>-</span>
             <span>{{ moment(screeningEvent.endDate).format('HH:mm') }}</span>
         </div>
-        <div *ngIf="moment(screeningEvent.offers.validThrough).unix() >= moment().unix()" class="status text-center">
+        <div *ngIf="moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.endDate).unix() > moment().unix()" class="status text-center">
             <div *ngIf="screeningEvent.remainingAttendeeCapacity >= 30" class="status text-center">
                 <img src="/assets/images/status_01.svg">
             </div>
@@ -34,7 +35,10 @@
                 <img src="/assets/images/status_03.svg">
             </div>
         </div>
-        <div *ngIf="moment(screeningEvent.offers.validThrough).unix() < moment().unix()" class="status text-center">
+        <div *ngIf="moment(screeningEvent.offers.validFrom).unix() >= moment().unix()" class="status text-center">
+            <p>販売期間外</p>
+        </div>
+        <div *ngIf="moment(screeningEvent.endDate).unix() <= moment().unix()" class="status text-center">
             <p>販売終了</p>
         </div>
     </li>

@@ -5037,7 +5037,7 @@ var PurchasePaymentModalComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"film p-3 bg-white\">\n    <p class=\"title large-text\"><strong>{{ screeningFilmEvent.info.name.ja }}</strong></p>\n    <div class=\"d-flex justify-content-end align-items-center\">\n        <div class=\"small-text text-white bg-gray py-1 px-3 mx-2\">{{\n            screeningFilmEvent.info.workPerformed.contentRating }}</div>\n        <div class=\"small-text text-white bg-gray py-1 px-3 mx-2\">吹替版</div>\n        <div class=\"small-text mx-2\">{{ moment.duration(screeningFilmEvent.info.duration).asMinutes() }}分</div>\n    </div>\n</div>\n<ul class=\"bg-light p-3\">\n    <li *ngFor=\"let screeningEvent of screeningFilmEvent.data\" class=\"rounded border py-3 px-3 px-md-0 text-md-center d-md-block d-flex justify-content-between align-items-center\"\n        [ngClass]=\"{ \n        'bg-white':  moment(screeningEvent.offers.validThrough).unix() >= moment().unix() && screeningEvent.remainingAttendeeCapacity > 0, \n        'bg-gray text-light not-event':  screeningEvent.remainingAttendeeCapacity === 0 || moment(screeningEvent.offers.validThrough).unix() < moment().unix()\n        }\"\n        (click)=\"select.emit(screeningEvent)\">\n        <div class=\"mb-md-2 small-text\">\n            {{ screeningEvent.location.name.ja }}\n        </div>\n        <div class=\"mb-md-2\">\n            <strong class=\"large-text\">{{ moment(screeningEvent.startDate).format('HH:mm') }}</strong>\n            <span>-</span>\n            <span>{{ moment(screeningEvent.endDate).format('HH:mm') }}</span>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.offers.validThrough).unix() >= moment().unix()\" class=\"status text-center\">\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity >= 30\" class=\"status text-center\">\n                <img src=\"/assets/images/status_01.svg\">\n            </div>\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity < 30 && screeningEvent.remainingAttendeeCapacity > 0\"\n                class=\"status text-center\">\n                <img src=\"/assets/images/status_02.svg\">\n            </div>\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity === 0\" class=\"status text-center\">\n                <img src=\"/assets/images/status_03.svg\">\n            </div>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.offers.validThrough).unix() < moment().unix()\" class=\"status text-center\">\n            <p>販売終了</p>\n        </div>\n    </li>\n</ul>"
+module.exports = "<div class=\"film p-3 bg-white\">\n    <p class=\"title large-text\"><strong>{{ screeningFilmEvent.info.name.ja }}</strong></p>\n    <div class=\"d-flex justify-content-end align-items-center\">\n        <div class=\"small-text text-white bg-gray py-1 px-3 mx-2\">{{\n            screeningFilmEvent.info.workPerformed.contentRating }}</div>\n        <div *ngIf=\"screeningFilmEvent.info.superEvent.dubLanguage\" class=\"small-text text-white bg-gray py-1 px-3 mx-2\">吹替版</div>\n        <div *ngIf=\"screeningFilmEvent.info.superEvent.subtitleLanguage\" class=\"small-text text-white bg-gray py-1 px-3 mx-2\">字幕版</div>\n        <div class=\"small-text mx-2\">{{ moment.duration(screeningFilmEvent.info.duration).asMinutes() }}分</div>\n    </div>\n</div>\n<ul class=\"bg-light p-3\">\n    <li *ngFor=\"let screeningEvent of screeningFilmEvent.data\" class=\"rounded border py-3 px-3 px-md-0 text-md-center d-md-block d-flex justify-content-between align-items-center\"\n        [ngClass]=\"{ \n        'bg-white':  moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.endDate).unix() > moment().unix() && screeningEvent.remainingAttendeeCapacity > 0, \n        'bg-gray text-light not-event':  screeningEvent.remainingAttendeeCapacity === 0 || !(moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.endDate).unix() > moment().unix())\n        }\"\n        (click)=\"select.emit(screeningEvent)\">\n        <div class=\"mb-md-2 small-text\">\n            {{ screeningEvent.location.name.ja }}\n        </div>\n        <div class=\"mb-md-2\">\n            <strong class=\"large-text\">{{ moment(screeningEvent.startDate).format('HH:mm') }}</strong>\n            <span>-</span>\n            <span>{{ moment(screeningEvent.endDate).format('HH:mm') }}</span>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.endDate).unix() > moment().unix()\" class=\"status text-center\">\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity >= 30\" class=\"status text-center\">\n                <img src=\"/assets/images/status_01.svg\">\n            </div>\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity < 30 && screeningEvent.remainingAttendeeCapacity > 0\"\n                class=\"status text-center\">\n                <img src=\"/assets/images/status_02.svg\">\n            </div>\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity === 0\" class=\"status text-center\">\n                <img src=\"/assets/images/status_03.svg\">\n            </div>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.offers.validFrom).unix() >= moment().unix()\" class=\"status text-center\">\n            <p>販売期間外</p>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.endDate).unix() <= moment().unix()\" class=\"status text-center\">\n            <p>販売終了</p>\n        </div>\n    </li>\n</ul>"
 
 /***/ }),
 
@@ -8086,7 +8086,7 @@ var PurchaseEffects = /** @class */ (function () {
          * GetSchedule
          */
         this.getSchedule = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetSchedule), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
-            var branchCode, today, screeningEventsResult_1, screeningEvents_1, defaultOfferValidFrom, preScreeningEventsResult, error_2;
+            var branchCode, today, screeningEventsResult, now, preScreeningEventsResult, screeningEvents, error_2;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8097,35 +8097,29 @@ var PurchaseEffects = /** @class */ (function () {
                         branchCode = payload.movieTheater.location.branchCode;
                         today = moment__WEBPACK_IMPORTED_MODULE_4__().format('YYYY-MM-DDT00:00:00+09:00');
                         return [4 /*yield*/, this.cinerino.event.searchScreeningEvents({
-                                superEvent: {
-                                    locationBranchCodes: [branchCode]
-                                },
+                                eventStatuses: [_toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_3__["factory"].chevre.eventStatusType.EventScheduled],
+                                superEvent: { locationBranchCodes: [branchCode] },
                                 startFrom: moment__WEBPACK_IMPORTED_MODULE_4__(today).toDate(),
-                                startThrough: moment__WEBPACK_IMPORTED_MODULE_4__(today).add(3, 'day').toDate()
+                                startThrough: moment__WEBPACK_IMPORTED_MODULE_4__(today).add(8, 'day').toDate()
                             })];
                     case 2:
-                        screeningEventsResult_1 = _a.sent();
-                        screeningEvents_1 = screeningEventsResult_1.data;
-                        defaultOfferValidFrom = moment__WEBPACK_IMPORTED_MODULE_4__(moment__WEBPACK_IMPORTED_MODULE_4__().add(-3, 'days').format('YYYY-MM-DDT00:00:00+09:00')).toDate();
+                        screeningEventsResult = _a.sent();
+                        now = moment__WEBPACK_IMPORTED_MODULE_4__().toDate();
                         return [4 /*yield*/, this.cinerino.event.searchScreeningEvents({
-                                superEvent: {
-                                    locationBranchCodes: [branchCode]
-                                },
-                                startFrom: moment__WEBPACK_IMPORTED_MODULE_4__().toDate(),
+                                eventStatuses: [_toei_jp_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_3__["factory"].chevre.eventStatusType.EventScheduled],
+                                superEvent: { locationBranchCodes: [branchCode] },
+                                startFrom: moment__WEBPACK_IMPORTED_MODULE_4__(today).add(8, 'days').toDate(),
                                 offers: {
-                                    // validFrom: new Date(),
-                                    validThrough: defaultOfferValidFrom
+                                    validFrom: now,
+                                    validThrough: now,
+                                    availableFrom: now,
+                                    availableThrough: now
                                 }
                             })];
                     case 3:
                         preScreeningEventsResult = _a.sent();
-                        preScreeningEventsResult.data.forEach(function (preEvent) {
-                            var findResult = screeningEventsResult_1.data.find(function (event) { return preEvent.id === event.id; });
-                            if (findResult === undefined) {
-                                screeningEvents_1.push(preEvent);
-                            }
-                        });
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetScheduleSuccess"]({ screeningEvents: screeningEvents_1 })];
+                        screeningEvents = screeningEventsResult.data.concat(preScreeningEventsResult.data);
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetScheduleSuccess"]({ screeningEvents: screeningEvents })];
                     case 4:
                         error_2 = _a.sent();
                         return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetScheduleFail"]({ error: error_2 })];
