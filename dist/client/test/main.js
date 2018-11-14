@@ -8523,7 +8523,7 @@ var PurchaseEffects = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 9, , 10]);
+                        _a.trys.push([0, 10, , 11]);
                         order = payload.order;
                         ipAddress = payload.ipAddress;
                         pos = payload.pos;
@@ -8542,20 +8542,25 @@ var PurchaseEffects = /** @class */ (function () {
                         _i = 0, printerRequests_1 = printerRequests;
                         _a.label = 5;
                     case 5:
-                        if (!(_i < printerRequests_1.length)) return [3 /*break*/, 8];
+                        if (!(_i < printerRequests_1.length)) return [3 /*break*/, 9];
                         printerRequest = printerRequests_1[_i];
-                        return [4 /*yield*/, this.starPrint.print({ printerRequest: printerRequest })];
+                        // safari対応のため0.5秒待つ
+                        return [4 /*yield*/, this.util.sleep(500)];
                     case 6:
+                        // safari対応のため0.5秒待つ
                         _a.sent();
-                        _a.label = 7;
+                        return [4 /*yield*/, this.starPrint.print({ printerRequest: printerRequest })];
                     case 7:
+                        _a.sent();
+                        _a.label = 8;
+                    case 8:
                         _i++;
                         return [3 /*break*/, 5];
-                    case 8: return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["PrintSuccess"]()];
-                    case 9:
+                    case 9: return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["PrintSuccess"]()];
+                    case 10:
                         error_12 = _a.sent();
                         return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["PrintFail"]({ error: error_12 })];
-                    case 10: return [2 /*return*/];
+                    case 11: return [2 /*return*/];
                 }
             });
         }); }));
