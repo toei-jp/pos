@@ -395,7 +395,6 @@ export class PurchaseEffects {
                         sendEmailMessage: true
                     }
                 });
-                await this.util.sleep(5000);
 
                 return new purchase.ReserveSuccess({ order: result.order });
             } catch (error) {

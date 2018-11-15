@@ -187,7 +187,8 @@ export class StarPrintService {
                 startDate: moment().format('YY/MM/DD (ddd) HH:mm'),
                 seatNumber: 'TEST-1',
                 ticketName: 'テスト1234567890券種',
-                price: 1000
+                price: 1000,
+                qrcode: 'TEST'
             }
         });
 
@@ -218,7 +219,8 @@ export class StarPrintService {
                 startDate: moment().format('YY/MM/DD (ddd) HH:mm'),
                 seatNumber: 'Z-1',
                 ticketName: 'テスト券種',
-                price: 1000
+                price: 1000,
+                qrcode: 'TEST'
             }
         });
 
@@ -236,9 +238,7 @@ export class StarPrintService {
      */
     public async createPrinterTestRequest() {
         let request = '';
-        const printImage = await this.createPrintTestImage({
-            size: { width: 560, height: 730 }
-        });
+        const printImage = await this.createPrintTestImage({ size: { width: 560, height: 730 } });
         // canvas確認
         // await this.createPrintTestImageToCanvas({
         //     size: { width: 560, height: 730 }
@@ -263,7 +263,7 @@ export class StarPrintService {
             telephone: args.order.customer.telephone
         };
         await this.cinerino.getServices();
-        const order = await this.cinerino.order.authorizeOwnershipInfos({ orderNumber, customer });
+        const order = await this.createOrder(orderNumber, customer);
         const printerRequests = [];
         for (let i = 0; i < args.order.acceptedOffers.length; i++) {
             const printerRequest = await this.createPrinterRequest({ order, offerIndex: i });
@@ -271,6 +271,31 @@ export class StarPrintService {
         }
 
         return printerRequests;
+    }
+
+    public async createOrder(
+        orderNumber: string,
+        customer: { email?: string | undefined; telephone?: string | undefined; }
+    ) {
+        let count = 0;
+        const intervalTime = 5000;
+        const limitCount = 1000;
+        return new Promise<factory.order.IOrder>((resolve, reject) => {
+            const timer = setInterval(async () => {
+                try {
+                    const order = await this.cinerino.order.authorizeOwnershipInfos({ orderNumber, customer });
+                    clearInterval(timer);
+                    resolve(order);
+                    return;
+                } catch (error) {
+                    if (count > limitCount) {
+                        clearInterval(timer);
+                        reject();
+                    }
+                }
+                count++;
+            }, intervalTime);
+        });
     }
 
     /**
@@ -327,6 +352,7 @@ export class StarPrintService {
             seatNumber: string;
             ticketName: string;
             price: number;
+            qrcode: string;
         }
     }) {
         const canvas = args.canvas;
@@ -407,7 +433,7 @@ export class StarPrintService {
         context.fillText('￥' + data.price.toLocaleString(), right, 540);
         // QR
         const qrcodeCanvas = document.createElement('canvas');
-        await qrcode.toCanvas(qrcodeCanvas, 'QRコード文字列');
+        await qrcode.toCanvas(qrcodeCanvas, data.qrcode);
         context.drawImage(qrcodeCanvas, (canvas.width - 170), (bottom - 170), 170, 170);
         // 説明
         context.textAlign = 'left';

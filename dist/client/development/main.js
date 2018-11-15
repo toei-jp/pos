@@ -6402,7 +6402,8 @@ var StarPrintService = /** @class */ (function () {
                                     startDate: moment__WEBPACK_IMPORTED_MODULE_1__().format('YY/MM/DD (ddd) HH:mm'),
                                     seatNumber: 'TEST-1',
                                     ticketName: 'テスト1234567890券種',
-                                    price: 1000
+                                    price: 1000,
+                                    qrcode: 'TEST'
                                 }
                             })];
                     case 1:
@@ -6439,7 +6440,8 @@ var StarPrintService = /** @class */ (function () {
                                     startDate: moment__WEBPACK_IMPORTED_MODULE_1__().format('YY/MM/DD (ddd) HH:mm'),
                                     seatNumber: 'Z-1',
                                     ticketName: 'テスト券種',
-                                    price: 1000
+                                    price: 1000,
+                                    qrcode: 'TEST'
                                 }
                             })];
                     case 1:
@@ -6465,9 +6467,7 @@ var StarPrintService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         request = '';
-                        return [4 /*yield*/, this.createPrintTestImage({
-                                size: { width: 560, height: 730 }
-                            })];
+                        return [4 /*yield*/, this.createPrintTestImage({ size: { width: 560, height: 730 } })];
                     case 1:
                         printImage = _a.sent();
                         // canvas確認
@@ -6500,7 +6500,7 @@ var StarPrintService = /** @class */ (function () {
                         return [4 /*yield*/, this.cinerino.getServices()];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, this.cinerino.order.authorizeOwnershipInfos({ orderNumber: orderNumber, customer: customer })];
+                        return [4 /*yield*/, this.createOrder(orderNumber, customer)];
                     case 2:
                         order = _a.sent();
                         printerRequests = [];
@@ -6518,6 +6518,44 @@ var StarPrintService = /** @class */ (function () {
                         return [3 /*break*/, 3];
                     case 6: return [2 /*return*/, printerRequests];
                 }
+            });
+        });
+    };
+    StarPrintService.prototype.createOrder = function (orderNumber, customer) {
+        return __awaiter(this, void 0, void 0, function () {
+            var count, intervalTime, limitCount;
+            var _this = this;
+            return __generator(this, function (_a) {
+                count = 0;
+                intervalTime = 5000;
+                limitCount = 1000;
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        var timer = setInterval(function () { return __awaiter(_this, void 0, void 0, function () {
+                            var order, error_1;
+                            return __generator(this, function (_a) {
+                                switch (_a.label) {
+                                    case 0:
+                                        _a.trys.push([0, 2, , 3]);
+                                        return [4 /*yield*/, this.cinerino.order.authorizeOwnershipInfos({ orderNumber: orderNumber, customer: customer })];
+                                    case 1:
+                                        order = _a.sent();
+                                        clearInterval(timer);
+                                        resolve(order);
+                                        return [2 /*return*/];
+                                    case 2:
+                                        error_1 = _a.sent();
+                                        if (count > limitCount) {
+                                            clearInterval(timer);
+                                            reject();
+                                        }
+                                        return [3 /*break*/, 3];
+                                    case 3:
+                                        count++;
+                                        return [2 /*return*/];
+                                }
+                            });
+                        }); }, intervalTime);
+                    })];
             });
         });
     };
@@ -6633,7 +6671,7 @@ var StarPrintService = /** @class */ (function () {
                         context.textAlign = 'right';
                         context.fillText('￥' + data.price.toLocaleString(), right, 540);
                         qrcodeCanvas = document.createElement('canvas');
-                        return [4 /*yield*/, qrcode__WEBPACK_IMPORTED_MODULE_2__["toCanvas"](qrcodeCanvas, 'QRコード文字列')];
+                        return [4 /*yield*/, qrcode__WEBPACK_IMPORTED_MODULE_2__["toCanvas"](qrcodeCanvas, data.qrcode)];
                     case 3:
                         _a.sent();
                         context.drawImage(qrcodeCanvas, (canvas.width - 170), (bottom - 170), 170, 170);
@@ -8481,7 +8519,7 @@ var PurchaseEffects = /** @class */ (function () {
                         transaction = payload.transaction;
                         _a.label = 1;
                     case 1:
-                        _a.trys.push([1, 5, , 7]);
+                        _a.trys.push([1, 4, , 6]);
                         return [4 /*yield*/, this.cinerino.getServices()];
                     case 2:
                         _a.sent();
@@ -8493,19 +8531,16 @@ var PurchaseEffects = /** @class */ (function () {
                             })];
                     case 3:
                         result = _a.sent();
-                        return [4 /*yield*/, this.util.sleep(5000)];
-                    case 4:
-                        _a.sent();
                         return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ReserveSuccess"]({ order: result.order })];
-                    case 5:
+                    case 4:
                         error_11 = _a.sent();
                         return [4 /*yield*/, this.cinerino.transaction.placeOrder.cancel({
                                 id: transaction.id
                             })];
-                    case 6:
+                    case 5:
                         _a.sent();
                         return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ReserveFail"]({ error: error_11 })];
-                    case 7: return [2 /*return*/];
+                    case 6: return [2 /*return*/];
                 }
             });
         }); }));
