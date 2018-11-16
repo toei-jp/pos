@@ -43,7 +43,6 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
                 return;
             }
             this.selectTheater(user.movieTheater);
-            this.scheduleDate = moment().format('YYYY-MM-DD');
             this.selectDate();
             this.update(user.movieTheater);
         }).unsubscribe();
@@ -73,6 +72,9 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
     public selectDate() {
         this.purchase.subscribe((purchase) => {
             const movieTheater = purchase.movieTheater;
+            if (this.scheduleDate === undefined || this.scheduleDate === '') {
+                this.scheduleDate = moment().format('YYYY-MM-DD');
+            }
             const scheduleDate = this.scheduleDate;
             if (movieTheater === undefined) {
                 return;

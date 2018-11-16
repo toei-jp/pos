@@ -2784,7 +2784,6 @@ var PurchaseScheduleComponent = /** @class */ (function () {
                         return;
                     }
                     _this.selectTheater(user.movieTheater);
-                    _this.scheduleDate = moment__WEBPACK_IMPORTED_MODULE_4__().format('YYYY-MM-DD');
                     _this.selectDate();
                     _this.update(user.movieTheater);
                 }).unsubscribe();
@@ -2815,6 +2814,9 @@ var PurchaseScheduleComponent = /** @class */ (function () {
         var _this = this;
         this.purchase.subscribe(function (purchase) {
             var movieTheater = purchase.movieTheater;
+            if (_this.scheduleDate === undefined || _this.scheduleDate === '') {
+                _this.scheduleDate = moment__WEBPACK_IMPORTED_MODULE_4__().format('YYYY-MM-DD');
+            }
             var scheduleDate = _this.scheduleDate;
             if (movieTheater === undefined) {
                 return;
