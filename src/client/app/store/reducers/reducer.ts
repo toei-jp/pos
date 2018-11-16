@@ -5,10 +5,8 @@ import * as purchase from '../actions/purchase.action';
 import * as user from '../actions/user.action';
 import {
     createPaymentMethodFromType,
-    createscreeningEventDates,
     createScreeningFilmEvents,
     isAvailabilityMovieTicket,
-    IScreeningEventDate,
     IScreeningEventFilm,
     sameMovieTicketFilter
 } from '../functions';
@@ -21,8 +19,7 @@ export interface IPurchaseState {
     movieTheater?: factory.organization.movieTheater.IOrganization;
     screeningEvents: factory.chevre.event.screeningEvent.IEvent[];
     screeningEvent?: factory.chevre.event.screeningEvent.IEvent;
-    scheduleDates: IScreeningEventDate[];
-    scheduleDate?: IScreeningEventDate;
+    scheduleDate?: string;
     screeningFilmEvents: IScreeningEventFilm[];
     transaction?: factory.transaction.placeOrder.ITransaction;
     screeningEventOffers: factory.chevre.event.screeningEvent.IScreeningRoomSectionOffer[];
@@ -80,7 +77,6 @@ export const initialState: IState = {
     purchase: {
         movieTheaters: [],
         screeningEvents: [],
-        scheduleDates: [],
         screeningFilmEvents: [],
         screeningEventOffers: [],
         reservations: [],
@@ -132,7 +128,6 @@ export function reducer(
             state.purchase = {
                 movieTheaters: [],
                 screeningEvents: [],
-                scheduleDates: [],
                 screeningFilmEvents: [],
                 screeningEventOffers: [],
                 reservations: [],
@@ -159,40 +154,18 @@ export function reducer(
             const movieTheater = action.payload.movieTheater;
             return { ...state, loading: false, error: null, purchase: { ...state.purchase, movieTheater } };
         }
-        case purchase.ActionTypes.SelectScheduleDate: {
-            const scheduleDate = action.payload.scheduleDate;
-            const screeningEvents = state.purchase.screeningEvents;
-            const screeningFilmEvents = createScreeningFilmEvents({ screeningEvents, scheduleDate });
-            state.purchase.scheduleDate = scheduleDate;
-            state.purchase.screeningFilmEvents = screeningFilmEvents;
-            return { ...state, loading: false, error: null };
-        }
         case purchase.ActionTypes.GetSchedule: {
             return { ...state, loading: true };
         }
         case purchase.ActionTypes.GetScheduleSuccess: {
             const screeningEvents = action.payload.screeningEvents;
-            const scheduleDates = createscreeningEventDates(screeningEvents);
-            let scheduleDate = state.purchase.scheduleDate;
-            const findResult = state.purchase.scheduleDates.find((date) => {
-                if (scheduleDate === undefined) {
-                    return false;
-                }
-                return (date.format === scheduleDate.format);
-            });
-            if (findResult === undefined || scheduleDate === undefined) {
-                scheduleDate = scheduleDates[0];
-            }
-            const screeningFilmEvents = createScreeningFilmEvents({ screeningEvents, scheduleDate });
-            return {
-                ...state, loading: false, error: null, purchase: {
-                    ...state.purchase,
-                    screeningEvents,
-                    scheduleDates,
-                    scheduleDate,
-                    screeningFilmEvents
-                }
-            };
+            const scheduleDate = action.payload.scheduleDate;
+            const screeningFilmEvents = createScreeningFilmEvents({ screeningEvents });
+            state.purchase.screeningEvents = screeningEvents;
+            state.purchase.scheduleDate = scheduleDate;
+            state.purchase.screeningFilmEvents = screeningFilmEvents;
+
+            return { ...state, loading: false, error: null };
         }
         case purchase.ActionTypes.GetScheduleFail: {
             const error = action.payload.error;

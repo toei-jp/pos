@@ -12,7 +12,6 @@ import {
     Delete,
     GetSchedule,
     SelectSchedule,
-    SelectScheduleDate,
     SelectTheater,
     StartTransaction
 } from '../../../../store/actions/purchase.action';
@@ -26,7 +25,7 @@ import * as reducers from '../../../../store/reducers';
 export class PurchaseScheduleComponent implements OnInit, OnDestroy {
     public purchase: Observable<reducers.IPurchaseState>;
     public user: Observable<reducers.IUserState>;
-    public scheduleDateValue: string;
+    public scheduleDate: string;
     private updateTimer: any;
     constructor(
         private store: Store<reducers.IState>,
@@ -44,6 +43,8 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
                 return;
             }
             this.selectTheater(user.movieTheater);
+            this.scheduleDate = moment().format('YYYY-MM-DD');
+            this.selectDate();
             this.update(user.movieTheater);
         }).unsubscribe();
     }
@@ -64,7 +65,24 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
      */
     public selectTheater(movieTheater: factory.organization.movieTheater.IOrganization) {
         this.store.dispatch(new SelectTheater({ movieTheater }));
-        this.store.dispatch(new GetSchedule({ movieTheater }));
+    }
+
+    /**
+     * selectDate
+     */
+    public selectDate() {
+        this.purchase.subscribe((purchase) => {
+            const movieTheater = purchase.movieTheater;
+            const scheduleDate = this.scheduleDate;
+            if (movieTheater === undefined) {
+                return;
+            }
+            const body = document.getElementsByTagName('body');
+            body[0].style.backgroundColor = (scheduleDate === moment().format('YYYY-MM-DD'))
+                ? '#271916'
+                : '#840707';
+            this.store.dispatch(new GetSchedule({ movieTheater, scheduleDate }));
+        }).unsubscribe();
 
         const success = this.actions.pipe(
             ofType(ActionTypes.GetScheduleSuccess),
@@ -73,7 +91,7 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
                     if (purchase.scheduleDate === undefined) {
                         return;
                     }
-                    this.scheduleDateValue = purchase.scheduleDate.format;
+                    this.scheduleDate = purchase.scheduleDate;
                 }).unsubscribe();
             })
         );
@@ -85,25 +103,6 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
             })
         );
         race(success, fail).pipe(take(1)).subscribe();
-    }
-
-    /**
-     * selectDate
-     */
-    public selectDate() {
-        this.purchase.subscribe((purchase) => {
-            if (purchase.scheduleDate === undefined) {
-                return;
-            }
-            const findResult = purchase.scheduleDates.find((scheduleDate) => {
-                return (scheduleDate.format === this.scheduleDateValue);
-            });
-
-            if (findResult === undefined) {
-                return;
-            }
-            this.store.dispatch(new SelectScheduleDate({ scheduleDate: findResult }));
-        }).unsubscribe();
     }
 
     /**

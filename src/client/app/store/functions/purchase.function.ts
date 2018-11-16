@@ -2,12 +2,6 @@ import { factory } from '@toei-jp/cinerino-api-javascript-client';
 import * as moment from 'moment';
 import { Reservation } from '../../models';
 
-export interface IScreeningEventDate {
-    string: string;
-    format: string;
-    data: factory.chevre.event.screeningEvent.IEvent;
-}
-
 export interface IScreeningEventFilm {
     info: factory.chevre.event.screeningEvent.IEvent;
     data: factory.chevre.event.screeningEvent.IEvent[];
@@ -23,35 +17,11 @@ export interface IGmoTokenObject {
 /**
  * 作品別イベント作成
  */
-export function createscreeningEventDates(screeningEvents: factory.chevre.event.screeningEvent.IEvent[]) {
-    const dates: IScreeningEventDate[] = [];
-    screeningEvents.forEach((screeningEvent) => {
-        const registered = dates.find((date) => {
-            return (date.format === moment(screeningEvent.startDate).format('YYYYMMDD'));
-        });
-        if (registered === undefined) {
-            dates.push({
-                string: moment(screeningEvent.startDate).format('MM/DD (ddd)'),
-                format: moment(screeningEvent.startDate).format('YYYYMMDD'),
-                data: screeningEvent
-            });
-        }
-    });
-
-    return dates;
-}
-
-/**
- * 作品別イベント作成
- */
 export function createScreeningFilmEvents(params: {
-    screeningEvents: factory.chevre.event.screeningEvent.IEvent[],
-    scheduleDate: IScreeningEventDate
+    screeningEvents: factory.chevre.event.screeningEvent.IEvent[]
 }) {
     const films: IScreeningEventFilm[] = [];
-    const screeningEvents = params.screeningEvents.filter((screeningEvent) => {
-        return (params.scheduleDate.format === moment(screeningEvent.startDate).format('YYYYMMDD'));
-    });
+    const screeningEvents = params.screeningEvents;
     screeningEvents.forEach((screeningEvent) => {
         const registered = films.find((film) => {
             return (film.info.superEvent.id === screeningEvent.superEvent.id);

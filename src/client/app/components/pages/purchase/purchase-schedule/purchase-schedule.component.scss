@@ -14,10 +14,15 @@ app-purchase-schedule-film:last-child {
 }
 
 .form-group {
-    width: 300px;
+    width: 400px;
     grid-template-columns: 1fr 2fr;
 }
 
 select {
     height: auto;
+}
+
+input[type='date'] {
+    appearance: none;
+    height: 60px;
 }

@@ -36,7 +36,6 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^6.0.7",
     "@angular/common": "^6.0.7",
     "@angular/compiler": "^6.0.7",
     "@angular/core": "^6.0.7",
@@ -48,8 +47,8 @@
     "@ng-bootstrap/ng-bootstrap": "^3.3.0",
     "@ngrx/effects": "^6.1.0",
     "@ngrx/store": "^6.1.0",
-    "@toei-jp/cinerino-api-javascript-client": "^1.0.0-alpha.33",
-    "@toei-jp/cinerino-api-nodejs-client": "^1.0.0-alpha.38",
+    "@toei-jp/cinerino-api-javascript-client": "^1.0.0-alpha.35",
+    "@toei-jp/cinerino-api-nodejs-client": "^1.0.0-alpha.40",
     "basic-auth": "^2.0.0",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.1.3",

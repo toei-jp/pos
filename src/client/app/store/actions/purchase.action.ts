@@ -1,7 +1,6 @@
 import { Action } from '@ngrx/store';
 import { factory } from '@toei-jp/cinerino-api-javascript-client';
 import { IReservationSeat, IScreen, Reservation } from '../../models';
-import { IScreeningEventDate } from '../functions';
 
 /**
  * Action types
@@ -12,7 +11,6 @@ export enum ActionTypes {
     GetTheatersSuccess = '[Purchase] Get Theaters Success',
     GetTheatersFail = '[Purchase] Get Theaters Fail',
     SelectTheater = '[Purchase] Select Theater',
-    SelectScheduleDate = '[Purchase] Select Schedule Date',
     GetSchedule = '[Purchase] Get Schedule',
     GetScheduleSuccess = '[Purchase] Get Schedule Success',
     GetScheduleFail = '[Purchase] Get Schedule Fail',
@@ -103,19 +101,14 @@ export class SelectTheater implements Action {
 }
 
 /**
- * SelectScheduleDate
- */
-export class SelectScheduleDate implements Action {
-    public readonly type = ActionTypes.SelectScheduleDate;
-    constructor(public payload: { scheduleDate: IScreeningEventDate }) { }
-}
-
-/**
  * GetSchedule
  */
 export class GetSchedule implements Action {
     public readonly type = ActionTypes.GetSchedule;
-    constructor(public payload: { movieTheater: factory.organization.movieTheater.IOrganization }) { }
+    constructor(public payload: {
+        movieTheater: factory.organization.movieTheater.IOrganization;
+        scheduleDate: string;
+    }) { }
 }
 
 /**
@@ -123,7 +116,10 @@ export class GetSchedule implements Action {
  */
 export class GetScheduleSuccess implements Action {
     public readonly type = ActionTypes.GetScheduleSuccess;
-    constructor(public payload: { screeningEvents: factory.chevre.event.screeningEvent.IEvent[] }) { }
+    constructor(public payload: {
+        screeningEvents: factory.chevre.event.screeningEvent.IEvent[];
+        scheduleDate: string;
+    }) { }
 }
 
 /**
@@ -579,7 +575,6 @@ export type Actions =
     | GetTheatersSuccess
     | GetTheatersFail
     | SelectTheater
-    | SelectScheduleDate
     | GetSchedule
     | GetScheduleSuccess
     | GetScheduleFail

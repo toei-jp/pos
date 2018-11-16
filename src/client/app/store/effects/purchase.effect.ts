@@ -60,30 +60,16 @@ export class PurchaseEffects {
             try {
                 await this.cinerino.getServices();
                 const branchCode = payload.movieTheater.location.branchCode;
-                const today = moment().format('YYYY-MM-DDT00:00:00+09:00');
+                const scheduleDate = payload.scheduleDate;
                 const screeningEventsResult = await this.cinerino.event.searchScreeningEvents({
                     eventStatuses: [factory.chevre.eventStatusType.EventScheduled],
                     superEvent: { locationBranchCodes: [branchCode] },
-                    startFrom: moment(today).toDate(),
-                    startThrough: moment(today).add(8, 'day').toDate()
+                    startFrom: moment(scheduleDate).toDate(),
+                    startThrough: moment(scheduleDate).add(1, 'day').toDate()
                 });
+                const screeningEvents = screeningEventsResult.data;
 
-                const now = moment().toDate();
-                // 先行販売
-                const preScreeningEventsResult = await this.cinerino.event.searchScreeningEvents({
-                    eventStatuses: [factory.chevre.eventStatusType.EventScheduled],
-                    superEvent: { locationBranchCodes: [branchCode] },
-                    startFrom: moment(today).add(8, 'days').toDate(),
-                    offers: {
-                        validFrom: now,
-                        validThrough: now,
-                        availableFrom: now,
-                        availableThrough: now
-                    }
-                });
-                const screeningEvents = screeningEventsResult.data.concat(preScreeningEventsResult.data);
-
-                return new purchase.GetScheduleSuccess({ screeningEvents });
+                return new purchase.GetScheduleSuccess({ screeningEvents, scheduleDate });
             } catch (error) {
                 return new purchase.GetScheduleFail({ error: error });
             }

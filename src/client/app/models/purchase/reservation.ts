@@ -62,6 +62,19 @@ export class Reservation {
 
         return result;
     }
+
+    /**
+     * 価格仕様取得
+     */
+    public getUnitPriceSpecification() {
+        if (this.ticket === undefined) {
+            return;
+        }
+        const unitPriceSpecifications = this.ticket.ticketOffer.priceSpecification.priceComponent
+            .filter((s) => s.typeOf === factory.chevre.priceSpecificationType.UnitPriceSpecification);
+
+        return unitPriceSpecifications[0];
+    }
 }
 
 /**

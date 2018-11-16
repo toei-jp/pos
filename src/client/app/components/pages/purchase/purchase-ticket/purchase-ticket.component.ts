@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Actions, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
+import { factory } from '@toei-jp/cinerino-api-javascript-client';
 import { Observable, race } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
 import { IReservationTicket, Reservation } from '../../../../models/purchase/reservation';
@@ -50,6 +51,30 @@ export class PurchaseTicketComponent implements OnInit {
                 this.openAlert({
                     title: 'エラー',
                     body: '券種が未選択です。'
+                });
+                return;
+            }
+            const validResult = reservations.filter((reservation) => {
+                const unitPriceSpecification = reservation.getUnitPriceSpecification();
+                if (unitPriceSpecification === undefined
+                    || unitPriceSpecification.typeOf !== factory.chevre.priceSpecificationType.UnitPriceSpecification) {
+                    return false;
+                }
+                const filterResult = reservations.filter((targetReservation) => {
+                    return (reservation.ticket !== undefined
+                        && targetReservation.ticket !== undefined
+                        && reservation.ticket.ticketOffer.id === targetReservation.ticket.ticketOffer.id);
+                });
+                const value = (unitPriceSpecification.referenceQuantity.value === undefined)
+                    ? 1
+                    : unitPriceSpecification.referenceQuantity.value;
+
+                return (filterResult.length % value !== 0);
+            });
+            if (validResult.length > 0) {
+                this.openAlert({
+                    title: 'エラー',
+                    body: '割引券の適用条件を再度ご確認ください。'
                 });
                 return;
             }
