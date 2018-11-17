@@ -80,9 +80,9 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
                 return;
             }
             const body = document.getElementsByTagName('body');
-            body[0].style.backgroundColor = (scheduleDate === moment().format('YYYY-MM-DD'))
-                ? '#271916'
-                : '#840707';
+            const now = moment().format('YYYY-MM-DD');
+            console.log(scheduleDate, now);
+            body[0].style.backgroundColor = (scheduleDate > now) ? '#828407' : (scheduleDate < now) ? '#840707' : '#271916';
             this.store.dispatch(new GetSchedule({ movieTheater, scheduleDate }));
         }).unsubscribe();
 
