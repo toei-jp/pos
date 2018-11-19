@@ -575,7 +575,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuardService", function() { return AuthGuardService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _services_cinerino_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/cinerino.service */ "./app/services/cinerino.service.ts");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services */ "./app/services/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -662,7 +662,7 @@ var AuthGuardService = /** @class */ (function () {
             providedIn: 'root'
         }),
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
-            _services_cinerino_service__WEBPACK_IMPORTED_MODULE_2__["CinerinoService"]])
+            _services__WEBPACK_IMPORTED_MODULE_2__["CinerinoService"]])
     ], AuthGuardService);
     return AuthGuardService;
 }());
@@ -675,13 +675,17 @@ var AuthGuardService = /** @class */ (function () {
 /*!***********************************!*\
   !*** ./app/canActivates/index.ts ***!
   \***********************************/
-/*! exports provided: AuthGuardService */
+/*! exports provided: AuthGuardService, SettingGuardService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _auth_guard_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./auth-guard.service */ "./app/canActivates/auth-guard.service.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AuthGuardService", function() { return _auth_guard_service__WEBPACK_IMPORTED_MODULE_0__["AuthGuardService"]; });
+
+/* harmony import */ var _setting_guard_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./setting-guard.service */ "./app/canActivates/setting-guard.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SettingGuardService", function() { return _setting_guard_service__WEBPACK_IMPORTED_MODULE_1__["SettingGuardService"]; });
+
 
 
 
@@ -922,7 +926,7 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthIndexComponent", function() { return AuthIndexComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_cinerino_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../services/cinerino.service */ "./app/services/cinerino.service.ts");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../services */ "./app/services/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -991,7 +995,7 @@ var AuthIndexComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./auth-index.component.html */ "./app/components/pages/auth/auth-index/auth-index.component.html"),
             styles: [__webpack_require__(/*! ./auth-index.component.scss */ "./app/components/pages/auth/auth-index/auth-index.component.scss")]
         }),
-        __metadata("design:paramtypes", [_services_cinerino_service__WEBPACK_IMPORTED_MODULE_1__["CinerinoService"]])
+        __metadata("design:paramtypes", [_services__WEBPACK_IMPORTED_MODULE_1__["CinerinoService"]])
     ], AuthIndexComponent);
     return AuthIndexComponent;
 }());
@@ -3434,7 +3438,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs */ "../../node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _pipes_libphonenumber_format_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../pipes/libphonenumber-format.pipe */ "./app/pipes/libphonenumber-format.pipe.ts");
-/* harmony import */ var _services_cinerino_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../services/cinerino.service */ "./app/services/cinerino.service.ts");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../services */ "./app/services/index.ts");
 /* harmony import */ var _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../store/actions/purchase.action */ "./app/store/actions/purchase.action.ts");
 /* harmony import */ var _store_actions_user_action__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../store/actions/user.action */ "./app/store/actions/user.action.ts");
 /* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../store/reducers */ "./app/store/reducers/index.ts");
@@ -3713,7 +3717,7 @@ var SettingComponent = /** @class */ (function () {
             _ngrx_store__WEBPACK_IMPORTED_MODULE_5__["Store"],
             _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["NgbModal"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            _services_cinerino_service__WEBPACK_IMPORTED_MODULE_10__["CinerinoService"]])
+            _services__WEBPACK_IMPORTED_MODULE_10__["CinerinoService"]])
     ], SettingComponent);
     return SettingComponent;
 }());
@@ -4049,7 +4053,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderMenuComponent", function() { return HeaderMenuComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
-/* harmony import */ var _services_cinerino_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/cinerino.service */ "./app/services/cinerino.service.ts");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services */ "./app/services/index.ts");
 /* harmony import */ var _confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../confirm-modal/confirm-modal.component */ "./app/components/parts/confirm-modal/confirm-modal.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4172,7 +4176,7 @@ var HeaderMenuComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./header-menu.component.html */ "./app/components/parts/header-menu/header-menu.component.html"),
             styles: [__webpack_require__(/*! ./header-menu.component.scss */ "./app/components/parts/header-menu/header-menu.component.scss")]
         }),
-        __metadata("design:paramtypes", [_services_cinerino_service__WEBPACK_IMPORTED_MODULE_2__["CinerinoService"],
+        __metadata("design:paramtypes", [_services__WEBPACK_IMPORTED_MODULE_2__["CinerinoService"],
             _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbModal"]])
     ], HeaderMenuComponent);
     return HeaderMenuComponent;
@@ -5982,11 +5986,9 @@ var route = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "route", function() { return route; });
 /* harmony import */ var _canActivates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../canActivates */ "./app/canActivates/index.ts");
-/* harmony import */ var _canActivates_setting_guard_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../canActivates/setting-guard.service */ "./app/canActivates/setting-guard.service.ts");
-/* harmony import */ var _components_pages_base_base_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/pages/base/base.component */ "./app/components/pages/base/base.component.ts");
-/* harmony import */ var _components_pages_inquiry_inquiry_confirm_inquiry_confirm_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/pages/inquiry/inquiry-confirm/inquiry-confirm.component */ "./app/components/pages/inquiry/inquiry-confirm/inquiry-confirm.component.ts");
-/* harmony import */ var _components_pages_inquiry_inquiry_input_inquiry_input_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/pages/inquiry/inquiry-input/inquiry-input.component */ "./app/components/pages/inquiry/inquiry-input/inquiry-input.component.ts");
-
+/* harmony import */ var _components_pages_base_base_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/pages/base/base.component */ "./app/components/pages/base/base.component.ts");
+/* harmony import */ var _components_pages_inquiry_inquiry_confirm_inquiry_confirm_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/pages/inquiry/inquiry-confirm/inquiry-confirm.component */ "./app/components/pages/inquiry/inquiry-confirm/inquiry-confirm.component.ts");
+/* harmony import */ var _components_pages_inquiry_inquiry_input_inquiry_input_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/pages/inquiry/inquiry-input/inquiry-input.component */ "./app/components/pages/inquiry/inquiry-input/inquiry-input.component.ts");
 
 
 
@@ -5996,11 +5998,11 @@ __webpack_require__.r(__webpack_exports__);
  */
 var route = {
     path: 'inquiry',
-    component: _components_pages_base_base_component__WEBPACK_IMPORTED_MODULE_2__["BaseComponent"],
-    canActivate: [_canActivates__WEBPACK_IMPORTED_MODULE_0__["AuthGuardService"], _canActivates_setting_guard_service__WEBPACK_IMPORTED_MODULE_1__["SettingGuardService"]],
+    component: _components_pages_base_base_component__WEBPACK_IMPORTED_MODULE_1__["BaseComponent"],
+    canActivate: [_canActivates__WEBPACK_IMPORTED_MODULE_0__["AuthGuardService"], _canActivates__WEBPACK_IMPORTED_MODULE_0__["SettingGuardService"]],
     children: [
-        { path: 'input', component: _components_pages_inquiry_inquiry_input_inquiry_input_component__WEBPACK_IMPORTED_MODULE_4__["InquiryInputComponent"] },
-        { path: 'confirm', component: _components_pages_inquiry_inquiry_confirm_inquiry_confirm_component__WEBPACK_IMPORTED_MODULE_3__["InquiryConfirmComponent"] }
+        { path: 'input', component: _components_pages_inquiry_inquiry_input_inquiry_input_component__WEBPACK_IMPORTED_MODULE_3__["InquiryInputComponent"] },
+        { path: 'confirm', component: _components_pages_inquiry_inquiry_confirm_inquiry_confirm_component__WEBPACK_IMPORTED_MODULE_2__["InquiryConfirmComponent"] }
     ]
 };
 
@@ -6018,16 +6020,14 @@ var route = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "route", function() { return route; });
 /* harmony import */ var _canActivates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../canActivates */ "./app/canActivates/index.ts");
-/* harmony import */ var _canActivates_setting_guard_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../canActivates/setting-guard.service */ "./app/canActivates/setting-guard.service.ts");
-/* harmony import */ var _components_pages_purchase_purchase_base_purchase_base_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/pages/purchase/purchase-base/purchase-base.component */ "./app/components/pages/purchase/purchase-base/purchase-base.component.ts");
-/* harmony import */ var _components_pages_purchase_purchase_complete_purchase_complete_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/pages/purchase/purchase-complete/purchase-complete.component */ "./app/components/pages/purchase/purchase-complete/purchase-complete.component.ts");
-/* harmony import */ var _components_pages_purchase_purchase_confirm_purchase_confirm_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/pages/purchase/purchase-confirm/purchase-confirm.component */ "./app/components/pages/purchase/purchase-confirm/purchase-confirm.component.ts");
-/* harmony import */ var _components_pages_purchase_purchase_history_purchase_history_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/pages/purchase/purchase-history/purchase-history.component */ "./app/components/pages/purchase/purchase-history/purchase-history.component.ts");
-/* harmony import */ var _components_pages_purchase_purchase_payment_purchase_payment_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/pages/purchase/purchase-payment/purchase-payment.component */ "./app/components/pages/purchase/purchase-payment/purchase-payment.component.ts");
-/* harmony import */ var _components_pages_purchase_purchase_schedule_purchase_schedule_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/pages/purchase/purchase-schedule/purchase-schedule.component */ "./app/components/pages/purchase/purchase-schedule/purchase-schedule.component.ts");
-/* harmony import */ var _components_pages_purchase_purchase_seat_purchase_seat_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/pages/purchase/purchase-seat/purchase-seat.component */ "./app/components/pages/purchase/purchase-seat/purchase-seat.component.ts");
-/* harmony import */ var _components_pages_purchase_purchase_ticket_purchase_ticket_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/pages/purchase/purchase-ticket/purchase-ticket.component */ "./app/components/pages/purchase/purchase-ticket/purchase-ticket.component.ts");
-
+/* harmony import */ var _components_pages_purchase_purchase_base_purchase_base_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/pages/purchase/purchase-base/purchase-base.component */ "./app/components/pages/purchase/purchase-base/purchase-base.component.ts");
+/* harmony import */ var _components_pages_purchase_purchase_complete_purchase_complete_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/pages/purchase/purchase-complete/purchase-complete.component */ "./app/components/pages/purchase/purchase-complete/purchase-complete.component.ts");
+/* harmony import */ var _components_pages_purchase_purchase_confirm_purchase_confirm_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/pages/purchase/purchase-confirm/purchase-confirm.component */ "./app/components/pages/purchase/purchase-confirm/purchase-confirm.component.ts");
+/* harmony import */ var _components_pages_purchase_purchase_history_purchase_history_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/pages/purchase/purchase-history/purchase-history.component */ "./app/components/pages/purchase/purchase-history/purchase-history.component.ts");
+/* harmony import */ var _components_pages_purchase_purchase_payment_purchase_payment_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/pages/purchase/purchase-payment/purchase-payment.component */ "./app/components/pages/purchase/purchase-payment/purchase-payment.component.ts");
+/* harmony import */ var _components_pages_purchase_purchase_schedule_purchase_schedule_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/pages/purchase/purchase-schedule/purchase-schedule.component */ "./app/components/pages/purchase/purchase-schedule/purchase-schedule.component.ts");
+/* harmony import */ var _components_pages_purchase_purchase_seat_purchase_seat_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/pages/purchase/purchase-seat/purchase-seat.component */ "./app/components/pages/purchase/purchase-seat/purchase-seat.component.ts");
+/* harmony import */ var _components_pages_purchase_purchase_ticket_purchase_ticket_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/pages/purchase/purchase-ticket/purchase-ticket.component */ "./app/components/pages/purchase/purchase-ticket/purchase-ticket.component.ts");
 
 
 
@@ -6042,16 +6042,16 @@ __webpack_require__.r(__webpack_exports__);
  */
 var route = {
     path: 'purchase',
-    component: _components_pages_purchase_purchase_base_purchase_base_component__WEBPACK_IMPORTED_MODULE_2__["PurchaseBaseComponent"],
-    canActivate: [_canActivates__WEBPACK_IMPORTED_MODULE_0__["AuthGuardService"], _canActivates_setting_guard_service__WEBPACK_IMPORTED_MODULE_1__["SettingGuardService"]],
+    component: _components_pages_purchase_purchase_base_purchase_base_component__WEBPACK_IMPORTED_MODULE_1__["PurchaseBaseComponent"],
+    canActivate: [_canActivates__WEBPACK_IMPORTED_MODULE_0__["AuthGuardService"], _canActivates__WEBPACK_IMPORTED_MODULE_0__["SettingGuardService"]],
     children: [
-        { path: 'seat', component: _components_pages_purchase_purchase_seat_purchase_seat_component__WEBPACK_IMPORTED_MODULE_8__["PurchaseSeatComponent"] },
-        { path: 'ticket', component: _components_pages_purchase_purchase_ticket_purchase_ticket_component__WEBPACK_IMPORTED_MODULE_9__["PurchaseTicketComponent"] },
-        { path: 'payment', component: _components_pages_purchase_purchase_payment_purchase_payment_component__WEBPACK_IMPORTED_MODULE_6__["PurchasePaymentComponent"] },
-        { path: 'confirm', component: _components_pages_purchase_purchase_confirm_purchase_confirm_component__WEBPACK_IMPORTED_MODULE_4__["PurchaseConfirmComponent"] },
-        { path: 'complete', component: _components_pages_purchase_purchase_complete_purchase_complete_component__WEBPACK_IMPORTED_MODULE_3__["PurchaseCompleteComponent"] },
-        { path: 'schedule', component: _components_pages_purchase_purchase_schedule_purchase_schedule_component__WEBPACK_IMPORTED_MODULE_7__["PurchaseScheduleComponent"] },
-        { path: 'history', component: _components_pages_purchase_purchase_history_purchase_history_component__WEBPACK_IMPORTED_MODULE_5__["PurchaseHistoryComponent"] }
+        { path: 'seat', component: _components_pages_purchase_purchase_seat_purchase_seat_component__WEBPACK_IMPORTED_MODULE_7__["PurchaseSeatComponent"] },
+        { path: 'ticket', component: _components_pages_purchase_purchase_ticket_purchase_ticket_component__WEBPACK_IMPORTED_MODULE_8__["PurchaseTicketComponent"] },
+        { path: 'payment', component: _components_pages_purchase_purchase_payment_purchase_payment_component__WEBPACK_IMPORTED_MODULE_5__["PurchasePaymentComponent"] },
+        { path: 'confirm', component: _components_pages_purchase_purchase_confirm_purchase_confirm_component__WEBPACK_IMPORTED_MODULE_3__["PurchaseConfirmComponent"] },
+        { path: 'complete', component: _components_pages_purchase_purchase_complete_purchase_complete_component__WEBPACK_IMPORTED_MODULE_2__["PurchaseCompleteComponent"] },
+        { path: 'schedule', component: _components_pages_purchase_purchase_schedule_purchase_schedule_component__WEBPACK_IMPORTED_MODULE_6__["PurchaseScheduleComponent"] },
+        { path: 'history', component: _components_pages_purchase_purchase_history_purchase_history_component__WEBPACK_IMPORTED_MODULE_4__["PurchaseHistoryComponent"] }
     ]
 };
 
@@ -6259,6 +6259,76 @@ var CinerinoService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"]])
     ], CinerinoService);
     return CinerinoService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./app/services/index.ts":
+/*!*******************************!*\
+  !*** ./app/services/index.ts ***!
+  \*******************************/
+/*! exports provided: CinerinoService, PurchaseService, StarPrintService, UserService, UtilService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _cinerino_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cinerino.service */ "./app/services/cinerino.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CinerinoService", function() { return _cinerino_service__WEBPACK_IMPORTED_MODULE_0__["CinerinoService"]; });
+
+/* harmony import */ var _purchase_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./purchase.service */ "./app/services/purchase.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PurchaseService", function() { return _purchase_service__WEBPACK_IMPORTED_MODULE_1__["PurchaseService"]; });
+
+/* harmony import */ var _star_print_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./star-print.service */ "./app/services/star-print.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StarPrintService", function() { return _star_print_service__WEBPACK_IMPORTED_MODULE_2__["StarPrintService"]; });
+
+/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user.service */ "./app/services/user.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return _user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]; });
+
+/* harmony import */ var _util_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util.service */ "./app/services/util.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UtilService", function() { return _util_service__WEBPACK_IMPORTED_MODULE_4__["UtilService"]; });
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./app/services/purchase.service.ts":
+/*!******************************************!*\
+  !*** ./app/services/purchase.service.ts ***!
+  \******************************************/
+/*! exports provided: PurchaseService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PurchaseService", function() { return PurchaseService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var PurchaseService = /** @class */ (function () {
+    function PurchaseService() {
+    }
+    PurchaseService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], PurchaseService);
+    return PurchaseService;
 }());
 
 
@@ -6794,6 +6864,43 @@ var StarPrintService = /** @class */ (function () {
         __metadata("design:paramtypes", [_cinerino_service__WEBPACK_IMPORTED_MODULE_3__["CinerinoService"]])
     ], StarPrintService);
     return StarPrintService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./app/services/user.service.ts":
+/*!**************************************!*\
+  !*** ./app/services/user.service.ts ***!
+  \**************************************/
+/*! exports provided: UserService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var UserService = /** @class */ (function () {
+    function UserService() {
+    }
+    UserService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], UserService);
+    return UserService;
 }());
 
 
@@ -7992,7 +8099,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _services_cinerino_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/cinerino.service */ "./app/services/cinerino.service.ts");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services */ "./app/services/index.ts");
 /* harmony import */ var _actions_inquiry_action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../actions/inquiry.action */ "./app/store/actions/inquiry.action.ts");
 /* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../functions */ "./app/store/functions/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -8093,7 +8200,7 @@ var InquiryEffects = /** @class */ (function () {
     InquiryEffects = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
         __metadata("design:paramtypes", [_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"],
-            _services_cinerino_service__WEBPACK_IMPORTED_MODULE_3__["CinerinoService"]])
+            _services__WEBPACK_IMPORTED_MODULE_3__["CinerinoService"]])
     ], InquiryEffects);
     return InquiryEffects;
 }());
@@ -8121,11 +8228,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../environments/environment */ "./environments/environment.ts");
-/* harmony import */ var _services_cinerino_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/cinerino.service */ "./app/services/cinerino.service.ts");
-/* harmony import */ var _services_star_print_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/star-print.service */ "./app/services/star-print.service.ts");
-/* harmony import */ var _services_util_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/util.service */ "./app/services/util.service.ts");
-/* harmony import */ var _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../actions/purchase.action */ "./app/store/actions/purchase.action.ts");
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../functions */ "./app/store/functions/index.ts");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services */ "./app/services/index.ts");
+/* harmony import */ var _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../actions/purchase.action */ "./app/store/actions/purchase.action.ts");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../functions */ "./app/store/functions/index.ts");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -8191,8 +8296,6 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
-
-
 /**
  * Purchase Effects
  */
@@ -8207,7 +8310,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * GetTheaters
          */
-        this.getTheaters = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetTheaters), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.getTheaters = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetTheaters), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var searchMovieTheatersResult, movieTheaters, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8220,10 +8323,10 @@ var PurchaseEffects = /** @class */ (function () {
                     case 2:
                         searchMovieTheatersResult = _a.sent();
                         movieTheaters = searchMovieTheatersResult.data;
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetTheatersSuccess"]({ movieTheaters: movieTheaters })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["GetTheatersSuccess"]({ movieTheaters: movieTheaters })];
                     case 3:
                         error_1 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetTheatersFail"]({ error: error_1 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["GetTheatersFail"]({ error: error_1 })];
                     case 4: return [2 /*return*/];
                 }
             });
@@ -8231,7 +8334,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * GetSchedule
          */
-        this.getSchedule = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetSchedule), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.getSchedule = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetSchedule), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var branchCode, scheduleDate, screeningEventsResult, screeningEvents, error_2;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8251,10 +8354,10 @@ var PurchaseEffects = /** @class */ (function () {
                     case 2:
                         screeningEventsResult = _a.sent();
                         screeningEvents = screeningEventsResult.data;
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetScheduleSuccess"]({ screeningEvents: screeningEvents, scheduleDate: scheduleDate })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["GetScheduleSuccess"]({ screeningEvents: screeningEvents, scheduleDate: scheduleDate })];
                     case 3:
                         error_2 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetScheduleFail"]({ error: error_2 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["GetScheduleFail"]({ error: error_2 })];
                     case 4: return [2 /*return*/];
                 }
             });
@@ -8262,7 +8365,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * StartTransaction
          */
-        this.startTransaction = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].StartTransaction), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.startTransaction = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].StartTransaction), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var transaction, error_3;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8274,10 +8377,10 @@ var PurchaseEffects = /** @class */ (function () {
                         return [4 /*yield*/, this.cinerino.transaction.placeOrder.start(payload.params)];
                     case 2:
                         transaction = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["StartTransactionSuccess"]({ transaction: transaction })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["StartTransactionSuccess"]({ transaction: transaction })];
                     case 3:
                         error_3 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["StartTransactionFail"]({ error: error_3 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["StartTransactionFail"]({ error: error_3 })];
                     case 4: return [2 /*return*/];
                 }
             });
@@ -8285,7 +8388,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * getScreen
          */
-        this.getScreen = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetScreen), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.getScreen = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetScreen), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var screeningEventOffers, theaterCode, screenCode, screen_1, setting, screenData, error_4;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8308,10 +8411,10 @@ var PurchaseEffects = /** @class */ (function () {
                     case 4:
                         setting = _a.sent();
                         screenData = Object.assign(setting, screen_1);
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetScreenSuccess"]({ screeningEventOffers: screeningEventOffers, screenData: screenData })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["GetScreenSuccess"]({ screeningEventOffers: screeningEventOffers, screenData: screenData })];
                     case 5:
                         error_4 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetScreenFail"]({ error: error_4 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["GetScreenFail"]({ error: error_4 })];
                     case 6: return [2 /*return*/];
                 }
             });
@@ -8319,7 +8422,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * temporaryReservation
          */
-        this.temporaryReservation = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].TemporaryReservation), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.temporaryReservation = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].TemporaryReservation), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var transaction, screeningEvent, reservations, authorizeSeatReservation, error_5;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8359,10 +8462,10 @@ var PurchaseEffects = /** @class */ (function () {
                         })];
                     case 4:
                         authorizeSeatReservation = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["TemporaryReservationSuccess"]({ authorizeSeatReservation: authorizeSeatReservation })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["TemporaryReservationSuccess"]({ authorizeSeatReservation: authorizeSeatReservation })];
                     case 5:
                         error_5 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["TemporaryReservationFail"]({ error: error_5 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["TemporaryReservationFail"]({ error: error_5 })];
                     case 6: return [2 /*return*/];
                 }
             });
@@ -8370,7 +8473,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * getTicketList
          */
-        this.getTicketList = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetTicketList), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.getTicketList = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetTicketList), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var screeningEvent, movieTheater, screeningEventTicketOffers, error_6;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8388,10 +8491,10 @@ var PurchaseEffects = /** @class */ (function () {
                             })];
                     case 2:
                         screeningEventTicketOffers = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetTicketListSuccess"]({ screeningEventTicketOffers: screeningEventTicketOffers })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["GetTicketListSuccess"]({ screeningEventTicketOffers: screeningEventTicketOffers })];
                     case 3:
                         error_6 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetTicketListFail"]({ error: error_6 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["GetTicketListFail"]({ error: error_6 })];
                     case 4: return [2 /*return*/];
                 }
             });
@@ -8399,14 +8502,14 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * registerContact
          */
-        this.registerContact = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].RegisterContact), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.registerContact = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].RegisterContact), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var transaction, contact, customerContact, error_7;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         transaction = payload.transaction;
                         contact = payload.contact;
-                        contact.telephone = Object(_functions__WEBPACK_IMPORTED_MODULE_11__["formatTelephone"])(contact.telephone);
+                        contact.telephone = Object(_functions__WEBPACK_IMPORTED_MODULE_9__["formatTelephone"])(contact.telephone);
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 4, , 5]);
@@ -8421,10 +8524,10 @@ var PurchaseEffects = /** @class */ (function () {
                             })];
                     case 3:
                         customerContact = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["RegisterContactSuccess"]({ customerContact: customerContact })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["RegisterContactSuccess"]({ customerContact: customerContact })];
                     case 4:
                         error_7 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["RegisterContactFail"]({ error: error_7 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["RegisterContactFail"]({ error: error_7 })];
                     case 5: return [2 /*return*/];
                 }
             });
@@ -8432,7 +8535,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * authorizeCreditCard
          */
-        this.authorizeCreditCard = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].AuthorizeCreditCard), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.authorizeCreditCard = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].AuthorizeCreditCard), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var transaction, orderId, gmoTokenObject, creditCard, authorizeCreditCardPayment, error_8;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8448,12 +8551,12 @@ var PurchaseEffects = /** @class */ (function () {
                         _a.label = 3;
                     case 3:
                         transaction = payload.transaction;
-                        orderId = Object(_functions__WEBPACK_IMPORTED_MODULE_11__["createOrderId"])({
+                        orderId = Object(_functions__WEBPACK_IMPORTED_MODULE_9__["createOrderId"])({
                             orderCount: payload.orderCount,
                             authorizeSeatReservation: payload.authorizeSeatReservation,
                             movieTheater: payload.movieTheater
                         });
-                        return [4 /*yield*/, Object(_functions__WEBPACK_IMPORTED_MODULE_11__["createGmoTokenObject"])({
+                        return [4 /*yield*/, Object(_functions__WEBPACK_IMPORTED_MODULE_9__["createGmoTokenObject"])({
                                 creditCard: payload.creditCard,
                                 movieTheater: payload.movieTheater
                             })];
@@ -8472,10 +8575,10 @@ var PurchaseEffects = /** @class */ (function () {
                             })];
                     case 5:
                         authorizeCreditCardPayment = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["AuthorizeCreditCardSuccess"]({ authorizeCreditCardPayment: authorizeCreditCardPayment, gmoTokenObject: gmoTokenObject })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["AuthorizeCreditCardSuccess"]({ authorizeCreditCardPayment: authorizeCreditCardPayment, gmoTokenObject: gmoTokenObject })];
                     case 6:
                         error_8 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["AuthorizeCreditCardFail"]({ error: error_8 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["AuthorizeCreditCardFail"]({ error: error_8 })];
                     case 7: return [2 /*return*/];
                 }
             });
@@ -8483,7 +8586,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * authorizeMovieTicket
          */
-        this.authorizeMovieTicket = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].AuthorizeMovieTicket), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.authorizeMovieTicket = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].AuthorizeMovieTicket), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var _i, _a, authorizeMovieTicketPayment, transaction, reservations, authorizeSeatReservation, authorizeMovieTicketPayments, movieTickets, movieTicketIdentifiers_2, _b, movieTicketIdentifiers_1, movieTicketIdentifier, authorizeMovieTicketPaymentResult, error_9;
             return __generator(this, function (_c) {
                 switch (_c.label) {
@@ -8510,7 +8613,7 @@ var PurchaseEffects = /** @class */ (function () {
                         reservations = payload.reservations;
                         authorizeSeatReservation = payload.authorizeSeatReservation;
                         authorizeMovieTicketPayments = [];
-                        movieTickets = Object(_functions__WEBPACK_IMPORTED_MODULE_11__["createMovieTicketsFromAuthorizeSeatReservation"])({
+                        movieTickets = Object(_functions__WEBPACK_IMPORTED_MODULE_9__["createMovieTicketsFromAuthorizeSeatReservation"])({
                             authorizeSeatReservation: authorizeSeatReservation, reservations: reservations
                         });
                         movieTicketIdentifiers_2 = [];
@@ -8546,10 +8649,10 @@ var PurchaseEffects = /** @class */ (function () {
                     case 8:
                         _b++;
                         return [3 /*break*/, 6];
-                    case 9: return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["AuthorizeMovieTicketSuccess"]({ authorizeMovieTicketPayments: authorizeMovieTicketPayments })];
+                    case 9: return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["AuthorizeMovieTicketSuccess"]({ authorizeMovieTicketPayments: authorizeMovieTicketPayments })];
                     case 10:
                         error_9 = _c.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["AuthorizeMovieTicketFail"]({ error: error_9 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["AuthorizeMovieTicketFail"]({ error: error_9 })];
                     case 11: return [2 /*return*/];
                 }
             });
@@ -8557,7 +8660,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * checkMovieTicket
          */
-        this.checkMovieTicket = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].CheckMovieTicket), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.checkMovieTicket = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].CheckMovieTicket), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var screeningEvent_1, movieTickets, checkMovieTicketAction, error_10;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8594,10 +8697,10 @@ var PurchaseEffects = /** @class */ (function () {
                             })];
                     case 2:
                         checkMovieTicketAction = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["CheckMovieTicketSuccess"]({ checkMovieTicketAction: checkMovieTicketAction })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["CheckMovieTicketSuccess"]({ checkMovieTicketAction: checkMovieTicketAction })];
                     case 3:
                         error_10 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["CheckMovieTicketFail"]({ error: error_10 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["CheckMovieTicketFail"]({ error: error_10 })];
                     case 4: return [2 /*return*/];
                 }
             });
@@ -8605,7 +8708,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * reserve
          */
-        this.reserve = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].Reserve), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.reserve = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].Reserve), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var transaction, result, error_11;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8625,7 +8728,7 @@ var PurchaseEffects = /** @class */ (function () {
                             })];
                     case 3:
                         result = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ReserveSuccess"]({ order: result.order })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ReserveSuccess"]({ order: result.order })];
                     case 4:
                         error_11 = _a.sent();
                         return [4 /*yield*/, this.cinerino.transaction.placeOrder.cancel({
@@ -8633,7 +8736,7 @@ var PurchaseEffects = /** @class */ (function () {
                             })];
                     case 5:
                         _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ReserveFail"]({ error: error_11 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ReserveFail"]({ error: error_11 })];
                     case 6: return [2 /*return*/];
                 }
             });
@@ -8641,7 +8744,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * print
          */
-        this.print = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].Print), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.print = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].Print), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var order, ipAddress, pos, printerRequests, _i, printerRequests_1, printerRequest, error_12;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8679,10 +8782,10 @@ var PurchaseEffects = /** @class */ (function () {
                     case 8:
                         _i++;
                         return [3 /*break*/, 5];
-                    case 9: return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["PrintSuccess"]()];
+                    case 9: return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["PrintSuccess"]()];
                     case 10:
                         error_12 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["PrintFail"]({ error: error_12 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["PrintFail"]({ error: error_12 })];
                     case 11: return [2 /*return*/];
                 }
             });
@@ -8690,7 +8793,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * getPurchaseHistory
          */
-        this.getPurchaseHistory = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetPurchaseHistory), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.getPurchaseHistory = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetPurchaseHistory), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var params, searchOrdersResult, orders, error_13;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8704,10 +8807,10 @@ var PurchaseEffects = /** @class */ (function () {
                     case 2:
                         searchOrdersResult = _a.sent();
                         orders = searchOrdersResult.data;
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetPurchaseHistorySuccess"]({ result: orders })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["GetPurchaseHistorySuccess"]({ result: orders })];
                     case 3:
                         error_13 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetPurchaseHistoryFail"]({ error: error_13 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["GetPurchaseHistoryFail"]({ error: error_13 })];
                     case 4: return [2 /*return*/];
                 }
             });
@@ -8715,7 +8818,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * orderAuthorize
          */
-        this.orderAuthorize = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].OrderAuthorize), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.orderAuthorize = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].OrderAuthorize), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var params, order, error_14;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8728,10 +8831,10 @@ var PurchaseEffects = /** @class */ (function () {
                         return [4 /*yield*/, this.cinerino.order.authorizeOwnershipInfos(params)];
                     case 2:
                         order = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["OrderAuthorizeSuccess"]({ order: order })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["OrderAuthorizeSuccess"]({ order: order })];
                     case 3:
                         error_14 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["OrderAuthorizeFail"]({ error: error_14 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["OrderAuthorizeFail"]({ error: error_14 })];
                     case 4: return [2 /*return*/];
                 }
             });
@@ -8739,7 +8842,7 @@ var PurchaseEffects = /** @class */ (function () {
         /**
          * AuthorizeAnyPayment
          */
-        this.addAuthorizeAnyPayment = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].AuthorizeAnyPayment), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
+        this.addAuthorizeAnyPayment = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].AuthorizeAnyPayment), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
             var transaction, typeOf, amount, additionalProperty, authorizeAnyPayment, error_15;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -8760,10 +8863,10 @@ var PurchaseEffects = /** @class */ (function () {
                             })];
                     case 3:
                         authorizeAnyPayment = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["AuthorizeAnyPaymentSuccess"]({ authorizeAnyPayment: authorizeAnyPayment })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["AuthorizeAnyPaymentSuccess"]({ authorizeAnyPayment: authorizeAnyPayment })];
                     case 4:
                         error_15 = _a.sent();
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["AuthorizeAnyPaymentFail"]({ error: error_15 })];
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["AuthorizeAnyPaymentFail"]({ error: error_15 })];
                     case 5: return [2 /*return*/];
                 }
             });
@@ -8832,9 +8935,9 @@ var PurchaseEffects = /** @class */ (function () {
     PurchaseEffects = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
         __metadata("design:paramtypes", [_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Actions"],
-            _services_cinerino_service__WEBPACK_IMPORTED_MODULE_7__["CinerinoService"],
-            _services_star_print_service__WEBPACK_IMPORTED_MODULE_8__["StarPrintService"],
-            _services_util_service__WEBPACK_IMPORTED_MODULE_9__["UtilService"],
+            _services__WEBPACK_IMPORTED_MODULE_7__["CinerinoService"],
+            _services__WEBPACK_IMPORTED_MODULE_7__["StarPrintService"],
+            _services__WEBPACK_IMPORTED_MODULE_7__["UtilService"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"]])
     ], PurchaseEffects);
     return PurchaseEffects;
@@ -8857,7 +8960,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _services_cinerino_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/cinerino.service */ "./app/services/cinerino.service.ts");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services */ "./app/services/index.ts");
 /* harmony import */ var _actions_user_action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../actions/user.action */ "./app/store/actions/user.action.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8948,7 +9051,7 @@ var UserEffects = /** @class */ (function () {
     UserEffects = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
         __metadata("design:paramtypes", [_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"],
-            _services_cinerino_service__WEBPACK_IMPORTED_MODULE_3__["CinerinoService"]])
+            _services__WEBPACK_IMPORTED_MODULE_3__["CinerinoService"]])
     ], UserEffects);
     return UserEffects;
 }());

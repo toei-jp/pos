@@ -1,5 +1,4 @@
-import { AuthGuardService } from '../canActivates';
-import { SettingGuardService } from '../canActivates/setting-guard.service';
+import { AuthGuardService, SettingGuardService } from '../canActivates';
 import { PurchaseBaseComponent } from '../components/pages/purchase/purchase-base/purchase-base.component';
 import { PurchaseCompleteComponent } from '../components/pages/purchase/purchase-complete/purchase-complete.component';
 import { PurchaseConfirmComponent } from '../components/pages/purchase/purchase-confirm/purchase-confirm.component';

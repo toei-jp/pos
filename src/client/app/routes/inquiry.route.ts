@@ -1,5 +1,4 @@
-import { AuthGuardService } from '../canActivates';
-import { SettingGuardService } from '../canActivates/setting-guard.service';
+import { AuthGuardService, SettingGuardService } from '../canActivates';
 import { BaseComponent } from '../components/pages/base/base.component';
 import { InquiryConfirmComponent } from '../components/pages/inquiry/inquiry-confirm/inquiry-confirm.component';
 import { InquiryInputComponent } from '../components/pages/inquiry/inquiry-input/inquiry-input.component';

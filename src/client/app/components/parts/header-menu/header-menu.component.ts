@@ -3,7 +3,7 @@
  */
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { CinerinoService } from '../../../services/cinerino.service';
+import { CinerinoService } from '../../../services';
 import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
 
 @Component({

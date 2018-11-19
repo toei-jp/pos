@@ -8,7 +8,7 @@ import * as libphonenumber from 'libphonenumber-js';
 import { Observable, race } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
 import { LibphonenumberFormatPipe } from '../../../pipes/libphonenumber-format.pipe';
-import { CinerinoService } from '../../../services/cinerino.service';
+import { CinerinoService } from '../../../services';
 import * as purchaseAction from '../../../store/actions/purchase.action';
 import * as userAction from '../../../store/actions/user.action';
 import * as reducers from '../../../store/reducers';
