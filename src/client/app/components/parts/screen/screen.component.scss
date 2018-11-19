@@ -39,6 +39,7 @@
     .seat-hc {
         background-image: url(/images/theater/parts/seat_hc.svg) !important;
         background-size: 40px 50px;
+        pointer-events: none;
         span {
             display: none !important;
         }

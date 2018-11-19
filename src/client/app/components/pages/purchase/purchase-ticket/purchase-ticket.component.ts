@@ -113,6 +113,23 @@ export class PurchaseTicketComponent implements OnInit {
         race(success, fail).pipe(take(1)).subscribe();
     }
 
+    public selectAllOpenTicketList() {
+        const modalRef = this.modal.open(TicketListModalComponent, {
+            centered: true
+        });
+        this.purchase.subscribe((purchase) => {
+            modalRef.componentInstance.screeningEventTicketOffers = purchase.screeningEventTicketOffers;
+            modalRef.componentInstance.checkMovieTicketActions = [];
+            modalRef.componentInstance.reservations = purchase.reservations;
+            modalRef.result.then((ticket: IReservationTicket) => {
+                purchase.reservations.forEach((reservation) => {
+                    reservation.ticket = ticket;
+                    this.store.dispatch(new SelectTicket({ reservation }));
+                });
+            }).catch(() => { });
+        }).unsubscribe();
+    }
+
     public openTicketList(reservation: Reservation) {
         const modalRef = this.modal.open(TicketListModalComponent, {
             centered: true

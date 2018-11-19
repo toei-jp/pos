@@ -2907,7 +2907,7 @@ var PurchaseScheduleComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-4\">\n    \n    <h2 class=\"text-center large-text text-white mb-4\">座席選択</h2>\n\n    <p class=\"p-3 large-text bg-white mb-3\">{{ (purchase | async).screeningEvent?.name.ja }}</p>\n\n    <div class=\"d-flex justify-content-center align-items-center mb-3 text-white\">\n        <div class=\"d-flex align-items-center mx-3\">\n            <div class=\"small-text border p-2\">スクリーン</div>\n            <div class=\"large-text ml-3\"><strong>{{ (purchase | async).screeningEvent?.location.name.ja }}</strong></div>\n        </div>\n        <div class=\"d-flex align-items-center mx-3\">\n            <div class=\"small-text border p-2\">上映時間</div>\n            <div class=\"ml-3 text-warning\">\n                <strong class=\"large-text\">{{ moment((purchase | async).screeningEvent?.startDate).format('HH:mm') }}</strong>\n                <span> - {{ moment((purchase | async).screeningEvent?.endDate).format('HH:mm') }}</span>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"px-5 mb-4\">\n        <div class=\"bg-white\">\n            <div class=\"pt-4 pb-3 d-flex justify-content-center align-items-center seats border-bottom mx-auto\">\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/parts/seat.svg\"></div>\n                    <div class=\"ml-3\">空席</div>\n                </div>\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/parts/seat_active.svg\"></div>\n                    <div class=\"ml-3\">選択中</div>\n                </div>\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/parts/seat_disabled.svg\"></div>\n                    <div class=\"ml-3\">購入不可</div>\n                </div>\n            </div>\n        </div>\n        <app-screen class=\"bg-white\" [screenData]=\"(purchase | async).screenData\" [screeningEventOffers]=\"(purchase | async).screeningEventOffers\"\n            [reservations]=\"(purchase | async).reservations\" [authorizeSeatReservation]=\"(purchase | async).authorizeSeatReservation\"\n            (select)=\"selectSeat($event)\">\n        </app-screen>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" [disabled]=\"isLoading | async\"\n            (click)=\"onSubmit()\">次へ</button>\n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/purchase/schedule\"></app-navigation>"
+module.exports = "<div class=\"py-4\">\n\n    <h2 class=\"text-center large-text text-white mb-4\">座席選択</h2>\n\n    <p class=\"p-3 large-text bg-white mb-3\">{{ (purchase | async).screeningEvent?.name.ja }}</p>\n\n    <div class=\"d-flex justify-content-center align-items-center mb-3 text-white\">\n        <div class=\"d-flex align-items-center mx-3\">\n            <div class=\"small-text border p-2\">スクリーン</div>\n            <div class=\"large-text ml-3\"><strong>{{ (purchase | async).screeningEvent?.location.name.ja }}</strong></div>\n        </div>\n        <div class=\"d-flex align-items-center mx-3\">\n            <div class=\"small-text border p-2\">上映時間</div>\n            <div class=\"ml-3 text-warning\">\n                <strong class=\"large-text\">{{ moment((purchase | async).screeningEvent?.startDate).format('HH:mm') }}</strong>\n                <span> - {{ moment((purchase | async).screeningEvent?.endDate).format('HH:mm') }}</span>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"px-5 mb-4\">\n        <button type=\"button\" class=\"btn bg-primary py-2 text-white mb-3 mr-3\" (click)=\"selectAll()\">すべての座席を選択する</button>\n        <button type=\"button\" class=\"btn bg-primary py-2 text-white mb-3\" (click)=\"cancelAll()\">すべての座席を解除する</button>\n        <div class=\"bg-white\">\n            <div class=\"pt-4 pb-3 d-flex justify-content-center align-items-center seats border-bottom mx-auto\">\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/parts/seat.svg\"></div>\n                    <div class=\"ml-3\">空席</div>\n                </div>\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/parts/seat_active.svg\"></div>\n                    <div class=\"ml-3\">選択中</div>\n                </div>\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/parts/seat_disabled.svg\"></div>\n                    <div class=\"ml-3\">購入不可</div>\n                </div>\n            </div>\n        </div>\n        <app-screen class=\"bg-white\" [screenData]=\"(purchase | async).screenData\" [screeningEventOffers]=\"(purchase | async).screeningEventOffers\"\n            [reservations]=\"(purchase | async).reservations\" [authorizeSeatReservation]=\"(purchase | async).authorizeSeatReservation\"\n            (select)=\"selectSeat($event)\">\n        </app-screen>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" [disabled]=\"isLoading | async\"\n            (click)=\"onSubmit()\">次へ</button>\n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/purchase/schedule\"></app-navigation>"
 
 /***/ }),
 
@@ -3041,6 +3041,45 @@ var PurchaseSeatComponent = /** @class */ (function () {
         Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
     };
     /**
+     * selectAll
+     */
+    PurchaseSeatComponent.prototype.selectAll = function () {
+        var _this = this;
+        this.cancelAll();
+        this.purchase.subscribe(function (purchase) {
+            var seats = [];
+            purchase.screeningEventOffers.forEach(function (screeningEventOffer) {
+                screeningEventOffer.containsPlace.forEach(function (place) {
+                    if (place.offers === undefined || place.offers[0].availability !== 'InStock') {
+                        return;
+                    }
+                    var seat = {
+                        seatNumber: place.branchCode,
+                        seatSection: screeningEventOffer.branchCode
+                    };
+                    seats.push(seat);
+                });
+            });
+            if (purchase.authorizeSeatReservation !== undefined) {
+                purchase.authorizeSeatReservation.object.acceptedOffer.forEach(function (offer) {
+                    var seat = offer.ticketedSeat;
+                    seats.push(seat);
+                });
+            }
+            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["SelectSeats"]({ seats: seats }));
+        }).unsubscribe();
+    };
+    /**
+     * cancelAll
+     */
+    PurchaseSeatComponent.prototype.cancelAll = function () {
+        var _this = this;
+        this.purchase.subscribe(function (purchase) {
+            var seats = purchase.reservations.map(function (reservation) { return reservation.seat; });
+            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["CancelSeats"]({ seats: seats }));
+        }).unsubscribe();
+    };
+    /**
      * selectSeat
      */
     PurchaseSeatComponent.prototype.selectSeat = function (data) {
@@ -3148,7 +3187,7 @@ var PurchaseSeatComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-4 px-3\">\n    <h2 class=\"text-center large-text text-white mb-4\">券種選択</h2>\n\n    <div *ngIf=\"(purchase | async).isUsedMovieTicket\" class=\"mb-4\">\n        <div class=\"d-flex justify-content-center align-items-center\">\n            <p class=\"text-white\">ムビチケ券を利用</p>\n            <button type=\"button\" (click)=\"openMovieTicket()\" class=\"movie-ticket ml-3 btn btn-block bg-white border-danger py-3\">\n                <img src=\"/assets/images/mvtk.svg\" height=\"24\">\n            </button>\n        </div>\n    </div>\n    \n    <div class=\"reservations d-grid align-items-center mb-4\">\n        <div *ngFor=\"let reservation of (purchase | async).reservations\" class=\"reservation d-grid align-items-center border rounded\" [class.bg-primary]=\"reservation.ticket !== undefined\" [class.bg-secondary]=\"reservation.ticket === undefined\">\n            <div class=\"seat text-center text-white\">\n                <span class=\"mr-3\">座席</span>{{ reservation.seat.seatNumber }}</div>\n            <button *ngIf=\"reservation.ticket === undefined\" type=\"button\" (click)=\"openTicketList(reservation)\" class=\"btn btn-block rounded-0 py-3 bg-white\">券種を選択してください</button>\n            <button *ngIf=\"reservation.ticket !== undefined\" type=\"button\" (click)=\"openTicketList(reservation)\" class=\"btn btn-block rounded-0 py-3 bg-white\">{{\n                reservation.ticket.ticketOffer.name.ja | slice:0:10 }} {{\n                reservation.getTicketPrice().total | currency : 'JPY' }}</button>\n        </div>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" [disabled]=\"isLoading | async\"\n            (click)=\"onSubmit()\">次へ</button>\n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/purchase/seat\"></app-navigation>"
+module.exports = "<div class=\"py-4 px-3\">\n    <h2 class=\"text-center large-text text-white mb-4\">券種選択</h2>\n\n    <div *ngIf=\"(purchase | async).isUsedMovieTicket\" class=\"mb-4\">\n        <div class=\"d-flex justify-content-center align-items-center\">\n            <p class=\"text-white\">ムビチケ券を利用</p>\n            <button type=\"button\" (click)=\"openMovieTicket()\" class=\"movie-ticket ml-3 btn btn-block bg-white border-danger py-3\">\n                <img src=\"/assets/images/mvtk.svg\" height=\"24\">\n            </button>\n        </div>\n    </div>\n\n    <div>\n        <button type=\"button\" class=\"btn bg-primary py-2 text-white mb-3 mr-3\" (click)=\"selectAllOpenTicketList()\">一括選択する</button>\n    </div>\n\n    <div class=\"reservations d-grid align-items-center mb-4\">\n\n        <div *ngFor=\"let reservation of (purchase | async).reservations\" class=\"reservation d-grid align-items-center border rounded\"\n            [class.bg-primary]=\"reservation.ticket !== undefined\" [class.bg-secondary]=\"reservation.ticket === undefined\">\n            <div class=\"seat text-center text-white\">\n                <span class=\"mr-3\">座席</span>{{ reservation.seat.seatNumber }}</div>\n            <button *ngIf=\"reservation.ticket === undefined\" type=\"button\" (click)=\"openTicketList(reservation)\" class=\"btn btn-block rounded-0 py-3 bg-white\">券種を選択してください</button>\n            <button *ngIf=\"reservation.ticket !== undefined\" type=\"button\" (click)=\"openTicketList(reservation)\" class=\"btn btn-block rounded-0 py-3 bg-white\">{{\n                reservation.ticket.ticketOffer.name.ja | slice:0:10 }} {{\n                reservation.getTicketPrice().total | currency : 'JPY' }}</button>\n        </div>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" [disabled]=\"isLoading | async\"\n            (click)=\"onSubmit()\">次へ</button>\n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/purchase/seat\"></app-navigation>"
 
 /***/ }),
 
@@ -3290,6 +3329,23 @@ var PurchaseTicketComponent = /** @class */ (function () {
             _this.router.navigate(['/error']);
         }));
         Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
+    };
+    PurchaseTicketComponent.prototype.selectAllOpenTicketList = function () {
+        var _this = this;
+        var modalRef = this.modal.open(_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_12__["TicketListModalComponent"], {
+            centered: true
+        });
+        this.purchase.subscribe(function (purchase) {
+            modalRef.componentInstance.screeningEventTicketOffers = purchase.screeningEventTicketOffers;
+            modalRef.componentInstance.checkMovieTicketActions = [];
+            modalRef.componentInstance.reservations = purchase.reservations;
+            modalRef.result.then(function (ticket) {
+                purchase.reservations.forEach(function (reservation) {
+                    reservation.ticket = ticket;
+                    _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["SelectTicket"]({ reservation: reservation }));
+                });
+            }).catch(function () { });
+        }).unsubscribe();
     };
     PurchaseTicketComponent.prototype.openTicketList = function (reservation) {
         var _this = this;
@@ -5065,7 +5121,7 @@ var PurchasePaymentModalComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"film p-3 bg-white\">\n    <p class=\"title large-text\"><strong>{{ screeningFilmEvent.info.name.ja }}</strong></p>\n    <div class=\"d-flex justify-content-end align-items-center\">\n        <div class=\"small-text text-white bg-gray py-1 px-3 mx-2\">{{\n            screeningFilmEvent.info.workPerformed.contentRating }}</div>\n        <div *ngIf=\"screeningFilmEvent.info.superEvent.dubLanguage\" class=\"small-text text-white bg-gray py-1 px-3 mx-2\">吹替版</div>\n        <div *ngIf=\"screeningFilmEvent.info.superEvent.subtitleLanguage\" class=\"small-text text-white bg-gray py-1 px-3 mx-2\">字幕版</div>\n        <div class=\"small-text mx-2\">{{ moment.duration(screeningFilmEvent.info.workPerformed.duration).asMinutes() }}分</div>\n    </div>\n</div>\n<ul class=\"bg-light p-3\">\n    <li *ngFor=\"let screeningEvent of screeningFilmEvent.data\" class=\"rounded border py-3 px-3 px-md-0 text-md-center d-md-block d-flex justify-content-between align-items-center\"\n        [ngClass]=\"{ \n        'bg-white':  moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.endDate).unix() > moment().unix() && screeningEvent.remainingAttendeeCapacity > 0, \n        'bg-gray text-light':  screeningEvent.remainingAttendeeCapacity === 0 || !(moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.endDate).unix() > moment().unix())\n        }\"\n        (click)=\"select.emit(screeningEvent)\">\n        <div class=\"mb-md-2 small-text\">\n            {{ screeningEvent.location.name.ja }}\n        </div>\n        <div class=\"mb-md-2\">\n            <strong class=\"large-text\">{{ moment(screeningEvent.startDate).format('HH:mm') }}</strong>\n            <span>-</span>\n            <span>{{ moment(screeningEvent.endDate).format('HH:mm') }}</span>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.endDate).unix() > moment().unix()\">\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity >= 30\" class=\"status text-center\">\n                <img src=\"/assets/images/status_01.svg\">\n            </div>\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity < 30 && screeningEvent.remainingAttendeeCapacity > 0\"\n                class=\"status text-center\">\n                <img src=\"/assets/images/status_02.svg\">\n            </div>\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity === 0\" class=\"status text-center\">\n                <img src=\"/assets/images/status_03.svg\">\n            </div>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.offers.validFrom).unix() >= moment().unix()\" class=\"status text-center\">\n            <p>販売期間外</p>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.endDate).unix() <= moment().unix()\" class=\"status text-center\">\n            <p>販売終了</p>\n        </div>\n    </li>\n</ul>"
+module.exports = "<div class=\"film p-3 bg-white\">\n    <p class=\"title large-text\"><strong>{{ screeningFilmEvent.info.name.ja }}</strong></p>\n    <div class=\"d-flex justify-content-end align-items-center\">\n        <div class=\"small-text text-white bg-gray py-1 px-3 mx-2\">{{\n            screeningFilmEvent.info.workPerformed.contentRating }}</div>\n        <div *ngIf=\"screeningFilmEvent.info.superEvent.dubLanguage\" class=\"small-text text-white bg-gray py-1 px-3 mx-2\">吹替版</div>\n        <div *ngIf=\"screeningFilmEvent.info.superEvent.subtitleLanguage\" class=\"small-text text-white bg-gray py-1 px-3 mx-2\">字幕版</div>\n        <div class=\"small-text mx-2\">{{ moment.duration(screeningFilmEvent.info.workPerformed.duration).asMinutes() }}分</div>\n    </div>\n</div>\n<ul class=\"bg-light p-3\">\n    <li *ngFor=\"let screeningEvent of screeningFilmEvent.data\" class=\"rounded border py-3 px-3 px-md-0 text-md-center d-md-block d-flex justify-content-between align-items-center\"\n        [ngClass]=\"{ \n        'bg-white':  moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.offers.validThrough).unix() > moment().unix() && screeningEvent.remainingAttendeeCapacity > 0, \n        'bg-gray text-light':  screeningEvent.remainingAttendeeCapacity === 0 || !(moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.offers.validThrough).unix() > moment().unix())\n        }\"\n        (click)=\"select.emit(screeningEvent)\">\n        <div class=\"mb-md-2 small-text\">\n            {{ screeningEvent.location.name.ja }}\n        </div>\n        <div class=\"mb-md-2\">\n            <strong class=\"large-text\">{{ moment(screeningEvent.startDate).format('HH:mm') }}</strong>\n            <span>-</span>\n            <span>{{ moment(screeningEvent.endDate).format('HH:mm') }}</span>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.offers.validThrough).unix() > moment().unix()\">\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity >= 30\" class=\"status text-center\">\n                <img src=\"/assets/images/status_01.svg\">\n            </div>\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity < 30 && screeningEvent.remainingAttendeeCapacity > 0\"\n                class=\"status text-center\">\n                <img src=\"/assets/images/status_02.svg\">\n            </div>\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity === 0\" class=\"status text-center\">\n                <img src=\"/assets/images/status_03.svg\">\n            </div>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.offers.validFrom).unix() >= moment().unix()\" class=\"status text-center\">\n            <p>販売期間外</p>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.offers.validThrough).unix() <= moment().unix()\" class=\"status text-center\">\n            <p>販売終了</p>\n        </div>\n    </li>\n</ul>"
 
 /***/ }),
 
@@ -5140,7 +5196,7 @@ var PurchaseScheduleFilmComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"radius bg-light-gray\">\n    <div class=\"screen\" [class.zoom]=\"zoomState\" style=\"visibility: visible;\" (window:resize)=\"resize()\">\n        <div [class.active]=\"zoomState\" class=\"zoom-btn text-center\" (click)=\"scaleDown()\">\n            <div class=\"small-x-text\" href=\"#\">ズーム\n                <br>解除</div>\n        </div>\n        <div *ngIf=\"screenData\" class=\"screen-scroll\" [ngStyle]=\"{ \n            'height.px': height,\n            'transform-origin': origin,\n            'transform': 'scale(' + scale + ')'\n        }\">\n            <div class=\"screen-inner {{ screenType }}\" [ngStyle]=\"{ 'width.px': screenData.size.w, 'height.px': screenData.size.h }\"\n                (click)=\"scaleUp($event)\">\n\n                <div *ngFor=\"let object of screenData.objects\" class=\"object\" [ngStyle]=\"{\n                    'width.px': object.w, \n                    'height.px': object.h, \n                    'top.px': object.y, \n                    'left.px': object.x, \n                    'background-image': 'url(' + object.image + ')',\n                    'background-size': object.w + 'px ' +object.h + 'px'\n                }\"></div>\n\n                <div *ngFor=\"let columnLabel of columnLabels\" class=\"object label-object column-object column-object-{{ columnLabel.id }}\"\n                    [ngStyle]=\"{\n                    'width.px': columnLabel.w,\n                    'height.px': columnLabel.h, \n                    'top.px': columnLabel.y, \n                    'left.px': columnLabel.x\n                }\">{{\n                    columnLabel.label }}</div>\n\n                <div *ngFor=\"let lineLabel of lineLabels\" class=\"object label-object line-object line-object-{{ lineLabel.id }}\"\n                    [ngStyle]=\"{\n                    'width.px': lineLabel.w,\n                    'height.px': lineLabel.h, \n                    'top.px': lineLabel.y, \n                    'left.px': lineLabel.x\n                }\">{{\n                    lineLabel.label }}</div>\n\n\n                <div *ngFor=\"let seat of seats\" class=\"seat {{ seat.className }} {{ seat.status }}\" [ngStyle]=\"{\n                    'top.px': seat.y, \n                    'left.px': seat.x,\n                    'width.px': seat.w,\n                    'height.px': seat.h\n                }\"\n                    (click)=\"seatSelect(seat)\">\n                    <span>{{ seat.code }}</span>\n                </div>\n            </div>\n        </div>\n        <div *ngIf=\"screenData\" class=\"screen-style\"></div>\n    </div>\n</div>"
+module.exports = "<div class=\"radius bg-light-gray\">\n    <div class=\"screen\" [class.zoom]=\"zoomState\" style=\"visibility: visible;\" (window:resize)=\"resize()\">\n        <div [class.active]=\"zoomState\" class=\"zoom-btn text-center\" (click)=\"scaleDown()\">\n            <div class=\"small-x-text\" href=\"#\">ズーム\n                <br>解除</div>\n        </div>\n        <div *ngIf=\"screenData\" class=\"screen-scroll\" [ngStyle]=\"{ \n            'height.px': height,\n            'transform-origin': origin,\n            'transform': 'scale(' + scale + ')'\n        }\">\n            <div class=\"screen-inner {{ screenType }}\" [ngStyle]=\"{ 'width.px': screenData.size.w, 'height.px': screenData.size.h }\"\n                (click)=\"scaleUp($event)\">\n\n                <div *ngFor=\"let object of screenData.objects\" class=\"object\" [ngStyle]=\"{\n                    'width.px': object.w, \n                    'height.px': object.h, \n                    'top.px': object.y, \n                    'left.px': object.x, \n                    'background-image': 'url(' + object.image + ')',\n                    'background-size': object.w + 'px ' +object.h + 'px'\n                }\"></div>\n\n                <div *ngFor=\"let columnLabel of columnLabels\" class=\"object label-object column-object column-object-{{ columnLabel.id }}\"\n                    [ngStyle]=\"{\n                    'width.px': columnLabel.w,\n                    'height.px': columnLabel.h, \n                    'top.px': columnLabel.y, \n                    'left.px': columnLabel.x\n                }\">{{\n                    columnLabel.label }}</div>\n\n                <div *ngFor=\"let lineLabel of lineLabels\" class=\"object label-object line-object line-object-{{ lineLabel.id }}\"\n                    [ngStyle]=\"{\n                    'width.px': lineLabel.w,\n                    'height.px': lineLabel.h, \n                    'top.px': lineLabel.y, \n                    'left.px': lineLabel.x\n                }\">{{\n                    lineLabel.label }}</div>\n\n\n                <div *ngFor=\"let seat of seats\" class=\"seat {{ seat.className }} {{ seat.status }}\" [ngStyle]=\"{\n                    'top.px': seat.y, \n                    'left.px': seat.x,\n                    'width.px': seat.w,\n                    'height.px': seat.h\n                }\"\n                    (click)=\"selectSeat(seat)\">\n                    <span>{{ seat.code }}</span>\n                </div>\n            </div>\n        </div>\n        <div *ngIf=\"screenData\" class=\"screen-style\"></div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -5151,7 +5207,7 @@ module.exports = "<div class=\"radius bg-light-gray\">\n    <div class=\"screen\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: block; }\n\n.screen {\n  position: relative;\n  overflow: hidden; }\n\n.screen .screen-scroll {\n    height: 500px; }\n\n.screen .screen-inner {\n    position: relative;\n    width: 1600px;\n    height: 1400px; }\n\n.screen .seat {\n    position: absolute;\n    cursor: pointer;\n    text-align: center;\n    font-weight: bold;\n    color: #9a9a9b;\n    padding-top: 20px;\n    background-image: url(/images/theater/parts/seat.svg);\n    background-size: 40px 50px;\n    background-repeat: no-repeat;\n    font-size: 12px; }\n\n.screen .seat.active {\n      color: #FFF;\n      background-image: url(/images/theater/parts/seat_active.svg); }\n\n.screen .seat.disabled {\n      color: #FFF;\n      background-image: url(/images/theater/parts/seat_disabled.svg);\n      cursor: default; }\n\n.screen .seat span {\n      display: none; }\n\n.screen .seat-hc {\n    background-image: url(/images/theater/parts/seat_hc.svg) !important;\n    background-size: 40px 50px; }\n\n.screen .seat-hc span {\n      display: none !important; }\n\n.screen .object {\n    position: absolute;\n    background-repeat: no-repeat; }\n\n.screen .label-object {\n    text-align: center;\n    line-height: 50px;\n    font-size: 24px;\n    color: #9a9a9b;\n    font-weight: bold; }\n\n.zoom .screen-scroll {\n  overflow: auto;\n  transition: -webkit-transform 0.2s;\n  transition: transform 0.2s;\n  transition: transform 0.2s, -webkit-transform 0.2s;\n  -webkit-overflow-scrolling: touch; }\n\n.zoom .seat span {\n  display: block; }\n\n.zoom-btn {\n  display: none;\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  z-index: 10;\n  width: 50px;\n  height: 50px;\n  color: #FFF;\n  background-color: #3e3a39;\n  border-radius: 3px;\n  align-items: center;\n  justify-content: center; }\n\n.zoom-btn.active {\n    display: flex; }\n\n.zoom-btn.scroll {\n    position: fixed; }\n"
+module.exports = ":host {\n  display: block; }\n\n.screen {\n  position: relative;\n  overflow: hidden; }\n\n.screen .screen-scroll {\n    height: 500px; }\n\n.screen .screen-inner {\n    position: relative;\n    width: 1600px;\n    height: 1400px; }\n\n.screen .seat {\n    position: absolute;\n    cursor: pointer;\n    text-align: center;\n    font-weight: bold;\n    color: #9a9a9b;\n    padding-top: 20px;\n    background-image: url(/images/theater/parts/seat.svg);\n    background-size: 40px 50px;\n    background-repeat: no-repeat;\n    font-size: 12px; }\n\n.screen .seat.active {\n      color: #FFF;\n      background-image: url(/images/theater/parts/seat_active.svg); }\n\n.screen .seat.disabled {\n      color: #FFF;\n      background-image: url(/images/theater/parts/seat_disabled.svg);\n      cursor: default; }\n\n.screen .seat span {\n      display: none; }\n\n.screen .seat-hc {\n    background-image: url(/images/theater/parts/seat_hc.svg) !important;\n    background-size: 40px 50px;\n    pointer-events: none; }\n\n.screen .seat-hc span {\n      display: none !important; }\n\n.screen .object {\n    position: absolute;\n    background-repeat: no-repeat; }\n\n.screen .label-object {\n    text-align: center;\n    line-height: 50px;\n    font-size: 24px;\n    color: #9a9a9b;\n    font-weight: bold; }\n\n.zoom .screen-scroll {\n  overflow: auto;\n  transition: -webkit-transform 0.2s;\n  transition: transform 0.2s;\n  transition: transform 0.2s, -webkit-transform 0.2s;\n  -webkit-overflow-scrolling: touch; }\n\n.zoom .seat span {\n  display: block; }\n\n.zoom-btn {\n  display: none;\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  z-index: 10;\n  width: 50px;\n  height: 50px;\n  color: #FFF;\n  background-color: #3e3a39;\n  border-radius: 3px;\n  align-items: center;\n  justify-content: center; }\n\n.zoom-btn.active {\n    display: flex; }\n\n.zoom-btn.scroll {\n    position: fixed; }\n"
 
 /***/ }),
 
@@ -5478,7 +5534,7 @@ var ScreenComponent = /** @class */ (function () {
         this.seats = seats;
         this.screenType = screenType;
     };
-    ScreenComponent.prototype.seatSelect = function (seat) {
+    ScreenComponent.prototype.selectSeat = function (seat) {
         if (this.isMobile() && !this.zoomState) {
             return;
         }
@@ -6940,7 +6996,7 @@ var InquiryFail = /** @class */ (function () {
 /*!**********************************************!*\
   !*** ./app/store/actions/purchase.action.ts ***!
   \**********************************************/
-/*! exports provided: ActionTypes, Delete, GetTheaters, GetTheatersSuccess, GetTheatersFail, SelectTheater, GetSchedule, GetScheduleSuccess, GetScheduleFail, SelectSchedule, StartTransaction, StartTransactionSuccess, StartTransactionFail, GetScreen, GetScreenSuccess, GetScreenFail, SelectSeat, CancelSeat, SelectTicket, GetTicketList, GetTicketListSuccess, GetTicketListFail, TemporaryReservation, TemporaryReservationSuccess, TemporaryReservationFail, RegisterContact, RegisterContactSuccess, RegisterContactFail, AuthorizeCreditCard, AuthorizeCreditCardSuccess, AuthorizeCreditCardFail, AuthorizeMovieTicket, AuthorizeMovieTicketSuccess, AuthorizeMovieTicketFail, CheckMovieTicket, CheckMovieTicketSuccess, CheckMovieTicketFail, Reserve, ReserveSuccess, ReserveFail, Print, PrintSuccess, PrintFail, GetPurchaseHistory, GetPurchaseHistorySuccess, GetPurchaseHistoryFail, OrderAuthorize, OrderAuthorizeSuccess, OrderAuthorizeFail, AuthorizeAnyPayment, AuthorizeAnyPaymentSuccess, AuthorizeAnyPaymentFail, SelectPaymentMethodType */
+/*! exports provided: ActionTypes, Delete, GetTheaters, GetTheatersSuccess, GetTheatersFail, SelectTheater, GetSchedule, GetScheduleSuccess, GetScheduleFail, SelectSchedule, StartTransaction, StartTransactionSuccess, StartTransactionFail, GetScreen, GetScreenSuccess, GetScreenFail, SelectSeat, CancelSeat, SelectSeats, CancelSeats, SelectTicket, GetTicketList, GetTicketListSuccess, GetTicketListFail, TemporaryReservation, TemporaryReservationSuccess, TemporaryReservationFail, RegisterContact, RegisterContactSuccess, RegisterContactFail, AuthorizeCreditCard, AuthorizeCreditCardSuccess, AuthorizeCreditCardFail, AuthorizeMovieTicket, AuthorizeMovieTicketSuccess, AuthorizeMovieTicketFail, CheckMovieTicket, CheckMovieTicketSuccess, CheckMovieTicketFail, Reserve, ReserveSuccess, ReserveFail, Print, PrintSuccess, PrintFail, GetPurchaseHistory, GetPurchaseHistorySuccess, GetPurchaseHistoryFail, OrderAuthorize, OrderAuthorizeSuccess, OrderAuthorizeFail, AuthorizeAnyPayment, AuthorizeAnyPaymentSuccess, AuthorizeAnyPaymentFail, SelectPaymentMethodType */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6963,6 +7019,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetScreenFail", function() { return GetScreenFail; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectSeat", function() { return SelectSeat; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CancelSeat", function() { return CancelSeat; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectSeats", function() { return SelectSeats; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CancelSeats", function() { return CancelSeats; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectTicket", function() { return SelectTicket; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetTicketList", function() { return GetTicketList; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetTicketListSuccess", function() { return GetTicketListSuccess; });
@@ -7020,6 +7078,8 @@ var ActionTypes;
     ActionTypes["GetScreenFail"] = "[Purchase] Get Screen Fail";
     ActionTypes["SelectSeat"] = "[Purchase] Select Seat";
     ActionTypes["CancelSeat"] = "[Purchase] Cancel Seat";
+    ActionTypes["SelectSeats"] = "[Purchase] Select Seats";
+    ActionTypes["CancelSeats"] = "[Purchase] Cancel Seats";
     ActionTypes["GetTicketList"] = "[Purchase] Get Ticket List";
     ActionTypes["GetTicketListSuccess"] = "[Purchase] Get Ticket List Success";
     ActionTypes["GetTicketListFail"] = "[Purchase] Get Ticket List Fail";
@@ -7241,6 +7301,28 @@ var CancelSeat = /** @class */ (function () {
         this.type = ActionTypes.CancelSeat;
     }
     return CancelSeat;
+}());
+
+/**
+ * SelectSeats
+ */
+var SelectSeats = /** @class */ (function () {
+    function SelectSeats(payload) {
+        this.payload = payload;
+        this.type = ActionTypes.SelectSeats;
+    }
+    return SelectSeats;
+}());
+
+/**
+ * CancelSeat
+ */
+var CancelSeats = /** @class */ (function () {
+    function CancelSeats(payload) {
+        this.payload = payload;
+        this.type = ActionTypes.CancelSeats;
+    }
+    return CancelSeats;
 }());
 
 /**
@@ -9345,6 +9427,25 @@ function reducer(state, action) {
             });
             return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { reservations: reservations }) });
         }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].SelectSeats: {
+            var reservations_1 = state.purchase.reservations;
+            action.payload.seats.forEach(function (seat) {
+                reservations_1.push(new _models__WEBPACK_IMPORTED_MODULE_1__["Reservation"]({ seat: seat }));
+            });
+            state.purchase.reservations = reservations_1;
+            return __assign({}, state, { loading: false, error: null });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].CancelSeats: {
+            var reservations = state.purchase.reservations.filter(function (reservation) {
+                var findResult = action.payload.seats.find(function (seat) {
+                    return (reservation.seat.seatNumber !== seat.seatNumber
+                        || reservation.seat.seatSection !== seat.seatSection);
+                });
+                return (findResult === undefined);
+            });
+            state.purchase.reservations = reservations;
+            return __assign({}, state, { loading: false, error: null });
+        }
         case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetTicketList: {
             return __assign({}, state, { loading: true });
         }
@@ -9365,16 +9466,17 @@ function reducer(state, action) {
             return __assign({}, state, { loading: false, error: JSON.stringify(error) });
         }
         case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].SelectTicket: {
-            var reservations_1 = [];
+            var reservations_2 = [];
             state.purchase.reservations.forEach(function (reservation) {
                 if (Object.is(reservation, action.payload.reservation)) {
-                    reservations_1.push(action.payload.reservation);
+                    reservations_2.push(action.payload.reservation);
                 }
                 else {
-                    reservations_1.push(reservation);
+                    reservations_2.push(reservation);
                 }
             });
-            return __assign({}, state, { purchase: __assign({}, state.purchase, { reservations: reservations_1 }) });
+            state.purchase.reservations = reservations_2;
+            return __assign({}, state);
         }
         case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].TemporaryReservation: {
             return __assign({}, state, { loading: true });

@@ -10,9 +10,11 @@ import { IReservationSeat, Reservation, SeatStatus } from '../../../../models';
 import {
     ActionTypes,
     CancelSeat,
+    CancelSeats,
     GetScreen,
     GetTicketList,
     SelectSeat,
+    SelectSeats,
     TemporaryReservation
 } from '../../../../store/actions/purchase.action';
 import * as reducers from '../../../../store/reducers';
@@ -67,6 +69,46 @@ export class PurchaseSeatComponent implements OnInit {
             })
         );
         race(success, fail).pipe(take(1)).subscribe();
+    }
+
+    /**
+     * selectAll
+     */
+    public selectAll() {
+        this.cancelAll();
+        this.purchase.subscribe((purchase) => {
+            const seats: IReservationSeat[] = [];
+            purchase.screeningEventOffers.forEach((screeningEventOffer) => {
+                screeningEventOffer.containsPlace.forEach((place) => {
+                    if (place.offers === undefined || place.offers[0].availability !== 'InStock') {
+                        return;
+                    }
+                    const seat = {
+                        seatNumber: place.branchCode,
+                        seatSection: screeningEventOffer.branchCode
+                    };
+                    seats.push(seat);
+                });
+            });
+            if (purchase.authorizeSeatReservation !== undefined) {
+                purchase.authorizeSeatReservation.object.acceptedOffer.forEach((offer) => {
+                    const seat = offer.ticketedSeat;
+                    seats.push(seat);
+                });
+            }
+            this.store.dispatch(new SelectSeats({ seats }));
+        }).unsubscribe();
+
+    }
+
+    /**
+     * cancelAll
+     */
+    public cancelAll() {
+        this.purchase.subscribe((purchase) => {
+            const seats = purchase.reservations.map(reservation => reservation.seat);
+            this.store.dispatch(new CancelSeats({ seats }));
+        }).unsubscribe();
     }
 
     /**

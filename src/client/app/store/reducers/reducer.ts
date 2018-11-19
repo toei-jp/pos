@@ -224,6 +224,25 @@ export function reducer(
             });
             return { ...state, loading: false, error: null, purchase: { ...state.purchase, reservations } };
         }
+        case purchase.ActionTypes.SelectSeats: {
+            const reservations = state.purchase.reservations;
+            action.payload.seats.forEach((seat) => {
+                reservations.push(new Reservation({ seat }));
+            });
+            state.purchase.reservations = reservations;
+            return { ...state, loading: false, error: null };
+        }
+        case purchase.ActionTypes.CancelSeats: {
+            const reservations = state.purchase.reservations.filter((reservation) => {
+                const findResult = action.payload.seats.find((seat) => {
+                    return (reservation.seat.seatNumber !== seat.seatNumber
+                        || reservation.seat.seatSection !== seat.seatSection);
+                });
+                return (findResult === undefined);
+            });
+            state.purchase.reservations = reservations;
+            return { ...state, loading: false, error: null };
+        }
         case purchase.ActionTypes.GetTicketList: {
             return { ...state, loading: true };
         }
@@ -252,12 +271,8 @@ export function reducer(
                     reservations.push(reservation);
                 }
             });
-            return {
-                ...state, purchase: {
-                    ...state.purchase,
-                    reservations
-                }
-            };
+            state.purchase.reservations = reservations;
+            return { ...state };
         }
         case purchase.ActionTypes.TemporaryReservation: {
             return { ...state, loading: true };

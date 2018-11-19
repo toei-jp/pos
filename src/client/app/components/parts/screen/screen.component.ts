@@ -325,7 +325,7 @@ export class ScreenComponent implements OnInit, OnChanges, AfterViewInit {
         this.screenType = screenType;
     }
 
-    public seatSelect(seat: ISeat) {
+    public selectSeat(seat: ISeat) {
         if (this.isMobile() && !this.zoomState) {
             return;
         }

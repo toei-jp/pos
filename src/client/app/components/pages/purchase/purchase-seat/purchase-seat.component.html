@@ -1,5 +1,5 @@
 <div class="py-4">
-    
+
     <h2 class="text-center large-text text-white mb-4">座席選択</h2>
 
     <p class="p-3 large-text bg-white mb-3">{{ (purchase | async).screeningEvent?.name.ja }}</p>
@@ -19,6 +19,8 @@
     </div>
 
     <div class="px-5 mb-4">
+        <button type="button" class="btn bg-primary py-2 text-white mb-3 mr-3" (click)="selectAll()">すべての座席を選択する</button>
+        <button type="button" class="btn bg-primary py-2 text-white mb-3" (click)="cancelAll()">すべての座席を解除する</button>
         <div class="bg-white">
             <div class="pt-4 pb-3 d-flex justify-content-center align-items-center seats border-bottom mx-auto">
                 <div class="mx-3 d-flex align-items-center">

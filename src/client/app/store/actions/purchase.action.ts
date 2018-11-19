@@ -23,6 +23,8 @@ export enum ActionTypes {
     GetScreenFail = '[Purchase] Get Screen Fail',
     SelectSeat = '[Purchase] Select Seat',
     CancelSeat = '[Purchase] Cancel Seat',
+    SelectSeats = '[Purchase] Select Seats',
+    CancelSeats = '[Purchase] Cancel Seats',
     GetTicketList = '[Purchase] Get Ticket List',
     GetTicketListSuccess = '[Purchase] Get Ticket List Success',
     GetTicketListFail = '[Purchase] Get Ticket List Fail',
@@ -201,7 +203,6 @@ export class GetScreenFail implements Action {
     constructor(public payload: { error: Error }) { }
 }
 
-
 /**
  * SelectSeat
  */
@@ -216,6 +217,23 @@ export class SelectSeat implements Action {
 export class CancelSeat implements Action {
     public readonly type = ActionTypes.CancelSeat;
     constructor(public payload: { seat: IReservationSeat }) { }
+}
+
+
+/**
+ * SelectSeats
+ */
+export class SelectSeats implements Action {
+    public readonly type = ActionTypes.SelectSeats;
+    constructor(public payload: { seats: IReservationSeat[] }) { }
+}
+
+/**
+ * CancelSeat
+ */
+export class CancelSeats implements Action {
+    public readonly type = ActionTypes.CancelSeats;
+    constructor(public payload: { seats: IReservationSeat[] }) { }
 }
 
 /**
@@ -587,6 +605,8 @@ export type Actions =
     | GetScreenFail
     | SelectSeat
     | CancelSeat
+    | SelectSeats
+    | CancelSeats
     | GetTicketList
     | GetTicketListSuccess
     | GetTicketListFail
