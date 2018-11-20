@@ -118,6 +118,22 @@ MIT
 MIT
 MIT
 
+@chevre/factory@1.0.0-alpha.42
+ISC
+ISC
+
+@cinerino/api-abstract-client@1.0.0-alpha.60
+ISC
+ISC
+
+@cinerino/api-javascript-client@1.0.0-alpha.22
+ISC
+ISC
+
+@cinerino/factory@1.0.0-alpha.62
+ISC
+ISC
+
 @ng-bootstrap/ng-bootstrap@3.3.1
 MIT
 The MIT License (MIT)
@@ -151,22 +167,6 @@ MIT
 MIT
 
 @pecorino/factory@1.1.0
-ISC
-ISC
-
-@toei-jp/chevre-factory@1.0.0-alpha.37
-ISC
-ISC
-
-@toei-jp/cinerino-api-abstract-client@1.0.1-alpha.4
-ISC
-ISC
-
-@toei-jp/cinerino-api-javascript-client@1.0.0-alpha.35
-ISC
-ISC
-
-@toei-jp/cinerino-factory@1.0.1-alpha.23
 ISC
 ISC
 

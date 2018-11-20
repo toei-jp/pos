@@ -6,6 +6,7 @@ import { select, Store } from '@ngrx/store';
 import * as moment from 'moment';
 import { Observable, race } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
+import { getTicketPrice } from '../../../../functions';
 import { Print } from '../../../../store/actions/purchase.action';
 import { ActionTypes } from '../../../../store/actions/purchase.action';
 import * as reducers from '../../../../store/reducers';
@@ -22,6 +23,7 @@ export class PurchaseCompleteComponent implements OnInit {
     public isLoading: Observable<boolean>;
     public error: Observable<string | null>;
     public moment: typeof moment = moment;
+    public getTicketPrice = getTicketPrice;
 
     constructor(
         private store: Store<reducers.IState>,

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const cinerino = require("@toei-jp/cinerino-api-nodejs-client");
+const cinerino = require("@cinerino/api-nodejs-client");
 const uuid = require("uuid");
 /**
  * 認証モデル

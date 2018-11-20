@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { factory } from '@toei-jp/cinerino-api-javascript-client';
+import { factory } from '@cinerino/api-javascript-client';
 import * as moment from 'moment';
-import { IScreeningEventFilm } from '../../../store/functions';
+import { IScreeningEventFilm } from '../../../functions';
 
 @Component({
     selector: 'app-purchase-schedule-film',

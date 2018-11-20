@@ -1,19 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { factory } from '@cinerino/api-javascript-client';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { factory } from '@toei-jp/cinerino-api-javascript-client';
 import * as moment from 'moment';
 import { map, mergeMap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-import { IScreen } from '../../models';
-import { CinerinoService, StarPrintService, UtilService } from '../../services';
-import * as purchase from '../actions/purchase.action';
 import {
     createGmoTokenObject,
     createMovieTicketsFromAuthorizeSeatReservation,
     createOrderId,
     formatTelephone
-} from '../functions';
+} from '../../functions';
+import { IScreen } from '../../models';
+import { CinerinoService, StarPrintService, UtilService } from '../../services';
+import * as purchase from '../actions/purchase.action';
 
 /**
  * Purchase Effects
@@ -341,7 +341,7 @@ export class PurchaseEffects {
                                 reservedTicket: {
                                     ticketedSeat: {
                                         typeOf: factory.chevre.placeType.Seat,
-                                        seatingType: '', // 情報空でよし
+                                        seatingType: <any>'', // 情報空でよし
                                         seatNumber: '', // 情報空でよし
                                         seatRow: '', // 情報空でよし
                                         seatSection: '' // 情報空でよし

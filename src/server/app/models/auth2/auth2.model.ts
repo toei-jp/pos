@@ -1,4 +1,4 @@
-import * as cinerino from '@toei-jp/cinerino-api-nodejs-client';
+import * as cinerino from '@cinerino/api-nodejs-client';
 
 /**
  * 認証セッション

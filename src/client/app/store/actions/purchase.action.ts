@@ -1,5 +1,5 @@
+import { factory } from '@cinerino/api-javascript-client';
 import { Action } from '@ngrx/store';
-import { factory } from '@toei-jp/cinerino-api-javascript-client';
 import { IReservationSeat, IScreen, Reservation } from '../../models';
 
 /**

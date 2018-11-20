@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { factory } from '@toei-jp/cinerino-api-javascript-client';
+import { factory } from '@cinerino/api-javascript-client';
 import * as moment from 'moment';
 import * as qrcode from 'qrcode';
+import { getTicketPrice } from '../functions';
 import { CinerinoService } from './cinerino.service';
 
 @Injectable({
@@ -131,7 +132,7 @@ export class StarPrintService {
             startDate: moment(order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YY/MM/DD (ddd) HH:mm'),
             seatNumber: acceptedOffer.itemOffered.reservedTicket.ticketedSeat.seatNumber,
             ticketName: acceptedOffer.itemOffered.reservedTicket.ticketType.name.ja,
-            price: acceptedOffer.itemOffered.reservedTicket.totalPrice,
+            price: getTicketPrice(acceptedOffer).total,
             qrcode: <string>acceptedOffer.itemOffered.reservedTicket.ticketToken
         };
         const context = await this.draw({

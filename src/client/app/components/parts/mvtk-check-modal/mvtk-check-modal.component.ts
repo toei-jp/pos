@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { factory } from '@cinerino/api-javascript-client';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Actions, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
-import { factory } from '@toei-jp/cinerino-api-javascript-client';
 import jsqr from 'jsqr';
 import { Observable, race } from 'rxjs';
 import { take, tap } from 'rxjs/operators';

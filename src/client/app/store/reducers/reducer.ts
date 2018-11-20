@@ -1,15 +1,15 @@
-import { factory } from '@toei-jp/cinerino-api-javascript-client';
-import { IScreen, Reservation } from '../../models';
-import * as inquiry from '../actions/inquiry.action';
-import * as purchase from '../actions/purchase.action';
-import * as user from '../actions/user.action';
+import { factory } from '@cinerino/api-javascript-client';
 import {
     createPaymentMethodFromType,
     createScreeningFilmEvents,
     isAvailabilityMovieTicket,
     IScreeningEventFilm,
     sameMovieTicketFilter
-} from '../functions';
+} from '../../functions';
+import { IScreen, Reservation } from '../../models';
+import * as inquiry from '../actions/inquiry.action';
+import * as purchase from '../actions/purchase.action';
+import * as user from '../actions/user.action';
 
 /**
  * IPurchaseState

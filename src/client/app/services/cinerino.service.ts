@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import * as cinerino from '@toei-jp/cinerino-api-javascript-client';
+import * as cinerino from '@cinerino/api-javascript-client';
 import { environment } from '../../environments/environment';
 
 @Injectable({

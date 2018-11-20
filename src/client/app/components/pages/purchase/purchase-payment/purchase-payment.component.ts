@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { factory } from '@cinerino/api-javascript-client';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { select, Store } from '@ngrx/store';
-import { factory } from '@toei-jp/cinerino-api-javascript-client';
 import { Observable } from 'rxjs';
 import { SelectPaymentMethodType } from '../../../../store/actions/purchase.action';
 import * as reducers from '../../../../store/reducers';
