@@ -23,7 +23,7 @@
             <button *ngIf="reservation.ticket === undefined" type="button" (click)="openTicketList(reservation)" class="btn btn-block rounded-0 py-3 bg-white">券種を選択してください</button>
             <button *ngIf="reservation.ticket !== undefined" type="button" (click)="openTicketList(reservation)" class="btn btn-block rounded-0 py-3 bg-white">{{
                 reservation.ticket.ticketOffer.name.ja | slice:0:10 }} {{
-                reservation.getTicketPrice().total | currency : 'JPY' }}</button>
+                reservation.getTicketPrice().single | currency : 'JPY' }}</button>
         </div>
     </div>
 

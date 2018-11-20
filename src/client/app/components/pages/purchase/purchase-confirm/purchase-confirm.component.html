@@ -29,7 +29,7 @@
                     <div *ngFor="let reservation of (purchase | async).reservations" class="mb-2">
                         <p>{{ reservation.seat.seatNumber }}</p>
                         <p *ngIf="reservation.ticket">{{ reservation.ticket.ticketOffer.name.ja }} / {{
-                            reservation.getTicketPrice().total | currency : 'JPY' }}</p>
+                            reservation.getTicketPrice().single | currency : 'JPY' }}</p>
                     </div>
                 </div>
             </div>

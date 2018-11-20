@@ -132,7 +132,7 @@ export class StarPrintService {
             startDate: moment(order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YY/MM/DD (ddd) HH:mm'),
             seatNumber: acceptedOffer.itemOffered.reservedTicket.ticketedSeat.seatNumber,
             ticketName: acceptedOffer.itemOffered.reservedTicket.ticketType.name.ja,
-            price: getTicketPrice(acceptedOffer).total,
+            price: getTicketPrice(acceptedOffer).single,
             qrcode: <string>acceptedOffer.itemOffered.reservedTicket.ticketToken
         };
         const context = await this.draw({

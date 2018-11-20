@@ -211,24 +211,20 @@ export function getTicketPrice(ticket: factory.chevre.event.screeningEvent.ITick
         videoFormatCharge: 0,
         soundFormatCharge: 0,
         movieTicketTypeCharge: 0,
-        total: 0
+        total: 0,
+        single: 0
     };
     if (ticket.priceSpecification === undefined) {
         return result;
     }
     const priceComponent = (<factory.chevre.event.screeningEvent.ITicketPriceSpecification>ticket.priceSpecification).priceComponent;
-    const unitPriceSpecifications = priceComponent
-        .filter((s) => s.typeOf === factory.chevre.priceSpecificationType.UnitPriceSpecification);
-    const videoFormatCharges = priceComponent
-        .filter((s) => s.typeOf === factory.chevre.priceSpecificationType.VideoFormatChargeSpecification);
-    const soundFormatCharges = priceComponent
-        .filter((s) => s.typeOf === factory.chevre.priceSpecificationType.SoundFormatChargeSpecification);
-    const movieTicketTypeCharges = priceComponent
-        .filter((s) => s.typeOf === factory.chevre.priceSpecificationType.MovieTicketTypeChargeSpecification);
+    const priceSpecificationType = factory.chevre.priceSpecificationType;
+    const unitPriceSpecifications = priceComponent.filter((s) => s.typeOf === priceSpecificationType.UnitPriceSpecification);
+    const videoFormatCharges = priceComponent.filter((s) => s.typeOf === priceSpecificationType.VideoFormatChargeSpecification);
+    const soundFormatCharges = priceComponent.filter((s) => s.typeOf === priceSpecificationType.SoundFormatChargeSpecification);
+    const movieTicketTypeCharges = priceComponent.filter((s) => s.typeOf === priceSpecificationType.MovieTicketTypeChargeSpecification);
 
-    unitPriceSpecifications.forEach((unitPriceSpecification) => {
-        result.unitPriceSpecification += unitPriceSpecification.price;
-    });
+    result.unitPriceSpecification += unitPriceSpecifications[0].price;
     videoFormatCharges.forEach((videoFormatCharge) => {
         result.videoFormatCharge += videoFormatCharge.price;
     });
@@ -239,6 +235,13 @@ export function getTicketPrice(ticket: factory.chevre.event.screeningEvent.ITick
         result.movieTicketTypeCharge += movieTicketTypeCharge.price;
     });
     result.total = result.unitPriceSpecification + result.videoFormatCharge + result.soundFormatCharge + result.movieTicketTypeCharge;
+    const unitPriceSpecification = unitPriceSpecifications[0];
+    if (unitPriceSpecification.typeOf === priceSpecificationType.UnitPriceSpecification) {
+        const referenceQuantityValue = (unitPriceSpecification.referenceQuantity.value === undefined)
+            ? 1
+            : unitPriceSpecification.referenceQuantity.value;
+        result.single = result.total / referenceQuantityValue;
+    }
 
     return result;
 }
