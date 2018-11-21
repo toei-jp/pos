@@ -439,6 +439,8 @@ export class Reserve implements Action {
     public readonly type = ActionTypes.Reserve;
     constructor(public payload: {
         transaction: factory.transaction.placeOrder.ITransaction;
+        screeningEvent: factory.chevre.event.screeningEvent.IEvent;
+        reservations: Reservation[];
     }) { }
 }
 

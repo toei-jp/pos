@@ -7,6 +7,8 @@ export const environment = {
 
     ENV: 'production',
 
+    SITE_URL: 'https://toei-pos-production.azurewebsites.net',
+
     API_ENDPOINT: 'https://toei-cinerino-api-production.azurewebsites.net',
 
     ENTRANCE_SERVER_URL: '',

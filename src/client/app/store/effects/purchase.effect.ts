@@ -4,6 +4,7 @@ import { factory } from '@cinerino/api-javascript-client';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import * as moment from 'moment';
 import { map, mergeMap } from 'rxjs/operators';
+import { format } from 'util';
 import { environment } from '../../../environments/environment';
 import {
     createGmoTokenObject,
@@ -11,6 +12,7 @@ import {
     createOrderId,
     formatTelephone
 } from '../../functions';
+import { getPurchaseCompleteTemplate } from '../../mails';
 import { IScreen } from '../../models';
 import { CinerinoService, StarPrintService, UtilService } from '../../services';
 import * as purchase from '../actions/purchase.action';
@@ -372,12 +374,34 @@ export class PurchaseEffects {
         map(action => action.payload),
         mergeMap(async (payload) => {
             const transaction = payload.transaction;
+            const screeningEvent = payload.screeningEvent;
+            const reservations = payload.reservations;
+
             try {
                 await this.cinerino.getServices();
                 const result = await this.cinerino.transaction.placeOrder.confirm({
                     id: transaction.id,
                     options: {
-                        sendEmailMessage: true
+                        sendEmailMessage: true,
+                        emailTemplate: getPurchaseCompleteTemplate({
+                            eventStartDate: moment(screeningEvent.startDate).format('YYYY年MM月DD日(ddd) HH:mm'),
+                            eventEndDate: moment(screeningEvent.endDate).format('HH:mm'),
+                            workPerformedName: screeningEvent.workPerformed.name,
+                            screenName: screeningEvent.location.name.ja,
+                            screenAddress: (screeningEvent.location.address !== undefined)
+                                ? `(${screeningEvent.location.address.ja})`
+                                : '',
+                            reservedSeats: reservations.map((reservation) => {
+                                return format(
+                                    '%s %s %s %s',
+                                    reservation.seat.seatNumber,
+                                    (reservation.ticket === undefined) ? '' : reservation.ticket.ticketOffer.name.ja,
+                                    reservation.getTicketPrice().single,
+                                    (reservation.ticket === undefined) ? '' : reservation.ticket.ticketOffer.priceCurrency
+                                );
+                            }).join('\n'),
+                            inquiryUrl: `${environment.SITE_URL}/#/inquiry/input`
+                        })
                     }
                 });
 

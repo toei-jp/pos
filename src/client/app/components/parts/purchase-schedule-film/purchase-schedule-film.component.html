@@ -5,7 +5,7 @@
             screeningFilmEvent.info.workPerformed.contentRating }}</div>
         <div *ngIf="screeningFilmEvent.info.superEvent.dubLanguage" class="small-text text-white bg-gray py-1 px-3 mx-2">吹替版</div>
         <div *ngIf="screeningFilmEvent.info.superEvent.subtitleLanguage" class="small-text text-white bg-gray py-1 px-3 mx-2">字幕版</div>
-        <div class="small-text mx-2">{{ moment.duration(screeningFilmEvent.info.workPerformed.duration).asMinutes() }}分</div>
+        <div *ngIf="screeningFilmEvent.info.workPerformed.duration !== null" class="small-text mx-2">{{ moment.duration(screeningFilmEvent.info.workPerformed.duration).asMinutes() }}分</div>
     </div>
 </div>
 <ul class="bg-light p-3">
