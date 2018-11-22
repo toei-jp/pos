@@ -455,7 +455,7 @@ export function reducer(
         }
         case inquiry.ActionTypes.Delete: {
             state.inquiry = {};
-            return { ...state };
+            return { ...state, loading: false, error: null };
         }
         case inquiry.ActionTypes.Inquiry: {
             return { ...state, loading: true };
