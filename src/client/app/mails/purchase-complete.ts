@@ -1,13 +1,13 @@
 // tslint:disable:max-line-length
 
 export function getPurchaseCompleteTemplate(args: {
-    eventStartDate: string;
-    eventEndDate: string;
+    order: { date: string; };
+    event: { startDate: string; endDate: string; };
     workPerformedName: string;
-    screenName: string;
-    screenAddress: string;
+    screen: { name: string; address: string; };
     reservedSeats: string;
     inquiryUrl: string;
+    seller: { telephone: string; }
 }) {
     return `
 | #{order.customer.familyName} #{order.customer.givenName} 様
@@ -17,16 +17,16 @@ export function getPurchaseCompleteTemplate(args: {
 | #{order.confirmationNumber}
 |
 | [注文日時]
-| #{order.orderDate}
+| ${args.order.date}
 |
 | [上映日時]
-| ${args.eventStartDate} - ${args.eventEndDate}
+| ${args.event.startDate} - ${args.event.endDate}
 |
 | [作品名]
 | ${args.workPerformedName}
 |
 | [スクリーン名]
-| ${args.screenName} ${args.screenAddress}
+| ${args.screen.name} ${args.screen.address}
 |
 | [座席]
 | ${args.reservedSeats}
@@ -59,6 +59,6 @@ export function getPurchaseCompleteTemplate(args: {
 | ご不明な点がございましたら、下記番号までお問合わせください。
 | お問い合わせはこちら
 | #{order.seller.name}
-| TEL：#{order.seller.telephone}
-    `;
+| TEL：${args.seller.telephone}
+`;
 }

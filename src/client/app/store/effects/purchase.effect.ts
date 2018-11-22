@@ -14,6 +14,7 @@ import {
 } from '../../functions';
 import { getPurchaseCompleteTemplate } from '../../mails';
 import { IScreen } from '../../models';
+import { LibphonenumberFormatPipe } from '../../pipes/libphonenumber-format.pipe';
 import { CinerinoService, StarPrintService, UtilService } from '../../services';
 import * as purchase from '../actions/purchase.action';
 
@@ -376,6 +377,7 @@ export class PurchaseEffects {
             const transaction = payload.transaction;
             const screeningEvent = payload.screeningEvent;
             const reservations = payload.reservations;
+            const movieTheater = payload.movieTheater;
 
             try {
                 await this.cinerino.getServices();
@@ -384,23 +386,28 @@ export class PurchaseEffects {
                     options: {
                         sendEmailMessage: true,
                         emailTemplate: getPurchaseCompleteTemplate({
-                            eventStartDate: moment(screeningEvent.startDate).format('YYYY年MM月DD日(ddd) HH:mm'),
-                            eventEndDate: moment(screeningEvent.endDate).format('HH:mm'),
+                            order: { date: moment().format('YYYY年MM月DD日(ddd) HH:mm') },
+                            event: {
+                                startDate: moment(screeningEvent.startDate).format('YYYY年MM月DD日(ddd) HH:mm'),
+                                endDate: moment(screeningEvent.endDate).format('HH:mm')
+                            },
                             workPerformedName: screeningEvent.workPerformed.name,
-                            screenName: screeningEvent.location.name.ja,
-                            screenAddress: (screeningEvent.location.address !== undefined)
-                                ? `(${screeningEvent.location.address.ja})`
-                                : '',
+                            screen: {
+                                name: screeningEvent.location.name.ja,
+                                address: (screeningEvent.location.address !== undefined)
+                                    ? `(${screeningEvent.location.address.ja})`
+                                    : ''
+                            },
                             reservedSeats: reservations.map((reservation) => {
                                 return format(
-                                    '%s %s %s %s',
+                                    '%s %s %s',
                                     reservation.seat.seatNumber,
                                     (reservation.ticket === undefined) ? '' : reservation.ticket.ticketOffer.name.ja,
-                                    reservation.getTicketPrice().single,
-                                    (reservation.ticket === undefined) ? '' : reservation.ticket.ticketOffer.priceCurrency
+                                    `￥${reservation.getTicketPrice().single}`
                                 );
-                            }).join('\n'),
-                            inquiryUrl: `${environment.SITE_URL}/#/inquiry/input`
+                            }).join('\n| '),
+                            inquiryUrl: `${environment.SITE_URL}/#/inquiry/input`,
+                            seller: { telephone: new LibphonenumberFormatPipe().transform(movieTheater.telephone) }
                         })
                     }
                 });

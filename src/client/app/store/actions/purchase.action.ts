@@ -441,6 +441,7 @@ export class Reserve implements Action {
         transaction: factory.transaction.placeOrder.ITransaction;
         screeningEvent: factory.chevre.event.screeningEvent.IEvent;
         reservations: Reservation[];
+        movieTheater: factory.organization.movieTheater.IOrganization;
     }) { }
 }
 
