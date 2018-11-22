@@ -28,7 +28,7 @@ export enum ActionTypes {
     GetTicketList = '[Purchase] Get Ticket List',
     GetTicketListSuccess = '[Purchase] Get Ticket List Success',
     GetTicketListFail = '[Purchase] Get Ticket List Fail',
-    SelectTicket = '[Purchase] Select Ticket',
+    SelectTickets = '[Purchase] Select Tickets',
     TemporaryReservation = '[Purchase] Temporary Reservation',
     TemporaryReservationSuccess = '[Purchase] Temporary Reservation Success',
     TemporaryReservationFail = '[Purchase] Temporary Reservation Fail',
@@ -237,11 +237,11 @@ export class CancelSeats implements Action {
 }
 
 /**
- * SelectTicket
+ * SelectTickets
  */
-export class SelectTicket implements Action {
-    public readonly type = ActionTypes.SelectTicket;
-    constructor(public payload: { reservation: Reservation }) { }
+export class SelectTickets implements Action {
+    public readonly type = ActionTypes.SelectTickets;
+    constructor(public payload: { reservations: Reservation[] }) { }
 }
 
 /**
@@ -613,7 +613,7 @@ export type Actions =
     | GetTicketList
     | GetTicketListSuccess
     | GetTicketListFail
-    | SelectTicket
+    | SelectTickets
     | TemporaryReservation
     | TemporaryReservationSuccess
     | TemporaryReservationFail

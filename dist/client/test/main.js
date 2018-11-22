@@ -3355,10 +3355,12 @@ var PurchaseTicketComponent = /** @class */ (function () {
             modalRef.componentInstance.checkMovieTicketActions = [];
             modalRef.componentInstance.reservations = purchase.reservations;
             modalRef.result.then(function (ticket) {
+                var reservations = [];
                 purchase.reservations.forEach(function (reservation) {
                     reservation.ticket = ticket;
-                    _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["SelectTicket"]({ reservation: reservation }));
+                    reservations.push(reservation);
                 });
+                _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["SelectTickets"]({ reservations: reservations }));
             }).catch(function () { });
         }).unsubscribe();
     };
@@ -3373,7 +3375,7 @@ var PurchaseTicketComponent = /** @class */ (function () {
             modalRef.componentInstance.reservations = purchase.reservations;
             modalRef.result.then(function (ticket) {
                 reservation.ticket = ticket;
-                _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["SelectTicket"]({ reservation: reservation }));
+                _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["SelectTickets"]({ reservations: [reservation] }));
             }).catch(function () { });
         }).unsubscribe();
     };
@@ -7437,7 +7439,7 @@ var InquiryFail = /** @class */ (function () {
 /*!**********************************************!*\
   !*** ./app/store/actions/purchase.action.ts ***!
   \**********************************************/
-/*! exports provided: ActionTypes, Delete, GetTheaters, GetTheatersSuccess, GetTheatersFail, SelectTheater, GetSchedule, GetScheduleSuccess, GetScheduleFail, SelectSchedule, StartTransaction, StartTransactionSuccess, StartTransactionFail, GetScreen, GetScreenSuccess, GetScreenFail, SelectSeat, CancelSeat, SelectSeats, CancelSeats, SelectTicket, GetTicketList, GetTicketListSuccess, GetTicketListFail, TemporaryReservation, TemporaryReservationSuccess, TemporaryReservationFail, RegisterContact, RegisterContactSuccess, RegisterContactFail, AuthorizeCreditCard, AuthorizeCreditCardSuccess, AuthorizeCreditCardFail, AuthorizeMovieTicket, AuthorizeMovieTicketSuccess, AuthorizeMovieTicketFail, CheckMovieTicket, CheckMovieTicketSuccess, CheckMovieTicketFail, Reserve, ReserveSuccess, ReserveFail, Print, PrintSuccess, PrintFail, GetPurchaseHistory, GetPurchaseHistorySuccess, GetPurchaseHistoryFail, OrderAuthorize, OrderAuthorizeSuccess, OrderAuthorizeFail, AuthorizeAnyPayment, AuthorizeAnyPaymentSuccess, AuthorizeAnyPaymentFail, SelectPaymentMethodType */
+/*! exports provided: ActionTypes, Delete, GetTheaters, GetTheatersSuccess, GetTheatersFail, SelectTheater, GetSchedule, GetScheduleSuccess, GetScheduleFail, SelectSchedule, StartTransaction, StartTransactionSuccess, StartTransactionFail, GetScreen, GetScreenSuccess, GetScreenFail, SelectSeat, CancelSeat, SelectSeats, CancelSeats, SelectTickets, GetTicketList, GetTicketListSuccess, GetTicketListFail, TemporaryReservation, TemporaryReservationSuccess, TemporaryReservationFail, RegisterContact, RegisterContactSuccess, RegisterContactFail, AuthorizeCreditCard, AuthorizeCreditCardSuccess, AuthorizeCreditCardFail, AuthorizeMovieTicket, AuthorizeMovieTicketSuccess, AuthorizeMovieTicketFail, CheckMovieTicket, CheckMovieTicketSuccess, CheckMovieTicketFail, Reserve, ReserveSuccess, ReserveFail, Print, PrintSuccess, PrintFail, GetPurchaseHistory, GetPurchaseHistorySuccess, GetPurchaseHistoryFail, OrderAuthorize, OrderAuthorizeSuccess, OrderAuthorizeFail, AuthorizeAnyPayment, AuthorizeAnyPaymentSuccess, AuthorizeAnyPaymentFail, SelectPaymentMethodType */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7462,7 +7464,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CancelSeat", function() { return CancelSeat; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectSeats", function() { return SelectSeats; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CancelSeats", function() { return CancelSeats; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectTicket", function() { return SelectTicket; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectTickets", function() { return SelectTickets; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetTicketList", function() { return GetTicketList; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetTicketListSuccess", function() { return GetTicketListSuccess; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetTicketListFail", function() { return GetTicketListFail; });
@@ -7524,7 +7526,7 @@ var ActionTypes;
     ActionTypes["GetTicketList"] = "[Purchase] Get Ticket List";
     ActionTypes["GetTicketListSuccess"] = "[Purchase] Get Ticket List Success";
     ActionTypes["GetTicketListFail"] = "[Purchase] Get Ticket List Fail";
-    ActionTypes["SelectTicket"] = "[Purchase] Select Ticket";
+    ActionTypes["SelectTickets"] = "[Purchase] Select Tickets";
     ActionTypes["TemporaryReservation"] = "[Purchase] Temporary Reservation";
     ActionTypes["TemporaryReservationSuccess"] = "[Purchase] Temporary Reservation Success";
     ActionTypes["TemporaryReservationFail"] = "[Purchase] Temporary Reservation Fail";
@@ -7767,14 +7769,14 @@ var CancelSeats = /** @class */ (function () {
 }());
 
 /**
- * SelectTicket
+ * SelectTickets
  */
-var SelectTicket = /** @class */ (function () {
-    function SelectTicket(payload) {
+var SelectTickets = /** @class */ (function () {
+    function SelectTickets(payload) {
         this.payload = payload;
-        this.type = ActionTypes.SelectTicket;
+        this.type = ActionTypes.SelectTickets;
     }
-    return SelectTicket;
+    return SelectTickets;
 }());
 
 /**
@@ -9699,14 +9701,16 @@ function reducer(state, action) {
             var error = action.payload.error;
             return __assign({}, state, { loading: false, error: JSON.stringify(error) });
         }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].SelectTicket: {
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].SelectTickets: {
             var reservations_2 = [];
+            var selectedReservations_1 = action.payload.reservations;
             state.purchase.reservations.forEach(function (reservation) {
-                if (Object.is(reservation, action.payload.reservation)) {
-                    reservations_2.push(action.payload.reservation);
+                var findResult = selectedReservations_1.find(function (selectedReservation) { return Object.is(reservation, selectedReservation); });
+                if (findResult === undefined) {
+                    reservations_2.push(reservation);
                 }
                 else {
-                    reservations_2.push(reservation);
+                    reservations_2.push(findResult);
                 }
             });
             state.purchase.reservations = reservations_2;

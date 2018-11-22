@@ -262,13 +262,16 @@ export function reducer(
             const error = action.payload.error;
             return { ...state, loading: false, error: JSON.stringify(error) };
         }
-        case purchase.ActionTypes.SelectTicket: {
+        case purchase.ActionTypes.SelectTickets: {
             const reservations: Reservation[] = [];
+            const selectedReservations = action.payload.reservations;
             state.purchase.reservations.forEach((reservation) => {
-                if (Object.is(reservation, action.payload.reservation)) {
-                    reservations.push(action.payload.reservation);
-                } else {
+                const findResult =
+                    selectedReservations.find(selectedReservation => Object.is(reservation, selectedReservation));
+                if (findResult === undefined) {
                     reservations.push(reservation);
+                } else {
+                    reservations.push(findResult);
                 }
             });
             state.purchase.reservations = reservations;

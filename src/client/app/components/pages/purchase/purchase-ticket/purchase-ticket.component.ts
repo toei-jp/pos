@@ -7,7 +7,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable, race } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
 import { IReservationTicket, Reservation } from '../../../../models/purchase/reservation';
-import { ActionTypes, SelectTicket, TemporaryReservation } from '../../../../store/actions/purchase.action';
+import { ActionTypes, SelectTickets, TemporaryReservation } from '../../../../store/actions/purchase.action';
 import * as reducers from '../../../../store/reducers';
 import { AlertModalComponent } from '../../../parts/alert-modal/alert-modal.component';
 import { MvtkCheckModalComponent } from '../../../parts/mvtk-check-modal/mvtk-check-modal.component';
@@ -122,10 +122,12 @@ export class PurchaseTicketComponent implements OnInit {
             modalRef.componentInstance.checkMovieTicketActions = [];
             modalRef.componentInstance.reservations = purchase.reservations;
             modalRef.result.then((ticket: IReservationTicket) => {
+                const reservations: Reservation[] = [];
                 purchase.reservations.forEach((reservation) => {
                     reservation.ticket = ticket;
-                    this.store.dispatch(new SelectTicket({ reservation }));
+                    reservations.push(reservation);
                 });
+                this.store.dispatch(new SelectTickets({ reservations }));
             }).catch(() => { });
         }).unsubscribe();
     }
@@ -141,7 +143,7 @@ export class PurchaseTicketComponent implements OnInit {
 
             modalRef.result.then((ticket: IReservationTicket) => {
                 reservation.ticket = ticket;
-                this.store.dispatch(new SelectTicket({ reservation }));
+                this.store.dispatch(new SelectTickets({ reservations: [reservation] }));
             }).catch(() => { });
         }).unsubscribe();
     }
