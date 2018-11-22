@@ -2922,7 +2922,7 @@ var PurchaseScheduleComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-4\">\n\n    <h2 class=\"text-center large-text text-white mb-4\">座席選択</h2>\n\n    <p class=\"p-3 large-text bg-white mb-3\">{{ (purchase | async).screeningEvent?.name.ja }}</p>\n\n    <div class=\"d-flex justify-content-center align-items-center mb-3 text-white\">\n        <div class=\"d-flex align-items-center mx-3\">\n            <div class=\"small-text border p-2\">スクリーン</div>\n            <div class=\"large-text ml-3\"><strong>{{ (purchase | async).screeningEvent?.location.name.ja }}</strong></div>\n        </div>\n        <div class=\"d-flex align-items-center mx-3\">\n            <div class=\"small-text border p-2\">上映時間</div>\n            <div class=\"ml-3 text-warning\">\n                <strong class=\"large-text\">{{ moment((purchase | async).screeningEvent?.startDate).format('HH:mm') }}</strong>\n                <span> - {{ moment((purchase | async).screeningEvent?.endDate).format('HH:mm') }}</span>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"px-5 mb-4\">\n        <button type=\"button\" class=\"btn bg-primary py-2 text-white mb-3 mr-3\" (click)=\"selectAll()\">すべての座席を選択する</button>\n        <button type=\"button\" class=\"btn bg-primary py-2 text-white mb-3\" (click)=\"cancelAll()\">すべての座席を解除する</button>\n        <div class=\"bg-white\">\n            <div class=\"pt-4 pb-3 d-flex justify-content-center align-items-center seats border-bottom mx-auto\">\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/parts/seat.svg\"></div>\n                    <div class=\"ml-3\">空席</div>\n                </div>\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/parts/seat_active.svg\"></div>\n                    <div class=\"ml-3\">選択中</div>\n                </div>\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/parts/seat_disabled.svg\"></div>\n                    <div class=\"ml-3\">購入不可</div>\n                </div>\n            </div>\n        </div>\n        <app-screen class=\"bg-white\" [screenData]=\"(purchase | async).screenData\" [screeningEventOffers]=\"(purchase | async).screeningEventOffers\"\n            [reservations]=\"(purchase | async).reservations\" [authorizeSeatReservation]=\"(purchase | async).authorizeSeatReservation\"\n            (select)=\"selectSeat($event)\">\n        </app-screen>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" [disabled]=\"isLoading | async\"\n            (click)=\"onSubmit()\">次へ</button>\n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/purchase/schedule\"></app-navigation>"
+module.exports = "<div class=\"py-4\">\n\n    <h2 class=\"text-center large-text text-white mb-4\">座席選択</h2>\n\n    <p class=\"p-3 large-text bg-white mb-3\">{{ (purchase | async).screeningEvent?.name.ja }}</p>\n\n    <div class=\"d-flex justify-content-center align-items-center mb-3 text-white\">\n        <div class=\"d-flex align-items-center mx-3\">\n            <div class=\"small-text border p-2\">スクリーン</div>\n            <div class=\"large-text ml-3\"><strong>{{ (purchase | async).screeningEvent?.location.name.ja }}</strong></div>\n        </div>\n        <div class=\"d-flex align-items-center mx-3\">\n            <div class=\"small-text border p-2\">上映時間</div>\n            <div class=\"ml-3 text-warning\">\n                <strong class=\"large-text\">{{ moment((purchase | async).screeningEvent?.startDate).format('HH:mm') }}</strong>\n                <span> - {{ moment((purchase | async).screeningEvent?.endDate).format('HH:mm') }}</span>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"px-5 mb-4\">\n        <button type=\"button\" class=\"btn bg-primary py-2 text-white mb-3 mr-3\" (click)=\"selectAll()\">すべての座席を選択する</button>\n        <button type=\"button\" class=\"btn bg-primary py-2 text-white mb-3\" (click)=\"cancelAll()\">すべての座席を解除する</button>\n        <div class=\"bg-white\">\n            <div class=\"pt-4 pb-3 d-flex justify-content-center align-items-center seats border-bottom mx-auto\">\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/parts/seat.svg\"></div>\n                    <div class=\"ml-3\">空席</div>\n                </div>\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/parts/seat_active.svg\"></div>\n                    <div class=\"ml-3\">選択中</div>\n                </div>\n                <div class=\"mx-3 d-flex align-items-center\">\n                    <div><img src=\"/images/theater/parts/seat_disabled.svg\"></div>\n                    <div class=\"ml-3\">購入不可</div>\n                </div>\n            </div>\n        </div>\n        <app-screen *ngIf=\"(purchase | async).screenData\" class=\"bg-white\" [screenData]=\"(purchase | async).screenData\" (select)=\"selectSeat($event)\">\n        </app-screen>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" [disabled]=\"isLoading | async\"\n            (click)=\"onSubmit()\">次へ</button>\n    </div>\n\n</div>\n\n<app-navigation prevLink=\"/purchase/schedule\"></app-navigation>"
 
 /***/ }),
 
@@ -3099,10 +3099,10 @@ var PurchaseSeatComponent = /** @class */ (function () {
      */
     PurchaseSeatComponent.prototype.selectSeat = function (data) {
         if (data.status === _models__WEBPACK_IMPORTED_MODULE_8__["SeatStatus"].Default) {
-            this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["SelectSeat"]({ seat: data.seat }));
+            this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["SelectSeats"]({ seats: [data.seat] }));
         }
         else {
-            this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["CancelSeat"]({ seat: data.seat }));
+            this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["CancelSeats"]({ seats: [data.seat] }));
         }
     };
     /**
@@ -5239,9 +5239,9 @@ module.exports = ":host {\n  display: block; }\n\n.screen {\n  position: relativ
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScreenComponent", function() { return ScreenComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
 /* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../models */ "./app/models/index.ts");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../store/reducers */ "./app/store/reducers/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5254,35 +5254,33 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ScreenComponent = /** @class */ (function () {
-    function ScreenComponent(elementRef) {
+    function ScreenComponent(store, elementRef) {
+        this.store = store;
         this.elementRef = elementRef;
         this.select = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.isCreate = false;
     }
     ScreenComponent_1 = ScreenComponent;
     /**
      * 初期化
      */
     ScreenComponent.prototype.ngOnInit = function () {
-    };
-    ScreenComponent.prototype.ngOnChanges = function () {
-        if (this.screenData === undefined
-            || this.screeningEventOffers === undefined) {
-            return;
-        }
-        if (!this.isCreate) {
-            this.zoomState = false;
-            this.scale = 1;
-            this.height = 0;
-            this.origin = '0 0';
-            this.createScreen();
-            this.isCreate = true;
-        }
-        if (this.height === 0) {
-            this.scaleDown();
-        }
-        this.changeStatus();
+        var _this = this;
+        this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_3__["getPurchase"]));
+        this.purchase.subscribe(function (purchase) {
+            if (purchase.screeningEventOffers === undefined) {
+                return;
+            }
+            _this.screeningEventOffers = purchase.screeningEventOffers;
+            _this.authorizeSeatReservation = purchase.authorizeSeatReservation;
+            _this.zoomState = false;
+            _this.scale = 1;
+            _this.height = 0;
+            _this.origin = '0 0';
+            _this.createScreen();
+            _this.scaleDown();
+        }).unsubscribe();
     };
     /**
      * レンダリング後処理
@@ -5300,6 +5298,9 @@ var ScreenComponent = /** @class */ (function () {
             }
         }, time);
     };
+    ScreenComponent.prototype.ngAfterViewChecked = function () {
+        this.changeStatus();
+    };
     /**
      * モバイル判定
      * @method isMobile
@@ -5316,18 +5317,21 @@ var ScreenComponent = /** @class */ (function () {
      */
     ScreenComponent.prototype.changeStatus = function () {
         var _this = this;
-        this.seats.forEach(function (seat) {
-            if (seat.status === _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Active) {
-                seat.status = _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Default;
-            }
-            var findReservationSeatResult = _this.reservations.find(function (reservation) {
-                return (reservation.seat.seatNumber === seat.code
-                    && reservation.seat.seatSection === seat.section);
+        this.purchase.subscribe(function (purchase) {
+            var reservations = purchase.reservations;
+            _this.seats.forEach(function (seat) {
+                if (seat.status === _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Active) {
+                    seat.status = _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Default;
+                }
+                var findReservationSeatResult = reservations.find(function (reservation) {
+                    return (reservation.seat.seatNumber === seat.code
+                        && reservation.seat.seatSection === seat.section);
+                });
+                if (findReservationSeatResult !== undefined) {
+                    seat.status = _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Active;
+                }
             });
-            if (findReservationSeatResult !== undefined) {
-                seat.status = _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Active;
-            }
-        });
+        }).unsubscribe();
     };
     /**
      * 拡大
@@ -5573,18 +5577,6 @@ var ScreenComponent = /** @class */ (function () {
         __metadata("design:type", Object)
     ], ScreenComponent.prototype, "screenData", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", Array)
-    ], ScreenComponent.prototype, "screeningEventOffers", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", Array)
-    ], ScreenComponent.prototype, "reservations", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", Object)
-    ], ScreenComponent.prototype, "authorizeSeatReservation", void 0);
-    __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", Object)
     ], ScreenComponent.prototype, "select", void 0);
@@ -5594,7 +5586,8 @@ var ScreenComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./screen.component.html */ "./app/components/parts/screen/screen.component.html"),
             styles: [__webpack_require__(/*! ./screen.component.scss */ "./app/components/parts/screen/screen.component.scss")]
         }),
-        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]])
+        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]])
     ], ScreenComponent);
     return ScreenComponent;
 }());
@@ -7439,7 +7432,7 @@ var InquiryFail = /** @class */ (function () {
 /*!**********************************************!*\
   !*** ./app/store/actions/purchase.action.ts ***!
   \**********************************************/
-/*! exports provided: ActionTypes, Delete, GetTheaters, GetTheatersSuccess, GetTheatersFail, SelectTheater, GetSchedule, GetScheduleSuccess, GetScheduleFail, SelectSchedule, StartTransaction, StartTransactionSuccess, StartTransactionFail, GetScreen, GetScreenSuccess, GetScreenFail, SelectSeat, CancelSeat, SelectSeats, CancelSeats, SelectTickets, GetTicketList, GetTicketListSuccess, GetTicketListFail, TemporaryReservation, TemporaryReservationSuccess, TemporaryReservationFail, RegisterContact, RegisterContactSuccess, RegisterContactFail, AuthorizeCreditCard, AuthorizeCreditCardSuccess, AuthorizeCreditCardFail, AuthorizeMovieTicket, AuthorizeMovieTicketSuccess, AuthorizeMovieTicketFail, CheckMovieTicket, CheckMovieTicketSuccess, CheckMovieTicketFail, Reserve, ReserveSuccess, ReserveFail, Print, PrintSuccess, PrintFail, GetPurchaseHistory, GetPurchaseHistorySuccess, GetPurchaseHistoryFail, OrderAuthorize, OrderAuthorizeSuccess, OrderAuthorizeFail, AuthorizeAnyPayment, AuthorizeAnyPaymentSuccess, AuthorizeAnyPaymentFail, SelectPaymentMethodType */
+/*! exports provided: ActionTypes, Delete, GetTheaters, GetTheatersSuccess, GetTheatersFail, SelectTheater, GetSchedule, GetScheduleSuccess, GetScheduleFail, SelectSchedule, StartTransaction, StartTransactionSuccess, StartTransactionFail, GetScreen, GetScreenSuccess, GetScreenFail, SelectSeats, CancelSeats, SelectTickets, GetTicketList, GetTicketListSuccess, GetTicketListFail, TemporaryReservation, TemporaryReservationSuccess, TemporaryReservationFail, RegisterContact, RegisterContactSuccess, RegisterContactFail, AuthorizeCreditCard, AuthorizeCreditCardSuccess, AuthorizeCreditCardFail, AuthorizeMovieTicket, AuthorizeMovieTicketSuccess, AuthorizeMovieTicketFail, CheckMovieTicket, CheckMovieTicketSuccess, CheckMovieTicketFail, Reserve, ReserveSuccess, ReserveFail, Print, PrintSuccess, PrintFail, GetPurchaseHistory, GetPurchaseHistorySuccess, GetPurchaseHistoryFail, OrderAuthorize, OrderAuthorizeSuccess, OrderAuthorizeFail, AuthorizeAnyPayment, AuthorizeAnyPaymentSuccess, AuthorizeAnyPaymentFail, SelectPaymentMethodType */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7460,8 +7453,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetScreen", function() { return GetScreen; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetScreenSuccess", function() { return GetScreenSuccess; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetScreenFail", function() { return GetScreenFail; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectSeat", function() { return SelectSeat; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CancelSeat", function() { return CancelSeat; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectSeats", function() { return SelectSeats; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CancelSeats", function() { return CancelSeats; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectTickets", function() { return SelectTickets; });
@@ -7519,8 +7510,6 @@ var ActionTypes;
     ActionTypes["GetScreen"] = "[Purchase] Get Screen";
     ActionTypes["GetScreenSuccess"] = "[Purchase] Get Screen Success";
     ActionTypes["GetScreenFail"] = "[Purchase] Get Screen Fail";
-    ActionTypes["SelectSeat"] = "[Purchase] Select Seat";
-    ActionTypes["CancelSeat"] = "[Purchase] Cancel Seat";
     ActionTypes["SelectSeats"] = "[Purchase] Select Seats";
     ActionTypes["CancelSeats"] = "[Purchase] Cancel Seats";
     ActionTypes["GetTicketList"] = "[Purchase] Get Ticket List";
@@ -7722,28 +7711,6 @@ var GetScreenFail = /** @class */ (function () {
         this.type = ActionTypes.GetScreenFail;
     }
     return GetScreenFail;
-}());
-
-/**
- * SelectSeat
- */
-var SelectSeat = /** @class */ (function () {
-    function SelectSeat(payload) {
-        this.payload = payload;
-        this.type = ActionTypes.SelectSeat;
-    }
-    return SelectSeat;
-}());
-
-/**
- * CancelSeat
- */
-var CancelSeat = /** @class */ (function () {
-    function CancelSeat(payload) {
-        this.payload = payload;
-        this.type = ActionTypes.CancelSeat;
-    }
-    return CancelSeat;
 }());
 
 /**
@@ -9651,18 +9618,6 @@ function reducer(state, action) {
             var error = action.payload.error;
             return __assign({}, state, { loading: false, error: JSON.stringify(error) });
         }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].SelectSeat: {
-            state.purchase.reservations.push(new _models__WEBPACK_IMPORTED_MODULE_2__["Reservation"]({ seat: action.payload.seat }));
-            var reservations = state.purchase.reservations;
-            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { reservations: reservations }) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].CancelSeat: {
-            var reservations = state.purchase.reservations.filter(function (reservation) {
-                return (reservation.seat.seatNumber !== action.payload.seat.seatNumber
-                    || reservation.seat.seatSection !== action.payload.seat.seatSection);
-            });
-            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { reservations: reservations }) });
-        }
         case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].SelectSeats: {
             var reservations_1 = state.purchase.reservations;
             action.payload.seats.forEach(function (seat) {
@@ -9672,14 +9627,19 @@ function reducer(state, action) {
             return __assign({}, state, { loading: false, error: null });
         }
         case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].CancelSeats: {
-            var reservations = state.purchase.reservations.filter(function (reservation) {
-                var findResult = action.payload.seats.find(function (seat) {
-                    return (reservation.seat.seatNumber !== seat.seatNumber
-                        || reservation.seat.seatSection !== seat.seatSection);
+            var reservations_2 = [];
+            var seats_1 = action.payload.seats;
+            state.purchase.reservations.forEach(function (reservation) {
+                var findResult = seats_1.find(function (seat) {
+                    return (reservation.seat.seatNumber === seat.seatNumber
+                        && reservation.seat.seatSection === seat.seatSection);
                 });
-                return (findResult === undefined);
+                if (findResult === undefined) {
+                    reservations_2.push(reservation);
+                }
             });
-            state.purchase.reservations = reservations;
+            console.log(reservations_2);
+            state.purchase.reservations = reservations_2;
             return __assign({}, state, { loading: false, error: null });
         }
         case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].GetTicketList: {
@@ -9702,18 +9662,18 @@ function reducer(state, action) {
             return __assign({}, state, { loading: false, error: JSON.stringify(error) });
         }
         case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].SelectTickets: {
-            var reservations_2 = [];
+            var reservations_3 = [];
             var selectedReservations_1 = action.payload.reservations;
             state.purchase.reservations.forEach(function (reservation) {
                 var findResult = selectedReservations_1.find(function (selectedReservation) { return Object.is(reservation, selectedReservation); });
                 if (findResult === undefined) {
-                    reservations_2.push(reservation);
+                    reservations_3.push(reservation);
                 }
                 else {
-                    reservations_2.push(findResult);
+                    reservations_3.push(findResult);
                 }
             });
-            state.purchase.reservations = reservations_2;
+            state.purchase.reservations = reservations_3;
             return __assign({}, state);
         }
         case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].TemporaryReservation: {

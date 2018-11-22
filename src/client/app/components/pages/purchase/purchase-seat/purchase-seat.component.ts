@@ -9,11 +9,9 @@ import { take, tap } from 'rxjs/operators';
 import { IReservationSeat, Reservation, SeatStatus } from '../../../../models';
 import {
     ActionTypes,
-    CancelSeat,
     CancelSeats,
     GetScreen,
     GetTicketList,
-    SelectSeat,
     SelectSeats,
     TemporaryReservation
 } from '../../../../store/actions/purchase.action';
@@ -119,9 +117,9 @@ export class PurchaseSeatComponent implements OnInit {
         status: SeatStatus
     }) {
         if (data.status === SeatStatus.Default) {
-            this.store.dispatch(new SelectSeat({ seat: data.seat }));
+            this.store.dispatch(new SelectSeats({ seats: [data.seat] }));
         } else {
-            this.store.dispatch(new CancelSeat({ seat: data.seat }));
+            this.store.dispatch(new CancelSeats({ seats: [data.seat] }));
         }
     }
 

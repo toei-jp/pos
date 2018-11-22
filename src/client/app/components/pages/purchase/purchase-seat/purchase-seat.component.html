@@ -37,9 +37,7 @@
                 </div>
             </div>
         </div>
-        <app-screen class="bg-white" [screenData]="(purchase | async).screenData" [screeningEventOffers]="(purchase | async).screeningEventOffers"
-            [reservations]="(purchase | async).reservations" [authorizeSeatReservation]="(purchase | async).authorizeSeatReservation"
-            (select)="selectSeat($event)">
+        <app-screen *ngIf="(purchase | async).screenData" class="bg-white" [screenData]="(purchase | async).screenData" (select)="selectSeat($event)">
         </app-screen>
     </div>
 

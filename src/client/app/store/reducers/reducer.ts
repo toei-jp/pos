@@ -212,18 +212,6 @@ export function reducer(
             const error = action.payload.error;
             return { ...state, loading: false, error: JSON.stringify(error) };
         }
-        case purchase.ActionTypes.SelectSeat: {
-            state.purchase.reservations.push(new Reservation({ seat: action.payload.seat }));
-            const reservations = state.purchase.reservations;
-            return { ...state, loading: false, error: null, purchase: { ...state.purchase, reservations } };
-        }
-        case purchase.ActionTypes.CancelSeat: {
-            const reservations = state.purchase.reservations.filter((reservation) => {
-                return (reservation.seat.seatNumber !== action.payload.seat.seatNumber
-                    || reservation.seat.seatSection !== action.payload.seat.seatSection);
-            });
-            return { ...state, loading: false, error: null, purchase: { ...state.purchase, reservations } };
-        }
         case purchase.ActionTypes.SelectSeats: {
             const reservations = state.purchase.reservations;
             action.payload.seats.forEach((seat) => {
@@ -233,13 +221,18 @@ export function reducer(
             return { ...state, loading: false, error: null };
         }
         case purchase.ActionTypes.CancelSeats: {
-            const reservations = state.purchase.reservations.filter((reservation) => {
-                const findResult = action.payload.seats.find((seat) => {
-                    return (reservation.seat.seatNumber !== seat.seatNumber
-                        || reservation.seat.seatSection !== seat.seatSection);
+            const reservations: Reservation[] = [];
+            const seats = action.payload.seats;
+            state.purchase.reservations.forEach((reservation) => {
+                const findResult = seats.find((seat) => {
+                    return (reservation.seat.seatNumber === seat.seatNumber
+                        && reservation.seat.seatSection === seat.seatSection);
                 });
-                return (findResult === undefined);
+                if (findResult === undefined) {
+                    reservations.push(reservation);
+                }
             });
+            console.log(reservations);
             state.purchase.reservations = reservations;
             return { ...state, loading: false, error: null };
         }
