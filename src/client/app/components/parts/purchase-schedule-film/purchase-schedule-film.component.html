@@ -1,5 +1,6 @@
 <div class="film p-3 bg-white">
-    <p class="title large-text"><strong>{{ screeningFilmEvent.info.name.ja }}</strong></p>
+    <p class="large-text"><strong>{{ screeningFilmEvent.info.name.ja }}</strong></p>
+    <p *ngIf="screeningFilmEvent.info.workPerformed.headline">{{ screeningFilmEvent.info.workPerformed.headline }}</p>
     <div class="d-flex justify-content-end align-items-center">
         <div *ngIf="screeningFilmEvent.info.workPerformed.contentRating" class="small-text text-white bg-gray py-1 px-3 mx-2">{{ screeningFilmEvent.info.workPerformed.contentRating }}</div>
         <div *ngIf="screeningFilmEvent.info.superEvent.dubLanguage" class="small-text text-white bg-gray py-1 px-3 mx-2">吹替版</div>
