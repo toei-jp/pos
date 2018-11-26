@@ -124,10 +124,16 @@ export class StarPrintService {
         const canvas = document.createElement('canvas');
         const order = args.order;
         const acceptedOffer = order.acceptedOffers[args.offerIndex];
+        const screen = {
+            name: order.acceptedOffers[0].itemOffered.reservationFor.location.name.ja,
+            address: (order.acceptedOffers[0].itemOffered.reservationFor.location.address === undefined)
+                ? ''
+                : order.acceptedOffers[0].itemOffered.reservationFor.location.address.en
+        };
         const data = {
             confirmationNumber: args.order.confirmationNumber,
             theaterName: order.acceptedOffers[0].itemOffered.reservationFor.superEvent.location.name.ja,
-            screenName: order.acceptedOffers[0].itemOffered.reservationFor.location.name.ja,
+            screenName: `${screen.address} ${screen.name}`,
             eventName: order.acceptedOffers[0].itemOffered.reservationFor.name.ja,
             startDate: moment(order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YY/MM/DD (ddd) HH:mm'),
             seatNumber: acceptedOffer.itemOffered.reservedTicket.ticketedSeat.seatNumber,

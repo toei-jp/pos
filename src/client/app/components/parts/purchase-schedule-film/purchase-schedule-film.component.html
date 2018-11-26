@@ -16,7 +16,7 @@
         }"
         (click)="select.emit(screeningEvent)">
         <div class="mb-md-2 small-text">
-            {{ screeningEvent.location.name.ja }}
+            {{ screeningEvent.location.address.en }} {{ screeningEvent.location.name.ja }}
         </div>
         <div class="mb-md-2">
             <strong class="large-text">{{ moment(screeningEvent.startDate).format('HH:mm') }}</strong>
