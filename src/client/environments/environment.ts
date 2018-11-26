@@ -4,6 +4,7 @@
  */
 export const environment = {
     production: false,
+    APP_PREFIX: 'TO',
 
     ENV: 'production',
 

@@ -78,7 +78,13 @@ export class PurchaseSeatComponent implements OnInit {
             const seats: IReservationSeat[] = [];
             purchase.screeningEventOffers.forEach((screeningEventOffer) => {
                 screeningEventOffer.containsPlace.forEach((place) => {
-                    if (place.offers === undefined || place.offers[0].availability !== 'InStock') {
+                    if (place.offers === undefined
+                        || place.offers[0].availability !== 'InStock'
+                        || purchase.screenData === undefined) {
+                        return;
+                    }
+                    const findResult = purchase.screenData.hc.find(hc => hc === place.branchCode);
+                    if (findResult !== undefined) {
                         return;
                     }
                     const seat = {

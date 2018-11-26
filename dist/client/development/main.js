@@ -2503,7 +2503,6 @@ var PurchaseInputComponent = /** @class */ (function () {
             _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_11__["AuthorizeCreditCard"]({
                 transaction: purchase.transaction,
                 movieTheater: purchase.movieTheater,
-                authorizeSeatReservation: purchase.authorizeSeatReservation,
                 authorizeCreditCardPayment: purchase.authorizeCreditCardPayment,
                 orderCount: purchase.orderCount,
                 amount: _this.amount,
@@ -3065,7 +3064,13 @@ var PurchaseSeatComponent = /** @class */ (function () {
             var seats = [];
             purchase.screeningEventOffers.forEach(function (screeningEventOffer) {
                 screeningEventOffer.containsPlace.forEach(function (place) {
-                    if (place.offers === undefined || place.offers[0].availability !== 'InStock') {
+                    if (place.offers === undefined
+                        || place.offers[0].availability !== 'InStock'
+                        || purchase.screenData === undefined) {
+                        return;
+                    }
+                    var findResult = purchase.screenData.hc.find(function (hc) { return hc === place.branchCode; });
+                    if (findResult !== undefined) {
                         return;
                     }
                     var seat = {
@@ -5778,6 +5783,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../environments/environment */ "./environments/environment.ts");
+
 
 
 /**
@@ -5806,10 +5813,12 @@ function createScreeningFilmEvents(params) {
  * オーダーID生成
  */
 function createOrderId(params) {
-    var date = moment__WEBPACK_IMPORTED_MODULE_1__().format('YYYYMMDDHHmmss');
-    var theaterCode = params.movieTheater.location.branchCode;
-    // const reservationId = params.authorizeSeatReservation.id;
-    return "" + date + theaterCode + params.orderCount;
+    var DIGITS = { '02': -2, '06': -6 };
+    var prefix = _environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].APP_PREFIX;
+    var date = moment__WEBPACK_IMPORTED_MODULE_1__().format('YYMMDDHHmmss');
+    var orderCount = ("00" + params.orderCount).slice(DIGITS['02']);
+    var transactionId = ("000000" + params.transaction.id).slice(DIGITS['06']);
+    return prefix + "-" + date + transactionId + orderCount;
 }
 /**
  * GMOトークンオブジェクト生成
@@ -8826,8 +8835,7 @@ var PurchaseEffects = /** @class */ (function () {
                         transaction = payload.transaction;
                         orderId = Object(_functions__WEBPACK_IMPORTED_MODULE_8__["createOrderId"])({
                             orderCount: payload.orderCount,
-                            authorizeSeatReservation: payload.authorizeSeatReservation,
-                            movieTheater: payload.movieTheater
+                            transaction: transaction
                         });
                         return [4 /*yield*/, Object(_functions__WEBPACK_IMPORTED_MODULE_8__["createGmoTokenObject"])({
                                 creditCard: payload.creditCard,
@@ -9852,6 +9860,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 var environment = {
     production: false,
+    APP_PREFIX: 'TO',
     ENV: 'development',
     SITE_URL: 'https://toei-pos-development.azurewebsites.net',
     API_ENDPOINT: 'https://toei-cinerino-api-development.azurewebsites.net',

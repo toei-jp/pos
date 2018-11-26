@@ -234,8 +234,7 @@ export class PurchaseEffects {
                 const transaction = payload.transaction;
                 const orderId = createOrderId({
                     orderCount: payload.orderCount,
-                    authorizeSeatReservation: payload.authorizeSeatReservation,
-                    movieTheater: payload.movieTheater
+                    transaction: transaction
                 });
                 const gmoTokenObject = await createGmoTokenObject({
                     creditCard: payload.creditCard,
