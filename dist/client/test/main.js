@@ -6472,7 +6472,7 @@ var CinerinoService = /** @class */ (function () {
      */
     CinerinoService.prototype.authorize = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var url, body, credentials, option;
+            var url, body, result, option;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -6483,10 +6483,10 @@ var CinerinoService = /** @class */ (function () {
                         };
                         return [4 /*yield*/, this.http.post(url, body).toPromise()];
                     case 1:
-                        credentials = _a.sent();
+                        result = _a.sent();
                         option = {
                             domain: '',
-                            clientId: '',
+                            clientId: result.clientId,
                             redirectUri: '',
                             logoutUri: '',
                             responseType: '',
@@ -6496,7 +6496,7 @@ var CinerinoService = /** @class */ (function () {
                             tokenIssuer: ''
                         };
                         this.auth = _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["createAuthInstance"](option);
-                        this.auth.setCredentials(credentials);
+                        this.auth.setCredentials({ accessToken: result.accessToken });
                         return [2 /*return*/];
                 }
             });
@@ -6599,8 +6599,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PurchaseService", function() { return PurchaseService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6611,44 +6609,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
 var PurchaseService = /** @class */ (function () {
     function PurchaseService() {
     }
-    /**
-     * 券種金額取得
-     */
-    PurchaseService.prototype.getTicketPrice = function (ticket) {
-        var result = {
-            unitPriceSpecification: 0,
-            videoFormatCharge: 0,
-            soundFormatCharge: 0,
-            movieTicketTypeCharge: 0,
-            total: 0
-        };
-        var unitPriceSpecifications = ticket.priceSpecification.priceComponent
-            .filter(function (s) { return s.typeOf === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.priceSpecificationType.UnitPriceSpecification; });
-        var videoFormatCharges = ticket.priceSpecification.priceComponent
-            .filter(function (s) { return s.typeOf === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.priceSpecificationType.VideoFormatChargeSpecification; });
-        var soundFormatCharges = ticket.priceSpecification.priceComponent
-            .filter(function (s) { return s.typeOf === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.priceSpecificationType.SoundFormatChargeSpecification; });
-        var movieTicketTypeCharges = ticket.priceSpecification.priceComponent
-            .filter(function (s) { return s.typeOf === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.priceSpecificationType.MovieTicketTypeChargeSpecification; });
-        unitPriceSpecifications.forEach(function (unitPriceSpecification) {
-            result.unitPriceSpecification += unitPriceSpecification.price;
-        });
-        videoFormatCharges.forEach(function (videoFormatCharge) {
-            result.videoFormatCharge += videoFormatCharge.price;
-        });
-        soundFormatCharges.forEach(function (soundFormatCharge) {
-            result.soundFormatCharge += soundFormatCharge.price;
-        });
-        movieTicketTypeCharges.forEach(function (movieTicketTypeCharge) {
-            result.movieTicketTypeCharge += movieTicketTypeCharge.price;
-        });
-        result.total = result.unitPriceSpecification + result.videoFormatCharge + result.soundFormatCharge + result.movieTicketTypeCharge;
-        return result;
-    };
     PurchaseService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
@@ -7725,7 +7688,7 @@ var SelectSeats = /** @class */ (function () {
 }());
 
 /**
- * CancelSeat
+ * CancelSeats
  */
 var CancelSeats = /** @class */ (function () {
     function CancelSeats(payload) {
@@ -8797,7 +8760,7 @@ var PurchaseEffects = /** @class */ (function () {
                         return [4 /*yield*/, this.cinerino.event.searchScreeningEventTicketOffers({
                                 event: { id: screeningEvent.id },
                                 seller: { typeOf: movieTheater.typeOf, id: movieTheater.id },
-                                store: { id: _environments_environment__WEBPACK_IMPORTED_MODULE_7__["environment"].CLIENT_ID }
+                                store: { id: this.cinerino.auth.options.clientId }
                             })];
                     case 2:
                         screeningEventTicketOffers = _a.sent();
@@ -9638,7 +9601,6 @@ function reducer(state, action) {
                     reservations_2.push(reservation);
                 }
             });
-            console.log(reservations_2);
             state.purchase.reservations = reservations_2;
             return __assign({}, state, { loading: false, error: null });
         }
@@ -9896,8 +9858,7 @@ var environment = {
     ENTRANCE_SERVER_URL: '',
     WAITER_SERVER_URL: '',
     ANALYTICS_ID: '',
-    TRANSACTION_TIME: '15',
-    CLIENT_ID: '2uttk78l2brm91jqgk8dj8dhb8'
+    TRANSACTION_TIME: '15'
 };
 
 

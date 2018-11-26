@@ -210,7 +210,7 @@ export class SelectSeats implements Action {
 }
 
 /**
- * CancelSeat
+ * CancelSeats
  */
 export class CancelSeats implements Action {
     public readonly type = ActionTypes.CancelSeats;

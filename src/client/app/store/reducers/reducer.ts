@@ -232,7 +232,6 @@ export function reducer(
                     reservations.push(reservation);
                 }
             });
-            console.log(reservations);
             state.purchase.reservations = reservations;
             return { ...state, loading: false, error: null };
         }

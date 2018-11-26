@@ -16,8 +16,6 @@ export const environment = {
 
     ANALYTICS_ID: '',
 
-    TRANSACTION_TIME: '15',
-
-    CLIENT_ID: ''
+    TRANSACTION_TIME: '15'
 
 };
