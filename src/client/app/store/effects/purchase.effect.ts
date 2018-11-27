@@ -440,7 +440,21 @@ export class PurchaseEffects {
                 } else {
                     printerRequests = await this.starPrint.createPrinterRequestList({ order });
                 }
-                for (const printerRequest of printerRequests) {
+                // n分割配列へ変換
+                const divide = 4;
+                const divideRequests: string[] = [];
+                let divideRequest = '';
+                printerRequests.forEach((request, index) => {
+                    divideRequest += request;
+                    if ((index + 1) % divide === 0) {
+                        divideRequests.push(divideRequest);
+                        divideRequest = '';
+                    }
+                });
+                if (divideRequest !== '') {
+                    divideRequests.push(divideRequest);
+                }
+                for (const printerRequest of divideRequests) {
                     // safari対応のため0.3秒待つ
                     await this.util.sleep(300);
                     await this.starPrint.print({ printerRequest });

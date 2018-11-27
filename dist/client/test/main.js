@@ -9054,7 +9054,7 @@ var PurchaseEffects = /** @class */ (function () {
          * print
          */
         this.print = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_12__["ActionTypes"].Print), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
-            var order, ipAddress, pos, printerRequests, _i, printerRequests_1, printerRequest, error_12;
+            var order, ipAddress, pos, printerRequests, divide_1, divideRequests_2, divideRequest_1, _i, divideRequests_1, printerRequest, error_12;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9074,11 +9074,24 @@ var PurchaseEffects = /** @class */ (function () {
                         printerRequests = _a.sent();
                         _a.label = 4;
                     case 4:
-                        _i = 0, printerRequests_1 = printerRequests;
+                        divide_1 = 4;
+                        divideRequests_2 = [];
+                        divideRequest_1 = '';
+                        printerRequests.forEach(function (request, index) {
+                            divideRequest_1 += request;
+                            if ((index + 1) % divide_1 === 0) {
+                                divideRequests_2.push(divideRequest_1);
+                                divideRequest_1 = '';
+                            }
+                        });
+                        if (divideRequest_1 !== '') {
+                            divideRequests_2.push(divideRequest_1);
+                        }
+                        _i = 0, divideRequests_1 = divideRequests_2;
                         _a.label = 5;
                     case 5:
-                        if (!(_i < printerRequests_1.length)) return [3 /*break*/, 9];
-                        printerRequest = printerRequests_1[_i];
+                        if (!(_i < divideRequests_1.length)) return [3 /*break*/, 9];
+                        printerRequest = divideRequests_1[_i];
                         // safari対応のため0.3秒待つ
                         return [4 /*yield*/, this.util.sleep(300)];
                     case 6:
