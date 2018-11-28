@@ -24,6 +24,7 @@ export class InquiryConfirmComponent implements OnInit {
     public error: Observable<string | null>;
     public moment: typeof moment = moment;
     public getTicketPrice = getTicketPrice;
+    public isPrint: boolean;
 
     constructor(
         private store: Store<reducers.IState>,
@@ -37,6 +38,18 @@ export class InquiryConfirmComponent implements OnInit {
         this.user = this.store.pipe(select(reducers.getUser));
         this.isLoading = this.store.pipe(select(reducers.getLoading));
         this.error = this.store.pipe(select(reducers.getError));
+        this.isPrint = false;
+        this.inquiry.subscribe((inquiry) => {
+            if (inquiry.order === undefined) {
+                this.router.navigate(['/error']);
+                return;
+            }
+            const reservationFor = inquiry.order.acceptedOffers[0].itemOffered.reservationFor;
+            const date = moment(reservationFor.startDate).format('YYYY-MM-DD');
+            const today = moment().format('YYYY-MM-DD');
+            this.isPrint = moment(date).unix() >= moment(today).unix() && moment(date).unix() < moment(today).add(2, 'day').unix();
+            console.log(this.isPrint, date);
+        }).unsubscribe();
     }
 
     public print() {

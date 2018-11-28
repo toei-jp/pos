@@ -416,7 +416,7 @@ export class StarPrintService {
         const titleLimit = 18;
         if (title.length > titleLimit) {
             context.fillText(title.slice(0, titleLimit), center, 180);
-            context.fillText(title.slice(titleLimit, title.length), center, 230);
+            context.fillText(title.slice(titleLimit, title.length - titleLimit), center, 230);
         } else {
             context.fillText(title, center, 180);
         }

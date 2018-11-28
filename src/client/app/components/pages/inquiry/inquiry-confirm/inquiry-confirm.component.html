@@ -46,11 +46,11 @@
 
     </div>
 
-    <p *ngIf="moment((inquiry | async).order.acceptedOffers[0].itemOffered.reservationFor.endDate).unix() < moment().unix()" class="text-center text-white mb-4">鑑賞日が過去のものは印刷できません。</p>
+    <p *ngIf="!isPrint" class="text-center text-white mb-4">鑑賞日が当日、翌日以外のものは印刷できません。</p>
 
     <div class="w-50 mx-auto">
         <button type="button" class="btn btn-block bg-primary py-3 text-white large-text btn-arrow" 
-        [disabled]="(isLoading | async) || moment((inquiry | async).order.acceptedOffers[0].itemOffered.reservationFor.endDate).unix() < moment().unix()"
+        [disabled]="!isPrint || (isLoading | async)"
         (click)="print()">印刷</button>
     </div>
 
