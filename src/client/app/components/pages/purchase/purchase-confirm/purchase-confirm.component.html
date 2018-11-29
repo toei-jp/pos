@@ -1,0 +1,84 @@
+<div class="py-3 px-2">
+    
+    <div class="mb-4">
+        <h2 class="text-center large-text text-white mb-4">購入内容確認</h2>
+
+        <p class="mb-3 text-white text-center">※この先の操作の取り消しはできませんのでご注意ください。</p>
+
+        <div class="container mb-4 bg-secondary">
+            <div class="row align-items-stretch">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    スクリーン</p>
+                <p class="col-8 bg-white py-3">{{ (purchase | async).screeningEvent.location.address.en }} {{ (purchase | async).screeningEvent.location.name.ja }}</p>
+            </div>
+            <div class="row align-items-stretch">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    作品</p>
+                <div class="col-8 bg-white py-3">
+                    <p>{{ (purchase | async).screeningEvent.name.ja }}</p>
+                    <p *ngIf="(purchase | async).screeningEvent?.workPerformed.headline">{{ (purchase | async).screeningEvent?.workPerformed.headline }}</p>
+                </div>
+            </div>
+            <div class="row align-items-stretch">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    鑑賞日時</p>
+                <p class="col-8 bg-white py-3">{{ moment((purchase |
+                    async).screeningEvent.startDate).format('YYYY/MM/DD (ddd) HH:mm') }}</p>
+            </div>
+            <div class="row align-items-stretch">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    座席・券種</p>
+                <div class="col-8 bg-white py-3">
+                    <div *ngFor="let reservation of (purchase | async).reservations" class="mb-2">
+                        <p>{{ reservation.seat.seatNumber }}</p>
+                        <p *ngIf="reservation.ticket">{{ reservation.ticket.ticketOffer.name.ja }} / {{
+                            reservation.getTicketPrice().single | currency : 'JPY' }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-stretch" *ngIf="(purchase | async).authorizeSeatReservation.result.price > 0">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    決済方法</p>
+                <p class="col-8 bg-white py-3">{{ (purchase | async).paymentMethod.name }}</p>
+            </div>
+        </div>
+        <div class="container mb-4 bg-secondary">
+            <div class="row align-items-stretch">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    合計金額</p>
+                <p class="col-8 bg-white py-3">{{ (purchase | async).authorizeSeatReservation.result.price | currency :
+                    'JPY' }}</p>
+            </div>
+            <div class="row align-items-stretch" *ngIf="(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    お預かり金額</p>
+                <p class="col-8 bg-white py-0 pr-0 d-flex align-items-center position-static">
+                    <span>￥</span>
+                    <app-numeric-keypad [inputValue]="depositAmount" viewPosition="Top" [maxlength]="10" (change)="changeDepositAmount($event)"
+                        (hidden)="depositAmount = ($event.length > 0) ? $event : 0">
+                        <input type="text" class="form-control large-text border-0 py-3 h-auto" id="depositAmount"
+                            [(ngModel)]="depositAmount" readonly="readonly">
+                    </app-numeric-keypad>
+                </p>
+            </div>
+            <div class="row align-items-stretch" *ngIf="(purchase | async).paymentMethod && (purchase | async).paymentMethod.typeOf === paymentMethodType.Cash">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    お釣り</p>
+                <p class="col-8 bg-white py-3">{{
+                    (depositAmount - (purchase | async).authorizeSeatReservation.result.price) | currency : 'JPY' }}</p>
+            </div>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-center mb-4">
+            <input class="mr-2" type="checkbox" [value]="true" id="agree" [(ngModel)]="agree">
+            <label class="text-white" for="agree"> 注意事項に同意する </label>
+        </div>
+
+        <div class="w-50 mx-auto">
+            <button type="button" class="btn btn-block bg-primary py-3 text-white large-text btn-arrow" [disabled]="(isLoading | async) || !agree"
+                (click)="onSubmit()">購入確定</button>
+        </div>
+    </div>
+</div>
+
+<app-navigation [prevLink]="((purchase | async).authorizeSeatReservation.result.price > 0) ? '/purchase/payment' : '/purchase/ticket'"></app-navigation>

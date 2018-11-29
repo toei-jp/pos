@@ -1,0 +1,15 @@
+<div class="py-3 px-2">
+    <div class="mb-4">
+        <h2 class="bg-secondary text-white p-3 mb-3">エラー</h2>
+
+        <p class="mb-3 text-white">エラーが発生しました。</p>
+        <div class="p-3 border bg-white select-text">
+            <code>{{ (error | async) }}</code>
+        </div>
+    </div>
+
+    <div class="w-50 mx-auto">
+        <button type="button" class="btn btn-block bg-primary py-3 text-white large-text btn-arrow mb-3" routerLink="/">戻る</button>
+        <button type="button" class="btn btn-block bg-primary py-3 text-white large-text btn-arrow" routerLink="/setting">設定</button>
+    </div>
+</div>

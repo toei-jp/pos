@@ -1,0 +1,97 @@
+<div class="py-4 px-3">
+    <div class="mb-4">
+        <h2 class="text-center large-text text-white mb-4">設定</h2>
+        <form [formGroup]="settingForm" class="text-white">
+            <div class="form-group">
+                <label class="mb-2" for="">劇場</label>
+                <select class="form-control py-2 large-text" formControlName="theaterCode" (change)="changePosList()">
+                    <option value="">選択してください</option>
+                    <option *ngFor="let theater of (user | async).movieTheaters" [value]="theater.location.branchCode">{{
+                        theater.name.ja }}</option>
+                </select>
+                <div *ngIf="settingForm.controls.theaterCode.invalid && settingForm.controls.theaterCode.touched" class="mt-2">
+                    <p *ngIf="settingForm.controls.theaterCode.errors.required" class="text-danger">劇場が未選択です</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="mb-2" for="">POS</label>
+                <select class="form-control py-2 large-text" formControlName="posId">
+                    <option value="">選択してください</option>
+                    <option *ngFor="let pos of posList" [value]="pos.id">{{ pos.name }}</option>
+                </select>
+                <div *ngIf="settingForm.controls.posId.invalid && settingForm.controls.posId.touched" class="mt-2">
+                    <p *ngIf="settingForm.controls.posId.errors.required" class="text-danger">POSが未選択です</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="mb-2" for="">セイ</label>
+                <input type="text" class="form-control py-2 large-text" formControlName="familyName" placeholder="モーション">
+                <div *ngIf="settingForm.controls.familyName.invalid && settingForm.controls.familyName.touched" class="mt-2">
+                    <p *ngIf="settingForm.controls.familyName.errors.required" class="text-danger">セイが未入力です</p>
+                    <p *ngIf="settingForm.controls.familyName.errors.maxlength" class="text-danger">セイは{{
+                        settingForm.controls.familyName.errors.maxlength.requiredLength }}文字以下で入力してください</p>
+                    <p *ngIf="settingForm.controls.familyName.errors.pattern" class="text-danger">セイは全角カタカナで入力してください</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="mb-2" for="">メイ</label>
+                <input type="text" class="form-control py-2 large-text" formControlName="givenName" placeholder="ピクチャー">
+                <div *ngIf="settingForm.controls.givenName.invalid && settingForm.controls.givenName.touched" class="mt-2">
+                    <p *ngIf="settingForm.controls.givenName.errors.required" class="text-danger">メイが未入力です</p>
+                    <p *ngIf="settingForm.controls.givenName.errors.maxlength" class="text-danger">メイは{{
+                        settingForm.controls.givenName.errors.maxlength.requiredLength }}文字以下で入力してください
+                    </p>
+                    <p *ngIf="settingForm.controls.givenName.errors.pattern" class="text-danger">メイは全角カタカナで入力してください
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="mb-2" for="">メールアドレス</label>
+                <input type="email" class="form-control py-2 large-text" formControlName="email" placeholder="motionpicture@example.jp">
+                <div *ngIf="settingForm.controls.email.invalid && settingForm.controls.email.touched" class="mt-2">
+                    <p *ngIf="settingForm.controls.email.errors.required" class="text-danger">メールアドレスが未入力です</p>
+                    <p *ngIf="settingForm.controls.email.errors.maxlength" class="text-danger">メールアドレスは{{
+                        settingForm.controls.email.errors.maxlength.requiredLength }}文字以下で入力してください
+                    </p>
+                    <p *ngIf="settingForm.controls.email.errors.email" class="text-danger">メールアドレスが正しくありません</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="mb-2" for="">電話番号</label>
+                <input type="tel" class="form-control py-2 large-text" formControlName="telephone" placeholder="0362778824">
+                <div *ngIf="settingForm.controls.telephone.invalid && settingForm.controls.telephone.touched" class="mt-2">
+                    <p *ngIf="settingForm.controls.telephone.errors.required" class="text-danger">電話番号が未入力です</p>
+                    <p *ngIf="settingForm.controls.telephone.errors.minlength" class="text-danger">電話番号は{{
+                        settingForm.controls.telephone.errors.minlength.requiredLength }}文字以上で入力してください
+                    </p>
+                    <p *ngIf="settingForm.controls.telephone.errors.maxlength" class="text-danger">電話番号は{{
+                        settingForm.controls.telephone.errors.maxlength.requiredLength }}文字以下で入力してください
+                    </p>
+                    <p *ngIf="settingForm.controls.telephone.errors.pattern" class="text-danger">電話番号は数字で入力してください</p>
+                    <p *ngIf="settingForm.controls.telephone.errors.telephone" class="text-danger">電話番号が正しくありません</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="mb-2" for="">プリンターIPアドレス</label>
+                <input type="text" class="form-control py-2 large-text" formControlName="printerIpAddress" placeholder="0.0.0.0">
+                <div *ngIf="settingForm.controls.printerIpAddress.invalid && settingForm.controls.printerIpAddress.touched"
+                    class="mt-2">
+                    <p *ngIf="settingForm.controls.printerIpAddress.errors.required" class="text-danger">プリンターIPアドレスが未入力です</p>
+                    <p *ngIf="settingForm.controls.printerIpAddress.errors.pattern" class="text-danger">プリンターIPアドレスが正しくありません</p>
+                </div>
+                <div class="mb-2"><button type="button" class="btn btn-sm btn-primary py-2 px-3 mt-2" (click)="print()">テスト印刷</button></div>
+                <div><button type="button" class="btn btn-sm btn-primary py-2 px-3" (click)="signOut()">ログアウト</button></div>
+                
+            </div>
+        </form>
+    </div>
+
+    <!-- <canvas class="bg-white" id="test"></canvas> -->
+
+    <div class="w-50 mx-auto">
+        <button type="button" class="btn btn-block bg-primary py-3 text-white large-text btn-arrow" (click)="onSubmit()">設定</button>
+    </div>
+
+</div>
+
+<app-navigation [setting]="false" prevLink="/purchase/schedule"></app-navigation>

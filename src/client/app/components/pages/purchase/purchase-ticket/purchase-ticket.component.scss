@@ -1,0 +1,16 @@
+@import '../../../../../assets/scss/theme';
+
+.reservations {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    .reservation {
+        grid-template-columns: 1fr 2fr;
+    }
+    button {
+        
+    }
+}
+
+.movie-ticket {
+    width: 300px;
+}

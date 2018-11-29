@@ -1,0 +1,28 @@
+@import '../../../../../assets/scss/theme';
+
+app-purchase-schedule-film:last-child {
+    margin-bottom: 0 !important;
+}
+
+.theaters {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    @include media-breakpoint-down(sm) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group {
+    width: 400px;
+    grid-template-columns: 1fr 2fr;
+}
+
+select {
+    height: auto;
+}
+
+input[type='date'] {
+    appearance: none;
+    height: 60px;
+}

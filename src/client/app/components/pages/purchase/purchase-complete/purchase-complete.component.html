@@ -1,0 +1,55 @@
+<div class="py-3 px-2">
+
+    <div class="mb-4">
+        <h2 class="text-center large-text text-white mb-4">購入完了</h2>
+        <div class="container mb-4 bg-secondary">
+            <div class="row align-items-stretch">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    購入番号</p>
+                <p class="col-8 bg-white py-3">
+                    <strong>{{ (purchase | async).order.confirmationNumber }}</strong>
+                </p>
+            </div>
+            <div class="row">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    スクリーン</p>
+                <p class="col-8 bg-white py-3">{{ (purchase | async).order.acceptedOffers[0].itemOffered.reservationFor.location.address.en }} {{ (purchase | async).order.acceptedOffers[0].itemOffered.reservationFor.location.name.ja }}</p>
+            </div>
+            <div class="row">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    作品</p>
+                <div class="col-8 bg-white py-3">
+                    <p>{{ (purchase | async).order.acceptedOffers[0].itemOffered.reservationFor.name.ja }}</p>
+                    <p *ngIf="(purchase | async).order.acceptedOffers[0].itemOffered.reservationFor.workPerformed.headline">{{ (purchase | async).order.acceptedOffers[0].itemOffered.reservationFor.workPerformed.headline }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    鑑賞日時</p>
+                <p class="col-8 bg-white py-3">{{ moment((purchase |
+                    async).order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YYYY/MM/DD (ddd)
+                    HH:mm') }}</p>
+            </div>
+            <div class="row">
+                <p class="col-4 py-3 text-white d-flex align-items-center justify-content-center">
+                    座席・券種</p>
+                <div class="col-8 bg-white py-3">
+                    <div *ngFor="let acceptedOffer of (purchase | async).order.acceptedOffers" class="mb-2">
+                        <p>{{ acceptedOffer.itemOffered.reservedTicket.ticketedSeat.seatNumber }}</p>
+                        <p>{{ acceptedOffer.itemOffered.reservedTicket.ticketType.name.ja }} / {{
+                            getTicketPrice(acceptedOffer).single | currency : 'JPY' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-50 mx-auto">
+        <button type="button" class="btn btn-block bg-primary py-3 text-white large-text btn-arrow mb-3" [disabled]="isLoading | async"
+            (click)="print()">再印刷</button>
+        <button type="button" class="btn btn-block bg-primary py-3 text-white large-text btn-arrow" routerLink="/purchase/schedule">スケジュール選択へ戻る</button>
+    </div>
+
+</div>
+
+<app-navigation prevLink="/purchase/schedule"></app-navigation>

@@ -1,0 +1,119 @@
+@import './theme';
+$font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック  Medium', meiryo, sans-serif;
+
+
+html, body {
+    height: 100%;
+}
+body {
+    text-size-adjust: 100%;
+    -webkit-touch-callout: none;
+    user-select: none;
+    background-attachment: fixed;
+    font-size: 18px;
+    font-family: $font-family;
+}
+
+code {
+    line-height: 1.6;
+}
+
+select {
+    appearance: none;
+}
+
+h1, h2, h3 {
+    font-weight: normal;
+    line-height: 1.4;
+}
+a {
+    color: #FFF;
+    text-decoration: none;
+    &:focus, &:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+p {
+    line-height: 1.6;
+    a {
+        color: #0074A9;
+        text-decoration: underline;
+        &:focus, &:hover {
+            color: #0074A9;
+        }
+    }
+}
+div {
+    line-height: 1;
+}
+
+.select-text {
+    -webkit-touch-callout: default;
+    user-select: all;
+}
+
+.small-x-text {
+    font-size: 10px;
+}
+.small-text {
+    font-size: 14px;
+}
+.large-text {
+    font-size: 24px;
+}
+.large-x-text {
+    font-size: 34px;
+}
+.large-xx-text {
+    font-size: 50px;
+}
+
+.d-grid {
+    display: grid !important;
+}
+
+.not-event {
+    pointer-events: none;
+}
+
+.purchase {
+    .main {
+        width: 75%;
+        @include media-breakpoint-down(sm) {
+            width: 100%;
+        }
+    }
+    .sub {
+        width: 25%;
+        @include media-breakpoint-down(sm) {
+            width: 100%;
+        }
+    }
+}
+
+.modal-content {
+    background-color: transparent !important;
+}
+
+.btn-arrow {
+    background-image: url(/assets/images/icon/arrow.svg);
+    background-size: 20px;
+    background-position: center right 20px;
+    background-repeat: no-repeat;
+}
+
+.icon {
+    width: 30px;
+    display: block;
+}
+
+.pos-name {
+    position: absolute;
+    top: 1.5rem;
+    right: 0;
+}
+
+.bg-gray {
+    background-color: #888;
+}

@@ -1,0 +1,6 @@
+<app-purchase-contents class="purchase">
+    <div class="bg-gray text-white py-2 px-4 rounded-left pos-name">{{ (user | async).pos?.name }}</div>
+    <router-outlet></router-outlet>
+</app-purchase-contents>
+
+<app-loading [show]="isLoading | async"></app-loading>
