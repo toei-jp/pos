@@ -1,6 +1,6 @@
 // tslint:disable:no-http-string
 /**
- * 環境変数local
+ * 環境変数development
  */
 export const environment = {
     production: false,
