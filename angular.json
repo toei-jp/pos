@@ -67,7 +67,8 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": true,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "index": "src/client/production.html"
             }
           }
         },
