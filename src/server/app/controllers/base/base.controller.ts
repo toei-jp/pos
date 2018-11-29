@@ -7,7 +7,7 @@ import { Response } from 'express';
 import * as httpStatus from 'http-status';
 // import { AuthModel } from '../../models/auth/auth.model';
 
-const log = debug('frontend:base');
+const log = debug('toei-pos:base');
 
 /**
  * エラー

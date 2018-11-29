@@ -6,7 +6,7 @@ import { NextFunction, Request, Response } from 'express';
 import { AuthModel } from '../../models/auth/auth.model';
 import { Auth2Model } from '../../models/auth2/auth2.model';
 import { errorProsess } from '../base/base.controller';
-const log = debug('frontend:authorize');
+const log = debug('toei-pos:authorize');
 
 export async function getCredentials(req: Request, res: Response) {
     log('getCredentials');

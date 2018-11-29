@@ -15,7 +15,7 @@ const debug = require("debug");
 const auth_model_1 = require("../../models/auth/auth.model");
 const auth2_model_1 = require("../../models/auth2/auth2.model");
 const base_controller_1 = require("../base/base.controller");
-const log = debug('frontend:authorize');
+const log = debug('toei-pos:authorize');
 function getCredentials(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         log('getCredentials');

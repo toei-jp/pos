@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const basicAuth = require("basic-auth");
 const createDebug = require("debug");
 const http_status_1 = require("http-status");
-const debug = createDebug('frontend:middlewares:basicAuth');
+const debug = createDebug('toei-pos:middlewares:basicAuth');
 /**
  * ベーシック認証ミドルウェア
  *
