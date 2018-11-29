@@ -87,8 +87,12 @@ export class PurchaseEffects {
         map(action => action.payload),
         mergeMap(async (payload) => {
             try {
+                const params = payload.params;
+                const selleId = params.seller.id;
                 await this.cinerino.getServices();
-                const transaction = await this.cinerino.transaction.placeOrder.start(payload.params);
+                const passport = await this.cinerino.getPassport(selleId);
+                params.object = { passport };
+                const transaction = await this.cinerino.transaction.placeOrder.start(params);
                 return new purchase.StartTransactionSuccess({ transaction });
             } catch (error) {
                 return new purchase.StartTransactionFail({ error: error });

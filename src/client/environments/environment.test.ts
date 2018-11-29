@@ -13,7 +13,7 @@ export const environment = {
     API_ENDPOINT: 'https://toei-cinerino-api-test.azurewebsites.net',
 
     ENTRANCE_SERVER_URL: '',
-    WAITER_SERVER_URL: '',
+    WAITER_SERVER_URL: 'https://waiter-test.appspot.com/projects/toei-test/passports',
 
     ANALYTICS_ID: '',
 

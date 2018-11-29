@@ -106,4 +106,15 @@ export class CinerinoService {
         // console.log(result.url);
         location.href = result.url;
     }
+
+    /**
+     * パスポート取得
+     */
+    public async getPassport(selleId: string) {
+        const url = `${environment.WAITER_SERVER_URL}`;
+        const body = { scope: `Transaction:PlaceOrder:${selleId}` };
+        const result = await this.http.post<{ token: string; }>(url, body).toPromise();
+
+        return result;
+    }
 }
