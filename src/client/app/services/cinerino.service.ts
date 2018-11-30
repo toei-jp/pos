@@ -111,7 +111,11 @@ export class CinerinoService {
      * パスポート取得
      */
     public async getPassport(selleId: string) {
-        const url = `${environment.WAITER_SERVER_URL}`;
+        if (environment.WAITER_SERVER_URL === undefined
+            || environment.WAITER_SERVER_URL === '') {
+            return { token: '' };
+        }
+        const url = `${environment.WAITER_SERVER_URL}/projects/${environment.PROJECT_ID}/passports`;
         const body = { scope: `Transaction:PlaceOrder:${selleId}` };
         const result = await this.http.post<{ token: string; }>(url, body).toPromise();
 

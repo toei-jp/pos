@@ -5,6 +5,7 @@
 export const environment = {
     production: false,
     APP_PREFIX: 'TO',
+    PROJECT_ID: 'toei-test',
 
     ENV: 'test',
 
@@ -13,7 +14,7 @@ export const environment = {
     API_ENDPOINT: 'https://toei-cinerino-api-test.azurewebsites.net',
 
     ENTRANCE_SERVER_URL: '',
-    WAITER_SERVER_URL: 'https://waiter-test.appspot.com/projects/toei-test/passports',
+    WAITER_SERVER_URL: '',
 
     ANALYTICS_ID: '',
 

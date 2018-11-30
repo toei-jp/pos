@@ -6733,7 +6733,11 @@ var CinerinoService = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        url = "" + _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].WAITER_SERVER_URL;
+                        if (_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].WAITER_SERVER_URL === undefined
+                            || _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].WAITER_SERVER_URL === '') {
+                            return [2 /*return*/, { token: '' }];
+                        }
+                        url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].WAITER_SERVER_URL + "/projects/" + _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].PROJECT_ID + "/passports";
                         body = { scope: "Transaction:PlaceOrder:" + selleId };
                         return [4 /*yield*/, this.http.post(url, body).toPromise()];
                     case 1:
@@ -10078,11 +10082,12 @@ __webpack_require__.r(__webpack_exports__);
 var environment = {
     production: false,
     APP_PREFIX: 'TO',
+    PROJECT_ID: 'toei-development',
     ENV: 'development',
     SITE_URL: 'https://toei-pos-development.azurewebsites.net',
     API_ENDPOINT: 'https://toei-cinerino-api-development.azurewebsites.net',
     ENTRANCE_SERVER_URL: '',
-    WAITER_SERVER_URL: 'https://waiter-development.appspot.com/projects/toei-development/passports',
+    WAITER_SERVER_URL: 'https://waiter-development.appspot.com',
     ANALYTICS_ID: '',
     TRANSACTION_TIME: '15'
 };

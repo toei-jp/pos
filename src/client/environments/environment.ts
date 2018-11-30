@@ -3,8 +3,9 @@
  * 環境変数production
  */
 export const environment = {
-    production: false,
+    production: true,
     APP_PREFIX: 'TO',
+    PROJECT_ID: 'toei-production',
 
     ENV: 'production',
 
@@ -13,7 +14,7 @@ export const environment = {
     API_ENDPOINT: 'https://toei-cinerino-api-production.azurewebsites.net',
 
     ENTRANCE_SERVER_URL: '',
-    WAITER_SERVER_URL: 'https://waiter-production.appspot.com/projects/toei-production/passports',
+    WAITER_SERVER_URL: 'https://waiter-production.appspot.com',
 
     ANALYTICS_ID: '',
 
