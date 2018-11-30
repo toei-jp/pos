@@ -316,12 +316,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _components_pages_base_base_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/pages/base/base.component */ "./app/components/pages/base/base.component.ts");
-/* harmony import */ var _components_pages_error_error_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/pages/error/error.component */ "./app/components/pages/error/error.component.ts");
-/* harmony import */ var _components_pages_notfound_notfound_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/pages/notfound/notfound.component */ "./app/components/pages/notfound/notfound.component.ts");
-/* harmony import */ var _components_pages_setting_setting_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/pages/setting/setting.component */ "./app/components/pages/setting/setting.component.ts");
-/* harmony import */ var _routes_auth_route__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./routes/auth.route */ "./app/routes/auth.route.ts");
-/* harmony import */ var _routes_inquiry_route__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./routes/inquiry.route */ "./app/routes/inquiry.route.ts");
-/* harmony import */ var _routes_purchase_route__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./routes/purchase.route */ "./app/routes/purchase.route.ts");
+/* harmony import */ var _components_pages_congestion_congestion_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/pages/congestion/congestion.component */ "./app/components/pages/congestion/congestion.component.ts");
+/* harmony import */ var _components_pages_error_error_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/pages/error/error.component */ "./app/components/pages/error/error.component.ts");
+/* harmony import */ var _components_pages_maintenance_maintenance_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/pages/maintenance/maintenance.component */ "./app/components/pages/maintenance/maintenance.component.ts");
+/* harmony import */ var _components_pages_notfound_notfound_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/pages/notfound/notfound.component */ "./app/components/pages/notfound/notfound.component.ts");
+/* harmony import */ var _components_pages_setting_setting_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/pages/setting/setting.component */ "./app/components/pages/setting/setting.component.ts");
+/* harmony import */ var _routes_auth_route__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./routes/auth.route */ "./app/routes/auth.route.ts");
+/* harmony import */ var _routes_inquiry_route__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./routes/inquiry.route */ "./app/routes/inquiry.route.ts");
+/* harmony import */ var _routes_purchase_route__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./routes/purchase.route */ "./app/routes/purchase.route.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -340,18 +342,22 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var appRoutes = [
     { path: '', redirectTo: '/auth', pathMatch: 'full' },
-    _routes_purchase_route__WEBPACK_IMPORTED_MODULE_8__["route"],
-    _routes_auth_route__WEBPACK_IMPORTED_MODULE_6__["route"],
-    _routes_inquiry_route__WEBPACK_IMPORTED_MODULE_7__["route"],
+    _routes_purchase_route__WEBPACK_IMPORTED_MODULE_10__["route"],
+    _routes_auth_route__WEBPACK_IMPORTED_MODULE_8__["route"],
+    _routes_inquiry_route__WEBPACK_IMPORTED_MODULE_9__["route"],
     {
         path: '',
         component: _components_pages_base_base_component__WEBPACK_IMPORTED_MODULE_2__["BaseComponent"],
         children: [
-            { path: 'setting', component: _components_pages_setting_setting_component__WEBPACK_IMPORTED_MODULE_5__["SettingComponent"] },
-            { path: 'error', component: _components_pages_error_error_component__WEBPACK_IMPORTED_MODULE_3__["ErrorComponent"] },
-            { path: '**', component: _components_pages_notfound_notfound_component__WEBPACK_IMPORTED_MODULE_4__["NotfoundComponent"] }
+            { path: 'setting', component: _components_pages_setting_setting_component__WEBPACK_IMPORTED_MODULE_7__["SettingComponent"] },
+            { path: 'maintenance', component: _components_pages_maintenance_maintenance_component__WEBPACK_IMPORTED_MODULE_5__["MaintenanceComponent"] },
+            { path: 'congestion', component: _components_pages_congestion_congestion_component__WEBPACK_IMPORTED_MODULE_3__["CongestionComponent"] },
+            { path: 'error', component: _components_pages_error_error_component__WEBPACK_IMPORTED_MODULE_4__["ErrorComponent"] },
+            { path: '**', component: _components_pages_notfound_notfound_component__WEBPACK_IMPORTED_MODULE_6__["NotfoundComponent"] }
         ]
     }
 ];
@@ -398,40 +404,42 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pages_auth_auth_signin_auth_signin_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/pages/auth/auth-signin/auth-signin.component */ "./app/components/pages/auth/auth-signin/auth-signin.component.ts");
 /* harmony import */ var _components_pages_auth_auth_signout_auth_signout_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/pages/auth/auth-signout/auth-signout.component */ "./app/components/pages/auth/auth-signout/auth-signout.component.ts");
 /* harmony import */ var _components_pages_base_base_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/pages/base/base.component */ "./app/components/pages/base/base.component.ts");
-/* harmony import */ var _components_pages_error_error_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/pages/error/error.component */ "./app/components/pages/error/error.component.ts");
-/* harmony import */ var _components_pages_inquiry_inquiry_confirm_inquiry_confirm_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/pages/inquiry/inquiry-confirm/inquiry-confirm.component */ "./app/components/pages/inquiry/inquiry-confirm/inquiry-confirm.component.ts");
-/* harmony import */ var _components_pages_inquiry_inquiry_input_inquiry_input_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/pages/inquiry/inquiry-input/inquiry-input.component */ "./app/components/pages/inquiry/inquiry-input/inquiry-input.component.ts");
-/* harmony import */ var _components_pages_notfound_notfound_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/pages/notfound/notfound.component */ "./app/components/pages/notfound/notfound.component.ts");
-/* harmony import */ var _components_pages_purchase_purchase_base_purchase_base_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/pages/purchase/purchase-base/purchase-base.component */ "./app/components/pages/purchase/purchase-base/purchase-base.component.ts");
-/* harmony import */ var _components_pages_purchase_purchase_complete_purchase_complete_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/pages/purchase/purchase-complete/purchase-complete.component */ "./app/components/pages/purchase/purchase-complete/purchase-complete.component.ts");
-/* harmony import */ var _components_pages_purchase_purchase_confirm_purchase_confirm_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/pages/purchase/purchase-confirm/purchase-confirm.component */ "./app/components/pages/purchase/purchase-confirm/purchase-confirm.component.ts");
-/* harmony import */ var _components_pages_purchase_purchase_history_purchase_history_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/pages/purchase/purchase-history/purchase-history.component */ "./app/components/pages/purchase/purchase-history/purchase-history.component.ts");
-/* harmony import */ var _components_pages_purchase_purchase_input_purchase_input_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/pages/purchase/purchase-input/purchase-input.component */ "./app/components/pages/purchase/purchase-input/purchase-input.component.ts");
-/* harmony import */ var _components_pages_purchase_purchase_payment_purchase_payment_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/pages/purchase/purchase-payment/purchase-payment.component */ "./app/components/pages/purchase/purchase-payment/purchase-payment.component.ts");
-/* harmony import */ var _components_pages_purchase_purchase_schedule_purchase_schedule_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/pages/purchase/purchase-schedule/purchase-schedule.component */ "./app/components/pages/purchase/purchase-schedule/purchase-schedule.component.ts");
-/* harmony import */ var _components_pages_purchase_purchase_seat_purchase_seat_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/pages/purchase/purchase-seat/purchase-seat.component */ "./app/components/pages/purchase/purchase-seat/purchase-seat.component.ts");
-/* harmony import */ var _components_pages_purchase_purchase_ticket_purchase_ticket_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/pages/purchase/purchase-ticket/purchase-ticket.component */ "./app/components/pages/purchase/purchase-ticket/purchase-ticket.component.ts");
-/* harmony import */ var _components_pages_setting_setting_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/pages/setting/setting.component */ "./app/components/pages/setting/setting.component.ts");
-/* harmony import */ var _components_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/parts/alert-modal/alert-modal.component */ "./app/components/parts/alert-modal/alert-modal.component.ts");
-/* harmony import */ var _components_parts_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/parts/confirm-modal/confirm-modal.component */ "./app/components/parts/confirm-modal/confirm-modal.component.ts");
-/* harmony import */ var _components_parts_contents_contents_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/parts/contents/contents.component */ "./app/components/parts/contents/contents.component.ts");
-/* harmony import */ var _components_parts_footer_footer_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/parts/footer/footer.component */ "./app/components/parts/footer/footer.component.ts");
-/* harmony import */ var _components_parts_header_menu_header_menu_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/parts/header-menu/header-menu.component */ "./app/components/parts/header-menu/header-menu.component.ts");
-/* harmony import */ var _components_parts_header_header_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/parts/header/header.component */ "./app/components/parts/header/header.component.ts");
-/* harmony import */ var _components_parts_loading_loading_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/parts/loading/loading.component */ "./app/components/parts/loading/loading.component.ts");
-/* harmony import */ var _components_parts_mvtk_check_modal_mvtk_check_modal_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/parts/mvtk-check-modal/mvtk-check-modal.component */ "./app/components/parts/mvtk-check-modal/mvtk-check-modal.component.ts");
-/* harmony import */ var _components_parts_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/parts/navigation/navigation.component */ "./app/components/parts/navigation/navigation.component.ts");
-/* harmony import */ var _components_parts_numeric_keypad_numeric_keypad_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/parts/numeric-keypad/numeric-keypad.component */ "./app/components/parts/numeric-keypad/numeric-keypad.component.ts");
-/* harmony import */ var _components_parts_purchase_contents_purchase_contents_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/parts/purchase-contents/purchase-contents.component */ "./app/components/parts/purchase-contents/purchase-contents.component.ts");
-/* harmony import */ var _components_parts_purchase_detail_modal_purchase_detail_modal_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/parts/purchase-detail-modal/purchase-detail-modal.component */ "./app/components/parts/purchase-detail-modal/purchase-detail-modal.component.ts");
-/* harmony import */ var _components_parts_purchase_info_purchase_info_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/parts/purchase-info/purchase-info.component */ "./app/components/parts/purchase-info/purchase-info.component.ts");
-/* harmony import */ var _components_parts_purchase_payment_modal_purchase_payment_modal_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/parts/purchase-payment-modal/purchase-payment-modal.component */ "./app/components/parts/purchase-payment-modal/purchase-payment-modal.component.ts");
-/* harmony import */ var _components_parts_purchase_schedule_film_purchase_schedule_film_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/parts/purchase-schedule-film/purchase-schedule-film.component */ "./app/components/parts/purchase-schedule-film/purchase-schedule-film.component.ts");
-/* harmony import */ var _components_parts_screen_screen_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./components/parts/screen/screen.component */ "./app/components/parts/screen/screen.component.ts");
-/* harmony import */ var _components_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./components/parts/ticket-list-modal/ticket-list-modal.component */ "./app/components/parts/ticket-list-modal/ticket-list-modal.component.ts");
-/* harmony import */ var _pipes_libphonenumber_format_pipe__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./pipes/libphonenumber-format.pipe */ "./app/pipes/libphonenumber-format.pipe.ts");
-/* harmony import */ var _store_module__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./store.module */ "./app/store.module.ts");
-/* harmony import */ var _store_core_store__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./store/core/store */ "./app/store/core/store/index.ts");
+/* harmony import */ var _components_pages_congestion_congestion_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/pages/congestion/congestion.component */ "./app/components/pages/congestion/congestion.component.ts");
+/* harmony import */ var _components_pages_error_error_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/pages/error/error.component */ "./app/components/pages/error/error.component.ts");
+/* harmony import */ var _components_pages_inquiry_inquiry_confirm_inquiry_confirm_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/pages/inquiry/inquiry-confirm/inquiry-confirm.component */ "./app/components/pages/inquiry/inquiry-confirm/inquiry-confirm.component.ts");
+/* harmony import */ var _components_pages_inquiry_inquiry_input_inquiry_input_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/pages/inquiry/inquiry-input/inquiry-input.component */ "./app/components/pages/inquiry/inquiry-input/inquiry-input.component.ts");
+/* harmony import */ var _components_pages_maintenance_maintenance_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/pages/maintenance/maintenance.component */ "./app/components/pages/maintenance/maintenance.component.ts");
+/* harmony import */ var _components_pages_notfound_notfound_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/pages/notfound/notfound.component */ "./app/components/pages/notfound/notfound.component.ts");
+/* harmony import */ var _components_pages_purchase_purchase_base_purchase_base_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/pages/purchase/purchase-base/purchase-base.component */ "./app/components/pages/purchase/purchase-base/purchase-base.component.ts");
+/* harmony import */ var _components_pages_purchase_purchase_complete_purchase_complete_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/pages/purchase/purchase-complete/purchase-complete.component */ "./app/components/pages/purchase/purchase-complete/purchase-complete.component.ts");
+/* harmony import */ var _components_pages_purchase_purchase_confirm_purchase_confirm_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/pages/purchase/purchase-confirm/purchase-confirm.component */ "./app/components/pages/purchase/purchase-confirm/purchase-confirm.component.ts");
+/* harmony import */ var _components_pages_purchase_purchase_history_purchase_history_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/pages/purchase/purchase-history/purchase-history.component */ "./app/components/pages/purchase/purchase-history/purchase-history.component.ts");
+/* harmony import */ var _components_pages_purchase_purchase_input_purchase_input_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/pages/purchase/purchase-input/purchase-input.component */ "./app/components/pages/purchase/purchase-input/purchase-input.component.ts");
+/* harmony import */ var _components_pages_purchase_purchase_payment_purchase_payment_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/pages/purchase/purchase-payment/purchase-payment.component */ "./app/components/pages/purchase/purchase-payment/purchase-payment.component.ts");
+/* harmony import */ var _components_pages_purchase_purchase_schedule_purchase_schedule_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/pages/purchase/purchase-schedule/purchase-schedule.component */ "./app/components/pages/purchase/purchase-schedule/purchase-schedule.component.ts");
+/* harmony import */ var _components_pages_purchase_purchase_seat_purchase_seat_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/pages/purchase/purchase-seat/purchase-seat.component */ "./app/components/pages/purchase/purchase-seat/purchase-seat.component.ts");
+/* harmony import */ var _components_pages_purchase_purchase_ticket_purchase_ticket_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/pages/purchase/purchase-ticket/purchase-ticket.component */ "./app/components/pages/purchase/purchase-ticket/purchase-ticket.component.ts");
+/* harmony import */ var _components_pages_setting_setting_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/pages/setting/setting.component */ "./app/components/pages/setting/setting.component.ts");
+/* harmony import */ var _components_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/parts/alert-modal/alert-modal.component */ "./app/components/parts/alert-modal/alert-modal.component.ts");
+/* harmony import */ var _components_parts_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/parts/confirm-modal/confirm-modal.component */ "./app/components/parts/confirm-modal/confirm-modal.component.ts");
+/* harmony import */ var _components_parts_contents_contents_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/parts/contents/contents.component */ "./app/components/parts/contents/contents.component.ts");
+/* harmony import */ var _components_parts_footer_footer_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/parts/footer/footer.component */ "./app/components/parts/footer/footer.component.ts");
+/* harmony import */ var _components_parts_header_menu_header_menu_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/parts/header-menu/header-menu.component */ "./app/components/parts/header-menu/header-menu.component.ts");
+/* harmony import */ var _components_parts_header_header_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/parts/header/header.component */ "./app/components/parts/header/header.component.ts");
+/* harmony import */ var _components_parts_loading_loading_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/parts/loading/loading.component */ "./app/components/parts/loading/loading.component.ts");
+/* harmony import */ var _components_parts_mvtk_check_modal_mvtk_check_modal_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/parts/mvtk-check-modal/mvtk-check-modal.component */ "./app/components/parts/mvtk-check-modal/mvtk-check-modal.component.ts");
+/* harmony import */ var _components_parts_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/parts/navigation/navigation.component */ "./app/components/parts/navigation/navigation.component.ts");
+/* harmony import */ var _components_parts_numeric_keypad_numeric_keypad_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/parts/numeric-keypad/numeric-keypad.component */ "./app/components/parts/numeric-keypad/numeric-keypad.component.ts");
+/* harmony import */ var _components_parts_purchase_contents_purchase_contents_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/parts/purchase-contents/purchase-contents.component */ "./app/components/parts/purchase-contents/purchase-contents.component.ts");
+/* harmony import */ var _components_parts_purchase_detail_modal_purchase_detail_modal_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/parts/purchase-detail-modal/purchase-detail-modal.component */ "./app/components/parts/purchase-detail-modal/purchase-detail-modal.component.ts");
+/* harmony import */ var _components_parts_purchase_info_purchase_info_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/parts/purchase-info/purchase-info.component */ "./app/components/parts/purchase-info/purchase-info.component.ts");
+/* harmony import */ var _components_parts_purchase_payment_modal_purchase_payment_modal_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./components/parts/purchase-payment-modal/purchase-payment-modal.component */ "./app/components/parts/purchase-payment-modal/purchase-payment-modal.component.ts");
+/* harmony import */ var _components_parts_purchase_schedule_film_purchase_schedule_film_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./components/parts/purchase-schedule-film/purchase-schedule-film.component */ "./app/components/parts/purchase-schedule-film/purchase-schedule-film.component.ts");
+/* harmony import */ var _components_parts_screen_screen_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./components/parts/screen/screen.component */ "./app/components/parts/screen/screen.component.ts");
+/* harmony import */ var _components_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./components/parts/ticket-list-modal/ticket-list-modal.component */ "./app/components/parts/ticket-list-modal/ticket-list-modal.component.ts");
+/* harmony import */ var _pipes_libphonenumber_format_pipe__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./pipes/libphonenumber-format.pipe */ "./app/pipes/libphonenumber-format.pipe.ts");
+/* harmony import */ var _store_module__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./store.module */ "./app/store.module.ts");
+/* harmony import */ var _store_core_store__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./store/core/store */ "./app/store/core/store/index.ts");
 /**
  * NgModule
  */
@@ -488,6 +496,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 // tslint:disable-next-line:no-stateless-class
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -498,48 +508,50 @@ var AppModule = /** @class */ (function () {
                 _components_app_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
                 _components_pages_auth_auth_signin_auth_signin_component__WEBPACK_IMPORTED_MODULE_9__["AuthSigninComponent"],
                 _components_pages_auth_auth_signout_auth_signout_component__WEBPACK_IMPORTED_MODULE_10__["AuthSignoutComponent"],
-                _components_pages_purchase_purchase_schedule_purchase_schedule_component__WEBPACK_IMPORTED_MODULE_22__["PurchaseScheduleComponent"],
-                _components_pages_purchase_purchase_base_purchase_base_component__WEBPACK_IMPORTED_MODULE_16__["PurchaseBaseComponent"],
-                _components_pages_purchase_purchase_seat_purchase_seat_component__WEBPACK_IMPORTED_MODULE_23__["PurchaseSeatComponent"],
-                _components_pages_purchase_purchase_ticket_purchase_ticket_component__WEBPACK_IMPORTED_MODULE_24__["PurchaseTicketComponent"],
-                _components_pages_purchase_purchase_input_purchase_input_component__WEBPACK_IMPORTED_MODULE_20__["PurchaseInputComponent"],
-                _components_pages_purchase_purchase_confirm_purchase_confirm_component__WEBPACK_IMPORTED_MODULE_18__["PurchaseConfirmComponent"],
-                _components_pages_purchase_purchase_complete_purchase_complete_component__WEBPACK_IMPORTED_MODULE_17__["PurchaseCompleteComponent"],
-                _components_pages_notfound_notfound_component__WEBPACK_IMPORTED_MODULE_15__["NotfoundComponent"],
+                _components_pages_purchase_purchase_schedule_purchase_schedule_component__WEBPACK_IMPORTED_MODULE_24__["PurchaseScheduleComponent"],
+                _components_pages_purchase_purchase_base_purchase_base_component__WEBPACK_IMPORTED_MODULE_18__["PurchaseBaseComponent"],
+                _components_pages_purchase_purchase_seat_purchase_seat_component__WEBPACK_IMPORTED_MODULE_25__["PurchaseSeatComponent"],
+                _components_pages_purchase_purchase_ticket_purchase_ticket_component__WEBPACK_IMPORTED_MODULE_26__["PurchaseTicketComponent"],
+                _components_pages_purchase_purchase_input_purchase_input_component__WEBPACK_IMPORTED_MODULE_22__["PurchaseInputComponent"],
+                _components_pages_purchase_purchase_confirm_purchase_confirm_component__WEBPACK_IMPORTED_MODULE_20__["PurchaseConfirmComponent"],
+                _components_pages_purchase_purchase_complete_purchase_complete_component__WEBPACK_IMPORTED_MODULE_19__["PurchaseCompleteComponent"],
+                _components_pages_notfound_notfound_component__WEBPACK_IMPORTED_MODULE_17__["NotfoundComponent"],
                 _components_pages_auth_auth_index_auth_index_component__WEBPACK_IMPORTED_MODULE_8__["AuthIndexComponent"],
-                _components_parts_contents_contents_component__WEBPACK_IMPORTED_MODULE_28__["ContentsComponent"],
-                _components_parts_header_header_component__WEBPACK_IMPORTED_MODULE_31__["HeaderComponent"],
-                _components_parts_footer_footer_component__WEBPACK_IMPORTED_MODULE_29__["FooterComponent"],
-                _components_parts_purchase_contents_purchase_contents_component__WEBPACK_IMPORTED_MODULE_36__["PurchaseContentsComponent"],
-                _components_parts_purchase_schedule_film_purchase_schedule_film_component__WEBPACK_IMPORTED_MODULE_40__["PurchaseScheduleFilmComponent"],
-                _components_parts_screen_screen_component__WEBPACK_IMPORTED_MODULE_41__["ScreenComponent"],
-                _components_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_42__["TicketListModalComponent"],
-                _components_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_26__["AlertModalComponent"],
-                _components_parts_purchase_info_purchase_info_component__WEBPACK_IMPORTED_MODULE_38__["PurchaseInfoComponent"],
-                _components_parts_loading_loading_component__WEBPACK_IMPORTED_MODULE_32__["LoadingComponent"],
-                _components_pages_error_error_component__WEBPACK_IMPORTED_MODULE_12__["ErrorComponent"],
+                _components_parts_contents_contents_component__WEBPACK_IMPORTED_MODULE_30__["ContentsComponent"],
+                _components_parts_header_header_component__WEBPACK_IMPORTED_MODULE_33__["HeaderComponent"],
+                _components_parts_footer_footer_component__WEBPACK_IMPORTED_MODULE_31__["FooterComponent"],
+                _components_parts_purchase_contents_purchase_contents_component__WEBPACK_IMPORTED_MODULE_38__["PurchaseContentsComponent"],
+                _components_parts_purchase_schedule_film_purchase_schedule_film_component__WEBPACK_IMPORTED_MODULE_42__["PurchaseScheduleFilmComponent"],
+                _components_parts_screen_screen_component__WEBPACK_IMPORTED_MODULE_43__["ScreenComponent"],
+                _components_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_44__["TicketListModalComponent"],
+                _components_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_28__["AlertModalComponent"],
+                _components_parts_purchase_info_purchase_info_component__WEBPACK_IMPORTED_MODULE_40__["PurchaseInfoComponent"],
+                _components_parts_loading_loading_component__WEBPACK_IMPORTED_MODULE_34__["LoadingComponent"],
+                _components_pages_error_error_component__WEBPACK_IMPORTED_MODULE_13__["ErrorComponent"],
                 _components_pages_base_base_component__WEBPACK_IMPORTED_MODULE_11__["BaseComponent"],
-                _components_parts_header_menu_header_menu_component__WEBPACK_IMPORTED_MODULE_30__["HeaderMenuComponent"],
-                _components_parts_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_27__["ConfirmModalComponent"],
-                _components_pages_purchase_purchase_history_purchase_history_component__WEBPACK_IMPORTED_MODULE_19__["PurchaseHistoryComponent"],
-                _components_parts_purchase_detail_modal_purchase_detail_modal_component__WEBPACK_IMPORTED_MODULE_37__["PurchaseDetailModalComponent"],
-                _components_parts_mvtk_check_modal_mvtk_check_modal_component__WEBPACK_IMPORTED_MODULE_33__["MvtkCheckModalComponent"],
-                _components_pages_setting_setting_component__WEBPACK_IMPORTED_MODULE_25__["SettingComponent"],
-                _components_pages_inquiry_inquiry_input_inquiry_input_component__WEBPACK_IMPORTED_MODULE_14__["InquiryInputComponent"],
-                _components_pages_inquiry_inquiry_confirm_inquiry_confirm_component__WEBPACK_IMPORTED_MODULE_13__["InquiryConfirmComponent"],
-                _components_pages_purchase_purchase_payment_purchase_payment_component__WEBPACK_IMPORTED_MODULE_21__["PurchasePaymentComponent"],
-                _components_parts_purchase_payment_modal_purchase_payment_modal_component__WEBPACK_IMPORTED_MODULE_39__["PurchasePaymentModalComponent"],
-                _pipes_libphonenumber_format_pipe__WEBPACK_IMPORTED_MODULE_43__["LibphonenumberFormatPipe"],
-                _components_parts_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_34__["NavigationComponent"],
-                _components_parts_numeric_keypad_numeric_keypad_component__WEBPACK_IMPORTED_MODULE_35__["NumericKeypadComponent"]
+                _components_parts_header_menu_header_menu_component__WEBPACK_IMPORTED_MODULE_32__["HeaderMenuComponent"],
+                _components_parts_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_29__["ConfirmModalComponent"],
+                _components_pages_purchase_purchase_history_purchase_history_component__WEBPACK_IMPORTED_MODULE_21__["PurchaseHistoryComponent"],
+                _components_parts_purchase_detail_modal_purchase_detail_modal_component__WEBPACK_IMPORTED_MODULE_39__["PurchaseDetailModalComponent"],
+                _components_parts_mvtk_check_modal_mvtk_check_modal_component__WEBPACK_IMPORTED_MODULE_35__["MvtkCheckModalComponent"],
+                _components_pages_setting_setting_component__WEBPACK_IMPORTED_MODULE_27__["SettingComponent"],
+                _components_pages_inquiry_inquiry_input_inquiry_input_component__WEBPACK_IMPORTED_MODULE_15__["InquiryInputComponent"],
+                _components_pages_inquiry_inquiry_confirm_inquiry_confirm_component__WEBPACK_IMPORTED_MODULE_14__["InquiryConfirmComponent"],
+                _components_pages_purchase_purchase_payment_purchase_payment_component__WEBPACK_IMPORTED_MODULE_23__["PurchasePaymentComponent"],
+                _components_parts_purchase_payment_modal_purchase_payment_modal_component__WEBPACK_IMPORTED_MODULE_41__["PurchasePaymentModalComponent"],
+                _pipes_libphonenumber_format_pipe__WEBPACK_IMPORTED_MODULE_45__["LibphonenumberFormatPipe"],
+                _components_parts_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_36__["NavigationComponent"],
+                _components_parts_numeric_keypad_numeric_keypad_component__WEBPACK_IMPORTED_MODULE_37__["NumericKeypadComponent"],
+                _components_pages_congestion_congestion_component__WEBPACK_IMPORTED_MODULE_12__["CongestionComponent"],
+                _components_pages_maintenance_maintenance_component__WEBPACK_IMPORTED_MODULE_16__["MaintenanceComponent"]
             ],
             entryComponents: [
-                _components_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_42__["TicketListModalComponent"],
-                _components_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_26__["AlertModalComponent"],
-                _components_parts_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_27__["ConfirmModalComponent"],
-                _components_parts_purchase_detail_modal_purchase_detail_modal_component__WEBPACK_IMPORTED_MODULE_37__["PurchaseDetailModalComponent"],
-                _components_parts_mvtk_check_modal_mvtk_check_modal_component__WEBPACK_IMPORTED_MODULE_33__["MvtkCheckModalComponent"],
-                _components_parts_purchase_payment_modal_purchase_payment_modal_component__WEBPACK_IMPORTED_MODULE_39__["PurchasePaymentModalComponent"]
+                _components_parts_ticket_list_modal_ticket_list_modal_component__WEBPACK_IMPORTED_MODULE_44__["TicketListModalComponent"],
+                _components_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_28__["AlertModalComponent"],
+                _components_parts_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_29__["ConfirmModalComponent"],
+                _components_parts_purchase_detail_modal_purchase_detail_modal_component__WEBPACK_IMPORTED_MODULE_39__["PurchaseDetailModalComponent"],
+                _components_parts_mvtk_check_modal_mvtk_check_modal_component__WEBPACK_IMPORTED_MODULE_35__["MvtkCheckModalComponent"],
+                _components_parts_purchase_payment_modal_purchase_payment_modal_component__WEBPACK_IMPORTED_MODULE_41__["PurchasePaymentModalComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"],
@@ -548,8 +560,8 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 ngx_swiper_wrapper__WEBPACK_IMPORTED_MODULE_5__["SwiperModule"],
-                _store_module__WEBPACK_IMPORTED_MODULE_44__["StoreModule"],
-                _store_core_store__WEBPACK_IMPORTED_MODULE_45__["CoreStoreModule"],
+                _store_module__WEBPACK_IMPORTED_MODULE_46__["StoreModule"],
+                _store_core_store__WEBPACK_IMPORTED_MODULE_47__["CoreStoreModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__["NgbModule"]
             ],
             providers: [],
@@ -1225,6 +1237,69 @@ var BaseComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./app/components/pages/congestion/congestion.component.html":
+/*!*******************************************************************!*\
+  !*** ./app/components/pages/congestion/congestion.component.html ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"py-4 px-3\">\n    <div class=\"mb-4\">\n        <h2 class=\"text-white mb-3\">只今、アクセスが混雑しております。</h2>\n        <p class=\"mb-3 text-white\">現在アクセスが集中しております。<br>\n            誠に申し訳ございませんがしばらく時間を置いてから再度アクセスしてください。</p>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" routerLink=\"/\">戻る</button>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./app/components/pages/congestion/congestion.component.scss":
+/*!*******************************************************************!*\
+  !*** ./app/components/pages/congestion/congestion.component.scss ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./app/components/pages/congestion/congestion.component.ts":
+/*!*****************************************************************!*\
+  !*** ./app/components/pages/congestion/congestion.component.ts ***!
+  \*****************************************************************/
+/*! exports provided: CongestionComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CongestionComponent", function() { return CongestionComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CongestionComponent = /** @class */ (function () {
+    function CongestionComponent() {
+    }
+    CongestionComponent.prototype.ngOnInit = function () {
+    };
+    CongestionComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-congestion',
+            template: __webpack_require__(/*! ./congestion.component.html */ "./app/components/pages/congestion/congestion.component.html"),
+            styles: [__webpack_require__(/*! ./congestion.component.scss */ "./app/components/pages/congestion/congestion.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CongestionComponent);
+    return CongestionComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./app/components/pages/error/error.component.html":
 /*!*********************************************************!*\
   !*** ./app/components/pages/error/error.component.html ***!
@@ -1232,7 +1307,7 @@ var BaseComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <h2 class=\"bg-secondary text-white p-3 mb-3\">エラー</h2>\n\n        <p class=\"mb-3 text-white\">エラーが発生しました。</p>\n        <div class=\"p-3 border bg-white select-text\">\n            <code>{{ (error | async) }}</code>\n        </div>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow mb-3\" routerLink=\"/\">戻る</button>\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" routerLink=\"/setting\">設定</button>\n    </div>\n</div>"
+module.exports = "<div class=\"py-4 px-3\">\n    <div class=\"mb-4\">\n        <h2 class=\"text-white mb-3\">エラー</h2>\n\n        <p class=\"mb-3 text-white\">エラーが発生しました。</p>\n        <div class=\"p-3 border bg-white select-text\">\n            <code>{{ (error | async) }}</code>\n        </div>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow mb-3\" routerLink=\"/\">戻る</button>\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" routerLink=\"/setting\">設定</button>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -1596,6 +1671,69 @@ var InquiryInputComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], InquiryInputComponent);
     return InquiryInputComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./app/components/pages/maintenance/maintenance.component.html":
+/*!*********************************************************************!*\
+  !*** ./app/components/pages/maintenance/maintenance.component.html ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"py-4 px-3\">\n    <div class=\"mb-4\">\n        <h2 class=\"text-white mb-3\">メンテナンス</h2>\n        <p class=\"mb-3 text-white\">メンテナンスの為、インターネットでの販売を停止させていただきます。</p>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" routerLink=\"/\">戻る</button>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./app/components/pages/maintenance/maintenance.component.scss":
+/*!*********************************************************************!*\
+  !*** ./app/components/pages/maintenance/maintenance.component.scss ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./app/components/pages/maintenance/maintenance.component.ts":
+/*!*******************************************************************!*\
+  !*** ./app/components/pages/maintenance/maintenance.component.ts ***!
+  \*******************************************************************/
+/*! exports provided: MaintenanceComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MaintenanceComponent", function() { return MaintenanceComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var MaintenanceComponent = /** @class */ (function () {
+    function MaintenanceComponent() {
+    }
+    MaintenanceComponent.prototype.ngOnInit = function () {
+    };
+    MaintenanceComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-maintenance',
+            template: __webpack_require__(/*! ./maintenance.component.html */ "./app/components/pages/maintenance/maintenance.component.html"),
+            styles: [__webpack_require__(/*! ./maintenance.component.scss */ "./app/components/pages/maintenance/maintenance.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], MaintenanceComponent);
+    return MaintenanceComponent;
 }());
 
 
@@ -2731,13 +2869,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
 /* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "../../node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../environments/environment */ "./environments/environment.ts");
-/* harmony import */ var _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../store/actions/purchase.action */ "./app/store/actions/purchase.action.ts");
-/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../store/reducers */ "./app/store/reducers/index.ts");
+/* harmony import */ var http_status__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! http-status */ "../../node_modules/http-status/lib/index.js");
+/* harmony import */ var http_status__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(http_status__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "../../node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../../environments/environment */ "./environments/environment.ts");
+/* harmony import */ var _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../store/actions/purchase.action */ "./app/store/actions/purchase.action.ts");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../store/reducers */ "./app/store/reducers/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2792,6 +2932,7 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
+
 var PurchaseScheduleComponent = /** @class */ (function () {
     function PurchaseScheduleComponent(store, actions, router) {
         this.store = store;
@@ -2802,9 +2943,10 @@ var PurchaseScheduleComponent = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["Delete"]({}));
-                this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_3__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_9__["getPurchase"]));
-                this.user = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_3__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_9__["getUser"]));
+                this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["Delete"]({}));
+                this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_3__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getPurchase"]));
+                this.error = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_3__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getError"]));
+                this.user = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_3__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getUser"]));
                 this.user.subscribe(function (user) {
                     if (user.movieTheater === undefined) {
                         _this.router.navigate(['/error']);
@@ -2832,7 +2974,7 @@ var PurchaseScheduleComponent = /** @class */ (function () {
      * selectTheater
      */
     PurchaseScheduleComponent.prototype.selectTheater = function (movieTheater) {
-        this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["SelectTheater"]({ movieTheater: movieTheater }));
+        this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["SelectTheater"]({ movieTheater: movieTheater }));
     };
     /**
      * selectDate
@@ -2842,19 +2984,18 @@ var PurchaseScheduleComponent = /** @class */ (function () {
         this.purchase.subscribe(function (purchase) {
             var movieTheater = purchase.movieTheater;
             if (_this.scheduleDate === undefined || _this.scheduleDate === '') {
-                _this.scheduleDate = moment__WEBPACK_IMPORTED_MODULE_4__().format('YYYY-MM-DD');
+                _this.scheduleDate = moment__WEBPACK_IMPORTED_MODULE_5__().format('YYYY-MM-DD');
             }
             var scheduleDate = _this.scheduleDate;
             if (movieTheater === undefined) {
                 return;
             }
             var body = document.getElementsByTagName('body');
-            var now = moment__WEBPACK_IMPORTED_MODULE_4__().format('YYYY-MM-DD');
-            console.log(scheduleDate, now);
+            var now = moment__WEBPACK_IMPORTED_MODULE_5__().format('YYYY-MM-DD');
             body[0].style.backgroundColor = (scheduleDate > now) ? '#828407' : (scheduleDate < now) ? '#840707' : '#271916';
-            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["GetSchedule"]({ movieTheater: movieTheater, scheduleDate: scheduleDate }));
+            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["GetSchedule"]({ movieTheater: movieTheater, scheduleDate: scheduleDate }));
         }).unsubscribe();
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetScheduleSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(function () {
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetScheduleSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
             _this.purchase.subscribe(function (purchase) {
                 if (purchase.scheduleDate === undefined) {
                     return;
@@ -2862,10 +3003,10 @@ var PurchaseScheduleComponent = /** @class */ (function () {
                 _this.scheduleDate = purchase.scheduleDate;
             }).unsubscribe();
         }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].GetScheduleFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(function () {
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetScheduleFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
             _this.router.navigate(['/error']);
         }));
-        Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["take"])(1)).subscribe();
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
     };
     /**
      * selectSchedule
@@ -2876,7 +3017,7 @@ var PurchaseScheduleComponent = /** @class */ (function () {
             || screeningEvent.remainingAttendeeCapacity === 0) {
             return;
         }
-        this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["SelectSchedule"]({ screeningEvent: screeningEvent }));
+        this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["SelectSchedule"]({ screeningEvent: screeningEvent }));
         this.purchase.subscribe(function (purchase) {
             _this.user.subscribe(function (user) {
                 if (purchase.movieTheater === undefined
@@ -2884,9 +3025,9 @@ var PurchaseScheduleComponent = /** @class */ (function () {
                     _this.router.navigate(['/error']);
                     return;
                 }
-                _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["StartTransaction"]({
+                _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["StartTransaction"]({
                     params: {
-                        expires: moment__WEBPACK_IMPORTED_MODULE_4__().add(_environments_environment__WEBPACK_IMPORTED_MODULE_7__["environment"].TRANSACTION_TIME, 'minutes').toDate(),
+                        expires: moment__WEBPACK_IMPORTED_MODULE_5__().add(_environments_environment__WEBPACK_IMPORTED_MODULE_8__["environment"].TRANSACTION_TIME, 'minutes').toDate(),
                         seller: {
                             typeOf: purchase.movieTheater.typeOf,
                             id: purchase.movieTheater.id
@@ -2902,13 +3043,32 @@ var PurchaseScheduleComponent = /** @class */ (function () {
                 }));
             }).unsubscribe();
         }).unsubscribe();
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].StartTransactionSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(function () {
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].StartTransactionSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
             _this.router.navigate(['/purchase/seat']);
         }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_8__["ActionTypes"].StartTransactionFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(function () {
-            _this.router.navigate(['/error']);
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].StartTransactionFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
+            _this.error.subscribe(function (error) {
+                try {
+                    if (error === null) {
+                        throw new Error('error is null');
+                    }
+                    var errorObject = JSON.parse(error);
+                    if (errorObject.status === http_status__WEBPACK_IMPORTED_MODULE_4__["TOO_MANY_REQUESTS"]) {
+                        _this.router.navigate(['/congestion']);
+                        return;
+                    }
+                    if (errorObject.status === http_status__WEBPACK_IMPORTED_MODULE_4__["SERVICE_UNAVAILABLE"]) {
+                        _this.router.navigate(['/maintenance']);
+                        return;
+                    }
+                    throw new Error('error status not match');
+                }
+                catch (error2) {
+                    _this.router.navigate(['/error']);
+                }
+            });
         }));
-        Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["take"])(1)).subscribe();
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
     };
     PurchaseScheduleComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -6564,6 +6724,29 @@ var CinerinoService = /** @class */ (function () {
             });
         });
     };
+    /**
+     * パスポート取得
+     */
+    CinerinoService.prototype.getPassport = function (selleId) {
+        return __awaiter(this, void 0, void 0, function () {
+            var url, body, result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].WAITER_SERVER_URL === undefined
+                            || _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].WAITER_SERVER_URL === '') {
+                            return [2 /*return*/, { token: '' }];
+                        }
+                        url = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].WAITER_SERVER_URL + "/projects/" + _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].PROJECT_ID + "/passports";
+                        body = { scope: "Transaction:PlaceOrder:" + selleId };
+                        return [4 /*yield*/, this.http.post(url, body).toPromise()];
+                    case 1:
+                        result = _a.sent();
+                        return [2 /*return*/, result];
+                }
+            });
+        });
+    };
     CinerinoService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
@@ -8667,22 +8850,28 @@ var PurchaseEffects = /** @class */ (function () {
          * StartTransaction
          */
         this.startTransaction = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_12__["ActionTypes"].StartTransaction), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
-            var transaction, error_3;
+            var params, selleId, passport, transaction, error_3;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 3, , 4]);
+                        _a.trys.push([0, 4, , 5]);
+                        params = payload.params;
+                        selleId = params.seller.id;
                         return [4 /*yield*/, this.cinerino.getServices()];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, this.cinerino.transaction.placeOrder.start(payload.params)];
+                        return [4 /*yield*/, this.cinerino.getPassport(selleId)];
                     case 2:
+                        passport = _a.sent();
+                        params.object = { passport: passport };
+                        return [4 /*yield*/, this.cinerino.transaction.placeOrder.start(params)];
+                    case 3:
                         transaction = _a.sent();
                         return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_12__["StartTransactionSuccess"]({ transaction: transaction })];
-                    case 3:
+                    case 4:
                         error_3 = _a.sent();
                         return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_12__["StartTransactionFail"]({ error: error_3 })];
-                    case 4: return [2 /*return*/];
+                    case 5: return [2 /*return*/];
                 }
             });
         }); }));
@@ -9888,16 +10077,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
 // tslint:disable:no-http-string
 /**
- * 環境変数local
+ * 環境変数development
  */
 var environment = {
     production: false,
     APP_PREFIX: 'TO',
+    PROJECT_ID: 'toei-development',
     ENV: 'development',
     SITE_URL: 'https://toei-pos-development.azurewebsites.net',
     API_ENDPOINT: 'https://toei-cinerino-api-development.azurewebsites.net',
     ENTRANCE_SERVER_URL: '',
-    WAITER_SERVER_URL: '',
+    WAITER_SERVER_URL: 'https://waiter-development.appspot.com',
     ANALYTICS_ID: '',
     TRANSACTION_TIME: '15'
 };

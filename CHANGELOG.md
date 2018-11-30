@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## 1.0.0 - 2018-11-30
+### Added
+- ファーストリリース
+
 ## 0.1.0 - 2018-11-29
 ### Added
 - プレリリース

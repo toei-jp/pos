@@ -5,6 +5,7 @@
 export const environment = {
     production: false,
     APP_PREFIX: 'TO',
+    PROJECT_ID: 'toei-test',
 
     ENV: 'test',
 

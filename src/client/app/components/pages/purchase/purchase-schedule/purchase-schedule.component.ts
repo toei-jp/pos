@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { factory } from '@cinerino/api-javascript-client';
 import { Actions, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
+import { SERVICE_UNAVAILABLE, TOO_MANY_REQUESTS } from 'http-status';
 import * as moment from 'moment';
 import { Observable, race } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
@@ -25,6 +26,7 @@ import * as reducers from '../../../../store/reducers';
 export class PurchaseScheduleComponent implements OnInit, OnDestroy {
     public purchase: Observable<reducers.IPurchaseState>;
     public user: Observable<reducers.IUserState>;
+    public error: Observable<string | null>;
     public scheduleDate: string;
     private updateTimer: any;
     constructor(
@@ -36,6 +38,7 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
     public async ngOnInit() {
         this.store.dispatch(new Delete({}));
         this.purchase = this.store.pipe(select(reducers.getPurchase));
+        this.error = this.store.pipe(select(reducers.getError));
         this.user = this.store.pipe(select(reducers.getUser));
         this.user.subscribe((user) => {
             if (user.movieTheater === undefined) {
@@ -81,7 +84,6 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
             }
             const body = document.getElementsByTagName('body');
             const now = moment().format('YYYY-MM-DD');
-            console.log(scheduleDate, now);
             body[0].style.backgroundColor = (scheduleDate > now) ? '#828407' : (scheduleDate < now) ? '#840707' : '#271916';
             this.store.dispatch(new GetSchedule({ movieTheater, scheduleDate }));
         }).unsubscribe();
@@ -153,7 +155,25 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
         const fail = this.actions.pipe(
             ofType(ActionTypes.StartTransactionFail),
             tap(() => {
-                this.router.navigate(['/error']);
+                this.error.subscribe((error) => {
+                    try {
+                        if (error === null) {
+                            throw new Error('error is null');
+                        }
+                        const errorObject = JSON.parse(error);
+                        if (errorObject.status === TOO_MANY_REQUESTS) {
+                            this.router.navigate(['/congestion']);
+                            return;
+                        }
+                        if (errorObject.status === SERVICE_UNAVAILABLE) {
+                            this.router.navigate(['/maintenance']);
+                            return;
+                        }
+                        throw new Error('error status not match');
+                    } catch (error2) {
+                        this.router.navigate(['/error']);
+                    }
+                });
             })
         );
         race(success, fail).pipe(take(1)).subscribe();
