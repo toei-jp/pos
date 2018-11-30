@@ -9,7 +9,7 @@ export const environment = {
 
     ENV: 'production',
 
-    SITE_URL: 'https://toei-pos-production.azurewebsites.net',
+    SITE_URL: 'https://box.toeitheaters.com',
 
     API_ENDPOINT: 'https://toei-cinerino-api-production.azurewebsites.net',
 
