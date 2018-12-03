@@ -7268,7 +7268,7 @@ var StarPrintService = /** @class */ (function () {
     };
     StarPrintService.prototype.draw = function (args) {
         return __awaiter(this, void 0, void 0, function () {
-            var canvas, data, context, drawImage, left, right, bottom, center, font, logoImage, title, titleLimit, boxImage, qrcodeCanvas, date;
+            var canvas, data, context, drawImage, left, right, bottom, center, font, logoImage, title, titleLimit, boxImage, qrcodeCanvas, posName, date;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7311,7 +7311,7 @@ var StarPrintService = /** @class */ (function () {
                         // 作品名
                         context.font = "bold 40px " + font;
                         title = data.eventName;
-                        titleLimit = 18;
+                        titleLimit = 14;
                         if (title.length > titleLimit) {
                             context.fillText(title.slice(0, titleLimit), center, 180);
                             context.fillText(title.slice(titleLimit, title.length - titleLimit), center, 230);
@@ -7351,8 +7351,8 @@ var StarPrintService = /** @class */ (function () {
                         // 購入番号
                         context.font = "normal 22px " + font;
                         context.fillText("\u8CFC\u5165\u756A\u53F7 " + data.confirmationNumber, left, bottom - 60);
-                        // 端末
-                        context.fillText("\u7AEF\u672B TEST", left, bottom - 30);
+                        posName = (this.pos === undefined) ? '' : this.pos.name;
+                        context.fillText("\u7AEF\u672B " + posName, left, bottom - 30);
                         date = moment__WEBPACK_IMPORTED_MODULE_1__().format('YYYY/MM/DD HH:mm');
                         context.fillText("(" + date + " \u767A\u5238)", left, bottom);
                         return [2 /*return*/, context];

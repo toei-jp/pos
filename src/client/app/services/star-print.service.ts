@@ -413,7 +413,7 @@ export class StarPrintService {
         // 作品名
         context.font = `bold 40px ${font}`;
         const title = data.eventName;
-        const titleLimit = 18;
+        const titleLimit = 14;
         if (title.length > titleLimit) {
             context.fillText(title.slice(0, titleLimit), center, 180);
             context.fillText(title.slice(titleLimit, title.length - titleLimit), center, 230);
@@ -451,7 +451,8 @@ export class StarPrintService {
         context.font = `normal 22px ${font}`;
         context.fillText(`購入番号 ${data.confirmationNumber}`, left, bottom - 60);
         // 端末
-        context.fillText(`端末 TEST`, left, bottom - 30);
+        const posName = (this.pos === undefined) ? '' : this.pos.name;
+        context.fillText(`端末 ${posName}`, left, bottom - 30);
         // 発券時間
         const date = moment().format('YYYY/MM/DD HH:mm');
         context.fillText(`(${date} 発券)`, left, bottom);
