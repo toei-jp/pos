@@ -7268,7 +7268,7 @@ var StarPrintService = /** @class */ (function () {
     };
     StarPrintService.prototype.draw = function (args) {
         return __awaiter(this, void 0, void 0, function () {
-            var canvas, data, context, drawImage, left, right, bottom, center, font, logoImage, title, titleLimit, boxImage, qrcodeCanvas, posName, date;
+            var canvas, data, context, drawImage, left, right, bottom, center, font, logoImage, title, titleLimit, secondLine, boxImage, qrcodeCanvas, posName, date;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -7314,7 +7314,8 @@ var StarPrintService = /** @class */ (function () {
                         titleLimit = 14;
                         if (title.length > titleLimit) {
                             context.fillText(title.slice(0, titleLimit), center, 180);
-                            context.fillText(title.slice(titleLimit, title.length - titleLimit), center, 230);
+                            secondLine = (titleLimit * 2 < title.length) ? titleLimit * 2 : title.length;
+                            context.fillText(title.slice(titleLimit, secondLine), center, 230);
                         }
                         else {
                             context.fillText(title, center, 180);
