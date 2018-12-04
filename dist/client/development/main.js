@@ -5865,8 +5865,14 @@ var TicketListModalComponent = /** @class */ (function () {
                 return (movieTicketTypeChargeSpecification.appliesToMovieTicketType
                     === reservation.ticket.movieTicket.serviceType);
             });
-            movieTickets.forEach(function (movieTicket, index) {
-                if (index >= (movieTickets.length - reservations.length)) {
+            movieTickets.forEach(function (movieTicket) {
+                var index = reservations.findIndex(function (reservation) {
+                    return (reservation.ticket !== undefined
+                        && reservation.ticket.movieTicket !== undefined
+                        && reservation.ticket.movieTicket.identifier === movieTicket.identifier);
+                });
+                if (index > -1) {
+                    reservations.splice(index, 1);
                     return;
                 }
                 _this.tickets.push({ ticketOffer: ticketOffer, movieTicket: movieTicket });
