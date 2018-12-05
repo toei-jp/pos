@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## 1.0.2 - 2018-12-05
+### Fixed
+- 印刷不具合修正
+
 ## 1.0.0 - 2018-11-30
 ### Added
 - ファーストリリース
