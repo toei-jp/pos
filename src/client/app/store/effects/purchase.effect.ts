@@ -445,7 +445,7 @@ export class PurchaseEffects {
                     printerRequests = await this.starPrint.createPrinterRequestList({ order });
                 }
                 // n分割配列へ変換
-                const divide = 3;
+                const divide = 4;
                 const divideRequests: string[] = [];
                 let divideRequest = '';
                 printerRequests.forEach((request, index) => {
