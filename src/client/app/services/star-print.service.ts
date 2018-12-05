@@ -53,7 +53,7 @@ export class StarPrintService {
             // trader設定
             this.trader = new (<any>window).StarWebPrintTrader({ url, papertype, blackmark_sensor });
             // プリンター通信タイムアウト
-            this.trader.timeout = (args.timeout === undefined) ? 10000 : args.timeout;
+            this.trader.timeout = (args.timeout === undefined) ? 60000 : args.timeout;
 
             this.isReady = true;
         } catch (error) {
