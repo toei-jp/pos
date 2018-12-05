@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
 /***/ "../../node_modules/moment/locale sync recursive ^\\.\\/.*$":
-/*!************************************************************************************************************!*\
-  !*** C:/Users/hataguchi/Desktop/workspace/TOEI Ticket System/pos/node_modules/moment/locale sync ^\.\/.*$ ***!
-  \************************************************************************************************************/
+/*!********************************************************************************************************!*\
+  !*** C:/Users/hatag/Desktop/workspace/motionpicture/TOEI/pos/node_modules/moment/locale sync ^\.\/.*$ ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6924,7 +6924,7 @@ var StarPrintService = /** @class */ (function () {
             // trader設定
             this.trader = new window.StarWebPrintTrader({ url: url, papertype: papertype, blackmark_sensor: blackmark_sensor });
             // プリンター通信タイムアウト
-            this.trader.timeout = (args.timeout === undefined) ? 10000 : args.timeout;
+            this.trader.timeout = (args.timeout === undefined) ? 60000 : args.timeout;
             this.isReady = true;
         }
         catch (error) {
@@ -10142,7 +10142,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\hataguchi\Desktop\workspace\TOEI Ticket System\pos\src\client\main.ts */"./main.ts");
+module.exports = __webpack_require__(/*! C:\Users\hatag\Desktop\workspace\motionpicture\TOEI\pos\src\client\main.ts */"./main.ts");
 
 
 /***/ })
