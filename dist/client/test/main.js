@@ -9283,7 +9283,7 @@ var PurchaseEffects = /** @class */ (function () {
                         printerRequests = _a.sent();
                         _a.label = 4;
                     case 4:
-                        divide_1 = 4;
+                        divide_1 = 3;
                         divideRequests_2 = [];
                         divideRequest_1 = '';
                         printerRequests.forEach(function (request, index) {
@@ -9301,10 +9301,10 @@ var PurchaseEffects = /** @class */ (function () {
                     case 5:
                         if (!(_i < divideRequests_1.length)) return [3 /*break*/, 9];
                         printerRequest = divideRequests_1[_i];
-                        // safari対応のため1秒待つ
-                        return [4 /*yield*/, this.util.sleep(1000)];
+                        // safari対応のため0.3秒待つ
+                        return [4 /*yield*/, this.util.sleep(300)];
                     case 6:
-                        // safari対応のため1秒待つ
+                        // safari対応のため0.3秒待つ
                         _a.sent();
                         return [4 /*yield*/, this.starPrint.print({ printerRequest: printerRequest })];
                     case 7:

@@ -445,7 +445,7 @@ export class PurchaseEffects {
                     printerRequests = await this.starPrint.createPrinterRequestList({ order });
                 }
                 // n分割配列へ変換
-                const divide = 4;
+                const divide = 3;
                 const divideRequests: string[] = [];
                 let divideRequest = '';
                 printerRequests.forEach((request, index) => {
@@ -459,8 +459,8 @@ export class PurchaseEffects {
                     divideRequests.push(divideRequest);
                 }
                 for (const printerRequest of divideRequests) {
-                    // safari対応のため1秒待つ
-                    await this.util.sleep(1000);
+                    // safari対応のため0.3秒待つ
+                    await this.util.sleep(300);
                     await this.starPrint.print({ printerRequest });
                 }
 
