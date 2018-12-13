@@ -5832,6 +5832,7 @@ var TicketListModalComponent = /** @class */ (function () {
     TicketListModalComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.tickets = [];
+        var movieTickets = [];
         this.screeningEventTicketOffers.forEach(function (ticketOffer) {
             var movieTicketTypeChargeSpecification = ticketOffer.priceSpecification.priceComponent
                 .filter(function (s) { return s.typeOf === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.priceSpecificationType.MovieTicketTypeChargeSpecification; })
@@ -5842,7 +5843,7 @@ var TicketListModalComponent = /** @class */ (function () {
                 return;
             }
             // 対象ムビチケ券
-            var movieTickets = [];
+            var targetMovieTickets = [];
             _this.checkMovieTicketActions.forEach(function (checkMovieTicketAction) {
                 if (checkMovieTicketAction.result === undefined) {
                     return;
@@ -5852,7 +5853,7 @@ var TicketListModalComponent = /** @class */ (function () {
                 });
                 availabilityMovieTickets.forEach(function (movieTicket) {
                     if (movieTicket.serviceType === movieTicketTypeChargeSpecification.appliesToMovieTicketType) {
-                        movieTickets.push(movieTicket);
+                        targetMovieTickets.push(movieTicket);
                     }
                 });
             });
@@ -5865,7 +5866,7 @@ var TicketListModalComponent = /** @class */ (function () {
                 return (movieTicketTypeChargeSpecification.appliesToMovieTicketType
                     === reservation.ticket.movieTicket.serviceType);
             });
-            movieTickets.forEach(function (movieTicket) {
+            targetMovieTickets.forEach(function (movieTicket) {
                 var index = reservations.findIndex(function (reservation) {
                     return (reservation.ticket !== undefined
                         && reservation.ticket.movieTicket !== undefined
@@ -5875,9 +5876,10 @@ var TicketListModalComponent = /** @class */ (function () {
                     reservations.splice(index, 1);
                     return;
                 }
-                _this.tickets.push({ ticketOffer: ticketOffer, movieTicket: movieTicket });
+                movieTickets.push({ ticketOffer: ticketOffer, movieTicket: movieTicket });
             });
         });
+        this.tickets = movieTickets.concat(this.tickets);
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -8325,7 +8327,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 var ActionTypes;
 (function (ActionTypes) {
-    ActionTypes["Delete"] = "[User] User";
+    ActionTypes["Delete"] = "[User] Delete";
     ActionTypes["UpdateAll"] = "[User] Update All";
     ActionTypes["GetTheaters"] = "[User] Get Theaters";
     ActionTypes["GetTheatersSuccess"] = "[User] Get Theaters Success";
@@ -9648,6 +9650,380 @@ var getUser = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])
 
 /***/ }),
 
+/***/ "./app/store/reducers/inquiry.reducer.ts":
+/*!***********************************************!*\
+  !*** ./app/store/reducers/inquiry.reducer.ts ***!
+  \***********************************************/
+/*! exports provided: reducer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reducer", function() { return reducer; });
+/* harmony import */ var _actions_inquiry_action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/inquiry.action */ "./app/store/actions/inquiry.action.ts");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+/**
+ * Reducer
+ * @param state
+ * @param action
+ */
+function reducer(state, action) {
+    switch (action.type) {
+        case _actions_inquiry_action__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].Delete: {
+            state.inquiry = {};
+            return __assign({}, state, { loading: false, error: null });
+        }
+        case _actions_inquiry_action__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].Inquiry: {
+            return __assign({}, state, { loading: true });
+        }
+        case _actions_inquiry_action__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].InquirySuccess: {
+            var order = action.payload.order;
+            return __assign({}, state, { loading: false, error: null, inquiry: {
+                    order: order
+                } });
+        }
+        case _actions_inquiry_action__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].InquiryFail: {
+            var error = action.payload.error;
+            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
+        }
+        default: {
+            return state;
+        }
+    }
+}
+
+
+/***/ }),
+
+/***/ "./app/store/reducers/purchase.reducer.ts":
+/*!************************************************!*\
+  !*** ./app/store/reducers/purchase.reducer.ts ***!
+  \************************************************/
+/*! exports provided: reducer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reducer", function() { return reducer; });
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../functions */ "./app/functions/index.ts");
+/* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models */ "./app/models/index.ts");
+/* harmony import */ var _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions/purchase.action */ "./app/store/actions/purchase.action.ts");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+
+
+
+/**
+ * Reducer
+ * @param state
+ * @param action
+ */
+function reducer(state, action) {
+    switch (action.type) {
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].Delete: {
+            state.purchase = {
+                movieTheaters: [],
+                screeningEvents: [],
+                screeningFilmEvents: [],
+                screeningEventOffers: [],
+                reservations: [],
+                screeningEventTicketOffers: [],
+                orderCount: 0,
+                checkMovieTicketActions: [],
+                authorizeMovieTicketPayments: [],
+                isUsedMovieTicket: false
+            };
+            return __assign({}, state);
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetTheaters: {
+            return __assign({}, state, { loading: true });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetTheatersSuccess: {
+            var movieTheaters = action.payload.movieTheaters;
+            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { movieTheaters: movieTheaters }) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetTheatersFail: {
+            var error = action.payload.error;
+            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].SelectTheater: {
+            var movieTheater = action.payload.movieTheater;
+            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { movieTheater: movieTheater }) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetSchedule: {
+            return __assign({}, state, { loading: true });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetScheduleSuccess: {
+            var screeningEvents = action.payload.screeningEvents;
+            var scheduleDate = action.payload.scheduleDate;
+            var screeningFilmEvents = Object(_functions__WEBPACK_IMPORTED_MODULE_1__["createScreeningFilmEvents"])({ screeningEvents: screeningEvents });
+            state.purchase.screeningEvents = screeningEvents;
+            state.purchase.scheduleDate = scheduleDate;
+            state.purchase.screeningFilmEvents = screeningFilmEvents;
+            return __assign({}, state, { loading: false, error: null });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetScheduleFail: {
+            var error = action.payload.error;
+            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].SelectSchedule: {
+            var screeningEvent = action.payload.screeningEvent;
+            return __assign({}, state, { loading: false, purchase: __assign({}, state.purchase, { screeningEvent: screeningEvent }) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].StartTransaction: {
+            return __assign({}, state, { loading: true });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].StartTransactionSuccess: {
+            state.purchase.transaction = action.payload.transaction;
+            state.purchase.screeningEvents = [];
+            state.purchase.movieTheaters = [];
+            state.purchase.screeningFilmEvents = [];
+            return __assign({}, state, { loading: false, error: null });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].StartTransactionFail: {
+            var error = action.payload.error;
+            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetScreen: {
+            return __assign({}, state, { loading: true });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetScreenSuccess: {
+            var screeningEventOffers = action.payload.screeningEventOffers;
+            var screenData = action.payload.screenData;
+            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { screeningEventOffers: screeningEventOffers,
+                    screenData: screenData }) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetScreenFail: {
+            var error = action.payload.error;
+            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].SelectSeats: {
+            var reservations_1 = state.purchase.reservations;
+            action.payload.seats.forEach(function (seat) {
+                reservations_1.push(new _models__WEBPACK_IMPORTED_MODULE_2__["Reservation"]({ seat: seat }));
+            });
+            state.purchase.reservations = reservations_1;
+            return __assign({}, state, { loading: false, error: null });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].CancelSeats: {
+            var reservations_2 = [];
+            var seats_1 = action.payload.seats;
+            state.purchase.reservations.forEach(function (reservation) {
+                var findResult = seats_1.find(function (seat) {
+                    return (reservation.seat.seatNumber === seat.seatNumber
+                        && reservation.seat.seatSection === seat.seatSection);
+                });
+                if (findResult === undefined) {
+                    reservations_2.push(reservation);
+                }
+            });
+            state.purchase.reservations = reservations_2;
+            return __assign({}, state, { loading: false, error: null });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetTicketList: {
+            return __assign({}, state, { loading: true });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetTicketListSuccess: {
+            var screeningEventTicketOffers = action.payload.screeningEventTicketOffers;
+            var movieTicketTypeOffers = screeningEventTicketOffers.filter(function (offer) {
+                var movieTicketTypeChargeSpecifications = offer.priceSpecification.priceComponent.filter(function (priceComponent) {
+                    return (priceComponent.typeOf === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].chevre.priceSpecificationType.MovieTicketTypeChargeSpecification);
+                });
+                return (movieTicketTypeChargeSpecifications.length > 0);
+            });
+            state.purchase.screeningEventTicketOffers = screeningEventTicketOffers;
+            state.purchase.isUsedMovieTicket = (movieTicketTypeOffers.length > 0);
+            return __assign({}, state, { loading: false, error: null });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetTicketListFail: {
+            var error = action.payload.error;
+            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].SelectTickets: {
+            var reservations_3 = [];
+            var selectedReservations_1 = action.payload.reservations;
+            state.purchase.reservations.forEach(function (reservation) {
+                var findResult = selectedReservations_1.find(function (selectedReservation) { return Object.is(reservation, selectedReservation); });
+                if (findResult === undefined) {
+                    reservations_3.push(reservation);
+                }
+                else {
+                    reservations_3.push(findResult);
+                }
+            });
+            state.purchase.reservations = reservations_3;
+            return __assign({}, state);
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].TemporaryReservation: {
+            return __assign({}, state, { loading: true });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].TemporaryReservationSuccess: {
+            var authorizeSeatReservation = action.payload.authorizeSeatReservation;
+            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { authorizeSeatReservation: authorizeSeatReservation }) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].TemporaryReservationFail: {
+            var error = action.payload.error;
+            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].RegisterContact: {
+            return __assign({}, state, { loading: true });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].RegisterContactSuccess: {
+            var customerContact = action.payload.customerContact;
+            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { customerContact: customerContact }) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].RegisterContactFail: {
+            var error = action.payload.error;
+            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].AuthorizeCreditCard: {
+            return __assign({}, state, { loading: true });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].AuthorizeCreditCardSuccess: {
+            var authorizeCreditCardPayment = action.payload.authorizeCreditCardPayment;
+            var gmoTokenObject = action.payload.gmoTokenObject;
+            var orderCount = state.purchase.orderCount + 1;
+            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { authorizeCreditCardPayment: authorizeCreditCardPayment,
+                    gmoTokenObject: gmoTokenObject,
+                    orderCount: orderCount }) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].AuthorizeCreditCardFail: {
+            var error = action.payload.error;
+            var orderCount = state.purchase.orderCount + 1;
+            return __assign({}, state, { loading: false, error: JSON.stringify(error), purchase: __assign({}, state.purchase, { orderCount: orderCount }) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].AuthorizeMovieTicket: {
+            return __assign({}, state, { loading: true });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].AuthorizeMovieTicketSuccess: {
+            state.purchase.authorizeMovieTicketPayments = action.payload.authorizeMovieTicketPayments;
+            return __assign({}, state, { loading: false, error: null });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].AuthorizeMovieTicketFail: {
+            var error = action.payload.error;
+            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].CheckMovieTicket: {
+            return __assign({}, state, { loading: true });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].CheckMovieTicketSuccess: {
+            var checkMovieTicketAction = action.payload.checkMovieTicketAction;
+            var checkMovieTicketActions = state.purchase.checkMovieTicketActions;
+            var sameMovieTicketFilterResults = Object(_functions__WEBPACK_IMPORTED_MODULE_1__["sameMovieTicketFilter"])({
+                checkMovieTicketAction: checkMovieTicketAction, checkMovieTicketActions: checkMovieTicketActions
+            });
+            if (sameMovieTicketFilterResults.length === 0
+                && Object(_functions__WEBPACK_IMPORTED_MODULE_1__["isAvailabilityMovieTicket"])(checkMovieTicketAction)) {
+                state.purchase.checkMovieTicketActions.push(checkMovieTicketAction);
+            }
+            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { checkMovieTicketAction: checkMovieTicketAction }) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].CheckMovieTicketFail: {
+            var error = action.payload.error;
+            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].Reserve: {
+            return __assign({}, state, { loading: true });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].ReserveSuccess: {
+            var order = action.payload.order;
+            state.purchase.order = order;
+            return __assign({}, state, { loading: false, error: null });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].ReserveFail: {
+            var error = action.payload.error;
+            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].Print: {
+            return __assign({}, state, { loading: true });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].PrintSuccess: {
+            return __assign({}, state, { loading: false, error: null });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].PrintFail: {
+            var error = action.payload.error;
+            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetPurchaseHistory: {
+            return __assign({}, state, { loading: true });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetPurchaseHistorySuccess: {
+            var result = action.payload.result;
+            return __assign({}, state, { loading: false, error: null, history: __assign({}, state.history, { purchase: result }) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetPurchaseHistoryFail: {
+            var error = action.payload.error;
+            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].OrderAuthorize: {
+            return __assign({}, state, { loading: true });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].OrderAuthorizeSuccess: {
+            var authorizeOrder_1 = action.payload.order;
+            var historyData = state.history.purchase.map(function (order) {
+                if (order.orderNumber !== authorizeOrder_1.orderNumber) {
+                    return order;
+                }
+                return authorizeOrder_1;
+            });
+            var history_1 = state.history;
+            history_1.purchase = historyData;
+            return __assign({}, state, { loading: false, error: null, history: history_1 });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].OrderAuthorizeFail: {
+            var error = action.payload.error;
+            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].AuthorizeAnyPayment: {
+            return __assign({}, state, { loading: true });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].AuthorizeAnyPaymentSuccess: {
+            var authorizeAnyPayment = action.payload.authorizeAnyPayment;
+            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { authorizeAnyPayment: authorizeAnyPayment }) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].AuthorizeAnyPaymentFail: {
+            var error = action.payload.error;
+            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
+        }
+        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].SelectPaymentMethodType: {
+            var paymentMethod = Object(_functions__WEBPACK_IMPORTED_MODULE_1__["createPaymentMethodFromType"])({
+                paymentMethodType: action.payload.paymentMethodType
+            });
+            state.purchase.paymentMethod = paymentMethod;
+            return __assign({}, state, { loading: false, error: null });
+        }
+        default: {
+            return state;
+        }
+    }
+}
+
+
+/***/ }),
+
 /***/ "./app/store/reducers/reducer.ts":
 /*!***************************************!*\
   !*** ./app/store/reducers/reducer.ts ***!
@@ -9665,26 +10041,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getHistory", function() { return getHistory; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getInquiry", function() { return getInquiry; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUser", function() { return getUser; });
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
-/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../functions */ "./app/functions/index.ts");
-/* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models */ "./app/models/index.ts");
-/* harmony import */ var _actions_inquiry_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions/inquiry.action */ "./app/store/actions/inquiry.action.ts");
-/* harmony import */ var _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../actions/purchase.action */ "./app/store/actions/purchase.action.ts");
-/* harmony import */ var _actions_user_action__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../actions/user.action */ "./app/store/actions/user.action.ts");
-var __assign = (undefined && undefined.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-
-
+/* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../models */ "./app/models/index.ts");
+/* harmony import */ var _inquiry_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./inquiry.reducer */ "./app/store/reducers/inquiry.reducer.ts");
+/* harmony import */ var _purchase_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./purchase.reducer */ "./app/store/reducers/purchase.reducer.ts");
+/* harmony import */ var _user_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user.reducer */ "./app/store/reducers/user.reducer.ts");
 
 
 
@@ -9721,7 +10081,7 @@ function getInitialState() {
         return initialState;
     }
     var data = JSON.parse(json);
-    var reservations = data.App.purchase.reservations.map(function (reservation) { return new _models__WEBPACK_IMPORTED_MODULE_2__["Reservation"](reservation); });
+    var reservations = data.App.purchase.reservations.map(function (reservation) { return new _models__WEBPACK_IMPORTED_MODULE_0__["Reservation"](reservation); });
     data.App.purchase.reservations = reservations;
     return {
         loading: data.App.loading,
@@ -9739,324 +10099,17 @@ function getInitialState() {
  */
 function reducer(state, action) {
     if (state === void 0) { state = getInitialState(); }
-    switch (action.type) {
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].Delete: {
-            state.purchase = {
-                movieTheaters: [],
-                screeningEvents: [],
-                screeningFilmEvents: [],
-                screeningEventOffers: [],
-                reservations: [],
-                screeningEventTicketOffers: [],
-                orderCount: 0,
-                checkMovieTicketActions: [],
-                authorizeMovieTicketPayments: [],
-                isUsedMovieTicket: false
-            };
-            return __assign({}, state);
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].GetTheaters: {
-            return __assign({}, state, { loading: true });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].GetTheatersSuccess: {
-            var movieTheaters = action.payload.movieTheaters;
-            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { movieTheaters: movieTheaters }) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].GetTheatersFail: {
-            var error = action.payload.error;
-            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].SelectTheater: {
-            var movieTheater = action.payload.movieTheater;
-            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { movieTheater: movieTheater }) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].GetSchedule: {
-            return __assign({}, state, { loading: true });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].GetScheduleSuccess: {
-            var screeningEvents = action.payload.screeningEvents;
-            var scheduleDate = action.payload.scheduleDate;
-            var screeningFilmEvents = Object(_functions__WEBPACK_IMPORTED_MODULE_1__["createScreeningFilmEvents"])({ screeningEvents: screeningEvents });
-            state.purchase.screeningEvents = screeningEvents;
-            state.purchase.scheduleDate = scheduleDate;
-            state.purchase.screeningFilmEvents = screeningFilmEvents;
-            return __assign({}, state, { loading: false, error: null });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].GetScheduleFail: {
-            var error = action.payload.error;
-            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].SelectSchedule: {
-            var screeningEvent = action.payload.screeningEvent;
-            return __assign({}, state, { loading: false, purchase: __assign({}, state.purchase, { screeningEvent: screeningEvent }) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].StartTransaction: {
-            return __assign({}, state, { loading: true });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].StartTransactionSuccess: {
-            state.purchase.transaction = action.payload.transaction;
-            state.purchase.screeningEvents = [];
-            state.purchase.movieTheaters = [];
-            state.purchase.screeningFilmEvents = [];
-            return __assign({}, state, { loading: false, error: null });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].StartTransactionFail: {
-            var error = action.payload.error;
-            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].GetScreen: {
-            return __assign({}, state, { loading: true });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].GetScreenSuccess: {
-            var screeningEventOffers = action.payload.screeningEventOffers;
-            var screenData = action.payload.screenData;
-            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { screeningEventOffers: screeningEventOffers,
-                    screenData: screenData }) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].GetScreenFail: {
-            var error = action.payload.error;
-            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].SelectSeats: {
-            var reservations_1 = state.purchase.reservations;
-            action.payload.seats.forEach(function (seat) {
-                reservations_1.push(new _models__WEBPACK_IMPORTED_MODULE_2__["Reservation"]({ seat: seat }));
-            });
-            state.purchase.reservations = reservations_1;
-            return __assign({}, state, { loading: false, error: null });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].CancelSeats: {
-            var reservations_2 = [];
-            var seats_1 = action.payload.seats;
-            state.purchase.reservations.forEach(function (reservation) {
-                var findResult = seats_1.find(function (seat) {
-                    return (reservation.seat.seatNumber === seat.seatNumber
-                        && reservation.seat.seatSection === seat.seatSection);
-                });
-                if (findResult === undefined) {
-                    reservations_2.push(reservation);
-                }
-            });
-            state.purchase.reservations = reservations_2;
-            return __assign({}, state, { loading: false, error: null });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].GetTicketList: {
-            return __assign({}, state, { loading: true });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].GetTicketListSuccess: {
-            var screeningEventTicketOffers = action.payload.screeningEventTicketOffers;
-            var movieTicketTypeOffers = screeningEventTicketOffers.filter(function (offer) {
-                var movieTicketTypeChargeSpecifications = offer.priceSpecification.priceComponent.filter(function (priceComponent) {
-                    return (priceComponent.typeOf === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].chevre.priceSpecificationType.MovieTicketTypeChargeSpecification);
-                });
-                return (movieTicketTypeChargeSpecifications.length > 0);
-            });
-            state.purchase.screeningEventTicketOffers = screeningEventTicketOffers;
-            state.purchase.isUsedMovieTicket = (movieTicketTypeOffers.length > 0);
-            return __assign({}, state, { loading: false, error: null });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].GetTicketListFail: {
-            var error = action.payload.error;
-            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].SelectTickets: {
-            var reservations_3 = [];
-            var selectedReservations_1 = action.payload.reservations;
-            state.purchase.reservations.forEach(function (reservation) {
-                var findResult = selectedReservations_1.find(function (selectedReservation) { return Object.is(reservation, selectedReservation); });
-                if (findResult === undefined) {
-                    reservations_3.push(reservation);
-                }
-                else {
-                    reservations_3.push(findResult);
-                }
-            });
-            state.purchase.reservations = reservations_3;
-            return __assign({}, state);
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].TemporaryReservation: {
-            return __assign({}, state, { loading: true });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].TemporaryReservationSuccess: {
-            var authorizeSeatReservation = action.payload.authorizeSeatReservation;
-            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { authorizeSeatReservation: authorizeSeatReservation }) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].TemporaryReservationFail: {
-            var error = action.payload.error;
-            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].RegisterContact: {
-            return __assign({}, state, { loading: true });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].RegisterContactSuccess: {
-            var customerContact = action.payload.customerContact;
-            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { customerContact: customerContact }) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].RegisterContactFail: {
-            var error = action.payload.error;
-            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].AuthorizeCreditCard: {
-            return __assign({}, state, { loading: true });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].AuthorizeCreditCardSuccess: {
-            var authorizeCreditCardPayment = action.payload.authorizeCreditCardPayment;
-            var gmoTokenObject = action.payload.gmoTokenObject;
-            var orderCount = state.purchase.orderCount + 1;
-            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { authorizeCreditCardPayment: authorizeCreditCardPayment,
-                    gmoTokenObject: gmoTokenObject,
-                    orderCount: orderCount }) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].AuthorizeCreditCardFail: {
-            var error = action.payload.error;
-            var orderCount = state.purchase.orderCount + 1;
-            return __assign({}, state, { loading: false, error: JSON.stringify(error), purchase: __assign({}, state.purchase, { orderCount: orderCount }) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].AuthorizeMovieTicket: {
-            return __assign({}, state, { loading: true });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].AuthorizeMovieTicketSuccess: {
-            state.purchase.authorizeMovieTicketPayments = action.payload.authorizeMovieTicketPayments;
-            return __assign({}, state, { loading: false, error: null });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].AuthorizeMovieTicketFail: {
-            var error = action.payload.error;
-            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].CheckMovieTicket: {
-            return __assign({}, state, { loading: true });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].CheckMovieTicketSuccess: {
-            var checkMovieTicketAction = action.payload.checkMovieTicketAction;
-            var checkMovieTicketActions = state.purchase.checkMovieTicketActions;
-            var sameMovieTicketFilterResults = Object(_functions__WEBPACK_IMPORTED_MODULE_1__["sameMovieTicketFilter"])({
-                checkMovieTicketAction: checkMovieTicketAction, checkMovieTicketActions: checkMovieTicketActions
-            });
-            if (sameMovieTicketFilterResults.length === 0
-                && Object(_functions__WEBPACK_IMPORTED_MODULE_1__["isAvailabilityMovieTicket"])(checkMovieTicketAction)) {
-                state.purchase.checkMovieTicketActions.push(checkMovieTicketAction);
-            }
-            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { checkMovieTicketAction: checkMovieTicketAction }) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].CheckMovieTicketFail: {
-            var error = action.payload.error;
-            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].Reserve: {
-            return __assign({}, state, { loading: true });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].ReserveSuccess: {
-            var order = action.payload.order;
-            state.purchase.order = order;
-            return __assign({}, state, { loading: false, error: null });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].ReserveFail: {
-            var error = action.payload.error;
-            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].Print: {
-            return __assign({}, state, { loading: true });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].PrintSuccess: {
-            return __assign({}, state, { loading: false, error: null });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].PrintFail: {
-            var error = action.payload.error;
-            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].GetPurchaseHistory: {
-            return __assign({}, state, { loading: true });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].GetPurchaseHistorySuccess: {
-            var result = action.payload.result;
-            return __assign({}, state, { loading: false, error: null, history: __assign({}, state.history, { purchase: result }) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].GetPurchaseHistoryFail: {
-            var error = action.payload.error;
-            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].OrderAuthorize: {
-            return __assign({}, state, { loading: true });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].OrderAuthorizeSuccess: {
-            var authorizeOrder_1 = action.payload.order;
-            var historyData = state.history.purchase.map(function (order) {
-                if (order.orderNumber !== authorizeOrder_1.orderNumber) {
-                    return order;
-                }
-                return authorizeOrder_1;
-            });
-            var history_1 = state.history;
-            history_1.purchase = historyData;
-            return __assign({}, state, { loading: false, error: null, history: history_1 });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].OrderAuthorizeFail: {
-            var error = action.payload.error;
-            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].AuthorizeAnyPayment: {
-            return __assign({}, state, { loading: true });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].AuthorizeAnyPaymentSuccess: {
-            var authorizeAnyPayment = action.payload.authorizeAnyPayment;
-            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { authorizeAnyPayment: authorizeAnyPayment }) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].AuthorizeAnyPaymentFail: {
-            var error = action.payload.error;
-            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
-        }
-        case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].SelectPaymentMethodType: {
-            var paymentMethod = Object(_functions__WEBPACK_IMPORTED_MODULE_1__["createPaymentMethodFromType"])({
-                paymentMethodType: action.payload.paymentMethodType
-            });
-            state.purchase.paymentMethod = paymentMethod;
-            return __assign({}, state, { loading: false, error: null });
-        }
-        case _actions_inquiry_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].Delete: {
-            state.inquiry = {};
-            return __assign({}, state, { loading: false, error: null });
-        }
-        case _actions_inquiry_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].Inquiry: {
-            return __assign({}, state, { loading: true });
-        }
-        case _actions_inquiry_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].InquirySuccess: {
-            var order = action.payload.order;
-            return __assign({}, state, { loading: false, error: null, inquiry: {
-                    order: order
-                } });
-        }
-        case _actions_inquiry_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].InquiryFail: {
-            var error = action.payload.error;
-            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
-        }
-        case _actions_user_action__WEBPACK_IMPORTED_MODULE_5__["ActionTypes"].Delete: {
-            return __assign({}, state, { loading: false });
-        }
-        case _actions_user_action__WEBPACK_IMPORTED_MODULE_5__["ActionTypes"].UpdateAll: {
-            var customerContact = action.payload.customerContact;
-            var movieTheater = action.payload.movieTheater;
-            var pos = action.payload.pos;
-            var printer = action.payload.printer;
-            state.user.customerContact = customerContact;
-            state.user.movieTheater = movieTheater;
-            state.user.pos = pos;
-            state.user.printer = printer;
-            return __assign({}, state, { loading: false });
-        }
-        case _actions_user_action__WEBPACK_IMPORTED_MODULE_5__["ActionTypes"].GetTheaters: {
-            return __assign({}, state, { loading: true });
-        }
-        case _actions_user_action__WEBPACK_IMPORTED_MODULE_5__["ActionTypes"].GetTheatersSuccess: {
-            var movieTheaters = action.payload.movieTheaters;
-            return __assign({}, state, { loading: false, error: null, user: __assign({}, state.user, { movieTheaters: movieTheaters }) });
-        }
-        case _actions_user_action__WEBPACK_IMPORTED_MODULE_5__["ActionTypes"].GetTheatersFail: {
-            var error = action.payload.error;
-            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
-        }
-        default: {
-            return state;
-        }
+    if (/\[Purchase\]/.test(action.type)) {
+        return _purchase_reducer__WEBPACK_IMPORTED_MODULE_2__["reducer"](state, action);
+    }
+    else if (/\[User\]/.test(action.type)) {
+        return _user_reducer__WEBPACK_IMPORTED_MODULE_3__["reducer"](state, action);
+    }
+    else if (/\[Inquiry\]/.test(action.type)) {
+        return _inquiry_reducer__WEBPACK_IMPORTED_MODULE_1__["reducer"](state, action);
+    }
+    else {
+        return state;
     }
 }
 /**
@@ -10068,6 +10121,70 @@ var getPurchase = function (state) { return state.purchase; };
 var getHistory = function (state) { return state.history; };
 var getInquiry = function (state) { return state.inquiry; };
 var getUser = function (state) { return state.user; };
+
+
+/***/ }),
+
+/***/ "./app/store/reducers/user.reducer.ts":
+/*!********************************************!*\
+  !*** ./app/store/reducers/user.reducer.ts ***!
+  \********************************************/
+/*! exports provided: reducer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reducer", function() { return reducer; });
+/* harmony import */ var _actions_user_action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/user.action */ "./app/store/actions/user.action.ts");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+/**
+ * Reducer
+ * @param state
+ * @param action
+ */
+function reducer(state, action) {
+    switch (action.type) {
+        case _actions_user_action__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].Delete: {
+            return __assign({}, state, { loading: false });
+        }
+        case _actions_user_action__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].UpdateAll: {
+            var customerContact = action.payload.customerContact;
+            var movieTheater = action.payload.movieTheater;
+            var pos = action.payload.pos;
+            var printer = action.payload.printer;
+            state.user.customerContact = customerContact;
+            state.user.movieTheater = movieTheater;
+            state.user.pos = pos;
+            state.user.printer = printer;
+            return __assign({}, state, { loading: false });
+        }
+        case _actions_user_action__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetTheaters: {
+            return __assign({}, state, { loading: true });
+        }
+        case _actions_user_action__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetTheatersSuccess: {
+            var movieTheaters = action.payload.movieTheaters;
+            return __assign({}, state, { loading: false, error: null, user: __assign({}, state.user, { movieTheaters: movieTheaters }) });
+        }
+        case _actions_user_action__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetTheatersFail: {
+            var error = action.payload.error;
+            return __assign({}, state, { loading: false, error: JSON.stringify(error) });
+        }
+        default: {
+            return state;
+        }
+    }
+}
 
 
 /***/ }),
