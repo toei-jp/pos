@@ -48,6 +48,7 @@ export interface IHistoryState {
 export function reducer(state: IState, action: Actions): IState {
     switch (action.type) {
         case ActionTypes.Delete: {
+            const authorizeSeatReservation = state.purchase.authorizeSeatReservation;
             state.purchase = {
                 movieTheaters: [],
                 screeningEvents: [],
@@ -58,7 +59,8 @@ export function reducer(state: IState, action: Actions): IState {
                 orderCount: 0,
                 checkMovieTicketActions: [],
                 authorizeMovieTicketPayments: [],
-                isUsedMovieTicket: false
+                isUsedMovieTicket: false,
+                authorizeSeatReservation
             };
             return { ...state };
         }
@@ -205,6 +207,18 @@ export function reducer(state: IState, action: Actions): IState {
             };
         }
         case ActionTypes.TemporaryReservationFail: {
+            const error = action.payload.error;
+            return { ...state, loading: false, error: JSON.stringify(error) };
+        }
+        case ActionTypes.TemporaryReservationCancel: {
+            return { ...state, loading: true };
+        }
+        case ActionTypes.TemporaryReservationCancelSuccess: {
+            state.purchase.authorizeSeatReservation = undefined;
+            return { ...state, loading: false, error: null };
+        }
+        case ActionTypes.TemporaryReservationCancelFail: {
+            state.purchase.authorizeSeatReservation = undefined;
             const error = action.payload.error;
             return { ...state, loading: false, error: JSON.stringify(error) };
         }
