@@ -4533,7 +4533,7 @@ var LoadingComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"p-4 scroll bg-white\">\n    <form [formGroup]=\"mvtkForm\">\n        <div [class.d-none]=\"isShowVideo\" class=\"mb-4\">\n            <p *ngIf=\"errorMessage !== '' && !isSuccess\" class=\"mb-3 p-2 alert alert-danger\">{{ errorMessage }}</p>\n            <p *ngIf=\"isSuccess\" class=\"mb-3 p-2 alert alert-success\">ムビチケ券を追加しました</p>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">ムビチケ購入番号</label>\n                <app-numeric-keypad [inputValue]=\"mvtkForm.controls.code.value\" (change)=\"mvtkForm.controls.code.setValue($event)\">\n                    <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"code\" id=\"code\"\n                        autocomplete=\"off\" placeholder=\"(例)012345789\" maxlength=\"10\" readonly=\"readonly\">\n                </app-numeric-keypad>\n                <div *ngIf=\"mvtkForm.controls.code.invalid && mvtkForm.controls.code.touched\" class=\"mt-2\">\n                    <p *ngIf=\"mvtkForm.controls.code.errors.required\" class=\"text-danger\">ムビチケ購入番号が未入力です</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.maxlength\" class=\"text-danger\">ムビチケ購入番号は{{\n                        mvtkForm.controls.code.errors.maxlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.minlength\" class=\"text-danger\">ムビチケ購入番号は{{\n                        mvtkForm.controls.code.errors.minlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.pattern\" class=\"text-danger\">ムビチケ購入番号は数字で入力してください</p>\n                </div>\n            </div>\n\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">ムビチケ暗証番号</label>\n\n                <app-numeric-keypad [inputValue]=\"mvtkForm.controls.password.value\" (change)=\"mvtkForm.controls.password.setValue($event)\">\n                    <input type=\"password\" class=\"form-control py-2 large-text\" formControlName=\"password\" id=\"password\"\n                        autocomplete=\"off\" placeholder=\"(例)0123\" readonly=\"readonly\">\n                </app-numeric-keypad>\n                <div *ngIf=\"mvtkForm.controls.password.invalid && mvtkForm.controls.password.touched\" class=\"mt-2\">\n                    <p *ngIf=\"mvtkForm.controls.password.errors.required\" class=\"text-danger\">ムビチケ暗証番号が未入力です</p>\n                    <!-- <p *ngIf=\"mvtkForm.controls.password.errors.maxlength\" class=\"text-danger\">ムビチケ暗証番号は{{\n                        mvtkForm.controls.password.errors.maxlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.minlength\" class=\"text-danger\">ムビチケ暗証番号は{{\n                        mvtkForm.controls.password.errors.minlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.pattern\" class=\"text-danger\">ムビチケ暗証番号は数字で入力してください</p> -->\n                </div>\n            </div>\n        </div>\n        <div [class.d-block]=\"isShowVideo\" [class.d-none]=\"!isShowVideo\" class=\"mb-2\">\n            <div class=\"video-area text-center\">\n                <video id=\"video\" class=\"bg-black mx-auto\" src=\"\" autoplay muted playsinline></video>\n            </div>\n            <div class=\"d-none\"><canvas id=\"canvas\"></canvas></div>\n        </div>\n        <div class=\"w-75 mx-auto mb-2\">\n            <button *ngIf=\"stream === null\" type=\"button\" class=\"btn btn-primary btn-block py-3 large-text\" [disabled]=\"isLoading | async\"\n                (click)=\"activationCamera()\">カメラで読み取り</button>\n            <button *ngIf=\"stream !== null\" type=\"button\" class=\"btn btn-primary btn-block py-3 large-text\" [disabled]=\"isLoading | async\"\n                (click)=\"stopCamera()\">カメラを停止</button>\n        </div>\n        <div [class.d-none]=\"isShowVideo\" class=\"w-75 mx-auto\">\n            <button type=\"button\" class=\"btn btn-primary btn-block py-3 large-text\" [disabled]=\"isLoading | async\"\n                (click)=\"checkMovieTicket()\">認証</button>\n        </div>\n    </form>\n</div>\n\n\n<div class=\"close-button text-white\" (click)=\"activeModal.dismiss()\"><img class=\"w-100\" src=\"/assets/images/icon/close.svg\"></div>"
+module.exports = "<div class=\"p-4 scroll bg-white\">\n    <form [formGroup]=\"mvtkForm\">\n        <div [class.d-none]=\"isShowVideo\" class=\"mb-4\">\n            <p *ngIf=\"errorMessage !== '' && !isSuccess\" class=\"mb-3 p-2 alert alert-danger\" [innerHtml]=\"errorMessage\"></p>\n            <p *ngIf=\"isSuccess\" class=\"mb-3 p-2 alert alert-success\">ムビチケ券を追加しました</p>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">ムビチケ購入番号</label>\n                <app-numeric-keypad [inputValue]=\"mvtkForm.controls.code.value\" [maxlength]=\"10\" (change)=\"mvtkForm.controls.code.setValue($event)\">\n                    <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"code\" id=\"code\"\n                        autocomplete=\"off\" placeholder=\"(例)012345789\" maxlength=\"10\" readonly=\"readonly\">\n                </app-numeric-keypad>\n                <div *ngIf=\"mvtkForm.controls.code.invalid && mvtkForm.controls.code.touched\" class=\"mt-2\">\n                    <p *ngIf=\"mvtkForm.controls.code.errors.required\" class=\"text-danger\">ムビチケ購入番号が未入力です</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.maxlength\" class=\"text-danger\">ムビチケ購入番号は{{\n                        mvtkForm.controls.code.errors.maxlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.minlength\" class=\"text-danger\">ムビチケ購入番号は{{\n                        mvtkForm.controls.code.errors.minlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.code.errors.pattern\" class=\"text-danger\">ムビチケ購入番号は数字で入力してください</p>\n                </div>\n            </div>\n\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">ムビチケ暗証番号</label>\n\n                <app-numeric-keypad [inputValue]=\"mvtkForm.controls.password.value\" (change)=\"mvtkForm.controls.password.setValue($event)\">\n                    <input type=\"password\" class=\"form-control py-2 large-text\" formControlName=\"password\" id=\"password\"\n                        autocomplete=\"off\" placeholder=\"(例)0123\" readonly=\"readonly\">\n                </app-numeric-keypad>\n                <div *ngIf=\"mvtkForm.controls.password.invalid && mvtkForm.controls.password.touched\" class=\"mt-2\">\n                    <p *ngIf=\"mvtkForm.controls.password.errors.required\" class=\"text-danger\">ムビチケ暗証番号が未入力です</p>\n                    <!-- <p *ngIf=\"mvtkForm.controls.password.errors.maxlength\" class=\"text-danger\">ムビチケ暗証番号は{{\n                        mvtkForm.controls.password.errors.maxlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.minlength\" class=\"text-danger\">ムビチケ暗証番号は{{\n                        mvtkForm.controls.password.errors.minlength.requiredLength }}文字で入力してください</p>\n                    <p *ngIf=\"mvtkForm.controls.password.errors.pattern\" class=\"text-danger\">ムビチケ暗証番号は数字で入力してください</p> -->\n                </div>\n            </div>\n        </div>\n        <div [class.d-block]=\"isShowVideo\" [class.d-none]=\"!isShowVideo\" class=\"mb-2\">\n            <div class=\"video-area text-center\">\n                <video id=\"video\" class=\"bg-black mx-auto\" src=\"\" autoplay muted playsinline></video>\n            </div>\n            <div class=\"d-none\"><canvas id=\"canvas\"></canvas></div>\n        </div>\n        <div class=\"w-75 mx-auto mb-2\">\n            <button *ngIf=\"stream === null\" type=\"button\" class=\"btn btn-primary btn-block py-3 large-text\" [disabled]=\"isLoading | async\"\n                (click)=\"activationCamera()\">カメラで読み取り</button>\n            <button *ngIf=\"stream !== null\" type=\"button\" class=\"btn btn-primary btn-block py-3 large-text\" [disabled]=\"isLoading | async\"\n                (click)=\"stopCamera()\">カメラを停止</button>\n        </div>\n        <div [class.d-none]=\"isShowVideo\" class=\"w-75 mx-auto\">\n            <button type=\"button\" class=\"btn btn-primary btn-block py-3 large-text\" [disabled]=\"isLoading | async\"\n                (click)=\"checkMovieTicket()\">認証</button>\n        </div>\n    </form>\n</div>\n\n\n<div class=\"close-button text-white\" (click)=\"activeModal.dismiss()\"><img class=\"w-100\" src=\"/assets/images/icon/close.svg\"></div>"
 
 /***/ }),
 
@@ -4569,8 +4569,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jsqr__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(jsqr__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs */ "../../node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../store/actions/purchase.action */ "./app/store/actions/purchase.action.ts");
-/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../store/reducers */ "./app/store/reducers/index.ts");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../functions */ "./app/functions/index.ts");
+/* harmony import */ var _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../store/actions/purchase.action */ "./app/store/actions/purchase.action.ts");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../store/reducers */ "./app/store/reducers/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4626,6 +4627,7 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
+
 var MvtkCheckModalComponent = /** @class */ (function () {
     function MvtkCheckModalComponent(store, actions, formBuilder, activeModal) {
         this.store = store;
@@ -4638,8 +4640,8 @@ var MvtkCheckModalComponent = /** @class */ (function () {
         this.video = document.getElementById('video');
         this.video.width = 300;
         this.errorMessage = '';
-        this.isLoading = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getLoading"]));
-        this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getPurchase"]));
+        this.isLoading = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getLoading"]));
+        this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getPurchase"]));
         this.createMvtkForm();
     };
     MvtkCheckModalComponent.prototype.ngOnDestroy = function () {
@@ -4679,7 +4681,7 @@ var MvtkCheckModalComponent = /** @class */ (function () {
                 || purchase.screeningEvent === undefined) {
                 return;
             }
-            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["CheckMovieTicket"]({
+            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["CheckMovieTicket"]({
                 transaction: purchase.transaction,
                 movieTickets: [{
                         typeOf: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].paymentMethodType.MovieTicket,
@@ -4689,22 +4691,27 @@ var MvtkCheckModalComponent = /** @class */ (function () {
                 screeningEvent: purchase.screeningEvent
             }));
         }).unsubscribe();
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].CheckMovieTicketSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].CheckMovieTicketSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
             _this.purchase.subscribe(function (purchase) {
                 var checkMovieTicketAction = purchase.checkMovieTicketAction;
                 if (checkMovieTicketAction === undefined
                     || checkMovieTicketAction.result === undefined
-                    || checkMovieTicketAction.result.purchaseNumberAuthResult.knyknrNoInfoOut === null
-                    || checkMovieTicketAction.result.purchaseNumberAuthResult.knyknrNoInfoOut[0].ykknInfo === null) {
+                    || checkMovieTicketAction.result.purchaseNumberAuthResult.knyknrNoInfoOut === null) {
                     _this.isSuccess = false;
                     _this.errorMessage = 'ムビチケ情報をご確認ください';
+                    return;
+                }
+                var knyknrNoMkujyuCd = checkMovieTicketAction.result.purchaseNumberAuthResult.knyknrNoInfoOut[0].knyknrNoMkujyuCd;
+                if (knyknrNoMkujyuCd !== undefined) {
+                    _this.isSuccess = false;
+                    _this.errorMessage = "\u30E0\u30D3\u30C1\u30B1\u60C5\u5831\u3092\u3054\u78BA\u8A8D\u304F\u3060\u3055\u3044<br>\n                        [" + knyknrNoMkujyuCd + "] " + Object(_functions__WEBPACK_IMPORTED_MODULE_9__["movieTicketAuthErroCodeToMessage"])(knyknrNoMkujyuCd);
                     return;
                 }
                 _this.createMvtkForm();
                 _this.isSuccess = true;
             }).unsubscribe();
         }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].CheckMovieTicketFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].CheckMovieTicketFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
             _this.isSuccess = false;
             _this.errorMessage = 'エラーが発生しました';
         }));
@@ -5925,7 +5932,7 @@ var TicketListModalComponent = /** @class */ (function () {
 /*!********************************!*\
   !*** ./app/functions/index.ts ***!
   \********************************/
-/*! exports provided: createScreeningFilmEvents, createOrderId, createGmoTokenObject, sameMovieTicketFilter, isAvailabilityMovieTicket, createMovieTicketsFromAuthorizeSeatReservation, createPaymentMethodFromType, getTicketPrice, formatTelephone */
+/*! exports provided: createScreeningFilmEvents, createOrderId, createGmoTokenObject, sameMovieTicketFilter, isAvailabilityMovieTicket, createMovieTicketsFromAuthorizeSeatReservation, createPaymentMethodFromType, getTicketPrice, movieTicketAuthErroCodeToMessage, formatTelephone */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5947,6 +5954,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getTicketPrice", function() { return _purchase_function__WEBPACK_IMPORTED_MODULE_0__["getTicketPrice"]; });
 
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "movieTicketAuthErroCodeToMessage", function() { return _purchase_function__WEBPACK_IMPORTED_MODULE_0__["movieTicketAuthErroCodeToMessage"]; });
+
 /* harmony import */ var _util_function__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util.function */ "./app/functions/util.function.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatTelephone", function() { return _util_function__WEBPACK_IMPORTED_MODULE_1__["formatTelephone"]; });
 
@@ -5960,7 +5969,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!********************************************!*\
   !*** ./app/functions/purchase.function.ts ***!
   \********************************************/
-/*! exports provided: createScreeningFilmEvents, createOrderId, createGmoTokenObject, sameMovieTicketFilter, isAvailabilityMovieTicket, createMovieTicketsFromAuthorizeSeatReservation, createPaymentMethodFromType, getTicketPrice */
+/*! exports provided: createScreeningFilmEvents, createOrderId, createGmoTokenObject, sameMovieTicketFilter, isAvailabilityMovieTicket, createMovieTicketsFromAuthorizeSeatReservation, createPaymentMethodFromType, getTicketPrice, movieTicketAuthErroCodeToMessage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5973,6 +5982,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createMovieTicketsFromAuthorizeSeatReservation", function() { return createMovieTicketsFromAuthorizeSeatReservation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createPaymentMethodFromType", function() { return createPaymentMethodFromType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTicketPrice", function() { return getTicketPrice; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "movieTicketAuthErroCodeToMessage", function() { return movieTicketAuthErroCodeToMessage; });
 /* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
 /* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
@@ -6173,6 +6183,49 @@ function getTicketPrice(ticket) {
         result.single = result.total / referenceQuantityValue;
     }
     return result;
+}
+/**
+ * ムビチケ認証購入管理番号無効事由区分変換
+ */
+function movieTicketAuthErroCodeToMessage(code) {
+    switch (code) {
+        case '01': {
+            return '存在無';
+        }
+        case '02': {
+            return 'PINｺｰﾄﾞ必須';
+        }
+        case '03': {
+            return 'PINｺｰﾄﾞ認証ｴﾗｰ';
+        }
+        case '04': {
+            return '作品不一致';
+        }
+        case '05': {
+            return '未ｱｸﾃｨﾍﾞｰﾄ';
+        }
+        case '06': {
+            return '選択興行対象外';
+        }
+        case '07': {
+            return '有効期限切れ';
+        }
+        case '08': {
+            return '座席予約期間外';
+        }
+        case '09': {
+            return 'その他';
+        }
+        case '11': {
+            return '座席予約開始前';
+        }
+        case '12': {
+            return '仮お直り購入番号数不一致';
+        }
+        default: {
+            return 'その他';
+        }
+    }
 }
 
 
