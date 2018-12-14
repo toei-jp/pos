@@ -4698,7 +4698,7 @@ var MvtkCheckModalComponent = /** @class */ (function () {
                     || checkMovieTicketAction.result === undefined
                     || checkMovieTicketAction.result.purchaseNumberAuthResult.knyknrNoInfoOut === null) {
                     _this.isSuccess = false;
-                    _this.errorMessage = 'ムビチケ情報をご確認ください';
+                    _this.errorMessage = 'ムビチケ情報をご確認ください。';
                     return;
                 }
                 if (checkMovieTicketAction.result.purchaseNumberAuthResult.knyknrNoInfoOut[0].ykknmiNum === '0') {
@@ -4709,7 +4709,7 @@ var MvtkCheckModalComponent = /** @class */ (function () {
                 var knyknrNoMkujyuCd = checkMovieTicketAction.result.purchaseNumberAuthResult.knyknrNoInfoOut[0].knyknrNoMkujyuCd;
                 if (knyknrNoMkujyuCd !== undefined) {
                     _this.isSuccess = false;
-                    _this.errorMessage = "\u30E0\u30D3\u30C1\u30B1\u60C5\u5831\u3092\u3054\u78BA\u8A8D\u304F\u3060\u3055\u3044<br>\n                        [" + knyknrNoMkujyuCd + "] " + Object(_functions__WEBPACK_IMPORTED_MODULE_9__["movieTicketAuthErroCodeToMessage"])(knyknrNoMkujyuCd);
+                    _this.errorMessage = "\u30E0\u30D3\u30C1\u30B1\u60C5\u5831\u3092\u3054\u78BA\u8A8D\u304F\u3060\u3055\u3044\u3002<br>\n                        [" + knyknrNoMkujyuCd + "] " + Object(_functions__WEBPACK_IMPORTED_MODULE_9__["movieTicketAuthErroCodeToMessage"])(knyknrNoMkujyuCd);
                     return;
                 }
                 _this.createMvtkForm();

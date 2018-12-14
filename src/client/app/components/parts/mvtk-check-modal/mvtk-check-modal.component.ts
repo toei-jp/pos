@@ -103,7 +103,7 @@ export class MvtkCheckModalComponent implements OnInit, OnDestroy {
                         || checkMovieTicketAction.result === undefined
                         || checkMovieTicketAction.result.purchaseNumberAuthResult.knyknrNoInfoOut === null) {
                         this.isSuccess = false;
-                        this.errorMessage = 'ムビチケ情報をご確認ください';
+                        this.errorMessage = 'ムビチケ情報をご確認ください。';
                         return;
                     }
 
@@ -116,7 +116,7 @@ export class MvtkCheckModalComponent implements OnInit, OnDestroy {
                     const knyknrNoMkujyuCd = checkMovieTicketAction.result.purchaseNumberAuthResult.knyknrNoInfoOut[0].knyknrNoMkujyuCd;
                     if (knyknrNoMkujyuCd !== undefined) {
                         this.isSuccess = false;
-                        this.errorMessage = `ムビチケ情報をご確認ください<br>
+                        this.errorMessage = `ムビチケ情報をご確認ください。<br>
                         [${knyknrNoMkujyuCd}] ${movieTicketAuthErroCodeToMessage(knyknrNoMkujyuCd)}`;
                         return;
                     }
