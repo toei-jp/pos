@@ -4701,6 +4701,11 @@ var MvtkCheckModalComponent = /** @class */ (function () {
                     _this.errorMessage = 'ムビチケ情報をご確認ください';
                     return;
                 }
+                if (checkMovieTicketAction.result.purchaseNumberAuthResult.knyknrNoInfoOut[0].ykknmiNum === '0') {
+                    _this.isSuccess = false;
+                    _this.errorMessage = 'すでに使用済みのムビチケです。';
+                    return;
+                }
                 var knyknrNoMkujyuCd = checkMovieTicketAction.result.purchaseNumberAuthResult.knyknrNoInfoOut[0].knyknrNoMkujyuCd;
                 if (knyknrNoMkujyuCd !== undefined) {
                     _this.isSuccess = false;

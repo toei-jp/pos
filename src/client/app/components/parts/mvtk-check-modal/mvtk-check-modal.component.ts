@@ -106,6 +106,13 @@ export class MvtkCheckModalComponent implements OnInit, OnDestroy {
                         this.errorMessage = 'ムビチケ情報をご確認ください';
                         return;
                     }
+
+                    if (checkMovieTicketAction.result.purchaseNumberAuthResult.knyknrNoInfoOut[0].ykknmiNum === '0') {
+                        this.isSuccess = false;
+                        this.errorMessage = 'すでに使用済みのムビチケです。';
+                        return;
+                    }
+
                     const knyknrNoMkujyuCd = checkMovieTicketAction.result.purchaseNumberAuthResult.knyknrNoInfoOut[0].knyknrNoMkujyuCd;
                     if (knyknrNoMkujyuCd !== undefined) {
                         this.isSuccess = false;
