@@ -39,7 +39,16 @@
     .seat-hc {
         background-image: url(/images/theater/parts/seat_hc.svg) !important;
         background-size: 40px 50px;
-        pointer-events: none;
+        // pointer-events: none;
+        &.active {
+            border-radius: 3px;
+            background-color: #f3a000;
+        }
+        &.disabled {
+            border-radius: 3px;
+            background-color: #cececf;
+            cursor: default;
+        }
         span {
             display: none !important;
         }
