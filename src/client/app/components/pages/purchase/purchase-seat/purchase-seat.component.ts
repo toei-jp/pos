@@ -83,10 +83,10 @@ export class PurchaseSeatComponent implements OnInit {
                         || purchase.screenData === undefined) {
                         return;
                     }
-                    const findResult = purchase.screenData.hc.find(hc => hc === place.branchCode);
-                    if (findResult !== undefined) {
-                        return;
-                    }
+                    // const findResult = purchase.screenData.hc.find(hc => hc === place.branchCode);
+                    // if (findResult !== undefined) {
+                    //     return;
+                    // }
                     const seat = {
                         seatNumber: place.branchCode,
                         seatSection: screeningEventOffer.branchCode

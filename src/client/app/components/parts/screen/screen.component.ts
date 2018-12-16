@@ -292,7 +292,7 @@ export class ScreenComponent implements OnInit, AfterViewInit, AfterViewChecked 
                     }
                     if (this.screenData.hc.indexOf(code) !== -1) {
                         className.push('seat-hc');
-                        status = SeatStatus.Disabled;
+                        // status = SeatStatus.Disabled;
                     }
 
                     const seat = {
