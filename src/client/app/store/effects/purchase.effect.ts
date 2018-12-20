@@ -170,6 +170,25 @@ export class PurchaseEffects {
     );
 
     /**
+     * temporaryReservationCancel
+     */
+    @Effect()
+    public temporaryReservationCancel = this.actions.pipe(
+        ofType<purchase.TemporaryReservationCancel>(purchase.ActionTypes.TemporaryReservationCancel),
+        map(action => action.payload),
+        mergeMap(async (payload) => {
+            try {
+                await this.cinerino.getServices();
+                const authorizeSeatReservation = payload.authorizeSeatReservation;
+                await this.cinerino.transaction.placeOrder.voidSeatReservation(authorizeSeatReservation);
+                return new purchase.TemporaryReservationCancelSuccess();
+            } catch (error) {
+                return new purchase.TemporaryReservationCancelFail({ error: error });
+            }
+        })
+    );
+
+    /**
      * getTicketList
      */
     @Effect()

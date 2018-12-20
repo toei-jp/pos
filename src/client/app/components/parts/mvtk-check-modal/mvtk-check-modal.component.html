@@ -1,11 +1,11 @@
 <div class="p-4 scroll bg-white">
     <form [formGroup]="mvtkForm">
         <div [class.d-none]="isShowVideo" class="mb-4">
-            <p *ngIf="errorMessage !== '' && !isSuccess" class="mb-3 p-2 alert alert-danger">{{ errorMessage }}</p>
+            <p *ngIf="errorMessage !== '' && !isSuccess" class="mb-3 p-2 alert alert-danger" [innerHtml]="errorMessage"></p>
             <p *ngIf="isSuccess" class="mb-3 p-2 alert alert-success">ムビチケ券を追加しました</p>
             <div class="form-group">
                 <label class="mb-2" for="">ムビチケ購入番号</label>
-                <app-numeric-keypad [inputValue]="mvtkForm.controls.code.value" (change)="mvtkForm.controls.code.setValue($event)">
+                <app-numeric-keypad [inputValue]="mvtkForm.controls.code.value" [maxlength]="10" (change)="mvtkForm.controls.code.setValue($event)">
                     <input type="text" class="form-control py-2 large-text" formControlName="code" id="code"
                         autocomplete="off" placeholder="(例)012345789" maxlength="10" readonly="readonly">
                 </app-numeric-keypad>

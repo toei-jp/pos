@@ -14,7 +14,8 @@ import {
     GetSchedule,
     SelectSchedule,
     SelectTheater,
-    StartTransaction
+    StartTransaction,
+    TemporaryReservationCancel
 } from '../../../../store/actions/purchase.action';
 import * as reducers from '../../../../store/reducers';
 
@@ -36,10 +37,11 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
     ) { }
 
     public async ngOnInit() {
-        this.store.dispatch(new Delete({}));
+        this.store.dispatch(new Delete());
         this.purchase = this.store.pipe(select(reducers.getPurchase));
         this.error = this.store.pipe(select(reducers.getError));
         this.user = this.store.pipe(select(reducers.getUser));
+        this.temporaryReservationCancel();
         this.user.subscribe((user) => {
             if (user.movieTheater === undefined) {
                 this.router.navigate(['/error']);
@@ -53,6 +55,26 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
 
     public ngOnDestroy() {
         clearInterval(this.updateTimer);
+    }
+
+    private temporaryReservationCancel() {
+        this.purchase.subscribe((purchase) => {
+            if (purchase.authorizeSeatReservation !== undefined) {
+                const authorizeSeatReservation = purchase.authorizeSeatReservation;
+                this.store.dispatch(new TemporaryReservationCancel({ authorizeSeatReservation }));
+            }
+        }).unsubscribe();
+
+        const success = this.actions.pipe(
+            ofType(ActionTypes.TemporaryReservationCancelSuccess),
+            tap(() => { })
+        );
+
+        const fail = this.actions.pipe(
+            ofType(ActionTypes.TemporaryReservationCancelFail),
+            tap(() => { })
+        );
+        race(success, fail).pipe(take(1)).subscribe();
     }
 
     private update(movieTheater: factory.organization.movieTheater.IOrganization) {

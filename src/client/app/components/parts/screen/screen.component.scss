@@ -37,16 +37,19 @@
         }
     }
     .seat-hc {
+        background-color: #cececf;
         background-image: url(/images/theater/parts/seat_hc.svg) !important;
-        background-size: 40px 50px;
+        background-size: 30px 37.5px;
+        background-position: center;
+        border-radius: 3px;
         // pointer-events: none;
         &.active {
-            border-radius: 3px;
             background-color: #f3a000;
+            background-image: url(/images/theater/parts/seat_hc_active.svg) !important;
         }
         &.disabled {
-            border-radius: 3px;
-            background-color: #cececf;
+            background-color: #474241;
+            background-image: url(/images/theater/parts/seat_hc_disabled.svg) !important;
             cursor: default;
         }
         span {
