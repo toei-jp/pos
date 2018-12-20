@@ -30,6 +30,9 @@ export enum ActionTypes {
     TemporaryReservation = '[Purchase] Temporary Reservation',
     TemporaryReservationSuccess = '[Purchase] Temporary Reservation Success',
     TemporaryReservationFail = '[Purchase] Temporary Reservation Fail',
+    TemporaryReservationCancel = '[Purchase] Temporary Reservation Cancel',
+    TemporaryReservationCancelSuccess = '[Purchase] Temporary Reservation Cancel Success',
+    TemporaryReservationCancelFail = '[Purchase] Temporary Reservation Cancel Fail',
     RegisterContact = '[Purchase] Register Contact',
     RegisterContactSuccess = '[Purchase] Register Contact Success',
     RegisterContactFail = '[Purchase] Register Contact Fail',
@@ -252,7 +255,6 @@ export class GetTicketListFail implements Action {
     constructor(public payload: { error: Error }) { }
 }
 
-
 /**
  * TemporaryReservation
  */
@@ -279,6 +281,32 @@ export class TemporaryReservationSuccess implements Action {
  */
 export class TemporaryReservationFail implements Action {
     public readonly type = ActionTypes.TemporaryReservationFail;
+    constructor(public payload: { error: Error }) { }
+}
+
+/**
+ * TemporaryReservationCancel
+ */
+export class TemporaryReservationCancel implements Action {
+    public readonly type = ActionTypes.TemporaryReservationCancel;
+    constructor(public payload: {
+        authorizeSeatReservation: factory.action.authorize.offer.seatReservation.IAction;
+    }) { }
+}
+
+/**
+ * TemporaryReservationCancelSuccess
+ */
+export class TemporaryReservationCancelSuccess implements Action {
+    public readonly type = ActionTypes.TemporaryReservationCancelSuccess;
+    constructor(public payload?: {}) { }
+}
+
+/**
+ * TemporaryReservationCancelFail
+ */
+export class TemporaryReservationCancelFail implements Action {
+    public readonly type = ActionTypes.TemporaryReservationCancelFail;
     constructor(public payload: { error: Error }) { }
 }
 
@@ -595,6 +623,9 @@ export type Actions =
     | TemporaryReservation
     | TemporaryReservationSuccess
     | TemporaryReservationFail
+    | TemporaryReservationCancel
+    | TemporaryReservationCancelSuccess
+    | TemporaryReservationCancelFail
     | RegisterContact
     | RegisterContactSuccess
     | RegisterContactFail

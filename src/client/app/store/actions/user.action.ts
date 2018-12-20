@@ -5,7 +5,7 @@ import { Action } from '@ngrx/store';
  * Action types
  */
 export enum ActionTypes {
-    Delete = '[User] User',
+    Delete = '[User] Delete',
     UpdateAll = '[User] Update All',
     GetTheaters = '[User] Get Theaters',
     GetTheatersSuccess = '[User] Get Theaters Success',
