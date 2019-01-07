@@ -49,12 +49,11 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
             }
             this.selectTheater(user.movieTheater);
             this.selectDate();
-            this.update(user.movieTheater);
         }).unsubscribe();
     }
 
     public ngOnDestroy() {
-        clearInterval(this.updateTimer);
+        clearTimeout(this.updateTimer);
     }
 
     private temporaryReservationCancel() {
@@ -77,10 +76,13 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
         race(success, fail).pipe(take(1)).subscribe();
     }
 
-    private update(movieTheater: factory.organization.movieTheater.IOrganization) {
+    private update() {
+        if (this.updateTimer !== undefined) {
+            clearTimeout(this.updateTimer);
+        }
         const time = 600000; // 10 * 60 * 1000
-        this.updateTimer = setInterval(() => {
-            this.selectTheater(movieTheater);
+        this.updateTimer = setTimeout(() => {
+            this.selectDate();
         }, time);
     }
 
@@ -119,6 +121,7 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
                     }
                     this.scheduleDate = purchase.scheduleDate;
                 }).unsubscribe();
+                this.update();
             })
         );
 
