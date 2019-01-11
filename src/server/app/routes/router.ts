@@ -26,7 +26,7 @@ export default (app: express.Application) => {
         res.sendFile(path.resolve(`${__dirname}/../../../client/${process.env.NODE_ENV}/${fileName}`));
     });
 
-    app.post('*', (req, res, _next) => {
+    app.all('*', (req, res, _next) => {
         res.status(httpStatus.NOT_FOUND);
         if (req.xhr) {
             res.json('NOT FOUND');

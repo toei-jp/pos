@@ -1747,7 +1747,7 @@ var MaintenanceComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <h2 class=\"bg-secondary text-white p-3 mb-3\">NOT FOUND</h2>\n\n        <p class=\"mb-3\">ページが見つかりません。</p>\n\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow mb-3\" routerLink=\"/\">戻る</button>\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" routerLink=\"/setting\">設定</button>\n    </div>\n</div>"
+module.exports = "<div class=\"py-4 px-3\">\n    <div class=\"mb-4\">\n        <h2 class=\"text-white mb-3\">NOT FOUND</h2>\n        <p class=\"mb-3 text-white\">ページが見つかりません。</p>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow mb-3\" routerLink=\"/\">戻る</button>\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" routerLink=\"/setting\">設定</button>\n    </div>\n</div>"
 
 /***/ }),
 
