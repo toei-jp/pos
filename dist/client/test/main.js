@@ -1747,7 +1747,7 @@ var MaintenanceComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-3 px-2\">\n    <div class=\"mb-4\">\n        <h2 class=\"bg-secondary text-white p-3 mb-3\">NOT FOUND</h2>\n\n        <p class=\"mb-3\">ページが見つかりません。</p>\n\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow mb-3\" routerLink=\"/\">戻る</button>\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" routerLink=\"/setting\">設定</button>\n    </div>\n</div>"
+module.exports = "<div class=\"py-4 px-3\">\n    <div class=\"mb-4\">\n        <h2 class=\"text-white mb-3\">NOT FOUND</h2>\n        <p class=\"mb-3 text-white\">ページが見つかりません。</p>\n    </div>\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow mb-3\" routerLink=\"/\">戻る</button>\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" routerLink=\"/setting\">設定</button>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -2955,14 +2955,13 @@ var PurchaseScheduleComponent = /** @class */ (function () {
                     }
                     _this.selectTheater(user.movieTheater);
                     _this.selectDate();
-                    _this.update(user.movieTheater);
                 }).unsubscribe();
                 return [2 /*return*/];
             });
         });
     };
     PurchaseScheduleComponent.prototype.ngOnDestroy = function () {
-        clearInterval(this.updateTimer);
+        clearTimeout(this.updateTimer);
     };
     PurchaseScheduleComponent.prototype.temporaryReservationCancel = function () {
         var _this = this;
@@ -2976,11 +2975,14 @@ var PurchaseScheduleComponent = /** @class */ (function () {
         var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].TemporaryReservationCancelFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () { }));
         Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
     };
-    PurchaseScheduleComponent.prototype.update = function (movieTheater) {
+    PurchaseScheduleComponent.prototype.update = function () {
         var _this = this;
+        if (this.updateTimer !== undefined) {
+            clearTimeout(this.updateTimer);
+        }
         var time = 600000; // 10 * 60 * 1000
-        this.updateTimer = setInterval(function () {
-            _this.selectTheater(movieTheater);
+        this.updateTimer = setTimeout(function () {
+            _this.selectDate();
         }, time);
     };
     /**
@@ -3015,6 +3017,7 @@ var PurchaseScheduleComponent = /** @class */ (function () {
                 }
                 _this.scheduleDate = purchase.scheduleDate;
             }).unsubscribe();
+            _this.update();
         }));
         var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetScheduleFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
             _this.router.navigate(['/error']);

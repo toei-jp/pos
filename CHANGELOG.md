@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## 1.2.1 - 2019-01-11
+### Fixed
+- ルーティング修正
+
 ## 1.2.0 - 2018-12-20
 ### Added
 - スケジュール選択での仮予約削除を追加
