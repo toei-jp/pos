@@ -69,14 +69,14 @@ export function createGmoTokenObject(params: {
 }) {
     return new Promise<IGmoTokenObject>((resolve, reject) => {
         if (params.movieTheater.paymentAccepted === undefined) {
-            throw new Error('movieTheater.paymentAccepted is undefined');
+            throw { error: 'この劇場では支払いに対応していません。' };
         }
         const findPaymentAcceptedResult = params.movieTheater.paymentAccepted.find((paymentAccepted) => {
             return (paymentAccepted.paymentMethodType === factory.paymentMethodType.CreditCard);
         });
         if (findPaymentAcceptedResult === undefined
             || findPaymentAcceptedResult.paymentMethodType !== factory.paymentMethodType.CreditCard) {
-            throw new Error('paymentMethodType CreditCard not found');
+            throw { error: 'この劇場ではクレジットカード支払いに対応していません。' };
         }
         (<any>window).someCallbackFunction = function someCallbackFunction(response: {
             resultCode: string;

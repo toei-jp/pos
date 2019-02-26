@@ -43,7 +43,10 @@ export class CinerinoService {
             };
         } catch (err) {
             console.error(err);
-            throw new Error('getServices is failed');
+            throw {
+                error: '認証情報の取得に失敗しました。画面のリロードもしくは再ログインしてください。',
+                detail: err
+            };
         }
     }
 

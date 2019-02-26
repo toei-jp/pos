@@ -791,7 +791,7 @@ var SettingGuardService = /** @class */ (function () {
                     case 1:
                         user = _a.sent();
                         if (user.movieTheater === undefined) {
-                            throw new Error('user.movieTheater is undefined');
+                            throw { error: '劇場が未設定です。' };
                         }
                         return [2 /*return*/, true];
                     case 2:
@@ -3066,7 +3066,7 @@ var PurchaseScheduleComponent = /** @class */ (function () {
             _this.error.subscribe(function (error) {
                 try {
                     if (error === null) {
-                        throw new Error('error is null');
+                        throw { error: 'エラーが特定できません。' };
                     }
                     var errorObject = JSON.parse(error);
                     if (errorObject.status === http_status__WEBPACK_IMPORTED_MODULE_4__["TOO_MANY_REQUESTS"]) {
@@ -3077,7 +3077,7 @@ var PurchaseScheduleComponent = /** @class */ (function () {
                         _this.router.navigate(['/maintenance']);
                         return;
                     }
-                    throw new Error('error status not match');
+                    throw { error: 'エラーのステータスが不明です。' };
                 }
                 catch (error2) {
                     _this.router.navigate(['/error']);
@@ -6038,14 +6038,14 @@ function createOrderId(params) {
 function createGmoTokenObject(params) {
     return new Promise(function (resolve, reject) {
         if (params.movieTheater.paymentAccepted === undefined) {
-            throw new Error('movieTheater.paymentAccepted is undefined');
+            throw { error: 'この劇場では支払いに対応していません。' };
         }
         var findPaymentAcceptedResult = params.movieTheater.paymentAccepted.find(function (paymentAccepted) {
             return (paymentAccepted.paymentMethodType === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].paymentMethodType.CreditCard);
         });
         if (findPaymentAcceptedResult === undefined
             || findPaymentAcceptedResult.paymentMethodType !== _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].paymentMethodType.CreditCard) {
-            throw new Error('paymentMethodType CreditCard not found');
+            throw { error: 'この劇場ではクレジットカード支払いに対応していません。' };
         }
         window.someCallbackFunction = function someCallbackFunction(response) {
             if (response.resultCode === '000') {
@@ -6707,7 +6707,10 @@ var CinerinoService = /** @class */ (function () {
                     case 2:
                         err_1 = _a.sent();
                         console.error(err_1);
-                        throw new Error('getServices is failed');
+                        throw {
+                            error: '認証情報の取得に失敗しました。画面のリロードもしくは再ログインしてください。',
+                            detail: err_1
+                        };
                     case 3: return [2 /*return*/];
                 }
             });
@@ -6991,7 +6994,7 @@ var StarPrintService = /** @class */ (function () {
         this.isReady = false;
         try {
             if (args.ipAddress === '') {
-                throw new Error('プリンターのIPアドレスが正しく指定されていません');
+                throw { error: 'プリンターのIPアドレスが正しく指定されていません' };
             }
             var port = /https/.test(window.location.protocol) ? 443 : 80;
             var url = "//" + args.ipAddress + ":" + port + "/StarWebPRNT/SendMessage";
@@ -7360,7 +7363,7 @@ var StarPrintService = /** @class */ (function () {
                         canvas.height = args.size.height;
                         context = canvas.getContext('2d');
                         if (context === null) {
-                            throw new Error('context is null');
+                            throw { error: 'contextの取得に失敗しました.。' };
                         }
                         drawImage = function (drawImageArgs) {
                             return new Promise(function (resolve) {
@@ -9058,7 +9061,7 @@ var PurchaseEffects = /** @class */ (function () {
                                 },
                                 acceptedOffer: reservations.map(function (reservation) {
                                     if (reservation.ticket === undefined) {
-                                        throw new Error('ticket is undefined');
+                                        throw { error: 'チケットが未選択です。' };
                                     }
                                     return {
                                         id: reservation.ticket.ticketOffer.id,
