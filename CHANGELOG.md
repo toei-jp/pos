@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## 1.3.0 - 2019-02-26
+### Changed
+- エラー表示変更
+
 ## 1.2.1 - 2019-01-11
 ### Fixed
 - ルーティング修正
