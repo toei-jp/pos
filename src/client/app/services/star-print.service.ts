@@ -44,7 +44,7 @@ export class StarPrintService {
 
         try {
             if (args.ipAddress === '') {
-                throw new Error('プリンターのIPアドレスが正しく指定されていません');
+                throw { error: 'プリンターのIPアドレスが正しく指定されていません' };
             }
             const port = /https/.test(window.location.protocol) ? 443 : 80;
             const url = `//${args.ipAddress}:${port}/StarWebPRNT/SendMessage`;
@@ -368,7 +368,7 @@ export class StarPrintService {
         canvas.height = args.size.height;
         const context = canvas.getContext('2d');
         if (context === null) {
-            throw new Error('context is null');
+            throw { error: 'contextの取得に失敗しました.。' };
         }
         const drawImage = (drawImageArgs: {
             image: HTMLImageElement;

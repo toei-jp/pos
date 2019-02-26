@@ -148,7 +148,7 @@ export class PurchaseEffects {
                         },
                         acceptedOffer: reservations.map((reservation) => {
                             if (reservation.ticket === undefined) {
-                                throw new Error('ticket is undefined');
+                                throw { error: 'チケットが未選択です。' };
                             }
                             return {
                                 id: reservation.ticket.ticketOffer.id,

@@ -183,7 +183,7 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
                 this.error.subscribe((error) => {
                     try {
                         if (error === null) {
-                            throw new Error('error is null');
+                            throw { error: 'エラーが特定できません。' };
                         }
                         const errorObject = JSON.parse(error);
                         if (errorObject.status === TOO_MANY_REQUESTS) {
@@ -194,7 +194,7 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
                             this.router.navigate(['/maintenance']);
                             return;
                         }
-                        throw new Error('error status not match');
+                        throw { error: 'エラーのステータスが不明です。' };
                     } catch (error2) {
                         this.router.navigate(['/error']);
                     }
