@@ -24,6 +24,7 @@
     )",
     "special": "特別席",
     "hc": "車いす席",
+    "spare": "予備席",
     "pair": "ペア席",
     "html": "独自HTML挿入の場合",
     "style": "独自style挿入の場合",

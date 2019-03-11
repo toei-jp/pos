@@ -21,6 +21,7 @@ export interface IScreen {
     map: number[][];
     special: string[];
     hc: string[];
+    spare: string[];
     pair: string[];
     seatSize: ISize;
     seatMargin: ISize;
