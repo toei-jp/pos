@@ -27,7 +27,7 @@
     "lint": "npm run lint-client && npm run lint-server",
     "test": "npm run check",
     "build": "npm run build-server && npm run build-client",
-    "preversion": "npm run build2",
+    "preversion": "npm run build",
     "version": "git add -A",
     "postversion": "git push origin --tags",
     "clean": "rimraf src/**/*.spec.ts",
