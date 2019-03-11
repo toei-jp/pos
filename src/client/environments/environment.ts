@@ -11,8 +11,6 @@ export const environment = {
 
     SITE_URL: 'https://box.toeitheaters.com',
 
-    API_ENDPOINT: 'https://toei-cinerino-api-production.azurewebsites.net',
-
     ENTRANCE_SERVER_URL: '',
     WAITER_SERVER_URL: 'https://waiter-production.appspot.com',
 

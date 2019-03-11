@@ -11,8 +11,6 @@ export const environment = {
 
     SITE_URL: 'https://toei-pos-test.azurewebsites.net',
 
-    API_ENDPOINT: 'https://toei-cinerino-api-test.azurewebsites.net',
-
     ENTRANCE_SERVER_URL: '',
     WAITER_SERVER_URL: '',
 

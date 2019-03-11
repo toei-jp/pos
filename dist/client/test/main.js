@@ -6727,7 +6727,7 @@ var CinerinoService = /** @class */ (function () {
                     case 1:
                         _a.sent();
                         return [2 /*return*/, {
-                                endpoint: _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API_ENDPOINT,
+                                endpoint: this.endpoint,
                                 auth: this.auth
                             }];
                 }
@@ -6764,6 +6764,7 @@ var CinerinoService = /** @class */ (function () {
                         };
                         this.auth = _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["createAuthInstance"](option);
                         this.auth.setCredentials({ accessToken: result.accessToken });
+                        this.endpoint = result.endpoint;
                         return [2 /*return*/];
                 }
             });
@@ -10367,7 +10368,6 @@ var environment = {
     PROJECT_ID: 'toei-test',
     ENV: 'test',
     SITE_URL: 'https://toei-pos-test.azurewebsites.net',
-    API_ENDPOINT: 'https://toei-cinerino-api-test.azurewebsites.net',
     ENTRANCE_SERVER_URL: '',
     WAITER_SERVER_URL: '',
     ANALYTICS_ID: '',
