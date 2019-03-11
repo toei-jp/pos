@@ -3216,6 +3216,7 @@ var PurchaseSeatComponent = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getPurchase"]));
+                this.error = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getError"]));
                 this.isLoading = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getLoading"]));
                 this.getScreen();
                 return [2 /*return*/];
@@ -3339,7 +3340,12 @@ var PurchaseSeatComponent = /** @class */ (function () {
             _this.router.navigate(['/purchase/ticket']);
         }));
         var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].TemporaryReservationFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
-            _this.router.navigate(['/error']);
+            _this.error.subscribe(function (error) {
+                _this.openAlert({
+                    title: 'エラーが発生しました',
+                    body: "\u304A\u624B\u7D9A\u304D\u306E\u9014\u4E2D\u3067\u30A8\u30E9\u30FC\u304C\u767A\u751F\u3044\u305F\u3057\u307E\u3057\u305F\u3002<br>\n                        \u304A\u624B\u6570\u3092\u304A\u304B\u3051\u3044\u305F\u3057\u307E\u3059\u304C\u3001\u3082\u3046\u4E00\u5EA6\u6700\u521D\u304B\u3089\u64CD\u4F5C\u3092\u304A\u9858\u3044\u3044\u305F\u3057\u307E\u3059\u3002<br>\n                        \u203B\u3059\u3067\u306B\u4ED6\u306E\u304A\u5BA2\u69D8\u304C\u540C\u3058\u5E2D\u3092\u9078\u629E\u3057\u305F\u5834\u5408\u3082\u3053\u306E\u30A8\u30E9\u30FC\u304C\u8868\u793A\u3055\u308C\u307E\u3059\u3002<br><br>\n                        <span class=\"d-block p-3 border bg-white select-text\">\n                            <code>" + error + "</code>\n                        </span>"
+                });
+            }).unsubscribe();
         }));
         Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
     };
@@ -3940,7 +3946,7 @@ var SettingComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"p-3 scroll bg-white\">\n    <div *ngIf=\"title\" class=\"mb-3 large-text\">{{ title }}</div>\n    <p class=\"mb-3\" [innerHTML]=\"body\"></p>\n</div>\n\n\n<div class=\"close-button text-white\" (click)=\"activeModal.dismiss()\"><img class=\"w-100\" src=\"/assets/images/icon/close.svg\"></div>"
+module.exports = "<div class=\"p-4 scroll bg-white\">\n    <div *ngIf=\"title\" class=\"mb-3 large-text\">{{ title }}</div>\n    <p class=\"mb-3\" [innerHTML]=\"body\"></p>\n</div>\n\n\n<div class=\"close-button text-white\" (click)=\"activeModal.dismiss()\"><img class=\"w-100\" src=\"/assets/images/icon/close.svg\"></div>"
 
 /***/ }),
 
