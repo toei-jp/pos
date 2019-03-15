@@ -24,10 +24,11 @@
             <span>{{ moment(screeningEvent.endDate).format('HH:mm') }}</span>
         </div>
         <div *ngIf="moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.offers.validThrough).unix() > moment().unix()">
-            <div *ngIf="Math.floor(screeningEvent.remainingAttendeeCapacity / screeningEvent.maximumAttendeeCapacity * 100) >= 30" class="status text-center">
+            <p>{{ Math.floor(screeningEvent.remainingAttendeeCapacity / screeningEvent.maximumAttendeeCapacity * 100) }}</p>
+            <div *ngIf="screeningEvent.remainingAttendeeCapacity !== 0 && Math.floor(screeningEvent.remainingAttendeeCapacity / screeningEvent.maximumAttendeeCapacity * 100) >= 30" class="status text-center">
                 <img src="/assets/images/status_01.svg">
             </div>
-            <div *ngIf="Math.floor(screeningEvent.remainingAttendeeCapacity / screeningEvent.maximumAttendeeCapacity * 100) < 30 && screeningEvent.remainingAttendeeCapacity > 0"
+            <div *ngIf="screeningEvent.remainingAttendeeCapacity !== 0 && Math.floor(screeningEvent.remainingAttendeeCapacity / screeningEvent.maximumAttendeeCapacity * 100) < 30 && screeningEvent.remainingAttendeeCapacity > 0"
                 class="status text-center">
                 <img src="/assets/images/status_02.svg">
             </div>
