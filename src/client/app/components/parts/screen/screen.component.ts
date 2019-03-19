@@ -290,6 +290,11 @@ export class ScreenComponent implements OnInit, AfterViewInit, AfterViewChecked 
                             status = SeatStatus.Default;
                         }
                     }
+                    if (this.screenData.spare.indexOf(code) !== -1) {
+                        className.push('seat-spare');
+                        // status = SeatStatus.Disabled;
+                    }
+
                     if (this.screenData.hc.indexOf(code) !== -1) {
                         className.push('seat-hc');
                         // status = SeatStatus.Disabled;

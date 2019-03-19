@@ -3216,6 +3216,7 @@ var PurchaseSeatComponent = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getPurchase"]));
+                this.error = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getError"]));
                 this.isLoading = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getLoading"]));
                 this.getScreen();
                 return [2 /*return*/];
@@ -3339,7 +3340,12 @@ var PurchaseSeatComponent = /** @class */ (function () {
             _this.router.navigate(['/purchase/ticket']);
         }));
         var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].TemporaryReservationFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
-            _this.router.navigate(['/error']);
+            _this.error.subscribe(function (error) {
+                _this.openAlert({
+                    title: 'エラーが発生しました',
+                    body: "\u304A\u624B\u7D9A\u304D\u306E\u9014\u4E2D\u3067\u30A8\u30E9\u30FC\u304C\u767A\u751F\u3044\u305F\u3057\u307E\u3057\u305F\u3002<br>\n                        \u304A\u624B\u6570\u3092\u304A\u304B\u3051\u3044\u305F\u3057\u307E\u3059\u304C\u3001\u3082\u3046\u4E00\u5EA6\u6700\u521D\u304B\u3089\u64CD\u4F5C\u3092\u304A\u9858\u3044\u3044\u305F\u3057\u307E\u3059\u3002<br>\n                        \u203B\u3059\u3067\u306B\u4ED6\u306E\u304A\u5BA2\u69D8\u304C\u540C\u3058\u5E2D\u3092\u9078\u629E\u3057\u305F\u5834\u5408\u3082\u3053\u306E\u30A8\u30E9\u30FC\u304C\u8868\u793A\u3055\u308C\u307E\u3059\u3002<br><br>\n                        <span class=\"d-block p-3 border bg-white select-text\">\n                            <code>" + error + "</code>\n                        </span>"
+                });
+            }).unsubscribe();
         }));
         Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
     };
@@ -3940,7 +3946,7 @@ var SettingComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"p-3 scroll bg-white\">\n    <div *ngIf=\"title\" class=\"mb-3 large-text\">{{ title }}</div>\n    <p class=\"mb-3\" [innerHTML]=\"body\"></p>\n</div>\n\n\n<div class=\"close-button text-white\" (click)=\"activeModal.dismiss()\"><img class=\"w-100\" src=\"/assets/images/icon/close.svg\"></div>"
+module.exports = "<div class=\"p-4 scroll bg-white\">\n    <div *ngIf=\"title\" class=\"mb-3 large-text\">{{ title }}</div>\n    <p class=\"mb-3\" [innerHTML]=\"body\"></p>\n</div>\n\n\n<div class=\"close-button text-white\" (click)=\"activeModal.dismiss()\"><img class=\"w-100\" src=\"/assets/images/icon/close.svg\"></div>"
 
 /***/ }),
 
@@ -5344,7 +5350,7 @@ var PurchasePaymentModalComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"film p-3 bg-white\">\n    <p class=\"large-text\"><strong>{{ screeningFilmEvent.info.name.ja }}</strong></p>\n    <p *ngIf=\"screeningFilmEvent.info.workPerformed.headline\">{{ screeningFilmEvent.info.workPerformed.headline }}</p>\n    <div class=\"d-flex justify-content-end align-items-center\">\n        <div *ngIf=\"screeningFilmEvent.info.workPerformed.contentRating\" class=\"small-text text-white bg-gray py-1 px-3 mx-2\">{{ screeningFilmEvent.info.workPerformed.contentRating }}</div>\n        <div *ngIf=\"screeningFilmEvent.info.superEvent.dubLanguage\" class=\"small-text text-white bg-gray py-1 px-3 mx-2\">吹替版</div>\n        <div *ngIf=\"screeningFilmEvent.info.superEvent.subtitleLanguage\" class=\"small-text text-white bg-gray py-1 px-3 mx-2\">字幕版</div>\n        <div *ngIf=\"screeningFilmEvent.info.workPerformed.duration !== null\" class=\"small-text mx-2\">{{ moment.duration(screeningFilmEvent.info.workPerformed.duration).asMinutes() }}分</div>\n    </div>\n</div>\n<ul class=\"bg-light p-3\">\n    <li *ngFor=\"let screeningEvent of screeningFilmEvent.data\" class=\"rounded border py-3 px-3 px-md-0 text-md-center d-md-block d-flex justify-content-between align-items-center\"\n        [ngClass]=\"{ \n        'bg-white':  moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.offers.validThrough).unix() > moment().unix() && screeningEvent.remainingAttendeeCapacity > 0, \n        'bg-gray text-light':  screeningEvent.remainingAttendeeCapacity === 0 || !(moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.offers.validThrough).unix() > moment().unix())\n        }\"\n        (click)=\"select.emit(screeningEvent)\">\n        <div class=\"mb-md-2 small-text\">\n            {{ screeningEvent.location.address.en }} {{ screeningEvent.location.name.ja }}\n        </div>\n        <div class=\"mb-md-2\">\n            <strong class=\"large-text\">{{ moment(screeningEvent.startDate).format('HH:mm') }}</strong>\n            <span>-</span>\n            <span>{{ moment(screeningEvent.endDate).format('HH:mm') }}</span>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.offers.validThrough).unix() > moment().unix()\">\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity >= 30\" class=\"status text-center\">\n                <img src=\"/assets/images/status_01.svg\">\n            </div>\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity < 30 && screeningEvent.remainingAttendeeCapacity > 0\"\n                class=\"status text-center\">\n                <img src=\"/assets/images/status_02.svg\">\n            </div>\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity === 0\" class=\"status text-center\">\n                <img src=\"/assets/images/status_03.svg\">\n            </div>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.offers.validFrom).unix() >= moment().unix()\" class=\"status text-center\">\n            <p>販売期間外</p>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.offers.validThrough).unix() <= moment().unix()\" class=\"status text-center\">\n            <p>販売終了</p>\n        </div>\n    </li>\n</ul>"
+module.exports = "<div class=\"film p-3 bg-white\">\n    <p class=\"large-text\"><strong>{{ screeningFilmEvent.info.name.ja }}</strong></p>\n    <p *ngIf=\"screeningFilmEvent.info.workPerformed.headline\">{{ screeningFilmEvent.info.workPerformed.headline }}</p>\n    <div class=\"d-flex justify-content-end align-items-center\">\n        <div *ngIf=\"screeningFilmEvent.info.workPerformed.contentRating\" class=\"small-text text-white bg-gray py-1 px-3 mx-2\">{{ screeningFilmEvent.info.workPerformed.contentRating }}</div>\n        <div *ngIf=\"screeningFilmEvent.info.superEvent.dubLanguage\" class=\"small-text text-white bg-gray py-1 px-3 mx-2\">吹替版</div>\n        <div *ngIf=\"screeningFilmEvent.info.superEvent.subtitleLanguage\" class=\"small-text text-white bg-gray py-1 px-3 mx-2\">字幕版</div>\n        <div *ngIf=\"screeningFilmEvent.info.workPerformed.duration !== null\" class=\"small-text mx-2\">{{ moment.duration(screeningFilmEvent.info.workPerformed.duration).asMinutes() }}分</div>\n    </div>\n</div>\n<ul class=\"bg-light p-3\">\n    <li *ngFor=\"let screeningEvent of screeningFilmEvent.data\" class=\"rounded border py-3 px-3 px-md-0 text-md-center d-md-block d-flex justify-content-between align-items-center\"\n        [ngClass]=\"{ \n        'bg-white':  moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.offers.validThrough).unix() > moment().unix() && screeningEvent.remainingAttendeeCapacity > 0, \n        'bg-gray text-light':  screeningEvent.remainingAttendeeCapacity === 0 || !(moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.offers.validThrough).unix() > moment().unix())\n        }\"\n        (click)=\"select.emit(screeningEvent)\">\n        <div class=\"mb-md-2 small-text\">\n            {{ screeningEvent.location.address.en }} {{ screeningEvent.location.name.ja }}\n        </div>\n        <div class=\"mb-md-2\">\n            <strong class=\"large-text\">{{ moment(screeningEvent.startDate).format('HH:mm') }}</strong>\n            <span>-</span>\n            <span>{{ moment(screeningEvent.endDate).format('HH:mm') }}</span>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.offers.validFrom).unix() < moment().unix() && moment(screeningEvent.offers.validThrough).unix() > moment().unix()\">\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity !== 0 && Math.floor(screeningEvent.remainingAttendeeCapacity / screeningEvent.maximumAttendeeCapacity * 100) >= 30\" class=\"status text-center\">\n                <img src=\"/assets/images/status_01.svg\">\n            </div>\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity !== 0 && Math.floor(screeningEvent.remainingAttendeeCapacity / screeningEvent.maximumAttendeeCapacity * 100) < 30 && screeningEvent.remainingAttendeeCapacity > 0\"\n                class=\"status text-center\">\n                <img src=\"/assets/images/status_02.svg\">\n            </div>\n            <div *ngIf=\"screeningEvent.remainingAttendeeCapacity === 0\" class=\"status text-center\">\n                <img src=\"/assets/images/status_03.svg\">\n            </div>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.offers.validFrom).unix() >= moment().unix()\" class=\"status text-center\">\n            <p>販売期間外</p>\n        </div>\n        <div *ngIf=\"moment(screeningEvent.offers.validThrough).unix() <= moment().unix()\" class=\"status text-center\">\n            <p>販売終了</p>\n        </div>\n    </li>\n</ul>"
 
 /***/ }),
 
@@ -5387,6 +5393,7 @@ var PurchaseScheduleFilmComponent = /** @class */ (function () {
     function PurchaseScheduleFilmComponent() {
         this.select = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.moment = moment__WEBPACK_IMPORTED_MODULE_1__;
+        this.Math = Math;
     }
     PurchaseScheduleFilmComponent.prototype.ngOnInit = function () { };
     __decorate([
@@ -5430,7 +5437,7 @@ module.exports = "<div class=\"radius bg-light-gray\">\n    <div class=\"screen\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: block; }\n\n.screen {\n  position: relative;\n  overflow: hidden; }\n\n.screen .screen-scroll {\n    height: 500px; }\n\n.screen .screen-inner {\n    position: relative;\n    width: 1600px;\n    height: 1400px; }\n\n.screen .seat {\n    position: absolute;\n    cursor: pointer;\n    text-align: center;\n    font-weight: bold;\n    color: #9a9a9b;\n    padding-top: 20px;\n    background-image: url(/images/theater/parts/seat.svg);\n    background-size: 40px 50px;\n    background-repeat: no-repeat;\n    font-size: 12px; }\n\n.screen .seat.active {\n      color: #FFF;\n      background-image: url(/images/theater/parts/seat_active.svg); }\n\n.screen .seat.disabled {\n      color: #FFF;\n      background-image: url(/images/theater/parts/seat_disabled.svg);\n      cursor: default; }\n\n.screen .seat span {\n      display: none; }\n\n.screen .seat-hc {\n    background-color: #cececf;\n    background-image: url(/images/theater/parts/seat_hc.svg) !important;\n    background-size: 30px 37.5px;\n    background-position: center;\n    border-radius: 3px; }\n\n.screen .seat-hc.active {\n      background-color: #f3a000;\n      background-image: url(/images/theater/parts/seat_hc_active.svg) !important; }\n\n.screen .seat-hc.disabled {\n      background-color: #474241;\n      background-image: url(/images/theater/parts/seat_hc_disabled.svg) !important;\n      cursor: default; }\n\n.screen .seat-hc span {\n      display: none !important; }\n\n.screen .object {\n    position: absolute;\n    background-repeat: no-repeat; }\n\n.screen .label-object {\n    text-align: center;\n    line-height: 50px;\n    font-size: 24px;\n    color: #9a9a9b;\n    font-weight: bold; }\n\n.zoom .screen-scroll {\n  overflow: auto;\n  transition: -webkit-transform 0.2s;\n  transition: transform 0.2s;\n  transition: transform 0.2s, -webkit-transform 0.2s;\n  -webkit-overflow-scrolling: touch; }\n\n.zoom .seat span {\n  display: block; }\n\n.zoom-btn {\n  display: none;\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  z-index: 10;\n  width: 50px;\n  height: 50px;\n  color: #FFF;\n  background-color: #3e3a39;\n  border-radius: 3px;\n  align-items: center;\n  justify-content: center; }\n\n.zoom-btn.active {\n    display: flex; }\n\n.zoom-btn.scroll {\n    position: fixed; }\n"
+module.exports = ":host {\n  display: block; }\n\n.screen {\n  position: relative;\n  overflow: hidden; }\n\n.screen .screen-scroll {\n    height: 500px; }\n\n.screen .screen-inner {\n    position: relative;\n    width: 1600px;\n    height: 1400px; }\n\n.screen .seat {\n    position: absolute;\n    cursor: pointer;\n    text-align: center;\n    font-weight: bold;\n    color: #9a9a9b;\n    padding-top: 20px;\n    background-image: url(/images/theater/parts/seat.svg);\n    background-size: 40px 50px;\n    background-repeat: no-repeat;\n    font-size: 12px; }\n\n.screen .seat.active {\n      color: #FFF;\n      background-image: url(/images/theater/parts/seat_active.svg); }\n\n.screen .seat.disabled {\n      color: #FFF;\n      background-image: url(/images/theater/parts/seat_disabled.svg);\n      cursor: default; }\n\n.screen .seat span {\n      display: none; }\n\n.screen .seat-hc {\n    background-color: #cececf;\n    background-image: url(/images/theater/parts/seat_hc.svg) !important;\n    background-size: 30px 37.5px;\n    background-position: center;\n    border-radius: 3px; }\n\n.screen .seat-hc.active {\n      background-color: #f3a000;\n      background-image: url(/images/theater/parts/seat_hc_active.svg) !important; }\n\n.screen .seat-hc.disabled {\n      background-color: #474241;\n      background-image: url(/images/theater/parts/seat_hc_disabled.svg) !important;\n      cursor: default; }\n\n.screen .seat-hc span {\n      display: none !important; }\n\n.screen .seat-spare {\n    background-image: url(/images/theater/parts/seat_spare.svg); }\n\n.screen .object {\n    position: absolute;\n    background-repeat: no-repeat; }\n\n.screen .label-object {\n    text-align: center;\n    line-height: 50px;\n    font-size: 24px;\n    color: #9a9a9b;\n    font-weight: bold; }\n\n.zoom .screen-scroll {\n  overflow: auto;\n  transition: -webkit-transform 0.2s;\n  transition: transform 0.2s;\n  transition: transform 0.2s, -webkit-transform 0.2s;\n  -webkit-overflow-scrolling: touch; }\n\n.zoom .seat span {\n  display: block; }\n\n.zoom-btn {\n  display: none;\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  z-index: 10;\n  width: 50px;\n  height: 50px;\n  color: #FFF;\n  background-color: #3e3a39;\n  border-radius: 3px;\n  align-items: center;\n  justify-content: center; }\n\n.zoom-btn.active {\n    display: flex; }\n\n.zoom-btn.scroll {\n    position: fixed; }\n"
 
 /***/ }),
 
@@ -5709,6 +5716,10 @@ var ScreenComponent = /** @class */ (function () {
                         if (findResult !== undefined) {
                             status_1 = _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Default;
                         }
+                    }
+                    if (this_1.screenData.spare.indexOf(code_1) !== -1) {
+                        className.push('seat-spare');
+                        // status = SeatStatus.Disabled;
                     }
                     if (this_1.screenData.hc.indexOf(code_1) !== -1) {
                         className.push('seat-hc');
@@ -6727,7 +6738,7 @@ var CinerinoService = /** @class */ (function () {
                     case 1:
                         _a.sent();
                         return [2 /*return*/, {
-                                endpoint: _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].API_ENDPOINT,
+                                endpoint: this.endpoint,
                                 auth: this.auth
                             }];
                 }
@@ -6764,6 +6775,7 @@ var CinerinoService = /** @class */ (function () {
                         };
                         this.auth = _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["createAuthInstance"](option);
                         this.auth.setCredentials({ accessToken: result.accessToken });
+                        this.endpoint = result.endpoint;
                         return [2 /*return*/];
                 }
             });
@@ -10367,7 +10379,6 @@ var environment = {
     PROJECT_ID: 'toei-development',
     ENV: 'development',
     SITE_URL: 'https://toei-pos-development.azurewebsites.net',
-    API_ENDPOINT: 'https://toei-cinerino-api-development.azurewebsites.net',
     ENTRANCE_SERVER_URL: '',
     WAITER_SERVER_URL: 'https://waiter-development.appspot.com',
     ANALYTICS_ID: '',
