@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## 1.4.0 - 2019-03-19
+### Changed
+- △の閾値を30％未満へ変更
+
 ## 1.3.0 - 2019-02-26
 ### Changed
 - エラー表示変更
