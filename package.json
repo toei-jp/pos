@@ -1,6 +1,6 @@
 {
   "name": "toei-pos",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "license": "MIT",
   "author": {
     "name": "Motionpicture co.,ltd."
@@ -26,8 +26,8 @@
     "check": "npm run lint",
     "lint": "npm run lint-client && npm run lint-server",
     "test": "npm run check",
-    "build2": "npm run build-server && npm run build-client",
-    "preversion": "npm run build2",
+    "build": "npm run build-server && npm run build-client",
+    "preversion": "npm run build",
     "version": "git add -A",
     "postversion": "git push origin --tags",
     "clean": "rimraf src/**/*.spec.ts",

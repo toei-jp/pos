@@ -19,6 +19,7 @@ export class CinerinoService {
     public transaction: {
         placeOrder: cinerino.service.txn.PlaceOrder
     };
+    private endpoint: string;
 
     constructor(
         private http: HttpClient
@@ -56,7 +57,7 @@ export class CinerinoService {
     public async createOption() {
         await this.authorize();
         return {
-            endpoint: environment.API_ENDPOINT,
+            endpoint: this.endpoint,
             auth: this.auth
         };
     }
@@ -74,6 +75,7 @@ export class CinerinoService {
             accessToken: string;
             userName: string;
             clientId: string;
+            endpoint: string;
         }>(url, body).toPromise();
         const option = {
             domain: '',
@@ -88,6 +90,7 @@ export class CinerinoService {
         };
         this.auth = cinerino.createAuthInstance(option);
         this.auth.setCredentials({ accessToken: result.accessToken });
+        this.endpoint = result.endpoint;
     }
 
     /**

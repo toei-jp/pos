@@ -26,6 +26,7 @@
     ],
     "special": [],
     "hc": ["M-12", "M-13"],
+    "spare": ["M-15", "M-16"],
     "pair": [],
     "style": "<style>.line-object { left: 673px !important}</style>"
 }
