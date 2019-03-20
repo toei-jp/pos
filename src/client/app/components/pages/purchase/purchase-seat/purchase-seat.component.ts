@@ -25,6 +25,7 @@ import { AlertModalComponent } from '../../../parts/alert-modal/alert-modal.comp
 })
 export class PurchaseSeatComponent implements OnInit {
     public purchase: Observable<reducers.IPurchaseState>;
+    public error: Observable<string | null>;
     public isLoading: Observable<boolean>;
     public moment = moment;
     constructor(
@@ -36,6 +37,7 @@ export class PurchaseSeatComponent implements OnInit {
 
     public async ngOnInit() {
         this.purchase = this.store.pipe(select(reducers.getPurchase));
+        this.error = this.store.pipe(select(reducers.getError));
         this.isLoading = this.store.pipe(select(reducers.getLoading));
         this.getScreen();
     }
@@ -174,7 +176,17 @@ export class PurchaseSeatComponent implements OnInit {
         const fail = this.actions.pipe(
             ofType(ActionTypes.TemporaryReservationFail),
             tap(() => {
-                this.router.navigate(['/error']);
+                this.error.subscribe((error) => {
+                    this.openAlert({
+                        title: 'エラーが発生しました',
+                        body: `お手続きの途中でエラーが発生いたしました。<br>
+                        お手数をおかけいたしますが、もう一度最初から操作をお願いいたします。<br>
+                        ※すでに他のお客様が同じ席を選択した場合もこのエラーが表示されます。<br><br>
+                        <span class="d-block p-3 border bg-white select-text">
+                            <code>${error}</code>
+                        </span>`
+                    });
+                }).unsubscribe();
             })
         );
         race(success, fail).pipe(take(1)).subscribe();

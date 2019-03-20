@@ -25,6 +25,7 @@
     ],
     "special": [],
     "hc": ["L-9", "L-10"],
+    "spare": ["L-12", "L-13"],
     "pair": [],
     "style": "<style>.line-object { left: 643px !important}</style>"
 }

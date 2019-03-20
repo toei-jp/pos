@@ -13,6 +13,7 @@ export class PurchaseScheduleFilmComponent implements OnInit {
     @Input() public screeningFilmEvent: IScreeningEventFilm;
     @Output() public select = new EventEmitter<factory.chevre.event.screeningEvent.IEvent>();
     public moment: typeof moment = moment;
+    public Math: typeof Math = Math;
     constructor() { }
 
     public ngOnInit() { }
