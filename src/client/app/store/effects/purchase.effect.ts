@@ -42,9 +42,9 @@ export class PurchaseEffects {
         mergeMap(async (payload) => {
             try {
                 await this.cinerino.getServices();
-                const searchMovieTheatersResult = await this.cinerino.organization.searchMovieTheaters(payload.params);
-                const movieTheaters = searchMovieTheatersResult.data;
-                return new purchase.GetTheatersSuccess({ movieTheaters });
+                const searchResult = await this.cinerino.seller.search(payload.params);
+                const sellers = searchResult.data;
+                return new purchase.GetTheatersSuccess({ sellers });
             } catch (error) {
                 return new purchase.GetTheatersFail({ error: error });
             }
@@ -61,9 +61,14 @@ export class PurchaseEffects {
         mergeMap(async (payload) => {
             try {
                 await this.cinerino.getServices();
-                const branchCode = payload.movieTheater.location.branchCode;
+                if (payload.seller.location === undefined
+                    || payload.seller.location.branchCode === undefined) {
+                    throw new Error('seller notfound');
+                }
+                const branchCode = payload.seller.location.branchCode;
                 const scheduleDate = payload.scheduleDate;
                 const screeningEventsResult = await this.cinerino.event.searchScreeningEvents({
+                    typeOf: factory.chevre.eventType.ScreeningEvent,
                     eventStatuses: [factory.chevre.eventStatusType.EventScheduled],
                     superEvent: { locationBranchCodes: [branchCode] },
                     startFrom: moment(scheduleDate).toDate(),
@@ -155,10 +160,10 @@ export class PurchaseEffects {
                                 ticketedSeat: <any>{
                                     seatNumber: reservation.seat.seatNumber,
                                     seatSection: reservation.seat.seatSection
-                                }
+                                },
+                                additionalProperty: []
                             };
-                        }),
-                        notes: ''
+                        })
                     },
                     purpose: transaction
                 });
@@ -199,10 +204,10 @@ export class PurchaseEffects {
             try {
                 await this.cinerino.getServices();
                 const screeningEvent = payload.screeningEvent;
-                const movieTheater = payload.movieTheater;
+                const seller = payload.seller;
                 const screeningEventTicketOffers = await this.cinerino.event.searchScreeningEventTicketOffers({
                     event: { id: screeningEvent.id },
-                    seller: { typeOf: movieTheater.typeOf, id: movieTheater.id },
+                    seller: { typeOf: seller.typeOf, id: seller.id },
                     store: { id: this.cinerino.auth.options.clientId }
                 });
 
@@ -223,8 +228,11 @@ export class PurchaseEffects {
         mergeMap(async (payload) => {
             const transaction = payload.transaction;
             const contact = payload.contact;
-            contact.telephone = formatTelephone(contact.telephone);
             try {
+                if (contact.telephone === undefined) {
+                    throw { error: 'telephone is undefined' };
+                }
+                contact.telephone = formatTelephone(contact.telephone);
                 await this.cinerino.getServices();
                 const customerContact =
                     await this.cinerino.transaction.placeOrder.setCustomerContact({
@@ -261,7 +269,7 @@ export class PurchaseEffects {
                 });
                 const gmoTokenObject = await createGmoTokenObject({
                     creditCard: payload.creditCard,
-                    movieTheater: payload.movieTheater
+                    seller: payload.seller
                 });
                 const creditCard = { token: gmoTokenObject.token };
                 const authorizeCreditCardPayment =
@@ -399,7 +407,7 @@ export class PurchaseEffects {
             const transaction = payload.transaction;
             const screeningEvent = payload.screeningEvent;
             const reservations = payload.reservations;
-            const movieTheater = payload.movieTheater;
+            const seller = payload.seller;
 
             try {
                 await this.cinerino.getServices();
@@ -429,7 +437,10 @@ export class PurchaseEffects {
                                 );
                             }).join('\n| '),
                             inquiryUrl: `${environment.SITE_URL}/#/inquiry/input`,
-                            seller: { telephone: new LibphonenumberFormatPipe().transform(movieTheater.telephone) }
+                            seller: {
+                                telephone: (seller.telephone === undefined)
+                                    ? '' : new LibphonenumberFormatPipe().transform(seller.telephone)
+                            }
                         })
                     }
                 });

@@ -3,9 +3,9 @@ import { IState } from '.';
 import { Actions, ActionTypes } from '../actions/user.action';
 
 export interface IUserState {
-    movieTheaters: factory.organization.movieTheater.IOrganization[];
-    movieTheater?: factory.organization.movieTheater.IOrganization;
-    pos?: factory.organization.IPOS;
+    sellers: factory.seller.IOrganization<factory.seller.IAttributes<factory.organizationType>>[];
+    seller?: factory.seller.IOrganization<factory.seller.IAttributes<factory.organizationType>>;
+    pos?: factory.seller.IPOS;
     customerContact?: factory.transaction.placeOrder.ICustomerContact;
     printer?: { ipAddress: string; };
 }
@@ -22,11 +22,11 @@ export function reducer(state: IState, action: Actions): IState {
         }
         case ActionTypes.UpdateAll: {
             const customerContact = action.payload.customerContact;
-            const movieTheater = action.payload.movieTheater;
+            const seller = action.payload.seller;
             const pos = action.payload.pos;
             const printer = action.payload.printer;
             state.user.customerContact = customerContact;
-            state.user.movieTheater = movieTheater;
+            state.user.seller = seller;
             state.user.pos = pos;
             state.user.printer = printer;
 
@@ -36,10 +36,10 @@ export function reducer(state: IState, action: Actions): IState {
             return { ...state, loading: true };
         }
         case ActionTypes.GetTheatersSuccess: {
-            const movieTheaters = action.payload.movieTheaters;
+            const sellers = action.payload.sellers;
             return {
                 ...state, loading: false, error: null, user: {
-                    ...state.user, movieTheaters
+                    ...state.user, sellers
                 }
             };
         }

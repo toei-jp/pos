@@ -12,7 +12,7 @@ export class StarPrintService {
     /**
      * 使用端末ID
      */
-    public pos?: factory.organization.IPOS;
+    public pos?: factory.seller.IPOS;
     /**
      * 印刷内容生成インスタンス
      */
@@ -35,7 +35,7 @@ export class StarPrintService {
      */
     public initialize(args: {
         ipAddress: string;
-        pos?: factory.organization.IPOS;
+        pos?: factory.seller.IPOS;
         timeout?: number;
     }) {
         this.pos = args.pos;
@@ -124,22 +124,29 @@ export class StarPrintService {
         const canvas = document.createElement('canvas');
         const order = args.order;
         const acceptedOffer = order.acceptedOffers[args.offerIndex];
+        const itemOffered = order.acceptedOffers[args.offerIndex].itemOffered;
+        if (itemOffered.typeOf !== factory.chevre.reservationType.EventReservation) {
+            throw new Error('reservationType is not EventReservation');
+        }
+        if (itemOffered.reservedTicket.ticketedSeat === undefined) {
+            throw new Error('ticketedSeat is undefined');
+        }
         const screen = {
-            name: order.acceptedOffers[0].itemOffered.reservationFor.location.name.ja,
-            address: (order.acceptedOffers[0].itemOffered.reservationFor.location.address === undefined)
+            name: itemOffered.reservationFor.location.name.ja,
+            address: (itemOffered.reservationFor.location.address === undefined)
                 ? ''
-                : order.acceptedOffers[0].itemOffered.reservationFor.location.address.en
+                : itemOffered.reservationFor.location.address.en
         };
         const data = {
             confirmationNumber: args.order.confirmationNumber,
-            theaterName: order.acceptedOffers[0].itemOffered.reservationFor.superEvent.location.name.ja,
+            theaterName: itemOffered.reservationFor.superEvent.location.name.ja,
             screenName: `${screen.address} ${screen.name}`,
-            eventName: order.acceptedOffers[0].itemOffered.reservationFor.name.ja,
-            startDate: moment(order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YY/MM/DD (ddd) HH:mm'),
-            seatNumber: acceptedOffer.itemOffered.reservedTicket.ticketedSeat.seatNumber,
-            ticketName: acceptedOffer.itemOffered.reservedTicket.ticketType.name.ja,
+            eventName: itemOffered.reservationFor.name.ja,
+            startDate: moment(itemOffered.reservationFor.startDate).format('YY/MM/DD (ddd) HH:mm'),
+            seatNumber: itemOffered.reservedTicket.ticketedSeat.seatNumber,
+            ticketName: itemOffered.reservedTicket.ticketType.name.ja,
             price: getTicketPrice(acceptedOffer).single,
-            qrcode: <string>acceptedOffer.itemOffered.reservedTicket.ticketToken
+            qrcode: <string>itemOffered.reservedTicket.ticketToken
         };
         const context = await this.draw({
             canvas,

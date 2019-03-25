@@ -60,6 +60,8 @@ var map = {
 	"./dv.js": "../../node_modules/moment/locale/dv.js",
 	"./el": "../../node_modules/moment/locale/el.js",
 	"./el.js": "../../node_modules/moment/locale/el.js",
+	"./en-SG": "../../node_modules/moment/locale/en-SG.js",
+	"./en-SG.js": "../../node_modules/moment/locale/en-SG.js",
 	"./en-au": "../../node_modules/moment/locale/en-au.js",
 	"./en-au.js": "../../node_modules/moment/locale/en-au.js",
 	"./en-ca": "../../node_modules/moment/locale/en-ca.js",
@@ -98,6 +100,8 @@ var map = {
 	"./fr.js": "../../node_modules/moment/locale/fr.js",
 	"./fy": "../../node_modules/moment/locale/fy.js",
 	"./fy.js": "../../node_modules/moment/locale/fy.js",
+	"./ga": "../../node_modules/moment/locale/ga.js",
+	"./ga.js": "../../node_modules/moment/locale/ga.js",
 	"./gd": "../../node_modules/moment/locale/gd.js",
 	"./gd.js": "../../node_modules/moment/locale/gd.js",
 	"./gl": "../../node_modules/moment/locale/gl.js",
@@ -121,6 +125,8 @@ var map = {
 	"./is": "../../node_modules/moment/locale/is.js",
 	"./is.js": "../../node_modules/moment/locale/is.js",
 	"./it": "../../node_modules/moment/locale/it.js",
+	"./it-ch": "../../node_modules/moment/locale/it-ch.js",
+	"./it-ch.js": "../../node_modules/moment/locale/it-ch.js",
 	"./it.js": "../../node_modules/moment/locale/it.js",
 	"./ja": "../../node_modules/moment/locale/ja.js",
 	"./ja.js": "../../node_modules/moment/locale/ja.js",
@@ -136,6 +142,8 @@ var map = {
 	"./kn.js": "../../node_modules/moment/locale/kn.js",
 	"./ko": "../../node_modules/moment/locale/ko.js",
 	"./ko.js": "../../node_modules/moment/locale/ko.js",
+	"./ku": "../../node_modules/moment/locale/ku.js",
+	"./ku.js": "../../node_modules/moment/locale/ku.js",
 	"./ky": "../../node_modules/moment/locale/ky.js",
 	"./ky.js": "../../node_modules/moment/locale/ky.js",
 	"./lb": "../../node_modules/moment/locale/lb.js",
@@ -790,7 +798,7 @@ var SettingGuardService = /** @class */ (function () {
                         return [4 /*yield*/, this.getUser()];
                     case 1:
                         user = _a.sent();
-                        if (user.movieTheater === undefined) {
+                        if (user.seller === undefined) {
                             throw { error: '劇場が未設定です。' };
                         }
                         return [2 /*return*/, true];
@@ -1406,17 +1414,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InquiryConfirmComponent", function() { return InquiryConfirmComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
-/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
-/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "../../node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../functions */ "./app/functions/index.ts");
-/* harmony import */ var _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../store/actions/purchase.action */ "./app/store/actions/purchase.action.ts");
-/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../store/reducers */ "./app/store/reducers/index.ts");
-/* harmony import */ var _parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../parts/alert-modal/alert-modal.component */ "./app/components/parts/alert-modal/alert-modal.component.ts");
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
+/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs */ "../../node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../functions */ "./app/functions/index.ts");
+/* harmony import */ var _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../store/actions/purchase.action */ "./app/store/actions/purchase.action.ts");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../store/reducers */ "./app/store/reducers/index.ts");
+/* harmony import */ var _parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../parts/alert-modal/alert-modal.component */ "./app/components/parts/alert-modal/alert-modal.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1439,31 +1449,36 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var InquiryConfirmComponent = /** @class */ (function () {
     function InquiryConfirmComponent(store, actions, router, modal) {
         this.store = store;
         this.actions = actions;
         this.router = router;
         this.modal = modal;
-        this.moment = moment__WEBPACK_IMPORTED_MODULE_5__;
-        this.getTicketPrice = _functions__WEBPACK_IMPORTED_MODULE_8__["getTicketPrice"];
+        this.moment = moment__WEBPACK_IMPORTED_MODULE_6__;
+        this.getTicketPrice = _functions__WEBPACK_IMPORTED_MODULE_9__["getTicketPrice"];
     }
     InquiryConfirmComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.inquiry = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getInquiry"]));
-        this.user = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getUser"]));
-        this.isLoading = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getLoading"]));
-        this.error = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getError"]));
+        this.inquiry = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getInquiry"]));
+        this.user = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getUser"]));
+        this.isLoading = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getLoading"]));
+        this.error = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getError"]));
         this.isPrint = false;
         this.inquiry.subscribe(function (inquiry) {
             if (inquiry.order === undefined) {
                 _this.router.navigate(['/error']);
                 return;
             }
-            var reservationFor = inquiry.order.acceptedOffers[0].itemOffered.reservationFor;
-            var date = moment__WEBPACK_IMPORTED_MODULE_5__(reservationFor.startDate).format('YYYY-MM-DD');
-            var today = moment__WEBPACK_IMPORTED_MODULE_5__().format('YYYY-MM-DD');
-            _this.isPrint = moment__WEBPACK_IMPORTED_MODULE_5__(date).unix() >= moment__WEBPACK_IMPORTED_MODULE_5__(today).unix() && moment__WEBPACK_IMPORTED_MODULE_5__(date).unix() < moment__WEBPACK_IMPORTED_MODULE_5__(today).add(2, 'day').unix();
+            var itemOffered = inquiry.order.acceptedOffers[0].itemOffered;
+            if (itemOffered.typeOf !== _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.reservationType.EventReservation) {
+                _this.router.navigate(['/error']);
+                return;
+            }
+            var date = moment__WEBPACK_IMPORTED_MODULE_6__(itemOffered.reservationFor.startDate).format('YYYY-MM-DD');
+            var today = moment__WEBPACK_IMPORTED_MODULE_6__().format('YYYY-MM-DD');
+            _this.isPrint = moment__WEBPACK_IMPORTED_MODULE_6__(date).unix() >= moment__WEBPACK_IMPORTED_MODULE_6__(today).unix() && moment__WEBPACK_IMPORTED_MODULE_6__(date).unix() < moment__WEBPACK_IMPORTED_MODULE_6__(today).add(2, 'day').unix();
             console.log(_this.isPrint, date);
         }).unsubscribe();
     };
@@ -1480,20 +1495,20 @@ var InquiryConfirmComponent = /** @class */ (function () {
                 var order = inquiry.order;
                 var pos = user.pos;
                 var ipAddress = user.printer.ipAddress;
-                _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["Print"]({ order: order, pos: pos, ipAddress: ipAddress }));
+                _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["Print"]({ order: order, pos: pos, ipAddress: ipAddress }));
             }).unsubscribe();
         }).unsubscribe();
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].PrintSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () { }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].PrintFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].PrintSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () { }));
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].PrintFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
             _this.openAlert({
                 title: 'エラー',
                 body: '印刷に失敗しました'
             });
         }));
-        Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["take"])(1)).subscribe();
     };
     InquiryConfirmComponent.prototype.openAlert = function (args) {
-        var modalRef = this.modal.open(_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_11__["AlertModalComponent"], {
+        var modalRef = this.modal.open(_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_12__["AlertModalComponent"], {
             centered: true
         });
         modalRef.componentInstance.title = args.title;
@@ -1505,10 +1520,10 @@ var InquiryConfirmComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./inquiry-confirm.component.html */ "./app/components/pages/inquiry/inquiry-confirm/inquiry-confirm.component.html"),
             styles: [__webpack_require__(/*! ./inquiry-confirm.component.scss */ "./app/components/pages/inquiry/inquiry-confirm/inquiry-confirm.component.scss")]
         }),
-        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["Store"],
-            _ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["Actions"],
+        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["Store"],
+            _ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["Actions"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
-            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbModal"]])
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["NgbModal"]])
     ], InquiryConfirmComponent);
     return InquiryConfirmComponent;
 }());
@@ -2170,15 +2185,15 @@ var PurchaseConfirmComponent = /** @class */ (function () {
         this.purchase.subscribe(function (purchase) {
             if (purchase.transaction === undefined
                 || purchase.screeningEvent === undefined
-                || purchase.movieTheater === undefined) {
+                || purchase.seller === undefined) {
                 _this.router.navigate(['/error']);
                 return;
             }
             var transaction = purchase.transaction;
             var screeningEvent = purchase.screeningEvent;
             var reservations = purchase.reservations;
-            var movieTheater = purchase.movieTheater;
-            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["Reserve"]({ transaction: transaction, screeningEvent: screeningEvent, reservations: reservations, movieTheater: movieTheater }));
+            var seller = purchase.seller;
+            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["Reserve"]({ transaction: transaction, screeningEvent: screeningEvent, reservations: reservations, seller: seller }));
         }).unsubscribe();
         var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].ReserveSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
             _this.router.navigate(['/purchase/complete']);
@@ -2646,14 +2661,14 @@ var PurchaseInputComponent = /** @class */ (function () {
         var _this = this;
         this.purchase.subscribe(function (purchase) {
             if (purchase.transaction === undefined
-                || purchase.movieTheater === undefined
+                || purchase.seller === undefined
                 || purchase.authorizeSeatReservation === undefined) {
                 _this.router.navigate(['/error']);
                 return;
             }
             _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_11__["AuthorizeCreditCard"]({
                 transaction: purchase.transaction,
-                movieTheater: purchase.movieTheater,
+                seller: purchase.seller,
                 authorizeCreditCardPayment: purchase.authorizeCreditCardPayment,
                 orderCount: purchase.orderCount,
                 amount: _this.amount,
@@ -2949,11 +2964,11 @@ var PurchaseScheduleComponent = /** @class */ (function () {
                 this.user = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_3__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getUser"]));
                 this.temporaryReservationCancel();
                 this.user.subscribe(function (user) {
-                    if (user.movieTheater === undefined) {
+                    if (user.seller === undefined) {
                         _this.router.navigate(['/error']);
                         return;
                     }
-                    _this.selectTheater(user.movieTheater);
+                    _this.selectTheater(user.seller);
                     _this.selectDate();
                 }).unsubscribe();
                 return [2 /*return*/];
@@ -2988,8 +3003,8 @@ var PurchaseScheduleComponent = /** @class */ (function () {
     /**
      * selectTheater
      */
-    PurchaseScheduleComponent.prototype.selectTheater = function (movieTheater) {
-        this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["SelectTheater"]({ movieTheater: movieTheater }));
+    PurchaseScheduleComponent.prototype.selectTheater = function (seller) {
+        this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["SelectTheater"]({ seller: seller }));
     };
     /**
      * selectDate
@@ -2997,18 +3012,18 @@ var PurchaseScheduleComponent = /** @class */ (function () {
     PurchaseScheduleComponent.prototype.selectDate = function () {
         var _this = this;
         this.purchase.subscribe(function (purchase) {
-            var movieTheater = purchase.movieTheater;
+            var seller = purchase.seller;
             if (_this.scheduleDate === undefined || _this.scheduleDate === '') {
                 _this.scheduleDate = moment__WEBPACK_IMPORTED_MODULE_5__().format('YYYY-MM-DD');
             }
             var scheduleDate = _this.scheduleDate;
-            if (movieTheater === undefined) {
+            if (seller === undefined) {
                 return;
             }
             var body = document.getElementsByTagName('body');
             var now = moment__WEBPACK_IMPORTED_MODULE_5__().format('YYYY-MM-DD');
             body[0].style.backgroundColor = (scheduleDate > now) ? '#828407' : (scheduleDate < now) ? '#840707' : '#271916';
-            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["GetSchedule"]({ movieTheater: movieTheater, scheduleDate: scheduleDate }));
+            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["GetSchedule"]({ seller: seller, scheduleDate: scheduleDate }));
         }).unsubscribe();
         var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetScheduleSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
             _this.purchase.subscribe(function (purchase) {
@@ -3036,7 +3051,7 @@ var PurchaseScheduleComponent = /** @class */ (function () {
         this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["SelectSchedule"]({ screeningEvent: screeningEvent }));
         this.purchase.subscribe(function (purchase) {
             _this.user.subscribe(function (user) {
-                if (purchase.movieTheater === undefined
+                if (purchase.seller === undefined
                     || user.pos === undefined) {
                     _this.router.navigate(['/error']);
                     return;
@@ -3045,8 +3060,8 @@ var PurchaseScheduleComponent = /** @class */ (function () {
                     params: {
                         expires: moment__WEBPACK_IMPORTED_MODULE_5__().add(_environments_environment__WEBPACK_IMPORTED_MODULE_8__["environment"].TRANSACTION_TIME, 'minutes').toDate(),
                         seller: {
-                            typeOf: purchase.movieTheater.typeOf,
-                            id: purchase.movieTheater.id
+                            typeOf: purchase.seller.typeOf,
+                            id: purchase.seller.id
                         },
                         agent: {
                             identifier: [
@@ -3137,17 +3152,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PurchaseSeatComponent", function() { return PurchaseSeatComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
-/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
-/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "../../node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../models */ "./app/models/index.ts");
-/* harmony import */ var _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../store/actions/purchase.action */ "./app/store/actions/purchase.action.ts");
-/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../store/reducers */ "./app/store/reducers/index.ts");
-/* harmony import */ var _parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../parts/alert-modal/alert-modal.component */ "./app/components/parts/alert-modal/alert-modal.component.ts");
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
+/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngrx/effects */ "../../node_modules/@ngrx/effects/fesm5/effects.js");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs */ "../../node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ "../../node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../models */ "./app/models/index.ts");
+/* harmony import */ var _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../store/actions/purchase.action */ "./app/store/actions/purchase.action.ts");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../store/reducers */ "./app/store/reducers/index.ts");
+/* harmony import */ var _parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../parts/alert-modal/alert-modal.component */ "./app/components/parts/alert-modal/alert-modal.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3204,20 +3221,21 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
+
 var PurchaseSeatComponent = /** @class */ (function () {
     function PurchaseSeatComponent(store, actions, router, modal) {
         this.store = store;
         this.actions = actions;
         this.router = router;
         this.modal = modal;
-        this.moment = moment__WEBPACK_IMPORTED_MODULE_5__;
+        this.moment = moment__WEBPACK_IMPORTED_MODULE_6__;
     }
     PurchaseSeatComponent.prototype.ngOnInit = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getPurchase"]));
-                this.error = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getError"]));
-                this.isLoading = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_10__["getLoading"]));
+                this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getPurchase"]));
+                this.error = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getError"]));
+                this.isLoading = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_11__["getLoading"]));
                 this.getScreen();
                 return [2 /*return*/];
             });
@@ -3234,15 +3252,15 @@ var PurchaseSeatComponent = /** @class */ (function () {
                 _this.router.navigate(['/error']);
                 return;
             }
-            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["GetScreen"]({ screeningEvent: screeningEvent }));
+            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetScreen"]({ screeningEvent: screeningEvent }));
         }).unsubscribe();
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetScreenSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetScreenSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
             _this.getTickets();
         }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetScreenFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetScreenFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
             _this.router.navigate(['/error']);
         }));
-        Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["take"])(1)).subscribe();
     };
     /**
      * selectAll
@@ -3270,13 +3288,20 @@ var PurchaseSeatComponent = /** @class */ (function () {
                     seats.push(seat);
                 });
             });
-            if (purchase.authorizeSeatReservation !== undefined) {
-                purchase.authorizeSeatReservation.object.acceptedOffer.forEach(function (offer) {
-                    var seat = offer.ticketedSeat;
-                    seats.push(seat);
-                });
+            if (purchase.authorizeSeatReservation !== undefined
+                && purchase.authorizeSeatReservation.instrument !== undefined) {
+                if (purchase.authorizeSeatReservation.instrument.identifier === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].service.webAPI.Identifier.Chevre) {
+                    // chevre
+                    purchase.authorizeSeatReservation.object.acceptedOffer.forEach(function (offer) {
+                        var chevreOffer = offer;
+                        if (chevreOffer.ticketedSeat === undefined) {
+                            return;
+                        }
+                        seats.push(chevreOffer.ticketedSeat);
+                    });
+                }
             }
-            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["SelectSeats"]({ seats: seats }));
+            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["SelectSeats"]({ seats: seats }));
         }).unsubscribe();
     };
     /**
@@ -3286,18 +3311,18 @@ var PurchaseSeatComponent = /** @class */ (function () {
         var _this = this;
         this.purchase.subscribe(function (purchase) {
             var seats = purchase.reservations.map(function (reservation) { return reservation.seat; });
-            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["CancelSeats"]({ seats: seats }));
+            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["CancelSeats"]({ seats: seats }));
         }).unsubscribe();
     };
     /**
      * selectSeat
      */
     PurchaseSeatComponent.prototype.selectSeat = function (data) {
-        if (data.status === _models__WEBPACK_IMPORTED_MODULE_8__["SeatStatus"].Default) {
-            this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["SelectSeats"]({ seats: [data.seat] }));
+        if (data.status === _models__WEBPACK_IMPORTED_MODULE_9__["SeatStatus"].Default) {
+            this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["SelectSeats"]({ seats: [data.seat] }));
         }
         else {
-            this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["CancelSeats"]({ seats: [data.seat] }));
+            this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["CancelSeats"]({ seats: [data.seat] }));
         }
     };
     /**
@@ -3316,7 +3341,7 @@ var PurchaseSeatComponent = /** @class */ (function () {
                 return;
             }
             var reservations = purchase.reservations.map(function (reservation) {
-                return new _models__WEBPACK_IMPORTED_MODULE_8__["Reservation"]({
+                return new _models__WEBPACK_IMPORTED_MODULE_9__["Reservation"]({
                     seat: reservation.seat,
                     ticket: (reservation.ticket === undefined)
                         ? { ticketOffer: purchase.screeningEventTicketOffers[0] }
@@ -3329,17 +3354,17 @@ var PurchaseSeatComponent = /** @class */ (function () {
                 _this.router.navigate(['/error']);
                 return;
             }
-            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["TemporaryReservation"]({
+            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["TemporaryReservation"]({
                 transaction: transaction,
                 screeningEvent: screeningEvent,
                 reservations: reservations,
                 authorizeSeatReservation: authorizeSeatReservation
             }));
         }).unsubscribe();
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].TemporaryReservationSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].TemporaryReservationSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
             _this.router.navigate(['/purchase/ticket']);
         }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].TemporaryReservationFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].TemporaryReservationFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
             _this.error.subscribe(function (error) {
                 _this.openAlert({
                     title: 'エラーが発生しました',
@@ -3347,7 +3372,7 @@ var PurchaseSeatComponent = /** @class */ (function () {
                 });
             }).unsubscribe();
         }));
-        Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["take"])(1)).subscribe();
     };
     /**
      * getTickets
@@ -3356,22 +3381,22 @@ var PurchaseSeatComponent = /** @class */ (function () {
         var _this = this;
         this.purchase.subscribe(function (purchase) {
             var screeningEvent = purchase.screeningEvent;
-            var movieTheater = purchase.movieTheater;
+            var seller = purchase.seller;
             if (screeningEvent === undefined
-                || movieTheater === undefined) {
+                || seller === undefined) {
                 _this.router.navigate(['/error']);
                 return;
             }
-            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["GetTicketList"]({ screeningEvent: screeningEvent, movieTheater: movieTheater }));
+            _this.store.dispatch(new _store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["GetTicketList"]({ screeningEvent: screeningEvent, seller: seller }));
         }).unsubscribe();
-        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetTicketListSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () { }));
-        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_9__["ActionTypes"].GetTicketListFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["tap"])(function () {
+        var success = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetTicketListSuccess), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () { }));
+        var fail = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["ofType"])(_store_actions_purchase_action__WEBPACK_IMPORTED_MODULE_10__["ActionTypes"].GetTicketListFail), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
             _this.router.navigate(['/error']);
         }));
-        Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe();
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["race"])(success, fail).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["take"])(1)).subscribe();
     };
     PurchaseSeatComponent.prototype.openAlert = function (args) {
-        var modalRef = this.modal.open(_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_11__["AlertModalComponent"], {
+        var modalRef = this.modal.open(_parts_alert_modal_alert_modal_component__WEBPACK_IMPORTED_MODULE_12__["AlertModalComponent"], {
             centered: true
         });
         modalRef.componentInstance.title = args.title;
@@ -3383,10 +3408,10 @@ var PurchaseSeatComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./purchase-seat.component.html */ "./app/components/pages/purchase/purchase-seat/purchase-seat.component.html"),
             styles: [__webpack_require__(/*! ./purchase-seat.component.scss */ "./app/components/pages/purchase/purchase-seat/purchase-seat.component.scss")]
         }),
-        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_4__["Store"],
-            _ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["Actions"],
+        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["Store"],
+            _ngrx_effects__WEBPACK_IMPORTED_MODULE_4__["Actions"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
-            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbModal"]])
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["NgbModal"]])
     ], PurchaseSeatComponent);
     return PurchaseSeatComponent;
 }());
@@ -3616,7 +3641,7 @@ var PurchaseTicketComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-4 px-3\">\n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">設定</h2>\n        <form [formGroup]=\"settingForm\" class=\"text-white\">\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">劇場</label>\n                <select class=\"form-control py-2 large-text\" formControlName=\"theaterCode\" (change)=\"changePosList()\">\n                    <option value=\"\">選択してください</option>\n                    <option *ngFor=\"let theater of (user | async).movieTheaters\" [value]=\"theater.location.branchCode\">{{\n                        theater.name.ja }}</option>\n                </select>\n                <div *ngIf=\"settingForm.controls.theaterCode.invalid && settingForm.controls.theaterCode.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.theaterCode.errors.required\" class=\"text-danger\">劇場が未選択です</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">POS</label>\n                <select class=\"form-control py-2 large-text\" formControlName=\"posId\">\n                    <option value=\"\">選択してください</option>\n                    <option *ngFor=\"let pos of posList\" [value]=\"pos.id\">{{ pos.name }}</option>\n                </select>\n                <div *ngIf=\"settingForm.controls.posId.invalid && settingForm.controls.posId.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.posId.errors.required\" class=\"text-danger\">POSが未選択です</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">セイ</label>\n                <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"familyName\" placeholder=\"モーション\">\n                <div *ngIf=\"settingForm.controls.familyName.invalid && settingForm.controls.familyName.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.familyName.errors.required\" class=\"text-danger\">セイが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.familyName.errors.maxlength\" class=\"text-danger\">セイは{{\n                        settingForm.controls.familyName.errors.maxlength.requiredLength }}文字以下で入力してください</p>\n                    <p *ngIf=\"settingForm.controls.familyName.errors.pattern\" class=\"text-danger\">セイは全角カタカナで入力してください</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">メイ</label>\n                <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"givenName\" placeholder=\"ピクチャー\">\n                <div *ngIf=\"settingForm.controls.givenName.invalid && settingForm.controls.givenName.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.givenName.errors.required\" class=\"text-danger\">メイが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.givenName.errors.maxlength\" class=\"text-danger\">メイは{{\n                        settingForm.controls.givenName.errors.maxlength.requiredLength }}文字以下で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.givenName.errors.pattern\" class=\"text-danger\">メイは全角カタカナで入力してください\n                    </p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">メールアドレス</label>\n                <input type=\"email\" class=\"form-control py-2 large-text\" formControlName=\"email\" placeholder=\"motionpicture@example.jp\">\n                <div *ngIf=\"settingForm.controls.email.invalid && settingForm.controls.email.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.email.errors.required\" class=\"text-danger\">メールアドレスが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.email.errors.maxlength\" class=\"text-danger\">メールアドレスは{{\n                        settingForm.controls.email.errors.maxlength.requiredLength }}文字以下で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.email.errors.email\" class=\"text-danger\">メールアドレスが正しくありません</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">電話番号</label>\n                <input type=\"tel\" class=\"form-control py-2 large-text\" formControlName=\"telephone\" placeholder=\"0362778824\">\n                <div *ngIf=\"settingForm.controls.telephone.invalid && settingForm.controls.telephone.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.telephone.errors.required\" class=\"text-danger\">電話番号が未入力です</p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.minlength\" class=\"text-danger\">電話番号は{{\n                        settingForm.controls.telephone.errors.minlength.requiredLength }}文字以上で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.maxlength\" class=\"text-danger\">電話番号は{{\n                        settingForm.controls.telephone.errors.maxlength.requiredLength }}文字以下で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.pattern\" class=\"text-danger\">電話番号は数字で入力してください</p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.telephone\" class=\"text-danger\">電話番号が正しくありません</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">プリンターIPアドレス</label>\n                <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"printerIpAddress\" placeholder=\"0.0.0.0\">\n                <div *ngIf=\"settingForm.controls.printerIpAddress.invalid && settingForm.controls.printerIpAddress.touched\"\n                    class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.printerIpAddress.errors.required\" class=\"text-danger\">プリンターIPアドレスが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.printerIpAddress.errors.pattern\" class=\"text-danger\">プリンターIPアドレスが正しくありません</p>\n                </div>\n                <div class=\"mb-2\"><button type=\"button\" class=\"btn btn-sm btn-primary py-2 px-3 mt-2\" (click)=\"print()\">テスト印刷</button></div>\n                <div><button type=\"button\" class=\"btn btn-sm btn-primary py-2 px-3\" (click)=\"signOut()\">ログアウト</button></div>\n                \n            </div>\n        </form>\n    </div>\n\n    <!-- <canvas class=\"bg-white\" id=\"test\"></canvas> -->\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" (click)=\"onSubmit()\">設定</button>\n    </div>\n\n</div>\n\n<app-navigation [setting]=\"false\" prevLink=\"/purchase/schedule\"></app-navigation>"
+module.exports = "<div class=\"py-4 px-3\">\n    <div class=\"mb-4\">\n        <h2 class=\"text-center large-text text-white mb-4\">設定</h2>\n        <form [formGroup]=\"settingForm\" class=\"text-white\">\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">劇場</label>\n                <select class=\"form-control py-2 large-text\" formControlName=\"theaterCode\" (change)=\"changePosList()\">\n                    <option value=\"\">選択してください</option>\n                    <option *ngFor=\"let theater of (user | async).sellers\" [value]=\"theater.location.branchCode\">{{\n                        theater.name.ja }}</option>\n                </select>\n                <div *ngIf=\"settingForm.controls.theaterCode.invalid && settingForm.controls.theaterCode.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.theaterCode.errors.required\" class=\"text-danger\">劇場が未選択です</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">POS</label>\n                <select class=\"form-control py-2 large-text\" formControlName=\"posId\">\n                    <option value=\"\">選択してください</option>\n                    <option *ngFor=\"let pos of posList\" [value]=\"pos.id\">{{ pos.name }}</option>\n                </select>\n                <div *ngIf=\"settingForm.controls.posId.invalid && settingForm.controls.posId.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.posId.errors.required\" class=\"text-danger\">POSが未選択です</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">セイ</label>\n                <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"familyName\" placeholder=\"モーション\">\n                <div *ngIf=\"settingForm.controls.familyName.invalid && settingForm.controls.familyName.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.familyName.errors.required\" class=\"text-danger\">セイが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.familyName.errors.maxlength\" class=\"text-danger\">セイは{{\n                        settingForm.controls.familyName.errors.maxlength.requiredLength }}文字以下で入力してください</p>\n                    <p *ngIf=\"settingForm.controls.familyName.errors.pattern\" class=\"text-danger\">セイは全角カタカナで入力してください</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">メイ</label>\n                <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"givenName\" placeholder=\"ピクチャー\">\n                <div *ngIf=\"settingForm.controls.givenName.invalid && settingForm.controls.givenName.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.givenName.errors.required\" class=\"text-danger\">メイが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.givenName.errors.maxlength\" class=\"text-danger\">メイは{{\n                        settingForm.controls.givenName.errors.maxlength.requiredLength }}文字以下で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.givenName.errors.pattern\" class=\"text-danger\">メイは全角カタカナで入力してください\n                    </p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">メールアドレス</label>\n                <input type=\"email\" class=\"form-control py-2 large-text\" formControlName=\"email\" placeholder=\"motionpicture@example.jp\">\n                <div *ngIf=\"settingForm.controls.email.invalid && settingForm.controls.email.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.email.errors.required\" class=\"text-danger\">メールアドレスが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.email.errors.maxlength\" class=\"text-danger\">メールアドレスは{{\n                        settingForm.controls.email.errors.maxlength.requiredLength }}文字以下で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.email.errors.email\" class=\"text-danger\">メールアドレスが正しくありません</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">電話番号</label>\n                <input type=\"tel\" class=\"form-control py-2 large-text\" formControlName=\"telephone\" placeholder=\"0362778824\">\n                <div *ngIf=\"settingForm.controls.telephone.invalid && settingForm.controls.telephone.touched\" class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.telephone.errors.required\" class=\"text-danger\">電話番号が未入力です</p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.minlength\" class=\"text-danger\">電話番号は{{\n                        settingForm.controls.telephone.errors.minlength.requiredLength }}文字以上で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.maxlength\" class=\"text-danger\">電話番号は{{\n                        settingForm.controls.telephone.errors.maxlength.requiredLength }}文字以下で入力してください\n                    </p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.pattern\" class=\"text-danger\">電話番号は数字で入力してください</p>\n                    <p *ngIf=\"settingForm.controls.telephone.errors.telephone\" class=\"text-danger\">電話番号が正しくありません</p>\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label class=\"mb-2\" for=\"\">プリンターIPアドレス</label>\n                <input type=\"text\" class=\"form-control py-2 large-text\" formControlName=\"printerIpAddress\" placeholder=\"0.0.0.0\">\n                <div *ngIf=\"settingForm.controls.printerIpAddress.invalid && settingForm.controls.printerIpAddress.touched\"\n                    class=\"mt-2\">\n                    <p *ngIf=\"settingForm.controls.printerIpAddress.errors.required\" class=\"text-danger\">プリンターIPアドレスが未入力です</p>\n                    <p *ngIf=\"settingForm.controls.printerIpAddress.errors.pattern\" class=\"text-danger\">プリンターIPアドレスが正しくありません</p>\n                </div>\n                <div class=\"mb-2\"><button type=\"button\" class=\"btn btn-sm btn-primary py-2 px-3 mt-2\" (click)=\"print()\">テスト印刷</button></div>\n                <div><button type=\"button\" class=\"btn btn-sm btn-primary py-2 px-3\" (click)=\"signOut()\">ログアウト</button></div>\n                \n            </div>\n        </form>\n    </div>\n\n    <!-- <canvas class=\"bg-white\" id=\"test\"></canvas> -->\n\n    <div class=\"w-50 mx-auto\">\n        <button type=\"button\" class=\"btn btn-block bg-primary py-3 text-white large-text btn-arrow\" (click)=\"onSubmit()\">設定</button>\n    </div>\n\n</div>\n\n<app-navigation [setting]=\"false\" prevLink=\"/purchase/schedule\"></app-navigation>"
 
 /***/ }),
 
@@ -3787,14 +3812,14 @@ var SettingComponent = /** @class */ (function () {
                 ]]
         });
         this.user.subscribe(function (user) {
-            if (user.movieTheater !== undefined) {
-                _this.settingForm.controls.theaterCode.setValue(user.movieTheater.location.branchCode);
+            if (user.seller !== undefined && user.seller.location !== undefined) {
+                _this.settingForm.controls.theaterCode.setValue(user.seller.location.branchCode);
             }
             if (user.pos !== undefined) {
                 _this.changePosList();
                 _this.settingForm.controls.posId.setValue(user.pos.id);
             }
-            if (user.customerContact !== undefined) {
+            if (user.customerContact !== undefined && user.customerContact.telephone !== undefined) {
                 _this.settingForm.controls.familyName.setValue(user.customerContact.familyName);
                 _this.settingForm.controls.givenName.setValue(user.customerContact.givenName);
                 _this.settingForm.controls.email.setValue(user.customerContact.email);
@@ -3814,7 +3839,7 @@ var SettingComponent = /** @class */ (function () {
             return;
         }
         this.user.subscribe(function (user) {
-            var findTheater = user.movieTheaters.find(function (theater) { return theater.location.branchCode === theaterCode; });
+            var findTheater = user.sellers.find(function (s) { return s.location !== undefined && s.location.branchCode === theaterCode; });
             if (findTheater === undefined) {
                 _this.posList = [];
                 return;
@@ -3847,8 +3872,8 @@ var SettingComponent = /** @class */ (function () {
             return;
         }
         this.user.subscribe(function (user) {
-            var findMovieTheater = user.movieTheaters.find(function (theater) {
-                return theater.location.branchCode === _this.settingForm.controls.theaterCode.value;
+            var findMovieTheater = user.sellers.find(function (s) {
+                return (s.location !== undefined && s.location.branchCode === _this.settingForm.controls.theaterCode.value);
             });
             if (findMovieTheater === undefined) {
                 return;
@@ -3860,7 +3885,7 @@ var SettingComponent = /** @class */ (function () {
                 return;
             }
             _this.store.dispatch(new _store_actions_user_action__WEBPACK_IMPORTED_MODULE_12__["UpdateAll"]({
-                movieTheater: findMovieTheater,
+                seller: findMovieTheater,
                 pos: findPos,
                 customerContact: {
                     familyName: _this.settingForm.controls.familyName.value,
@@ -5151,11 +5176,13 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PurchaseDetailModalComponent", function() { return PurchaseDetailModalComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var qrcode__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! qrcode */ "../../node_modules/qrcode/lib/browser.js");
-/* harmony import */ var qrcode__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(qrcode__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var qrcode__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! qrcode */ "../../node_modules/qrcode/lib/browser.js");
+/* harmony import */ var qrcode__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(qrcode__WEBPACK_IMPORTED_MODULE_4__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5169,22 +5196,26 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var PurchaseDetailModalComponent = /** @class */ (function () {
     function PurchaseDetailModalComponent(activeModal) {
         this.activeModal = activeModal;
-        this.moment = moment__WEBPACK_IMPORTED_MODULE_2__;
+        this.moment = moment__WEBPACK_IMPORTED_MODULE_3__;
     }
     PurchaseDetailModalComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.urlList = [];
         this.data.acceptedOffers.forEach(function (acceptedOffer) {
+            if (acceptedOffer.itemOffered.typeOf !== _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.reservationType.EventReservation) {
+                return;
+            }
             var ticketToken = acceptedOffer.itemOffered.reservedTicket.ticketToken;
             var basicSize = 21;
             var option = {
                 margin: 0,
                 scale: (80 / basicSize)
             };
-            var url = qrcode__WEBPACK_IMPORTED_MODULE_3__["toDataURL"](ticketToken, option);
+            var url = qrcode__WEBPACK_IMPORTED_MODULE_4__["toDataURL"](ticketToken, option);
             _this.urlList.push(url);
         });
     };
@@ -5198,7 +5229,7 @@ var PurchaseDetailModalComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./purchase-detail-modal.component.html */ "./app/components/parts/purchase-detail-modal/purchase-detail-modal.component.html"),
             styles: [__webpack_require__(/*! ./purchase-detail-modal.component.scss */ "./app/components/parts/purchase-detail-modal/purchase-detail-modal.component.scss")]
         }),
-        __metadata("design:paramtypes", [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbActiveModal"]])
+        __metadata("design:paramtypes", [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbActiveModal"]])
     ], PurchaseDetailModalComponent);
     return PurchaseDetailModalComponent;
 }());
@@ -5452,9 +5483,11 @@ module.exports = ":host {\n  display: block; }\n\n.screen {\n  position: relativ
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScreenComponent", function() { return ScreenComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
-/* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../models */ "./app/models/index.ts");
-/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../store/reducers */ "./app/store/reducers/index.ts");
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngrx/store */ "../../node_modules/@ngrx/store/fesm5/store.js");
+/* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../models */ "./app/models/index.ts");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../store/reducers */ "./app/store/reducers/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5464,6 +5497,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -5480,7 +5514,7 @@ var ScreenComponent = /** @class */ (function () {
      */
     ScreenComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_3__["getPurchase"]));
+        this.purchase = this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_4__["getPurchase"]));
         this.purchase.subscribe(function (purchase) {
             if (purchase.screeningEventOffers === undefined) {
                 return;
@@ -5533,15 +5567,15 @@ var ScreenComponent = /** @class */ (function () {
         this.purchase.subscribe(function (purchase) {
             var reservations = purchase.reservations;
             _this.seats.forEach(function (seat) {
-                if (seat.status === _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Active) {
-                    seat.status = _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Default;
+                if (seat.status === _models__WEBPACK_IMPORTED_MODULE_3__["SeatStatus"].Active) {
+                    seat.status = _models__WEBPACK_IMPORTED_MODULE_3__["SeatStatus"].Default;
                 }
                 var findReservationSeatResult = reservations.find(function (reservation) {
                     return (reservation.seat.seatNumber === seat.code
                         && reservation.seat.seatSection === seat.section);
                 });
                 if (findReservationSeatResult !== undefined) {
-                    seat.status = _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Active;
+                    seat.status = _models__WEBPACK_IMPORTED_MODULE_3__["SeatStatus"].Active;
                 }
             });
         }).unsubscribe();
@@ -5692,7 +5726,7 @@ var ScreenComponent = /** @class */ (function () {
                         : labels[labelCount] + "-" + String(this_1.screenData.map[y].length - x);
                     var className = ["seat-" + code_1];
                     var section_1 = '';
-                    var status_1 = _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Disabled;
+                    var status_1 = _models__WEBPACK_IMPORTED_MODULE_3__["SeatStatus"].Disabled;
                     // 席の状態変更
                     for (var _i = 0, _a = this_1.screeningEventOffers; _i < _a.length; _i++) {
                         var screeningEventOffer = _a[_i];
@@ -5703,18 +5737,24 @@ var ScreenComponent = /** @class */ (function () {
                         if (findContainsPlaceResult !== undefined
                             && findContainsPlaceResult.offers !== undefined) {
                             if (findContainsPlaceResult.offers[0].availability === 'InStock') {
-                                status_1 = _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Default;
+                                status_1 = _models__WEBPACK_IMPORTED_MODULE_3__["SeatStatus"].Default;
                             }
                             break;
                         }
                     }
-                    if (this_1.authorizeSeatReservation !== undefined) {
-                        var findResult = this_1.authorizeSeatReservation.object.acceptedOffer.find(function (offer) {
-                            return (offer.ticketedSeat.seatNumber === code_1
-                                && offer.ticketedSeat.seatSection === section_1);
-                        });
-                        if (findResult !== undefined) {
-                            status_1 = _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Default;
+                    if (this_1.authorizeSeatReservation !== undefined
+                        && this_1.authorizeSeatReservation.instrument !== undefined) {
+                        if (this_1.authorizeSeatReservation.instrument.identifier === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].service.webAPI.Identifier.Chevre) {
+                            // chevre
+                            var findResult = this_1.authorizeSeatReservation.object.acceptedOffer.find(function (offer) {
+                                var chevreOffer = offer;
+                                return (chevreOffer.ticketedSeat !== undefined
+                                    && chevreOffer.ticketedSeat.seatNumber === code_1
+                                    && chevreOffer.ticketedSeat.seatSection === section_1);
+                            });
+                            if (findResult !== undefined) {
+                                status_1 = _models__WEBPACK_IMPORTED_MODULE_3__["SeatStatus"].Default;
+                            }
                         }
                     }
                     if (this_1.screenData.spare.indexOf(code_1) !== -1) {
@@ -5776,7 +5816,7 @@ var ScreenComponent = /** @class */ (function () {
         if (this.isMobile() && !this.zoomState) {
             return;
         }
-        if (seat.status === _models__WEBPACK_IMPORTED_MODULE_2__["SeatStatus"].Disabled) {
+        if (seat.status === _models__WEBPACK_IMPORTED_MODULE_3__["SeatStatus"].Disabled) {
             return;
         }
         this.select.emit({
@@ -5803,7 +5843,7 @@ var ScreenComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./screen.component.html */ "./app/components/parts/screen/screen.component.html"),
             styles: [__webpack_require__(/*! ./screen.component.scss */ "./app/components/parts/screen/screen.component.scss")]
         }),
-        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"],
+        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"],
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]])
     ], ScreenComponent);
     return ScreenComponent;
@@ -6048,10 +6088,10 @@ function createOrderId(params) {
  */
 function createGmoTokenObject(params) {
     return new Promise(function (resolve, reject) {
-        if (params.movieTheater.paymentAccepted === undefined) {
+        if (params.seller.paymentAccepted === undefined) {
             throw { error: 'この劇場では支払いに対応していません。' };
         }
-        var findPaymentAcceptedResult = params.movieTheater.paymentAccepted.find(function (paymentAccepted) {
+        var findPaymentAcceptedResult = params.seller.paymentAccepted.find(function (paymentAccepted) {
             return (paymentAccepted.paymentMethodType === _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].paymentMethodType.CreditCard);
         });
         if (findPaymentAcceptedResult === undefined
@@ -6117,12 +6157,16 @@ function createMovieTicketsFromAuthorizeSeatReservation(args) {
     var pendingReservations = authorizeSeatReservation.result.responseBody.object.reservations;
     pendingReservations.forEach(function (pendingReservation) {
         var findReservationResult = reservations.find(function (reservation) {
-            return (reservation.seat.seatNumber === pendingReservation.reservedTicket.ticketedSeat.seatNumber);
+            return (pendingReservation.reservedTicket.ticketedSeat !== undefined
+                && reservation.seat.seatNumber === pendingReservation.reservedTicket.ticketedSeat.seatNumber);
         });
         if (findReservationResult === undefined
             || findReservationResult.ticket === undefined
             || findReservationResult.ticket.movieTicket === undefined) {
             return;
+        }
+        if (pendingReservation.reservedTicket.ticketedSeat === undefined) {
+            throw new Error('ticketedSeat is undefined');
         }
         results.push({
             typeOf: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_0__["factory"].paymentMethodType.MovieTicket,
@@ -6705,7 +6749,7 @@ var CinerinoService = /** @class */ (function () {
                         option = _a.sent();
                         this.event = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Event(option);
                         this.order = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Order(option);
-                        this.organization = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Organization(option);
+                        this.seller = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Seller(option);
                         this.person = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Person(option);
                         this.ownershipInfo = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].person.OwnershipInfo(option);
                         this.reservation = new _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["service"].Reservation(option);
@@ -6938,12 +6982,14 @@ var PurchaseService = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarPrintService", function() { return StarPrintService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var qrcode__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! qrcode */ "../../node_modules/qrcode/lib/browser.js");
-/* harmony import */ var qrcode__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(qrcode__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../functions */ "./app/functions/index.ts");
-/* harmony import */ var _cinerino_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./cinerino.service */ "./app/services/cinerino.service.ts");
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
+/* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "../../node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var qrcode__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! qrcode */ "../../node_modules/qrcode/lib/browser.js");
+/* harmony import */ var qrcode__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(qrcode__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../functions */ "./app/functions/index.ts");
+/* harmony import */ var _cinerino_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./cinerino.service */ "./app/services/cinerino.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6988,6 +7034,7 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+
 
 
 
@@ -7079,29 +7126,36 @@ var StarPrintService = /** @class */ (function () {
      */
     StarPrintService.prototype.createPrintImage = function (args) {
         return __awaiter(this, void 0, void 0, function () {
-            var canvas, order, acceptedOffer, screen, data, context;
+            var canvas, order, acceptedOffer, itemOffered, screen, data, context;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         canvas = document.createElement('canvas');
                         order = args.order;
                         acceptedOffer = order.acceptedOffers[args.offerIndex];
+                        itemOffered = order.acceptedOffers[args.offerIndex].itemOffered;
+                        if (itemOffered.typeOf !== _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__["factory"].chevre.reservationType.EventReservation) {
+                            throw new Error('reservationType is not EventReservation');
+                        }
+                        if (itemOffered.reservedTicket.ticketedSeat === undefined) {
+                            throw new Error('ticketedSeat is undefined');
+                        }
                         screen = {
-                            name: order.acceptedOffers[0].itemOffered.reservationFor.location.name.ja,
-                            address: (order.acceptedOffers[0].itemOffered.reservationFor.location.address === undefined)
+                            name: itemOffered.reservationFor.location.name.ja,
+                            address: (itemOffered.reservationFor.location.address === undefined)
                                 ? ''
-                                : order.acceptedOffers[0].itemOffered.reservationFor.location.address.en
+                                : itemOffered.reservationFor.location.address.en
                         };
                         data = {
                             confirmationNumber: args.order.confirmationNumber,
-                            theaterName: order.acceptedOffers[0].itemOffered.reservationFor.superEvent.location.name.ja,
+                            theaterName: itemOffered.reservationFor.superEvent.location.name.ja,
                             screenName: screen.address + " " + screen.name,
-                            eventName: order.acceptedOffers[0].itemOffered.reservationFor.name.ja,
-                            startDate: moment__WEBPACK_IMPORTED_MODULE_1__(order.acceptedOffers[0].itemOffered.reservationFor.startDate).format('YY/MM/DD (ddd) HH:mm'),
-                            seatNumber: acceptedOffer.itemOffered.reservedTicket.ticketedSeat.seatNumber,
-                            ticketName: acceptedOffer.itemOffered.reservedTicket.ticketType.name.ja,
-                            price: Object(_functions__WEBPACK_IMPORTED_MODULE_3__["getTicketPrice"])(acceptedOffer).single,
-                            qrcode: acceptedOffer.itemOffered.reservedTicket.ticketToken
+                            eventName: itemOffered.reservationFor.name.ja,
+                            startDate: moment__WEBPACK_IMPORTED_MODULE_2__(itemOffered.reservationFor.startDate).format('YY/MM/DD (ddd) HH:mm'),
+                            seatNumber: itemOffered.reservedTicket.ticketedSeat.seatNumber,
+                            ticketName: itemOffered.reservedTicket.ticketType.name.ja,
+                            price: Object(_functions__WEBPACK_IMPORTED_MODULE_4__["getTicketPrice"])(acceptedOffer).single,
+                            qrcode: itemOffered.reservedTicket.ticketToken
                         };
                         return [4 /*yield*/, this.draw({
                                 canvas: canvas,
@@ -7164,7 +7218,7 @@ var StarPrintService = /** @class */ (function () {
                                     theaterName: 'テスト劇場',
                                     screenName: 'テストスクリーン',
                                     eventName: 'テスト-----------------------------作品',
-                                    startDate: moment__WEBPACK_IMPORTED_MODULE_1__().format('YY/MM/DD (ddd) HH:mm'),
+                                    startDate: moment__WEBPACK_IMPORTED_MODULE_2__().format('YY/MM/DD (ddd) HH:mm'),
                                     seatNumber: 'TEST-1',
                                     ticketName: 'テスト1234567890券種',
                                     price: 1000,
@@ -7202,7 +7256,7 @@ var StarPrintService = /** @class */ (function () {
                                     theaterName: 'テストTOEI',
                                     screenName: 'テストスクリーン',
                                     eventName: 'テスト作品',
-                                    startDate: moment__WEBPACK_IMPORTED_MODULE_1__().format('YY/MM/DD (ddd) HH:mm'),
+                                    startDate: moment__WEBPACK_IMPORTED_MODULE_2__().format('YY/MM/DD (ddd) HH:mm'),
                                     seatNumber: 'Z-1',
                                     ticketName: 'テスト券種',
                                     price: 1000,
@@ -7437,7 +7491,7 @@ var StarPrintService = /** @class */ (function () {
                         context.textAlign = 'right';
                         context.fillText('￥' + data.price.toLocaleString(), right, 540);
                         qrcodeCanvas = document.createElement('canvas');
-                        return [4 /*yield*/, qrcode__WEBPACK_IMPORTED_MODULE_2__["toCanvas"](qrcodeCanvas, data.qrcode)];
+                        return [4 /*yield*/, qrcode__WEBPACK_IMPORTED_MODULE_3__["toCanvas"](qrcodeCanvas, data.qrcode)];
                     case 3:
                         _a.sent();
                         context.drawImage(qrcodeCanvas, (canvas.width - 170), (bottom - 170), 170, 170);
@@ -7451,7 +7505,7 @@ var StarPrintService = /** @class */ (function () {
                         context.fillText("\u8CFC\u5165\u756A\u53F7 " + data.confirmationNumber, left, bottom - 60);
                         posName = (this.pos === undefined) ? '' : this.pos.name;
                         context.fillText("\u7AEF\u672B " + posName, left, bottom - 30);
-                        date = moment__WEBPACK_IMPORTED_MODULE_1__().format('YYYY/MM/DD HH:mm');
+                        date = moment__WEBPACK_IMPORTED_MODULE_2__().format('YYYY/MM/DD HH:mm');
                         context.fillText("(" + date + " \u767A\u5238)", left, bottom);
                         return [2 /*return*/, context];
                 }
@@ -7462,7 +7516,7 @@ var StarPrintService = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_cinerino_service__WEBPACK_IMPORTED_MODULE_4__["CinerinoService"]])
+        __metadata("design:paramtypes", [_cinerino_service__WEBPACK_IMPORTED_MODULE_5__["CinerinoService"]])
     ], StarPrintService);
     return StarPrintService;
 }());
@@ -8932,7 +8986,7 @@ var PurchaseEffects = /** @class */ (function () {
          * GetTheaters
          */
         this.getTheaters = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_12__["ActionTypes"].GetTheaters), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
-            var searchMovieTheatersResult, movieTheaters, error_1;
+            var searchResult, sellers, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -8940,11 +8994,11 @@ var PurchaseEffects = /** @class */ (function () {
                         return [4 /*yield*/, this.cinerino.getServices()];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, this.cinerino.organization.searchMovieTheaters(payload.params)];
+                        return [4 /*yield*/, this.cinerino.seller.search(payload.params)];
                     case 2:
-                        searchMovieTheatersResult = _a.sent();
-                        movieTheaters = searchMovieTheatersResult.data;
-                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_12__["GetTheatersSuccess"]({ movieTheaters: movieTheaters })];
+                        searchResult = _a.sent();
+                        sellers = searchResult.data;
+                        return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_12__["GetTheatersSuccess"]({ sellers: sellers })];
                     case 3:
                         error_1 = _a.sent();
                         return [2 /*return*/, new _actions_purchase_action__WEBPACK_IMPORTED_MODULE_12__["GetTheatersFail"]({ error: error_1 })];
@@ -8964,9 +9018,14 @@ var PurchaseEffects = /** @class */ (function () {
                         return [4 /*yield*/, this.cinerino.getServices()];
                     case 1:
                         _a.sent();
-                        branchCode = payload.movieTheater.location.branchCode;
+                        if (payload.seller.location === undefined
+                            || payload.seller.location.branchCode === undefined) {
+                            throw new Error('seller notfound');
+                        }
+                        branchCode = payload.seller.location.branchCode;
                         scheduleDate = payload.scheduleDate;
                         return [4 /*yield*/, this.cinerino.event.searchScreeningEvents({
+                                typeOf: _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.eventType.ScreeningEvent,
                                 eventStatuses: [_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_2__["factory"].chevre.eventStatusType.EventScheduled],
                                 superEvent: { locationBranchCodes: [branchCode] },
                                 startFrom: moment__WEBPACK_IMPORTED_MODULE_4__(scheduleDate).toDate(),
@@ -9080,10 +9139,10 @@ var PurchaseEffects = /** @class */ (function () {
                                         ticketedSeat: {
                                             seatNumber: reservation.seat.seatNumber,
                                             seatSection: reservation.seat.seatSection
-                                        }
+                                        },
+                                        additionalProperty: []
                                     };
-                                }),
-                                notes: ''
+                                })
                             },
                             purpose: transaction
                         })];
@@ -9125,7 +9184,7 @@ var PurchaseEffects = /** @class */ (function () {
          * getTicketList
          */
         this.getTicketList = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_12__["ActionTypes"].GetTicketList), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
-            var screeningEvent, movieTheater, screeningEventTicketOffers, error_7;
+            var screeningEvent, seller, screeningEventTicketOffers, error_7;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9134,10 +9193,10 @@ var PurchaseEffects = /** @class */ (function () {
                     case 1:
                         _a.sent();
                         screeningEvent = payload.screeningEvent;
-                        movieTheater = payload.movieTheater;
+                        seller = payload.seller;
                         return [4 /*yield*/, this.cinerino.event.searchScreeningEventTicketOffers({
                                 event: { id: screeningEvent.id },
-                                seller: { typeOf: movieTheater.typeOf, id: movieTheater.id },
+                                seller: { typeOf: seller.typeOf, id: seller.id },
                                 store: { id: this.cinerino.auth.options.clientId }
                             })];
                     case 2:
@@ -9160,10 +9219,13 @@ var PurchaseEffects = /** @class */ (function () {
                     case 0:
                         transaction = payload.transaction;
                         contact = payload.contact;
-                        contact.telephone = Object(_functions__WEBPACK_IMPORTED_MODULE_8__["formatTelephone"])(contact.telephone);
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 4, , 5]);
+                        if (contact.telephone === undefined) {
+                            throw { error: 'telephone is undefined' };
+                        }
+                        contact.telephone = Object(_functions__WEBPACK_IMPORTED_MODULE_8__["formatTelephone"])(contact.telephone);
                         return [4 /*yield*/, this.cinerino.getServices()];
                     case 2:
                         _a.sent();
@@ -9208,7 +9270,7 @@ var PurchaseEffects = /** @class */ (function () {
                         });
                         return [4 /*yield*/, Object(_functions__WEBPACK_IMPORTED_MODULE_8__["createGmoTokenObject"])({
                                 creditCard: payload.creditCard,
-                                movieTheater: payload.movieTheater
+                                seller: payload.seller
                             })];
                     case 4:
                         gmoTokenObject = _a.sent();
@@ -9359,14 +9421,14 @@ var PurchaseEffects = /** @class */ (function () {
          * reserve
          */
         this.reserve = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_purchase_action__WEBPACK_IMPORTED_MODULE_12__["ActionTypes"].Reserve), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
-            var transaction, screeningEvent, reservations, movieTheater, result, error_12;
+            var transaction, screeningEvent, reservations, seller, result, error_12;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         transaction = payload.transaction;
                         screeningEvent = payload.screeningEvent;
                         reservations = payload.reservations;
-                        movieTheater = payload.movieTheater;
+                        seller = payload.seller;
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 4, , 6]);
@@ -9394,7 +9456,10 @@ var PurchaseEffects = /** @class */ (function () {
                                             return Object(util__WEBPACK_IMPORTED_MODULE_6__["format"])('%s %s %s', reservation.seat.seatNumber, (reservation.ticket === undefined) ? '' : reservation.ticket.ticketOffer.name.ja, "\uFFE5" + reservation.getTicketPrice().single);
                                         }).join('\n| '),
                                         inquiryUrl: _environments_environment__WEBPACK_IMPORTED_MODULE_7__["environment"].SITE_URL + "/#/inquiry/input",
-                                        seller: { telephone: new _pipes_libphonenumber_format_pipe__WEBPACK_IMPORTED_MODULE_10__["LibphonenumberFormatPipe"]().transform(movieTheater.telephone) }
+                                        seller: {
+                                            telephone: (seller.telephone === undefined)
+                                                ? '' : new _pipes_libphonenumber_format_pipe__WEBPACK_IMPORTED_MODULE_10__["LibphonenumberFormatPipe"]().transform(seller.telephone)
+                                        }
                                     })
                                 }
                             })];
@@ -9712,7 +9777,7 @@ var UserEffects = /** @class */ (function () {
          * GetTheaters
          */
         this.getTheaters = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_actions_user_action__WEBPACK_IMPORTED_MODULE_4__["ActionTypes"].GetTheaters), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["mergeMap"])(function (payload) { return __awaiter(_this, void 0, void 0, function () {
-            var searchMovieTheatersResult, movieTheaters, error_1;
+            var searchResult, sellers, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -9720,11 +9785,11 @@ var UserEffects = /** @class */ (function () {
                         return [4 /*yield*/, this.cinerino.getServices()];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, this.cinerino.organization.searchMovieTheaters(payload.params)];
+                        return [4 /*yield*/, this.cinerino.seller.search(payload.params)];
                     case 2:
-                        searchMovieTheatersResult = _a.sent();
-                        movieTheaters = searchMovieTheatersResult.data;
-                        return [2 /*return*/, new _actions_user_action__WEBPACK_IMPORTED_MODULE_4__["GetTheatersSuccess"]({ movieTheaters: movieTheaters })];
+                        searchResult = _a.sent();
+                        sellers = searchResult.data;
+                        return [2 /*return*/, new _actions_user_action__WEBPACK_IMPORTED_MODULE_4__["GetTheatersSuccess"]({ sellers: sellers })];
                     case 3:
                         error_1 = _a.sent();
                         return [2 /*return*/, new _actions_user_action__WEBPACK_IMPORTED_MODULE_4__["GetTheatersFail"]({ error: error_1 })];
@@ -9902,7 +9967,7 @@ function reducer(state, action) {
         case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].Delete: {
             var authorizeSeatReservation = state.purchase.authorizeSeatReservation;
             state.purchase = {
-                movieTheaters: [],
+                sellers: [],
                 screeningEvents: [],
                 screeningFilmEvents: [],
                 screeningEventOffers: [],
@@ -9920,16 +9985,16 @@ function reducer(state, action) {
             return __assign({}, state, { loading: true });
         }
         case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetTheatersSuccess: {
-            var movieTheaters = action.payload.movieTheaters;
-            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { movieTheaters: movieTheaters }) });
+            var sellers = action.payload.sellers;
+            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { sellers: sellers }) });
         }
         case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetTheatersFail: {
             var error = action.payload.error;
             return __assign({}, state, { loading: false, error: JSON.stringify(error) });
         }
         case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].SelectTheater: {
-            var movieTheater = action.payload.movieTheater;
-            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { movieTheater: movieTheater }) });
+            var seller = action.payload.seller;
+            return __assign({}, state, { loading: false, error: null, purchase: __assign({}, state.purchase, { seller: seller }) });
         }
         case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].GetSchedule: {
             return __assign({}, state, { loading: true });
@@ -9957,7 +10022,7 @@ function reducer(state, action) {
         case _actions_purchase_action__WEBPACK_IMPORTED_MODULE_3__["ActionTypes"].StartTransactionSuccess: {
             state.purchase.transaction = action.payload.transaction;
             state.purchase.screeningEvents = [];
-            state.purchase.movieTheaters = [];
+            state.purchase.sellers = [];
             state.purchase.screeningFilmEvents = [];
             return __assign({}, state, { loading: false, error: null });
         }
@@ -10226,7 +10291,7 @@ var initialState = {
     loading: false,
     error: null,
     purchase: {
-        movieTheaters: [],
+        sellers: [],
         screeningEvents: [],
         screeningFilmEvents: [],
         screeningEventOffers: [],
@@ -10242,7 +10307,7 @@ var initialState = {
     },
     inquiry: {},
     user: {
-        movieTheaters: []
+        sellers: []
     }
 };
 function getInitialState() {
@@ -10253,6 +10318,10 @@ function getInitialState() {
     var data = JSON.parse(json);
     var reservations = data.App.purchase.reservations.map(function (reservation) { return new _models__WEBPACK_IMPORTED_MODULE_0__["Reservation"](reservation); });
     data.App.purchase.reservations = reservations;
+    if (data.App.user.seller === undefined
+        && data.App.user.movieTheater !== undefined) {
+        data.App.user.seller = data.App.user.movieTheater;
+    }
     return {
         loading: data.App.loading,
         error: data.App.error,
@@ -10330,11 +10399,11 @@ function reducer(state, action) {
         }
         case _actions_user_action__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].UpdateAll: {
             var customerContact = action.payload.customerContact;
-            var movieTheater = action.payload.movieTheater;
+            var seller = action.payload.seller;
             var pos = action.payload.pos;
             var printer = action.payload.printer;
             state.user.customerContact = customerContact;
-            state.user.movieTheater = movieTheater;
+            state.user.seller = seller;
             state.user.pos = pos;
             state.user.printer = printer;
             return __assign({}, state, { loading: false });
@@ -10343,8 +10412,8 @@ function reducer(state, action) {
             return __assign({}, state, { loading: true });
         }
         case _actions_user_action__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetTheatersSuccess: {
-            var movieTheaters = action.payload.movieTheaters;
-            return __assign({}, state, { loading: false, error: null, user: __assign({}, state.user, { movieTheaters: movieTheaters }) });
+            var sellers = action.payload.sellers;
+            return __assign({}, state, { loading: false, error: null, user: __assign({}, state.user, { sellers: sellers }) });
         }
         case _actions_user_action__WEBPACK_IMPORTED_MODULE_0__["ActionTypes"].GetTheatersFail: {
             var error = action.payload.error;

@@ -26,7 +26,7 @@ export class SettingGuardService implements CanActivate {
         try {
             this.user = this.store.pipe(select(reducers.getUser));
             const user = await this.getUser();
-            if (user.movieTheater === undefined) {
+            if (user.seller === undefined) {
                 throw { error: '劇場が未設定です。' };
             }
 
