@@ -424,7 +424,8 @@ export class PurchaseEffects {
                             workPerformedName: screeningEvent.workPerformed.name,
                             screen: {
                                 name: screeningEvent.location.name.ja,
-                                address: (screeningEvent.location.address !== undefined)
+                                address: (screeningEvent.location.address !== undefined
+                                    && screeningEvent.location.address.ja !== '')
                                     ? `(${screeningEvent.location.address.ja})`
                                     : ''
                             },
