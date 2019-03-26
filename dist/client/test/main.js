@@ -10320,6 +10320,7 @@ function getInitialState() {
     data.App.purchase.reservations = reservations;
     if (data.App.user.seller === undefined
         && data.App.user.movieTheater !== undefined) {
+        data.App.user.sellers = data.App.user.movieTheaters;
         data.App.user.seller = data.App.user.movieTheater;
     }
     return {

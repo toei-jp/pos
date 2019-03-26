@@ -54,12 +54,13 @@ function getInitialState(): IState {
     if (json === undefined || json === null) {
         return initialState;
     }
-    const data = JSON.parse(json);
-    const reservations = data.App.purchase.reservations.map((reservation: Reservation) => new Reservation(reservation));
+    const data: {App: IState} = JSON.parse(json);
+    const reservations = data.App.purchase.reservations.map((reservation) => new Reservation(reservation));
     data.App.purchase.reservations = reservations;
     if (data.App.user.seller === undefined
-        && data.App.user.movieTheater !== undefined) {
-        data.App.user.seller = data.App.user.movieTheater;
+        && (<any>data.App.user).movieTheater !== undefined) {
+        data.App.user.sellers = (<any>data.App.user).movieTheaters;
+        data.App.user.seller = (<any>data.App.user).movieTheater;
     }
 
     return {
