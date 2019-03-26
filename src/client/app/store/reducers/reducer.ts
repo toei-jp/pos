@@ -61,6 +61,8 @@ function getInitialState(): IState {
         && (<any>data.App.user).movieTheater !== undefined) {
         data.App.user.sellers = (<any>data.App.user).movieTheaters;
         data.App.user.seller = (<any>data.App.user).movieTheater;
+        (<any>data.App.user).movieTheaters = undefined;
+        (<any>data.App.user).movieTheater = undefined;
     }
 
     return {

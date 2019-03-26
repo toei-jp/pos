@@ -10322,6 +10322,8 @@ function getInitialState() {
         && data.App.user.movieTheater !== undefined) {
         data.App.user.sellers = data.App.user.movieTheaters;
         data.App.user.seller = data.App.user.movieTheater;
+        data.App.user.movieTheaters = undefined;
+        data.App.user.movieTheater = undefined;
     }
     return {
         loading: data.App.loading,
