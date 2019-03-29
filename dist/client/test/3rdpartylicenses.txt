@@ -1,6 +1,6 @@
-core-js@2.5.7
+core-js@2.6.5
 MIT
-Copyright (c) 2014-2018 Denis Pushkarev
+Copyright (c) 2014-2019 Denis Pushkarev
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-zone.js@0.8.26
+zone.js@0.8.29
 MIT
 The MIT License
 
@@ -44,7 +44,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-swiper@4.4.2
+swiper@4.5.0
 MIT
 The MIT License (MIT)
 
@@ -118,19 +118,19 @@ MIT
 MIT
 MIT
 
-@chevre/factory@1.0.0-alpha.47
+@chevre/factory@1.0.0-alpha.63
 ISC
 ISC
 
-@cinerino/api-abstract-client@1.0.0-alpha.62
+@cinerino/api-abstract-client@1.0.0-alpha.88
 ISC
 ISC
 
-@cinerino/api-javascript-client@1.0.0-alpha.23
+@cinerino/api-javascript-client@2.0.0-alpha.0
 ISC
 ISC
 
-@cinerino/factory@1.0.0-alpha.64
+@cinerino/factory@1.0.0-alpha.119
 ISC
 ISC
 
@@ -166,11 +166,11 @@ MIT
 MIT
 MIT
 
-@pecorino/factory@1.1.0
+@pecorino/factory@2.0.1
 ISC
 ISC
 
-@waiter/factory@1.0.0
+@waiter/factory@2.1.0
 ISC
 ISC
 
@@ -422,7 +422,7 @@ Address all questions regarding this license to:
   Tom Wu
   tjw@cs.Stanford.EDU
 
-jsqr@1.1.1
+jsqr@1.2.0
 Apache-2.0
 Apache License
                            Version 2.0, January 2004
@@ -626,7 +626,7 @@ Apache License
    See the License for the specific language governing permissions and
    limitations under the License.
 
-libphonenumber-js@1.6.5
+libphonenumber-js@1.7.10
 MIT
 (The MIT License)
 
@@ -674,7 +674,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-moment@2.22.2
+moment@2.24.0
 MIT
 Copyright (c) JS Foundation and other contributors
 
@@ -747,7 +747,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-qrcode@1.3.2
+qrcode@1.3.3
 MIT
 The MIT License (MIT)
 
@@ -759,7 +759,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-qs@6.5.2
+qs@6.7.0
 BSD-3-Clause
 Copyright (c) 2014 Nathan LaFreniere and other contributors.
 All rights reserved.
@@ -790,7 +790,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 The complete list of contributors can be found at: https://github.com/hapijs/qs/graphs/contributors
 
-rxjs@6.3.3
+rxjs@6.4.0
 Apache-2.0
 Apache License
                          Version 2.0, January 2004
@@ -1015,7 +1015,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-setprototypeof@1.1.0
+setprototypeof@1.1.1
 ISC
 Copyright (c) 2015, Wes Todd
 
@@ -1118,7 +1118,7 @@ url-join@1.1.0
 MIT
 MIT
 
-util@0.10.4
+util@0.11.1
 MIT
 Copyright Joyent, Inc. and other Node contributors. All rights reserved.
 Permission is hereby granted, free of charge, to any person obtaining a copy

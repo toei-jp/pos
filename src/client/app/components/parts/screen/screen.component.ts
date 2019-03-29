@@ -24,7 +24,7 @@ export class ScreenComponent implements OnInit, AfterViewInit, AfterViewChecked 
     @Input() public screenData: IScreen;
     @Output() public select = new EventEmitter<{ seat: IReservationSeat; status: SeatStatus; }>();
     public screeningEventOffers: factory.chevre.event.screeningEvent.IScreeningRoomSectionOffer[];
-    public authorizeSeatReservation?: factory.action.authorize.offer.seatReservation.IAction;
+    public authorizeSeatReservation?: factory.action.authorize.offer.seatReservation.IAction<factory.service.webAPI.Identifier>;
     public purchase: Observable<reducers.IPurchaseState>;
     public seats: ISeat[];
     public lineLabels: ILabel[];
@@ -281,13 +281,19 @@ export class ScreenComponent implements OnInit, AfterViewInit, AfterViewChecked 
                             break;
                         }
                     }
-                    if (this.authorizeSeatReservation !== undefined) {
-                        const findResult = this.authorizeSeatReservation.object.acceptedOffer.find((offer) => {
-                            return (offer.ticketedSeat.seatNumber === code
-                                && offer.ticketedSeat.seatSection === section);
-                        });
-                        if (findResult !== undefined) {
-                            status = SeatStatus.Default;
+                    if (this.authorizeSeatReservation !== undefined
+                        && this.authorizeSeatReservation.instrument !== undefined) {
+                        if (this.authorizeSeatReservation.instrument.identifier === factory.service.webAPI.Identifier.Chevre) {
+                            // chevre
+                            const findResult = this.authorizeSeatReservation.object.acceptedOffer.find((offer) => {
+                                const chevreOffer = <factory.action.authorize.offer.seatReservation.IAcceptedOffer4chevre>offer;
+                                return (chevreOffer.ticketedSeat !== undefined
+                                    && chevreOffer.ticketedSeat.seatNumber === code
+                                    && chevreOffer.ticketedSeat.seatSection === section);
+                            });
+                            if (findResult !== undefined) {
+                                status = SeatStatus.Default;
+                            }
                         }
                     }
                     if (this.screenData.spare.indexOf(code) !== -1) {

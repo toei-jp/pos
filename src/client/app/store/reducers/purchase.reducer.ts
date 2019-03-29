@@ -11,8 +11,8 @@ import { IScreen, Reservation } from '../../models';
 import { Actions, ActionTypes } from '../actions/purchase.action';
 
 export interface IPurchaseState {
-    movieTheaters: factory.organization.movieTheater.IOrganization[];
-    movieTheater?: factory.organization.movieTheater.IOrganization;
+    sellers: factory.seller.IOrganization<factory.seller.IAttributes<factory.organizationType>>[];
+    seller?: factory.seller.IOrganization<factory.seller.IAttributes<factory.organizationType>>;
     screeningEvents: factory.chevre.event.screeningEvent.IEvent[];
     screeningEvent?: factory.chevre.event.screeningEvent.IEvent;
     scheduleDate?: string;
@@ -22,7 +22,7 @@ export interface IPurchaseState {
     screenData?: IScreen;
     reservations: Reservation[];
     screeningEventTicketOffers: factory.chevre.event.screeningEvent.ITicketOffer[];
-    authorizeSeatReservation?: factory.action.authorize.offer.seatReservation.IAction;
+    authorizeSeatReservation?: factory.action.authorize.offer.seatReservation.IAction<factory.service.webAPI.Identifier>;
     customerContact?: factory.transaction.placeOrder.ICustomerContact;
     authorizeCreditCardPayment?: factory.action.authorize.paymentMethod.creditCard.IAction;
     authorizeMovieTicketPayments: factory.action.authorize.paymentMethod.movieTicket.IAction[];
@@ -50,7 +50,7 @@ export function reducer(state: IState, action: Actions): IState {
         case ActionTypes.Delete: {
             const authorizeSeatReservation = state.purchase.authorizeSeatReservation;
             state.purchase = {
-                movieTheaters: [],
+                sellers: [],
                 screeningEvents: [],
                 screeningFilmEvents: [],
                 screeningEventOffers: [],
@@ -68,16 +68,16 @@ export function reducer(state: IState, action: Actions): IState {
             return { ...state, loading: true };
         }
         case ActionTypes.GetTheatersSuccess: {
-            const movieTheaters = action.payload.movieTheaters;
-            return { ...state, loading: false, error: null, purchase: { ...state.purchase, movieTheaters } };
+            const sellers = action.payload.sellers;
+            return { ...state, loading: false, error: null, purchase: { ...state.purchase, sellers } };
         }
         case ActionTypes.GetTheatersFail: {
             const error = action.payload.error;
             return { ...state, loading: false, error: JSON.stringify(error) };
         }
         case ActionTypes.SelectTheater: {
-            const movieTheater = action.payload.movieTheater;
-            return { ...state, loading: false, error: null, purchase: { ...state.purchase, movieTheater } };
+            const seller = action.payload.seller;
+            return { ...state, loading: false, error: null, purchase: { ...state.purchase, seller } };
         }
         case ActionTypes.GetSchedule: {
             return { ...state, loading: true };
@@ -111,7 +111,7 @@ export function reducer(state: IState, action: Actions): IState {
         case ActionTypes.StartTransactionSuccess: {
             state.purchase.transaction = action.payload.transaction;
             state.purchase.screeningEvents = [];
-            state.purchase.movieTheaters = [];
+            state.purchase.sellers = [];
             state.purchase.screeningFilmEvents = [];
             return { ...state, loading: false, error: null };
         }

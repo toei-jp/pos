@@ -132,15 +132,15 @@ export class PurchaseConfirmComponent implements OnInit {
         this.purchase.subscribe((purchase) => {
             if (purchase.transaction === undefined
                 || purchase.screeningEvent === undefined
-                || purchase.movieTheater === undefined) {
+                || purchase.seller === undefined) {
                 this.router.navigate(['/error']);
                 return;
             }
             const transaction = purchase.transaction;
             const screeningEvent = purchase.screeningEvent;
             const reservations = purchase.reservations;
-            const movieTheater = purchase.movieTheater;
-            this.store.dispatch(new Reserve({ transaction, screeningEvent, reservations, movieTheater }));
+            const seller = purchase.seller;
+            this.store.dispatch(new Reserve({ transaction, screeningEvent, reservations, seller }));
         }).unsubscribe();
 
         const success = this.actions.pipe(

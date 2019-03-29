@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { factory } from '@cinerino/api-javascript-client';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Actions, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
@@ -44,8 +45,12 @@ export class InquiryConfirmComponent implements OnInit {
                 this.router.navigate(['/error']);
                 return;
             }
-            const reservationFor = inquiry.order.acceptedOffers[0].itemOffered.reservationFor;
-            const date = moment(reservationFor.startDate).format('YYYY-MM-DD');
+            const itemOffered = inquiry.order.acceptedOffers[0].itemOffered;
+            if (itemOffered.typeOf !== factory.chevre.reservationType.EventReservation) {
+                this.router.navigate(['/error']);
+                return;
+            }
+            const date = moment(itemOffered.reservationFor.startDate).format('YYYY-MM-DD');
             const today = moment().format('YYYY-MM-DD');
             this.isPrint = moment(date).unix() >= moment(today).unix() && moment(date).unix() < moment(today).add(2, 'day').unix();
             console.log(this.isPrint, date);

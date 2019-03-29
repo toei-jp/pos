@@ -29,7 +29,7 @@ export const initialState: IState = {
     loading: false,
     error: null,
     purchase: {
-        movieTheaters: [],
+        sellers: [],
         screeningEvents: [],
         screeningFilmEvents: [],
         screeningEventOffers: [],
@@ -45,7 +45,7 @@ export const initialState: IState = {
     },
     inquiry: {},
     user: {
-        movieTheaters: []
+        sellers: []
     }
 };
 
@@ -54,9 +54,16 @@ function getInitialState(): IState {
     if (json === undefined || json === null) {
         return initialState;
     }
-    const data = JSON.parse(json);
-    const reservations = data.App.purchase.reservations.map((reservation: Reservation) => new Reservation(reservation));
+    const data: {App: IState} = JSON.parse(json);
+    const reservations = data.App.purchase.reservations.map((reservation) => new Reservation(reservation));
     data.App.purchase.reservations = reservations;
+    if (data.App.user.seller === undefined
+        && (<any>data.App.user).movieTheater !== undefined) {
+        data.App.user.sellers = (<any>data.App.user).movieTheaters;
+        data.App.user.seller = (<any>data.App.user).movieTheater;
+        (<any>data.App.user).movieTheaters = undefined;
+        (<any>data.App.user).movieTheater = undefined;
+    }
 
     return {
         loading: data.App.loading,

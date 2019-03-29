@@ -76,7 +76,7 @@ export class Delete implements Action {
  */
 export class GetTheaters implements Action {
     public readonly type = ActionTypes.GetTheaters;
-    constructor(public payload: { params: factory.organization.movieTheater.ISearchConditions }) { }
+    constructor(public payload: { params: factory.seller.ISearchConditions }) { }
 }
 
 /**
@@ -84,7 +84,7 @@ export class GetTheaters implements Action {
  */
 export class GetTheatersSuccess implements Action {
     public readonly type = ActionTypes.GetTheatersSuccess;
-    constructor(public payload: { movieTheaters: factory.organization.movieTheater.IOrganization[] }) { }
+    constructor(public payload: { sellers: factory.seller.IOrganization<factory.seller.IAttributes<factory.organizationType>>[] }) { }
 }
 
 /**
@@ -100,7 +100,7 @@ export class GetTheatersFail implements Action {
  */
 export class SelectTheater implements Action {
     public readonly type = ActionTypes.SelectTheater;
-    constructor(public payload: { movieTheater: factory.organization.movieTheater.IOrganization }) { }
+    constructor(public payload: { seller: factory.seller.IOrganization<factory.seller.IAttributes<factory.organizationType>> }) { }
 }
 
 /**
@@ -109,7 +109,7 @@ export class SelectTheater implements Action {
 export class GetSchedule implements Action {
     public readonly type = ActionTypes.GetSchedule;
     constructor(public payload: {
-        movieTheater: factory.organization.movieTheater.IOrganization;
+        seller: factory.seller.IOrganization<factory.seller.IAttributes<factory.organizationType>>;
         scheduleDate: string;
     }) { }
 }
@@ -235,7 +235,7 @@ export class GetTicketList implements Action {
     public readonly type = ActionTypes.GetTicketList;
     constructor(public payload: {
         screeningEvent: factory.chevre.event.screeningEvent.IEvent;
-        movieTheater: factory.organization.movieTheater.IOrganization;
+        seller: factory.seller.IOrganization<factory.seller.IAttributes<factory.organizationType>>;
     }) { }
 }
 
@@ -263,7 +263,7 @@ export class TemporaryReservation implements Action {
     constructor(public payload: {
         transaction: factory.transaction.placeOrder.ITransaction;
         screeningEvent: factory.chevre.event.screeningEvent.IEvent;
-        authorizeSeatReservation?: factory.action.authorize.offer.seatReservation.IAction;
+        authorizeSeatReservation?: factory.action.authorize.offer.seatReservation.IAction<factory.service.webAPI.Identifier>;
         reservations: Reservation[];
     }) { }
 }
@@ -273,7 +273,9 @@ export class TemporaryReservation implements Action {
  */
 export class TemporaryReservationSuccess implements Action {
     public readonly type = ActionTypes.TemporaryReservationSuccess;
-    constructor(public payload: { authorizeSeatReservation: factory.action.authorize.offer.seatReservation.IAction; }) { }
+    constructor(public payload: {
+        authorizeSeatReservation: factory.action.authorize.offer.seatReservation.IAction<factory.service.webAPI.Identifier>;
+    }) { }
 }
 
 /**
@@ -290,7 +292,7 @@ export class TemporaryReservationFail implements Action {
 export class TemporaryReservationCancel implements Action {
     public readonly type = ActionTypes.TemporaryReservationCancel;
     constructor(public payload: {
-        authorizeSeatReservation: factory.action.authorize.offer.seatReservation.IAction;
+        authorizeSeatReservation: factory.action.authorize.offer.seatReservation.IAction<factory.service.webAPI.Identifier>;
     }) { }
 }
 
@@ -344,7 +346,7 @@ export class AuthorizeCreditCard implements Action {
     public readonly type = ActionTypes.AuthorizeCreditCard;
     constructor(public payload: {
         transaction: factory.transaction.placeOrder.ITransaction;
-        movieTheater: factory.organization.movieTheater.IOrganization;
+        seller: factory.seller.IOrganization<factory.seller.IAttributes<factory.organizationType>>;
         authorizeCreditCardPayment?: factory.action.authorize.paymentMethod.creditCard.IAction;
         orderCount: number;
         amount: number;
@@ -385,7 +387,7 @@ export class AuthorizeMovieTicket implements Action {
     constructor(public payload: {
         transaction: factory.transaction.placeOrder.ITransaction;
         authorizeMovieTicketPayments: factory.action.authorize.paymentMethod.movieTicket.IAction[];
-        authorizeSeatReservation: factory.action.authorize.offer.seatReservation.IAction;
+        authorizeSeatReservation: factory.action.authorize.offer.seatReservation.IAction<factory.service.webAPI.Identifier>;
         reservations: Reservation[];
     }) { }
 }
@@ -449,7 +451,7 @@ export class Reserve implements Action {
         transaction: factory.transaction.placeOrder.ITransaction;
         screeningEvent: factory.chevre.event.screeningEvent.IEvent;
         reservations: Reservation[];
-        movieTheater: factory.organization.movieTheater.IOrganization;
+        seller: factory.seller.IOrganization<factory.seller.IAttributes<factory.organizationType>>;
     }) { }
 }
 
@@ -477,7 +479,7 @@ export class Print implements Action {
     constructor(public payload: {
         order?: factory.order.IOrder;
         ipAddress: string;
-        pos?: factory.organization.IPOS;
+        pos?: factory.seller.IPOS;
         timeout?: number;
     }) { }
 }

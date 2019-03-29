@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { factory } from '@cinerino/api-javascript-client';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Actions, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
@@ -96,11 +97,18 @@ export class PurchaseSeatComponent implements OnInit {
                     seats.push(seat);
                 });
             });
-            if (purchase.authorizeSeatReservation !== undefined) {
-                purchase.authorizeSeatReservation.object.acceptedOffer.forEach((offer) => {
-                    const seat = offer.ticketedSeat;
-                    seats.push(seat);
-                });
+            if (purchase.authorizeSeatReservation !== undefined
+                && purchase.authorizeSeatReservation.instrument !== undefined) {
+                if (purchase.authorizeSeatReservation.instrument.identifier === factory.service.webAPI.Identifier.Chevre) {
+                    // chevre
+                    purchase.authorizeSeatReservation.object.acceptedOffer.forEach((offer) => {
+                        const chevreOffer = <factory.action.authorize.offer.seatReservation.IAcceptedOffer4chevre>offer;
+                        if (chevreOffer.ticketedSeat === undefined) {
+                            return;
+                        }
+                        seats.push(chevreOffer.ticketedSeat);
+                    });
+                }
             }
             this.store.dispatch(new SelectSeats({ seats }));
         }).unsubscribe();
@@ -198,13 +206,13 @@ export class PurchaseSeatComponent implements OnInit {
     private getTickets() {
         this.purchase.subscribe((purchase) => {
             const screeningEvent = purchase.screeningEvent;
-            const movieTheater = purchase.movieTheater;
+            const seller = purchase.seller;
             if (screeningEvent === undefined
-                || movieTheater === undefined) {
+                || seller === undefined) {
                 this.router.navigate(['/error']);
                 return;
             }
-            this.store.dispatch(new GetTicketList({ screeningEvent, movieTheater }));
+            this.store.dispatch(new GetTicketList({ screeningEvent, seller }));
         }).unsubscribe();
 
         const success = this.actions.pipe(

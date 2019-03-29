@@ -65,13 +65,13 @@ export function createGmoTokenObject(params: {
         holderName: string;
         securityCode: string;
     },
-    movieTheater: factory.organization.movieTheater.IOrganization;
+    seller: factory.seller.IOrganization<factory.seller.IAttributes<factory.organizationType>>;
 }) {
     return new Promise<IGmoTokenObject>((resolve, reject) => {
-        if (params.movieTheater.paymentAccepted === undefined) {
+        if (params.seller.paymentAccepted === undefined) {
             throw { error: 'この劇場では支払いに対応していません。' };
         }
-        const findPaymentAcceptedResult = params.movieTheater.paymentAccepted.find((paymentAccepted) => {
+        const findPaymentAcceptedResult = params.seller.paymentAccepted.find((paymentAccepted) => {
             return (paymentAccepted.paymentMethodType === factory.paymentMethodType.CreditCard);
         });
         if (findPaymentAcceptedResult === undefined
@@ -89,7 +89,7 @@ export function createGmoTokenObject(params: {
             }
         };
         const Multipayment = (<any>window).Multipayment;
-        Multipayment.init(findPaymentAcceptedResult.gmoInfo.shopId);
+        Multipayment.init((<factory.seller.ICreditCardPaymentAccepted>findPaymentAcceptedResult).gmoInfo.shopId);
         Multipayment.getToken(params.creditCard, (<any>window).someCallbackFunction);
     });
 }
@@ -137,7 +137,7 @@ export function isAvailabilityMovieTicket(checkMovieTicketAction: factory.action
  *  予約情報からムビチケ情報作成
  */
 export function createMovieTicketsFromAuthorizeSeatReservation(args: {
-    authorizeSeatReservation: factory.action.authorize.offer.seatReservation.IAction;
+    authorizeSeatReservation: factory.action.authorize.offer.seatReservation.IAction<factory.service.webAPI.Identifier>;
     reservations: Reservation[];
 }) {
     const results: factory.paymentMethod.paymentCard.movieTicket.IMovieTicket[] = [];
@@ -146,16 +146,23 @@ export function createMovieTicketsFromAuthorizeSeatReservation(args: {
     if (authorizeSeatReservation.result === undefined) {
         return results;
     }
-    const pendingReservations = authorizeSeatReservation.result.responseBody.object.reservations;
+    const pendingReservations =
+        (<factory.chevre.reservation.IReservation<factory.chevre.event.screeningEvent.ITicketPriceSpecification>[]>
+            (<any>authorizeSeatReservation.result.responseBody).object.reservations);
 
     pendingReservations.forEach((pendingReservation) => {
         const findReservationResult = reservations.find((reservation) => {
-            return (reservation.seat.seatNumber === pendingReservation.reservedTicket.ticketedSeat.seatNumber);
+            return (pendingReservation.reservedTicket.ticketedSeat !== undefined
+                && reservation.seat.seatNumber === pendingReservation.reservedTicket.ticketedSeat.seatNumber);
         });
         if (findReservationResult === undefined
             || findReservationResult.ticket === undefined
             || findReservationResult.ticket.movieTicket === undefined) {
             return;
+        }
+
+        if (pendingReservation.reservedTicket.ticketedSeat === undefined) {
+            throw new Error('ticketedSeat is undefined');
         }
 
         results.push({
@@ -202,12 +209,11 @@ export function createPaymentMethodFromType(args: {
     }
 }
 
-type IItemOffered = factory.chevre.reservation.event.IReservation<factory.chevre.event.screeningEvent.IEvent>;
-
 /**
  * 券種金額取得
  */
-export function getTicketPrice(ticket: factory.chevre.event.screeningEvent.ITicketOffer | factory.order.IAcceptedOffer<IItemOffered>) {
+export function getTicketPrice(ticket: factory.chevre.event.screeningEvent.ITicketOffer
+    | factory.order.IAcceptedOffer<factory.order.IItemOffered>) {
     const result = {
         unitPriceSpecification: 0,
         videoFormatCharge: 0,

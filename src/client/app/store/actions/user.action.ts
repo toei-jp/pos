@@ -26,7 +26,7 @@ export class Delete implements Action {
 export class UpdateAll implements Action {
     public readonly type = ActionTypes.UpdateAll;
     constructor(public payload: {
-        movieTheater: factory.organization.movieTheater.IOrganization;
+        seller: factory.seller.IOrganization<factory.seller.IAttributes<factory.organizationType>>;
         pos: any;
         customerContact: factory.transaction.placeOrder.ICustomerContact;
         printer: { ipAddress: string; };
@@ -38,7 +38,7 @@ export class UpdateAll implements Action {
  */
 export class GetTheaters implements Action {
     public readonly type = ActionTypes.GetTheaters;
-    constructor(public payload: { params: factory.organization.movieTheater.ISearchConditions }) { }
+    constructor(public payload: { params: factory.seller.ISearchConditions }) { }
 }
 
 /**
@@ -46,7 +46,7 @@ export class GetTheaters implements Action {
  */
 export class GetTheatersSuccess implements Action {
     public readonly type = ActionTypes.GetTheatersSuccess;
-    constructor(public payload: { movieTheaters: factory.organization.movieTheater.IOrganization[] }) { }
+    constructor(public payload: { sellers: factory.seller.IOrganization<factory.seller.IAttributes<factory.organizationType>>[] }) { }
 }
 
 /**
