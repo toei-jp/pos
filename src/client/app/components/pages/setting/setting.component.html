@@ -6,7 +6,7 @@
                 <label class="mb-2" for="">劇場</label>
                 <select class="form-control py-2 large-text" formControlName="theaterCode" (change)="changePosList()">
                     <option value="">選択してください</option>
-                    <option *ngFor="let theater of (user | async).movieTheaters" [value]="theater.location.branchCode">{{
+                    <option *ngFor="let theater of (user | async).sellers" [value]="theater.location.branchCode">{{
                         theater.name.ja }}</option>
                 </select>
                 <div *ngIf="settingForm.controls.theaterCode.invalid && settingForm.controls.theaterCode.touched" class="mt-2">

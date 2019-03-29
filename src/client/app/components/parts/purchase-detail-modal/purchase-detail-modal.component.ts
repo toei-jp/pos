@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { factory } from '@cinerino/api-javascript-client';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
 import * as qrcode from 'qrcode';
@@ -20,6 +21,9 @@ export class PurchaseDetailModalComponent implements OnInit {
     public ngOnInit() {
         this.urlList = [];
         this.data.acceptedOffers.forEach((acceptedOffer) => {
+            if (acceptedOffer.itemOffered.typeOf !== factory.chevre.reservationType.EventReservation) {
+                return;
+            }
             const ticketToken = <string>acceptedOffer.itemOffered.reservedTicket.ticketToken;
             const basicSize = 21;
             const option: qrcode.QRCodeToDataURLOptions = {

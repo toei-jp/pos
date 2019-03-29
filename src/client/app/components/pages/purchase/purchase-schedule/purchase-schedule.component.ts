@@ -43,11 +43,11 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
         this.user = this.store.pipe(select(reducers.getUser));
         this.temporaryReservationCancel();
         this.user.subscribe((user) => {
-            if (user.movieTheater === undefined) {
+            if (user.seller === undefined) {
                 this.router.navigate(['/error']);
                 return;
             }
-            this.selectTheater(user.movieTheater);
+            this.selectTheater(user.seller);
             this.selectDate();
         }).unsubscribe();
     }
@@ -89,8 +89,8 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
     /**
      * selectTheater
      */
-    public selectTheater(movieTheater: factory.organization.movieTheater.IOrganization) {
-        this.store.dispatch(new SelectTheater({ movieTheater }));
+    public selectTheater(seller: factory.seller.IOrganization<factory.seller.IAttributes<factory.organizationType>>) {
+        this.store.dispatch(new SelectTheater({ seller }));
     }
 
     /**
@@ -98,18 +98,18 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
      */
     public selectDate() {
         this.purchase.subscribe((purchase) => {
-            const movieTheater = purchase.movieTheater;
+            const seller = purchase.seller;
             if (this.scheduleDate === undefined || this.scheduleDate === '') {
                 this.scheduleDate = moment().format('YYYY-MM-DD');
             }
             const scheduleDate = this.scheduleDate;
-            if (movieTheater === undefined) {
+            if (seller === undefined) {
                 return;
             }
             const body = document.getElementsByTagName('body');
             const now = moment().format('YYYY-MM-DD');
             body[0].style.backgroundColor = (scheduleDate > now) ? '#828407' : (scheduleDate < now) ? '#840707' : '#271916';
-            this.store.dispatch(new GetSchedule({ movieTheater, scheduleDate }));
+            this.store.dispatch(new GetSchedule({ seller, scheduleDate }));
         }).unsubscribe();
 
         const success = this.actions.pipe(
@@ -145,7 +145,7 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
         this.store.dispatch(new SelectSchedule({ screeningEvent }));
         this.purchase.subscribe((purchase) => {
             this.user.subscribe((user) => {
-                if (purchase.movieTheater === undefined
+                if (purchase.seller === undefined
                     || user.pos === undefined) {
                     this.router.navigate(['/error']);
                     return;
@@ -154,8 +154,8 @@ export class PurchaseScheduleComponent implements OnInit, OnDestroy {
                     params: {
                         expires: moment().add(environment.TRANSACTION_TIME, 'minutes').toDate(),
                         seller: {
-                            typeOf: purchase.movieTheater.typeOf,
-                            id: purchase.movieTheater.id
+                            typeOf: purchase.seller.typeOf,
+                            id: purchase.seller.id
                         },
                         agent: {
                             identifier: [

@@ -25,9 +25,9 @@ export class UserEffects {
         mergeMap(async (payload) => {
             try {
                 await this.cinerino.getServices();
-                const searchMovieTheatersResult = await this.cinerino.organization.searchMovieTheaters(payload.params);
-                const movieTheaters = searchMovieTheatersResult.data;
-                return new user.GetTheatersSuccess({ movieTheaters });
+                const searchResult = await this.cinerino.seller.search(payload.params);
+                const sellers = searchResult.data;
+                return new user.GetTheatersSuccess({ sellers });
             } catch (error) {
                 return new user.GetTheatersFail({ error: error });
             }

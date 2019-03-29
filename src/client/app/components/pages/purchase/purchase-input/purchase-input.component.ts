@@ -200,14 +200,14 @@ export class PurchaseInputComponent implements OnInit {
     private authorizeCreditCard() {
         this.purchase.subscribe((purchase) => {
             if (purchase.transaction === undefined
-                || purchase.movieTheater === undefined
+                || purchase.seller === undefined
                 || purchase.authorizeSeatReservation === undefined) {
                 this.router.navigate(['/error']);
                 return;
             }
             this.store.dispatch(new AuthorizeCreditCard({
                 transaction: purchase.transaction,
-                movieTheater: purchase.movieTheater,
+                seller: purchase.seller,
                 authorizeCreditCardPayment: purchase.authorizeCreditCardPayment,
                 orderCount: purchase.orderCount,
                 amount: this.amount,

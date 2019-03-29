@@ -97,14 +97,14 @@ export class SettingComponent implements OnInit {
             ]]
         });
         this.user.subscribe((user) => {
-            if (user.movieTheater !== undefined) {
-                this.settingForm.controls.theaterCode.setValue(user.movieTheater.location.branchCode);
+            if (user.seller !== undefined && user.seller.location !== undefined) {
+                this.settingForm.controls.theaterCode.setValue(user.seller.location.branchCode);
             }
             if (user.pos !== undefined) {
                 this.changePosList();
                 this.settingForm.controls.posId.setValue(user.pos.id);
             }
-            if (user.customerContact !== undefined) {
+            if (user.customerContact !== undefined && user.customerContact.telephone !== undefined) {
                 this.settingForm.controls.familyName.setValue(user.customerContact.familyName);
                 this.settingForm.controls.givenName.setValue(user.customerContact.givenName);
                 this.settingForm.controls.email.setValue(user.customerContact.email);
@@ -125,7 +125,7 @@ export class SettingComponent implements OnInit {
         }
         this.user.subscribe((user) => {
             const findTheater =
-                user.movieTheaters.find(theater => theater.location.branchCode === theaterCode);
+                user.sellers.find(s => s.location !== undefined && s.location.branchCode === theaterCode);
             if (findTheater === undefined) {
                 this.posList = [];
                 return;
@@ -166,8 +166,8 @@ export class SettingComponent implements OnInit {
             return;
         }
         this.user.subscribe((user) => {
-            const findMovieTheater = user.movieTheaters.find((theater) => {
-                return theater.location.branchCode === this.settingForm.controls.theaterCode.value;
+            const findMovieTheater = user.sellers.find((s) => {
+                return (s.location !== undefined && s.location.branchCode === this.settingForm.controls.theaterCode.value);
             });
             if (findMovieTheater === undefined) {
                 return;
@@ -179,7 +179,7 @@ export class SettingComponent implements OnInit {
                 return;
             }
             this.store.dispatch(new userAction.UpdateAll({
-                movieTheater: findMovieTheater,
+                seller: findMovieTheater,
                 pos: findPos,
                 customerContact: {
                     familyName: this.settingForm.controls.familyName.value,
