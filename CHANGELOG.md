@@ -16,7 +16,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 - 丸の内座席データ追加
 ### Changed
-- スケジュール選択を閉鎖
 - 予備席の色を変更
 
 ## 1.4.0 - 2019-03-19
