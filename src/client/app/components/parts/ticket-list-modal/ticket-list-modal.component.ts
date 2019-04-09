@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { factory } from '@cinerino/api-javascript-client';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { environment } from '../../../../environments/environment';
 import { getTicketPrice } from '../../../functions';
 import { IReservationTicket, Reservation } from '../../../models';
 
@@ -33,6 +34,10 @@ export class TicketListModalComponent implements OnInit {
                 .shift();
             if (movieTicketTypeChargeSpecification === undefined) {
                 // ムビチケ以外
+                if (environment.SPECIAL_TICKET_CODE.find(c => c === ticketOffer.id) !== undefined) {
+                    this.tickets.unshift({ ticketOffer });
+                    return;
+                }
                 this.tickets.push({ ticketOffer });
                 return;
             }

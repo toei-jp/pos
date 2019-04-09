@@ -5889,7 +5889,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @cinerino/api-javascript-client */ "../../node_modules/@cinerino/api-javascript-client/lib/index.js");
 /* harmony import */ var _cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_cinerino_api_javascript_client__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "../../node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../functions */ "./app/functions/index.ts");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../environments/environment */ "./environments/environment.ts");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../functions */ "./app/functions/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5903,10 +5904,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var TicketListModalComponent = /** @class */ (function () {
     function TicketListModalComponent(activeModal) {
         this.activeModal = activeModal;
-        this.getTicketPrice = _functions__WEBPACK_IMPORTED_MODULE_3__["getTicketPrice"];
+        this.getTicketPrice = _functions__WEBPACK_IMPORTED_MODULE_4__["getTicketPrice"];
     }
     TicketListModalComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -5918,6 +5920,10 @@ var TicketListModalComponent = /** @class */ (function () {
                 .shift();
             if (movieTicketTypeChargeSpecification === undefined) {
                 // ムビチケ以外
+                if (_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].SPECIAL_TICKET_CODE.find(function (c) { return c === ticketOffer.id; }) !== undefined) {
+                    _this.tickets.unshift({ ticketOffer: ticketOffer });
+                    return;
+                }
                 _this.tickets.push({ ticketOffer: ticketOffer });
                 return;
             }
@@ -10455,7 +10461,8 @@ var environment = {
     ENTRANCE_SERVER_URL: '',
     WAITER_SERVER_URL: 'https://waiter-development.appspot.com',
     ANALYTICS_ID: '',
-    TRANSACTION_TIME: '15'
+    TRANSACTION_TIME: '15',
+    SPECIAL_TICKET_CODE: ['236', '250', '251', '255']
 };
 
 
