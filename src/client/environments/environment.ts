@@ -6,16 +6,11 @@ export const environment = {
     production: true,
     APP_PREFIX: 'TO',
     PROJECT_ID: 'toei-production',
-
     ENV: 'production',
-
     SITE_URL: 'https://box.toeitheaters.com',
-
     ENTRANCE_SERVER_URL: '',
     WAITER_SERVER_URL: 'https://waiter-production.appspot.com',
-
     ANALYTICS_ID: '',
-
-    TRANSACTION_TIME: '15'
-
+    TRANSACTION_TIME: '15',
+    SPECIAL_TICKET_CODE: ['236', '250', '251', '255']
 };
