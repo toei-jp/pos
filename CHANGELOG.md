@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## 1.6.0 - 2019-04-09
+### Changed
+- 特別券種の並び順制御
+
 ## 1.5.0 - 2019-03-29
 ### Added
 - 丸の内座席データ追加
