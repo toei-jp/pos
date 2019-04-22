@@ -1,5 +1,5 @@
 <div class="py-4 px-3">
-    <h2 class="text-center large-text text-white mb-4">券種選択</h2>
+    <h2 class="text-center text-large text-white mb-4">券種選択</h2>
 
     <div *ngIf="(purchase | async).isUsedMovieTicket" class="mb-4">
         <div class="d-flex justify-content-center align-items-center">
@@ -28,7 +28,7 @@
     </div>
 
     <div class="w-50 mx-auto">
-        <button type="button" class="btn btn-block bg-primary py-3 text-white large-text btn-arrow" [disabled]="isLoading | async"
+        <button type="button" class="btn btn-block bg-primary py-3 text-white text-large btn-arrow" [disabled]="isLoading | async"
             (click)="onSubmit()">次へ</button>
     </div>
 

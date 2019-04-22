@@ -6,7 +6,7 @@
             <div class="form-group">
                 <label class="mb-2" for="">ムビチケ購入番号</label>
                 <app-numeric-keypad [inputValue]="mvtkForm.controls.code.value" [maxlength]="10" (change)="mvtkForm.controls.code.setValue($event)">
-                    <input type="text" class="form-control py-2 large-text" formControlName="code" id="code"
+                    <input type="text" class="form-control py-2 text-large" formControlName="code" id="code"
                         autocomplete="off" placeholder="(例)012345789" maxlength="10" readonly="readonly">
                 </app-numeric-keypad>
                 <div *ngIf="mvtkForm.controls.code.invalid && mvtkForm.controls.code.touched" class="mt-2">
@@ -23,7 +23,7 @@
                 <label class="mb-2" for="">ムビチケ暗証番号</label>
 
                 <app-numeric-keypad [inputValue]="mvtkForm.controls.password.value" (change)="mvtkForm.controls.password.setValue($event)">
-                    <input type="password" class="form-control py-2 large-text" formControlName="password" id="password"
+                    <input type="password" class="form-control py-2 text-large" formControlName="password" id="password"
                         autocomplete="off" placeholder="(例)0123" readonly="readonly">
                 </app-numeric-keypad>
                 <div *ngIf="mvtkForm.controls.password.invalid && mvtkForm.controls.password.touched" class="mt-2">
@@ -43,13 +43,13 @@
             <div class="d-none"><canvas id="canvas"></canvas></div>
         </div>
         <div class="w-75 mx-auto mb-2">
-            <button *ngIf="stream === null" type="button" class="btn btn-primary btn-block py-3 large-text" [disabled]="isLoading | async"
+            <button *ngIf="stream === null" type="button" class="btn btn-primary btn-block py-3 text-large" [disabled]="isLoading | async"
                 (click)="activationCamera()">カメラで読み取り</button>
-            <button *ngIf="stream !== null" type="button" class="btn btn-primary btn-block py-3 large-text" [disabled]="isLoading | async"
+            <button *ngIf="stream !== null" type="button" class="btn btn-primary btn-block py-3 text-large" [disabled]="isLoading | async"
                 (click)="stopCamera()">カメラを停止</button>
         </div>
         <div [class.d-none]="isShowVideo" class="w-75 mx-auto">
-            <button type="button" class="btn btn-primary btn-block py-3 large-text" [disabled]="isLoading | async"
+            <button type="button" class="btn btn-primary btn-block py-3 text-large" [disabled]="isLoading | async"
                 (click)="checkMovieTicket()">認証</button>
         </div>
     </form>

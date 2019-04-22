@@ -1,13 +1,13 @@
 <div class="py-4 px-3">
 
-    <h2 class="text-center large-text text-white mb-4">スケジュール選択</h2>
+    <h2 class="text-center text-large text-white mb-4">スケジュール選択</h2>
     <div class="form-group bg-secondary border rounded d-grid align-items-center mx-auto">
         <div class="label text-white text-center ">鑑賞日</div>
-        <!-- <select class="form-control rounded-0 py-2 large-text" (change)="selectDate()" [(ngModel)]="scheduleDateValue">
+        <!-- <select class="form-control rounded-0 py-2 text-large" (change)="selectDate()" [(ngModel)]="scheduleDateValue">
             <option *ngFor="let scheduleDate of (purchase | async).scheduleDates" [value]="scheduleDate.format">{{
                 scheduleDate.string }}</option>
         </select> -->
-        <input type="date" class="form-control rounded-0 py-2 large-text" name="date" [(ngModel)]="scheduleDate"
+        <input type="date" class="form-control rounded-0 py-2 text-large" name="date" [(ngModel)]="scheduleDate"
             (change)="selectDate()">
     </div>
     <app-purchase-schedule-film *ngFor="let screeningFilmEvent of (purchase | async).screeningFilmEvents"
