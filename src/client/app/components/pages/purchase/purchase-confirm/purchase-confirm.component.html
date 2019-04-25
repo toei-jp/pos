@@ -1,7 +1,7 @@
 <div class="py-3 px-2">
     
     <div class="mb-4">
-        <h2 class="text-center large-text text-white mb-4">購入内容確認</h2>
+        <h2 class="text-center text-large text-white mb-4">購入内容確認</h2>
 
         <p class="mb-3 text-white text-center">※この先の操作の取り消しはできませんのでご注意ください。</p>
 
@@ -56,7 +56,7 @@
                     <span>￥</span>
                     <app-numeric-keypad [inputValue]="depositAmount" viewPosition="Top" [maxlength]="10" (change)="changeDepositAmount($event)"
                         (hidden)="depositAmount = ($event.length > 0) ? $event : 0">
-                        <input type="text" class="form-control large-text border-0 py-3 h-auto" id="depositAmount"
+                        <input type="text" class="form-control text-large border-0 py-3 h-auto" id="depositAmount"
                             [(ngModel)]="depositAmount" readonly="readonly">
                     </app-numeric-keypad>
                 </p>
@@ -75,7 +75,7 @@
         </div>
 
         <div class="w-50 mx-auto">
-            <button type="button" class="btn btn-block bg-primary py-3 text-white large-text btn-arrow" [disabled]="(isLoading | async) || !agree"
+            <button type="button" class="btn btn-block bg-primary py-3 text-white text-large btn-arrow" [disabled]="(isLoading | async) || !agree"
                 (click)="onSubmit()">購入確定</button>
         </div>
     </div>
