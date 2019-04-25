@@ -12,6 +12,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## 1.7.0 - 2019-04-25
+### Added
+- スケジュール選択に残席数表示追加
+### Changed
+- ズーム解除ボタンを常に表示へ変更
+
 ## 1.6.0 - 2019-04-09
 ### Changed
 - 特別券種の並び順制御
