@@ -4,9 +4,11 @@ import {
     Component,
     ElementRef,
     EventEmitter,
+    HostListener,
     Input,
     OnInit,
-    Output
+    Output,
+    ViewChild
 } from '@angular/core';
 import { factory } from '@cinerino/api-javascript-client';
 import { select, Store } from '@ngrx/store';
@@ -23,6 +25,7 @@ export class ScreenComponent implements OnInit, AfterViewInit, AfterViewChecked 
     public static ZOOM_SCALE = 1;
     @Input() public screenData: IScreen;
     @Output() public select = new EventEmitter<{ seat: IReservationSeat; status: SeatStatus; }>();
+    @ViewChild('screen') public screen: ElementRef<HTMLDivElement>;
     public screeningEventOffers: factory.chevre.event.screeningEvent.IScreeningRoomSectionOffer[];
     public authorizeSeatReservation?: factory.action.authorize.offer.seatReservation.IAction<factory.service.webAPI.Identifier>;
     public purchase: Observable<reducers.IPurchaseState>;
@@ -34,11 +37,23 @@ export class ScreenComponent implements OnInit, AfterViewInit, AfterViewChecked 
     public scale: number;
     public height: number;
     public origin: string;
+    public scaleDownButtonStyle: { 'top.px': number; 'right.px': number };
 
     constructor(
         private store: Store<reducers.IState>,
         private elementRef: ElementRef
     ) { }
+
+    @HostListener('window:scroll', [])
+    public onWindowScroll() {
+        const rect = this.screen.nativeElement.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const offsetTop = rect.top + scrollTop;
+        const top = (window.scrollY > offsetTop)
+            ? window.scrollY - offsetTop + 10 : 10;
+        const right = 10;
+        this.scaleDownButtonStyle = { 'top.px': top, 'right.px': right };
+    }
 
     /**
      * 初期化
@@ -55,6 +70,7 @@ export class ScreenComponent implements OnInit, AfterViewInit, AfterViewChecked 
             this.scale = 1;
             this.height = 0;
             this.origin = '0 0';
+            this.scaleDownButtonStyle = { 'top.px': 10, 'right.px': 10 };
             this.createScreen();
             this.scaleDown();
         }).unsubscribe();
@@ -360,4 +376,5 @@ export class ScreenComponent implements OnInit, AfterViewInit, AfterViewChecked 
             status: seat.status
         });
     }
+
 }

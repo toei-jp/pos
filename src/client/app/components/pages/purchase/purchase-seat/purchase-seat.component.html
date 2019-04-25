@@ -1,21 +1,21 @@
 <div class="py-4">
 
-    <h2 class="text-center large-text text-white mb-4">座席選択</h2>
+    <h2 class="text-center text-large text-white mb-4">座席選択</h2>
 
-    <div class="p-3 large-text bg-white mb-3">
+    <div class="p-3 text-large bg-white mb-3">
         <p>{{ (purchase | async).screeningEvent?.name.ja }}</p>
         <p *ngIf="(purchase | async).screeningEvent?.workPerformed.headline">{{ (purchase | async).screeningEvent?.workPerformed.headline }}</p>
     </div>
 
     <div class="d-flex justify-content-center align-items-center mb-3 text-white">
         <div class="d-flex align-items-center mx-3">
-            <div class="small-text border p-2">スクリーン</div>
-            <div class="large-text ml-3"><strong>{{ (purchase | async).screeningEvent.location.address.en }} {{ (purchase | async).screeningEvent?.location.name.ja }}</strong></div>
+            <div class="text-small border p-2">スクリーン</div>
+            <div class="text-large ml-3"><strong>{{ (purchase | async).screeningEvent.location.address.en }} {{ (purchase | async).screeningEvent?.location.name.ja }}</strong></div>
         </div>
         <div class="d-flex align-items-center mx-3">
-            <div class="small-text border p-2">上映時間</div>
+            <div class="text-small border p-2">上映時間</div>
             <div class="ml-3 text-warning">
-                <strong class="large-text">{{ moment((purchase | async).screeningEvent?.startDate).format('HH:mm') }}</strong>
+                <strong class="text-large">{{ moment((purchase | async).screeningEvent?.startDate).format('HH:mm') }}</strong>
                 <span> - {{ moment((purchase | async).screeningEvent?.endDate).format('HH:mm') }}</span>
             </div>
         </div>
@@ -45,7 +45,7 @@
     </div>
 
     <div class="w-50 mx-auto">
-        <button type="button" class="btn btn-block bg-primary py-3 text-white large-text btn-arrow" [disabled]="isLoading | async"
+        <button type="button" class="btn btn-block bg-primary py-3 text-white text-large btn-arrow" [disabled]="isLoading | async"
             (click)="onSubmit()">次へ</button>
     </div>
 
