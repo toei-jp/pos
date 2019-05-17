@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## 1.7.1 - 2019-0517
+### Changed
+- クレジットカード画像変更
+
 ## 1.7.0 - 2019-04-25
 ### Added
 - スケジュール選択に残席数表示追加
